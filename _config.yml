@@ -1,5 +1,5 @@
 # ------------------------------------------------------------
-# Revo — site + blog (GitHub Pages / Jekyll)
+# Revo: site + blog (GitHub Pages / Jekyll)
 # A LP (index.html) é estática; o blog é gerado a partir de _posts/.
 # ------------------------------------------------------------
 title: Revo
@@ -49,6 +49,9 @@ categorias:
   alunos: Alunos e retenção
   treino: Treino e acompanhamento
   marketing: Marketing para coaches
+  carreira: Carreira e renda
+  nutricao: Nutrição e dieta
+  suplementacao: Suplementação
 
 exclude:
   - README.md

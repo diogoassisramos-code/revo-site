@@ -1,12 +1,12 @@
 ---
 title: "Quanto cobrar por consultoria online: calcule seu preço"
-description: "Um método simples para definir o valor da sua consultoria online de treino ou dieta: custos, horas por aluno, margem e posicionamento — sem copiar o preço do concorrente."
+description: "Um método simples para definir o valor da sua consultoria online de treino ou dieta: custos, horas por aluno, margem e posicionamento, sem copiar o preço do concorrente."
 categoria: cobranca
 image: /assets/og-revo.png
 capa: false
 ---
 
-"Quanto eu cobro?" é provavelmente a pergunta que mais trava quem está começando uma consultoria online — e a que mais faz dinheiro escapar de quem já tem alunos. A resposta mais comum é olhar o preço de outro profissional e cobrar parecido. O problema: você não sabe quanto ele trabalha por aluno, quanto gasta, nem se aquele preço se paga.
+"Quanto eu cobro?" é provavelmente a pergunta que mais trava quem está começando uma consultoria online, e a que mais faz dinheiro escapar de quem já tem alunos. A resposta mais comum é olhar o preço de outro profissional e cobrar parecido. O problema: você não sabe quanto ele trabalha por aluno, quanto gasta, nem se aquele preço se paga.
 
 Este guia mostra um jeito de chegar ao **seu** preço a partir dos seus números. Leva uns 20 minutos e uma calculadora.
 
@@ -14,11 +14,11 @@ Este guia mostra um jeito de chegar ao **seu** preço a partir dos seus números
 
 Antes de qualquer conta, liste o que o aluno recebe. Uma consultoria fitness online costuma incluir uma combinação de:
 
-- **Avaliação inicial e anamnese** — o trabalho mais pesado, concentrado no primeiro mês.
-- **Prescrição** — montagem do treino, da dieta ou do protocolo.
-- **Ajustes periódicos** — revisões a cada 4, 6 ou 8 semanas.
-- **Acompanhamento** — check-ins semanais, análise de fotos e medidas, respostas a dúvidas.
-- **Suporte** — o canal por onde o aluno fala com você e o prazo em que você responde.
+- **Avaliação inicial e anamnese**: o trabalho mais pesado, concentrado no primeiro mês.
+- **Prescrição**: montagem do treino, da dieta ou do protocolo.
+- **Ajustes periódicos**: revisões a cada 4, 6 ou 8 semanas.
+- **Acompanhamento**: check-ins semanais, análise de fotos e medidas, respostas a dúvidas.
+- **Suporte**: o canal por onde o aluno fala com você e o prazo em que você responde.
 
 Cada item consome tempo. E o tempo é a base da conta.
 
@@ -34,7 +34,7 @@ Pegue um mês típico de um aluno e estime, em minutos:
 | Administração (cobrança, cadastro, organização) | 15 min |
 | **Total** | **~2 h por aluno/mês** |
 
-Os números acima são só um exemplo — anote os seus. Se você ainda não tem alunos, faça a estimativa e revise depois do primeiro mês com dados reais.
+Os números acima são só um exemplo. Anote os seus. Se você ainda não tem alunos, faça a estimativa e revise depois do primeiro mês com dados reais.
 
 Repare na linha de **administração**: cobrar no WhatsApp, conferir comprovante de PIX e lembrar quem está atrasado é tempo que não aparece no preço, mas sai do seu mês. Reduzir essa linha é a forma mais rápida de aumentar o quanto você ganha por hora sem mexer no preço.
 
@@ -72,7 +72,7 @@ Esse é o piso: abaixo dele, cada aluno novo te faz trabalhar mais para ganhar m
 
 ## Passo 5: ajuste pelo posicionamento, não pelo concorrente
 
-Com o piso em mãos, aí sim vale olhar o mercado — não para copiar, mas para decidir onde você quer estar. Alguns fatores justificam cobrar acima do piso:
+Com o piso em mãos, aí sim vale olhar o mercado. Não para copiar, mas para decidir onde você quer estar. Alguns fatores justificam cobrar acima do piso:
 
 - **Especialização:** hipertrofia feminina, gestantes, corredores, emagrecimento pós-parto. Quanto mais específico o público, menor a comparação direta de preço.
 - **Nível de acompanhamento:** check-in semanal com resposta em 24 h vale mais que revisão mensal.
@@ -83,7 +83,7 @@ Com o piso em mãos, aí sim vale olhar o mercado — não para copiar, mas para
 
 O formato de cobrança muda o seu caixa e a retenção:
 
-- **Mensal recorrente:** previsível para você, entrada mais leve para o aluno. Funciona melhor com cobrança automática — o aluno não precisa lembrar de pagar, e você não precisa lembrar de cobrar.
+- **Mensal recorrente:** previsível para você, entrada mais leve para o aluno. Funciona melhor com cobrança automática: o aluno não precisa lembrar de pagar, e você não precisa lembrar de cobrar.
 - **Trimestral ou semestral:** mais caixa adiantado e mais tempo para o aluno ver resultado. Costuma vir com desconto sobre o mensal.
 - **Pacote fechado (ex.: 12 semanas):** bom para programas com começo, meio e fim, como um desafio ou preparação para um evento.
 
@@ -94,7 +94,7 @@ Uma estratégia comum é oferecer o mensal como referência e o trimestral com u
 - **Cobrar o mesmo para todo tipo de acompanhamento.** Treino + dieta + check-in semanal não pode custar o mesmo que só treino.
 - **Esquecer as taxas de pagamento.** Elas saem de cada mensalidade.
 - **Dar desconto para "fechar logo".** Desconto sem contrapartida (prazo maior, pagamento adiantado) só reduz a sua hora.
-- **Nunca reajustar.** Revise o preço pelo menos uma vez por ano — e aplique primeiro para alunos novos.
+- **Nunca reajustar.** Revise o preço pelo menos uma vez por ano e aplique primeiro para alunos novos.
 - **Não cobrar de forma recorrente.** Cobrança manual gera atraso, constrangimento e aluno que "some" sem cancelar.
 
 ## Resumo
@@ -105,4 +105,4 @@ Uma estratégia comum é oferecer o mensal como referência e o trimestral com u
 4. Calcule o piso: horas × valor-hora + custo.
 5. Posicione o preço acima do piso de acordo com especialização, acompanhamento e experiência que você entrega.
 
-Com o preço definido, o próximo passo é garantir que ele chegue na sua conta todo mês — sem planilha e sem cobrança no WhatsApp.
+Com o preço definido, o próximo passo é garantir que ele chegue na sua conta todo mês, sem planilha e sem cobrança no WhatsApp.

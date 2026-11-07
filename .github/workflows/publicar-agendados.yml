@@ -9,6 +9,7 @@ on:
 
 permissions:
   pages: write
+  actions: write
 
 jobs:
   rebuild:
@@ -18,3 +19,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh api -X POST "repos/${{ github.repository }}/pages/builds"
+
+      # O GitHub desativa workflows agendados em repositórios sem commits por 60 dias.
+      # Como os artigos já estão todos no repo (só a data libera), pode passar 60 dias
+      # sem commit. Reativar o próprio workflow todo dia evita que a publicação pare.
+      - name: Manter o agendamento ativo
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X PUT "repos/${{ github.repository }}/actions/workflows/publicar-agendados.yml/enable"
