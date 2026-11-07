@@ -1,5 +1,5 @@
 <!--
-MODELO DE ARTIGO — copie este arquivo para _posts/ com o nome:
+MODELO DE ARTIGO: copie este arquivo para _posts/ com o nome:
   AAAA-MM-DD-palavra-chave-principal.md
   ex.: _posts/2026-11-21-como-fazer-check-in-de-alunos.md
 
@@ -12,7 +12,7 @@ MODELO DE ARTIGO — copie este arquivo para _posts/ com o nome:
 ---
 title: "Título com a palavra-chave no começo (até ~60 caracteres)"
 description: "Resumo que aparece no Google (até ~155 caracteres). Diga o que a pessoa vai aprender."
-categoria: gestao        # gestao | cobranca | alunos | treino | marketing
+categoria: gestao        # gestao | cobranca | alunos | treino | marketing | carreira | nutricao | suplementacao
 image: /assets/og-revo.png   # imagem de compartilhamento 1200x630 (opcional)
 capa: false              # true mostra a imagem no topo do artigo
 # last_modified_at: 2026-12-01   # preencha quando atualizar um artigo antigo
@@ -20,7 +20,7 @@ capa: false              # true mostra a imagem no topo do artigo
 # cta_texto: "Texto do bloco de chamada (opcional)"
 ---
 
-Parágrafo de abertura: apresente o problema do leitor em 2–3 frases e diga o que ele vai levar do artigo.
+Parágrafo de abertura: apresente o problema do leitor em 2 ou 3 frases e diga o que ele vai levar do artigo.
 
 ## Primeiro subtítulo (vira item do sumário)
 
