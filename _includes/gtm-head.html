@@ -1,0 +1,15 @@
+{%- comment -%}
+  Google Tag Manager (parte 1 de 2): vai o mais alto possível dentro do <head>.
+  O ID vem de "gtm_id" no _config.yml. Não cole o código do GTM direto nas páginas:
+  use {% include gtm-head.html %} e {% include gtm-body.html %}.
+{%- endcomment -%}
+{%- if site.gtm_id and site.gtm_id != "" -%}
+<!-- Google Tag Manager -->
+<script async src="https://www.googletagmanager.com/gtm.js?id={{ site.gtm_id }}"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
+<!-- End Google Tag Manager -->
+{%- endif %}

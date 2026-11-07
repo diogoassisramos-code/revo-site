@@ -1,0 +1,28 @@
+name: Checar Google Tag Manager
+
+# A cada push ou pull request, gera o site (inclusive os artigos agendados) e
+# confere se TODAS as páginas têm o Google Tag Manager. Se alguma página nova
+# ficar sem, este check fica vermelho e mostra qual é.
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  checar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Gerar o site (igual ao GitHub Pages, com posts futuros)
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./
+          destination: ./_site
+          future: true
+
+      - name: Conferir o GTM em todas as páginas
+        run: bash .github/scripts/checar-gtm.sh _site
