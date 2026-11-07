@@ -1,27 +1,124 @@
-<header class="nav">
-  <nav class="nav-pill" aria-label="Principal">
+{%- comment -%}
+  Menu principal (todas as páginas: LP, blog e páginas de funcionalidade).
+  Os itens vêm de _data/paginas.yml. Parâmetros opcionais:
+    cta    = link do "Começar grátis" (padrão: cta_url do _config.yml)
+    login  = link do "Entrar" (padrão: login_url; vazio esconde o link)
+    escuro = true quando a página começa com fundo escuro (texto claro no menu)
+{%- endcomment -%}
+{%- assign cta = include.cta | default: site.cta_url -%}
+{%- assign login = include.login | default: site.login_url -%}
+{%- assign pgs = site.data.paginas -%}
+{%- assign aluno = pgs | where: "grupo", "aluno" -%}
+{%- assign painel = pgs | where: "grupo", "painel" -%}
+{%- assign profissoes = pgs | where: "grupo", "profissao" -%}
+{%- assign u = page.url | default: "/" -%}
+{%- assign atual = "" -%}
+{%- if u contains "/app-do-aluno/" -%}{%- assign atual = "aluno" -%}
+{%- elsif u contains "/painel-do-consultor/" -%}{%- assign atual = "voce" -%}
+{%- elsif u contains "/para/" -%}{%- assign atual = "quem" -%}
+{%- elsif u contains "/integracoes/" -%}{%- assign atual = "integracoes" -%}
+{%- elsif u contains "/blog/" -%}{%- assign atual = "blog" -%}{%- endif -%}
+<header class="nav{% if include.escuro %} on-dark{% endif %}">
+  <nav class="nav-pill glass" aria-label="Principal">
     <a class="nav-logo" href="/" aria-label="Revo, início">
-      <img class="ico" src="/assets/revo-icon.svg" alt="">
-      <img src="/assets/revo-wordmark-white.svg" alt="Revo">
+      <img class="wm-dark" src="/assets/revo-wordmark.svg" alt="Revo">
+      <img class="wm-light" src="/assets/revo-wordmark-white.svg" alt="">
     </a>
     <div class="nav-links">
-      <a href="/#como-funciona">Como funciona</a>
-      <a href="/#funcionalidades">Funcionalidades</a>
-      <a href="/#precos">Preços</a>
-      <a href="/blog/" aria-current="page" style="color:#fff">Blog</a>
+      <div class="nav-item" data-pane="aluno"><a href="/app-do-aluno/"{% if atual == "aluno" %} aria-current="page"{% endif %}>Para o aluno</a></div>
+      <div class="nav-item" data-pane="voce"><a href="/painel-do-consultor/"{% if atual == "voce" %} aria-current="page"{% endif %}>Para você</a></div>
+      <div class="nav-item" data-pane="quem"><a href="/funcionalidades/#para-quem"{% if atual == "quem" %} aria-current="page"{% endif %}>Para quem</a></div>
+      <div class="nav-item"><a href="/integracoes/"{% if atual == "integracoes" %} aria-current="page"{% endif %}>Integrações</a></div>
+      <div class="nav-item" data-pane="precos"><a href="/#precos">Preços</a></div>
+      <div class="nav-item"><a href="/blog/"{% if atual == "blog" %} aria-current="page"{% endif %}>Blog</a></div>
     </div>
     <div class="nav-cta">
-      {%- if site.login_url != "" %}<a class="ghost" href="{{ site.login_url }}">Entrar</a>{% endif %}
-      <a class="btn mint" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+      {%- if login != "" %}
+      <a class="ghost" href="{{ login }}">Entrar</a>
+      {%- endif %}
+      <a class="btn mint" href="{{ cta }}">Começar grátis <i class="tri"></i></a>
       <button class="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
   </nav>
+
+  <div class="nav-drop" inert>
+    <div class="nav-drop-panel glass">
+      <div class="nav-drop-inner">
+        <div class="pane" data-pane="aluno">
+          <span class="lbl">O que o seu aluno recebe</span>
+          <div class="pane-app">
+            <div class="pi-col">
+              <a class="pi wide" href="/app-do-aluno/#dia-a-dia"><img src="/assets/foto-app.jpg" alt="" loading="lazy"><div><b class="pt">No dia a dia</b><p>Treino guiado, dieta e protocolo num lugar só.</p></div></a>
+              <a class="pi wide" href="/app-do-aluno/#acompanhamento"><img src="/assets/foto-como-funciona.jpg" alt="" loading="lazy"><div><b class="pt">Acompanhamento</b><p>Fotos, sono e aderência chegam no seu dashboard.</p></div></a>
+            </div>
+            <div class="hl">
+              {%- for p in aluno %}
+              <a href="{{ p.url }}"><i class="ti ti-{{ p.icone }}"></i><b>{{ p.nome }}</b></a>
+              {%- endfor %}
+            </div>
+          </div>
+          <div class="pane-foot"><a class="mlink" href="/app-do-aluno/">Ver o App do Aluno <i class="tri"></i></a></div>
+        </div>
+        <div class="pane" data-pane="voce">
+          <span class="lbl">O que você controla</span>
+          <div class="pane-app">
+            <div class="pi-col">
+              <a class="pi wide" href="/painel-do-consultor/gestao-de-alunos/"><span class="mini" aria-hidden="true"><span class="r"><i class="av"></i><i class="ln"></i><i class="st ok"></i></span><span class="r"><i class="av"></i><i class="ln s"></i><i class="st warn"></i></span><span class="r"><i class="av"></i><i class="ln"></i><i class="st bad"></i></span><span class="r"><i class="av"></i><i class="ln s"></i><i class="st ok"></i></span></span><div><b class="pt">Gestão de alunos</b><p>Quem está cumprindo e quem está sumindo, numa tela.</p></div></a>
+              <a class="pi wide" href="/painel-do-consultor/cobranca-recorrente/"><span class="mini cash" aria-hidden="true"><span class="k">Mensal</span><span class="v">R$ 297</span><span class="pill">Pago no Pix</span></span><div><b class="pt">Cobrança recorrente</b><p>O aluno paga todo mês e você não cobra ninguém.</p></div></a>
+            </div>
+            <div class="hl">
+              {%- for p in painel %}{% if p.id == "gestao-de-alunos" or p.id == "cobranca-recorrente" %}{% continue %}{% endif %}
+              <a href="{{ p.url }}"><i class="ti ti-{{ p.icone }}"></i><b>{{ p.nome }}</b>{% if p.status == "em-breve" %}<span class="pg-soon">em breve</span>{% endif %}</a>
+              {%- endfor %}
+            </div>
+          </div>
+          <div class="pane-foot"><a class="mlink" href="/painel-do-consultor/">Ver o Painel do Consultor <i class="tri"></i></a><a class="mlink" href="/funcionalidades/">Todas as funcionalidades <i class="tri"></i></a><a class="mlink" href="/implantacao/">Implantação assistida <i class="tri"></i></a></div>
+        </div>
+        <div class="pane" data-pane="quem">
+          <span class="lbl">Uma página para cada profissão</span>
+          <div class="pi-grid">
+            {%- for p in profissoes %}
+            <a class="pi" href="{{ p.url }}"><span class="tile"><i class="ti ti-{{ p.icone }}"></i></span><div><b class="pt">{{ p.nome }}</b><p>{{ p.resumo }}</p>{% if p.status == "acesso-antecipado" %}<span class="pg-soon">acesso antecipado</span>{% endif %}</div></a>
+            {%- endfor %}
+          </div>
+        </div>
+        <div class="pane" data-pane="precos">
+          <span class="lbl">Comece grátis</span>
+          <div class="hl">
+            <a class="price-row" href="/#precos"><div><b>Gratuito</b><small>Até 5 alunos, sem cartão</small></div><span>R$ 0<em>/mês</em></span></a>
+            <a class="price-row hi" href="/#precos"><div><b>Revo Pro</b><small>Até 150 alunos, com protocolos</small></div><span>R$ 60<em>/mês</em></span></a>
+            <a class="price-row" href="/#precos"><div><b>Revo Pro Max</b><small>Alunos ilimitados, com sua marca</small></div><span>R$ 120<em>/mês</em></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
-<div class="nav-menu" id="menu">
-  <a href="/#como-funciona">Como funciona</a>
-  <a href="/#funcionalidades">Funcionalidades</a>
+<div class="nav-menu glass" id="menu">
+  <details class="nm-group"><summary>Para o aluno</summary>
+    <a href="/app-do-aluno/">App do Aluno</a>
+    {%- for p in aluno %}
+    <a href="{{ p.url }}">{{ p.nome }}</a>
+    {%- endfor %}
+  </details>
+  <details class="nm-group"><summary>Para você</summary>
+    <a href="/painel-do-consultor/">Painel do Consultor</a>
+    {%- for p in painel %}
+    <a href="{{ p.url }}">{{ p.nome }}{% if p.status == "em-breve" %} <span class="pg-soon">em breve</span>{% endif %}</a>
+    {%- endfor %}
+    <a href="/funcionalidades/">Todas as funcionalidades</a>
+    <a href="/implantacao/">Implantação assistida</a>
+  </details>
+  <details class="nm-group"><summary>Para quem</summary>
+    {%- for p in profissoes %}
+    <a href="{{ p.url }}">{{ p.nome }}{% if p.status == "acesso-antecipado" %} <span class="pg-soon">acesso antecipado</span>{% endif %}</a>
+    {%- endfor %}
+  </details>
+  <a href="/integracoes/">Integrações</a>
   <a href="/#precos">Preços</a>
   <a href="/blog/">Blog</a>
-  {%- if site.login_url != "" %}<a href="{{ site.login_url }}">Entrar</a>{% endif %}
-  <a class="btn mint" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+  {%- if login != "" %}
+  <a href="{{ login }}">Entrar</a>
+  {%- endif %}
+  <a class="btn mint" href="{{ cta }}">Começar grátis <i class="tri"></i></a>
 </div>

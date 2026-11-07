@@ -1,0 +1,26 @@
+<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
+  {% include mock/top.html %}
+  <div class="ux-body">
+    {% include mock/side.html on="planos" %}
+    <div class="ux-main">
+      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Planos e pagamentos</span><span class="ux-t">Receita do mês: R$ 8.640</span></span><span class="ux-btn sm"><i class="ti ti-link"></i>Copiar link do plano</span></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
+        <div class="ux-card" style="padding:10px"><span class="ux-k">Mensal</span><div class="ux-v">R$ 297</div><span class="ux-m">18 alunos</span></div>
+        <div class="ux-card" style="padding:10px"><span class="ux-k">Trimestral</span><div class="ux-v">R$ 797</div><span class="ux-m">12 alunos</span></div>
+        <div class="ux-card" style="padding:10px"><span class="ux-k">Semestral</span><div class="ux-v">R$ 1.497</div><span class="ux-m">8 alunos</span></div>
+      </div>
+      <div class="ux-card" style="padding:8px 10px">
+        <table class="ux-tbl">
+          <thead><tr><th>Aluno</th><th>Forma</th><th>Valor</th><th>Vencimento</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><b>Mariana Costa</b></td><td>Pix Automático</td><td>R$ 297</td><td>05/11</td><td><span class="ux-pill"><i class="ti ti-check"></i>Pago</span></td></tr>
+            <tr><td><b>Lucas Ferreira</b></td><td>Cartão</td><td>R$ 297</td><td>03/11</td><td><span class="ux-pill warn"><i class="ti ti-bell"></i>Lembrete enviado</span></td></tr>
+            <tr><td><b>Ana Beatriz Lima</b></td><td>Boleto</td><td>R$ 797</td><td>09/11</td><td><span class="ux-pill info">Vence em 2 dias</span></td></tr>
+            <tr><td><b>Pedro Santos</b></td><td>Pix</td><td>R$ 297</td><td>01/11</td><td><span class="ux-pill"><i class="ti ti-check"></i>Pago</span></td></tr>
+            <tr><td><b>Bruna Alves</b></td><td>Cartão</td><td>R$ 1.497</td><td>28/10</td><td><span class="ux-pill"><i class="ti ti-refresh"></i>Renovado</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div></div>

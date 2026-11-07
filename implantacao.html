@@ -1,0 +1,92 @@
+---
+layout: pagina
+id: implantacao
+permalink: /implantacao/
+hero: menta
+title: "Migre sua consultoria para o Revo sem perder aluno"
+description: "A gente importa seus alunos, modelos de treino e planos. Seu aluno recebe o convite e entra em 1 toque."
+eyebrow: Implantação
+h1: "Troque de plataforma sem perder aluno no caminho"
+subtitulo: "A gente importa seus alunos, seus modelos de treino e seus planos. Você só aprova e manda o convite."
+cta: { texto: "Agendar implantação", url: "#agendar" }
+cta2: { texto: "Ver como funciona", url: "#como-funciona" }
+micro: ["Conversa de 20 minutos", "A gente monta, você aprova"]
+
+passos:
+  - "**Conversa de 20 minutos:** entendemos seu método, seus planos e quantos alunos você tem."
+  - "**Você manda o que tem:** planilha, export da plataforma atual ou PDFs de treino."
+  - "**A gente monta:** alunos importados, modelos de treino criados, planos de cobrança configurados."
+  - "**Convite pronto:** mensagem pronta para você disparar aos alunos, explicando a mudança."
+  - "**Primeira cobrança no Revo:** acompanhamos o primeiro ciclo junto com você."
+
+# Bloco coach fundador. [N] e o contador ficam fora até serem definidos (urgência real, não fake).
+fundador:
+  vagas_total:        # [definir N] número de vagas de coach fundador
+  vagas_restantes:    # atualizar à mão conforme as vagas forem preenchidas
+
+faq:
+  - p: "Meus alunos precisam pagar de novo?"
+    r: "Não. Quem já pagou o período atual entra sem cobrança até a próxima renovação."
+    confirmar: "regra de migração do período já pago"
+  - p: "Quanto tempo leva?"
+    r: "A confirmar."
+    confirmar: "SLA da implantação (ex.: até 7 dias úteis)"
+  - p: "E se eu tiver cobrança recorrente ativa em outra ferramenta?"
+    r: "A gente orienta a virada para o aluno não ser cobrado duas vezes."
+
+agendar:
+  id: agendar-implantacao
+  eyebrow: Agendar implantação
+  titulo: "Vamos levar sua consultoria para o Revo?"
+  texto: "Conta um pouco da sua operação e a gente marca a conversa de 20 minutos."
+  botao: "Agendar implantação"
+  assunto: "Agendar implantação"
+  campos:
+    - { nome: nome, rotulo: "Nome", auto: name }
+    - { nome: instagram, rotulo: "@ no Instagram", placeholder: "@suaconsultoria" }
+    - { nome: alunos, rotulo: "Alunos ativos", tipo: number, placeholder: "Ex.: 80" }
+    - { nome: ferramenta, rotulo: "Ferramenta atual", placeholder: "Planilha, app, outra plataforma" }
+---
+{%- assign info = site.data.paginas | where: "id", page.id | first -%}
+{%- if site.mostrar_confirmar -%}{%- assign faq = page.faq -%}{%- else -%}{%- assign faq = page.faq | where_exp: "f", "f.confirmar == nil" -%}{%- endif -%}
+{%- assign f = page.fundador -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="como-funciona">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Como funciona" titulo="Cinco passos, e você não monta nada sozinho." %}
+    <ol class="pg-steps">
+      {%- for s in page.passos %}
+      <li class="reveal" data-d="{{ forloop.index0 | modulo: 4 }}"><span class="n">0{{ forloop.index }}</span><p>{% include pg/md.html t=s %}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="coach-fundador">
+  <div class="wrap">
+    <div class="pg-special reveal" data-nav="dark">
+      <div class="head">
+        <div class="col">
+          <span class="eyebrow"><i class="mk"></i>Coach fundador</span>
+          <h2 class="display h-md">Implantação gratuita e condição de fundador para os primeiros {% if f.vagas_total %}{{ f.vagas_total }} {% endif %}coaches.</h2>
+        </div>
+        <div class="col" style="gap:22px">
+          {%- if f.vagas_total and f.vagas_restantes %}
+          {%- assign pct = f.vagas_restantes | times: 100 | divided_by: f.vagas_total %}
+          <div class="pg-vagas"><span class="eyebrow"><i class="mk"></i>Vagas restantes</span><b>{{ f.vagas_restantes }} de {{ f.vagas_total }}</b><span class="ux-bar"><i style="width:{{ pct }}%"></i></span></div>
+          {%- endif %}
+          <p>A gente faz a mudança com você, do primeiro convite à primeira cobrança no Revo.</p>
+          <a class="btn lg mint" href="#agendar">Agendar implantação <i class="tri"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include pg/faq.html faq=faq tight=true %}
+
+{% include pg/lista.html l=page.agendar id="agendar" %}
+
+{% include pg/jsonld.html atual=info.nome faq=faq %}

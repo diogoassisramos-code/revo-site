@@ -1,0 +1,2 @@
+{%- comment -%} Texto curto em Markdown (links, negrito) sem o <p> em volta. Uso: {% include pg/md.html t=texto %} {%- endcomment -%}
+{{- include.t | markdownify | remove: "<p>" | remove: "</p>" | strip -}}

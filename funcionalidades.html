@@ -1,0 +1,72 @@
+---
+layout: pagina
+id: funcionalidades
+permalink: /funcionalidades/
+hero: menta
+title: "Plataforma para consultoria fitness: funcionalidades"
+description: "App do aluno com treino guiado, dieta e check-in, e painel com gestão de alunos e cobrança recorrente. Veja tudo que o Revo faz."
+eyebrow: Funcionalidades
+h1: "Tudo que a sua consultoria precisa, do treino ao Pix"
+subtitulo: "De um lado, o app que faz seu aluno seguir o plano. Do outro, o painel onde você monta, acompanha e recebe. Um conversa com o outro."
+cta2: { texto: "Ver por profissão", url: "#para-quem" }
+---
+{%- assign pgs = site.data.paginas -%}
+{%- assign info = pgs | where: "id", page.id | first -%}
+{%- assign aluno = pgs | where: "grupo", "aluno" -%}
+{%- assign painel = pgs | where: "grupo", "painel" -%}
+{%- assign servicos = pgs | where: "grupo", "servico" -%}
+{%- assign profissoes = pgs | where: "grupo", "profissao" -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="app-do-aluno">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="App do Aluno" titulo="O que o seu aluno recebe." texto="O app é o que faz o aluno seguir o plano entre um contato e outro. [Ver o App do Aluno](/app-do-aluno/)" %}
+    <div class="pg-cards">
+      {%- for p in aluno %}
+      {% include pg/card.html p=p d=forloop.index0 %}
+      {%- endfor %}
+      <a class="pg-card verde reveal" data-d="2" href="/app-do-aluno/"><span class="top"><span>App do Aluno</span><i class="ti ti-device-mobile"></i></span><h3>Tudo num app só</h3><p>Treino guiado, dieta e check-in, do convite ao relatório semanal.</p><span class="mlink">Ver o App do Aluno <i class="tri"></i></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="painel">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Painel do Consultor" titulo="O que você controla." texto="Menos tempo operando, mais alunos atendidos com a mesma qualidade, e dinheiro entrando sozinho. [Ver o Painel do Consultor](/painel-do-consultor/)" %}
+    <div class="pg-cards n4">
+      {%- for p in painel %}{% assign dd = forloop.index0 | modulo: 4 %}
+      {% include pg/card.html p=p d=dd %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="integracoes-e-implantacao">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Integrações e implantação" titulo="Conecta com o que você já usa. E a gente ajuda na mudança." %}
+    <div class="pg-cards n2">
+      {%- for p in servicos %}
+      {% include pg/card.html p=p d=forloop.index0 %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="para-quem">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Para quem" titulo="Uma página para cada profissão." texto="Personal, nutricionista, consultor, treinador, coach e médico: muda o vocabulário e a rotina, a base é a mesma." %}
+    <div class="pg-cards">
+      {%- for p in profissoes %}{% assign dd = forloop.index0 | modulo: 3 %}
+      {% include pg/card.html p=p rotulo="Para quem" link="Ver a página" d=dd %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{% include pg/cta.html %}
+
+{% include pg/jsonld.html atual=info.nome %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Revo","url":"{{ '/' | absolute_url }}","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":{{ page.description | jsonify }},"offers":{"@type":"Offer","price":"0","priceCurrency":"BRL","description":"Gratuito até 5 alunos"}}
+</script>

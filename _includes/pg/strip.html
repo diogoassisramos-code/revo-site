@@ -1,0 +1,5 @@
+{%- comment -%} Faixa de conformidade (regras do conselho / LGPD). {%- endcomment -%}
+<div class="pg-strip reveal"{% if include.estilo %} style="{{ include.estilo }}"{% endif %}>
+  <i class="ti ti-shield-check" aria-hidden="true"></i>
+  <div><span class="eyebrow"><i class="mk"></i>{{ include.titulo | default: "Conformidade" }}</span><p>{% include pg/md.html t=include.texto %}</p></div>
+</div>

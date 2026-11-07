@@ -1,0 +1,14 @@
+{%- comment -%} Seção com formulário (lista de espera / agendar implantação). l = objeto do front matter. {%- endcomment -%}
+{%- assign l = include.l -%}
+<section class="pg-cta" id="{{ include.id | default: 'lista' }}">
+  <div class="wrap">
+    <div class="pg-cta-box lista reveal">
+      <div class="txt">
+        <span class="eyebrow"><i class="mk"></i>{{ l.eyebrow | default: "Lista de espera" }}</span>
+        <h2 class="display">{{ l.titulo }}</h2>
+        {%- if l.texto %}<p style="font-size:16.5px;line-height:1.5;color:rgba(2,33,40,.8);max-width:440px">{% include pg/md.html t=l.texto %}</p>{% endif %}
+      </div>
+      {% include pg/form.html id=l.id campos=l.campos botao=l.botao assunto=l.assunto nota=l.nota %}
+    </div>
+  </div>
+</section>

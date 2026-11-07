@@ -1,0 +1,214 @@
+# ------------------------------------------------------------------
+# Páginas de funcionalidades e LPs por profissão.
+# Fonte única para: menu (mega menus e menu do celular), rodapé, hubs
+# e cards de "Funcionalidades relacionadas".
+#
+# grupo:  hub | aluno | painel | servico | profissao
+# status: ativo (padrão) | em-breve | acesso-antecipado
+#   - em-breve / acesso-antecipado: mostra o selo no menu e nos cards,
+#     e a página troca o "Começar grátis" pela lista de espera.
+# icone:  nome do ícone Tabler (sem o "ti-"). Ícone novo precisa entrar
+#         no assets/tabler-subset.woff2 (ver README).
+# mockup: tela desenhada em HTML (arquivo em _includes/mock/), usada no topo
+#         da página e no bloco "Do outro lado" da página espelho.
+# ------------------------------------------------------------------
+
+# Hubs
+- id: funcionalidades
+  mockup: combo
+  grupo: hub
+  nome: Funcionalidades
+  url: /funcionalidades/
+  icone: apps
+  resumo: "Tudo que o Revo faz pela sua consultoria, numa página."
+
+- id: app-do-aluno
+  mockup: app-home
+  grupo: hub
+  nome: App do Aluno
+  url: /app-do-aluno/
+  icone: device-mobile
+  resumo: "Treino guiado, dieta e check-in num app só."
+
+- id: painel-do-consultor
+  mockup: resumo
+  grupo: hub
+  nome: Painel do Consultor
+  url: /painel-do-consultor/
+  icone: layout-dashboard
+  resumo: "Alunos, planos e cobrança num painel só."
+
+# App do Aluno
+- id: treino-guiado
+  mockup: treino
+  grupo: aluno
+  nome: Treino guiado
+  url: /app-do-aluno/treino-guiado/
+  icone: player-play
+  resumo: "Série por série, com vídeo, carga e timer de descanso."
+
+- id: dieta-e-refeicoes
+  mockup: dieta
+  grupo: aluno
+  nome: Dieta e refeições
+  url: /app-do-aluno/dieta-e-refeicoes/
+  icone: checklist
+  resumo: "A dieta vira checklist, e o paciente marca o que comeu."
+
+- id: check-in
+  mockup: checkin
+  grupo: aluno
+  nome: Check-in
+  url: /app-do-aluno/check-in/
+  icone: calendar-check
+  resumo: "Check-in de treino e semanal em 2 minutos."
+
+- id: evolucao
+  mockup: relatorio
+  grupo: aluno
+  nome: Evolução e relatórios
+  url: /app-do-aluno/evolucao/
+  icone: report-analytics
+  resumo: "Relatório semanal automático com a evolução do aluno."
+
+- id: plano-atualizado
+  mockup: atualizado
+  grupo: aluno
+  nome: Plano sempre atualizado
+  url: /app-do-aluno/plano-atualizado/
+  icone: bell
+  resumo: "Mudou no painel, o app atualiza na hora, com aviso."
+
+# Painel do Consultor
+- id: gestao-de-alunos
+  mockup: alunos
+  grupo: painel
+  nome: Gestão de alunos
+  url: /painel-do-consultor/gestao-de-alunos/
+  icone: users
+  resumo: "Quem está cumprindo e quem está sumindo, numa tela."
+
+- id: montagem-de-treino
+  mockup: montagem
+  grupo: painel
+  nome: Montagem de treino
+  url: /painel-do-consultor/montagem-de-treino/
+  icone: barbell
+  resumo: "Biblioteca com vídeo e modelos seus. Treino em minutos."
+
+- id: plano-alimentar
+  mockup: plano-alimentar
+  grupo: painel
+  nome: Plano alimentar
+  url: /painel-do-consultor/plano-alimentar/
+  icone: salad
+  resumo: "Refeições, macros e substituições, direto no celular do paciente."
+
+- id: check-ins
+  mockup: checkins
+  grupo: painel
+  nome: Check-ins e feedback
+  url: /painel-do-consultor/check-ins/
+  icone: inbox
+  resumo: "Todos os check-ins numa fila. Responda e ajuste na mesma tela."
+
+- id: cobranca-recorrente
+  mockup: cobranca
+  grupo: painel
+  nome: Cobrança recorrente
+  url: /painel-do-consultor/cobranca-recorrente/
+  icone: cash
+  resumo: "O aluno paga todo mês e você não cobra ninguém."
+
+- id: anamnese-e-avaliacao
+  mockup: anamnese
+  grupo: painel
+  nome: Anamnese e avaliação
+  url: /painel-do-consultor/anamnese-e-avaliacao/
+  icone: clipboard-text
+  resumo: "O aluno preenche antes da primeira conversa."
+
+- id: equipe-multidisciplinar
+  mockup: equipe
+  grupo: painel
+  nome: Equipe multidisciplinar
+  url: /painel-do-consultor/equipe-multidisciplinar/
+  icone: users-group
+  status: em-breve   # [confirmar] roadmap ou MVP? Se já estiver pronto, apague esta linha.
+  resumo: "Treinador, nutricionista e médico no mesmo aluno."
+
+- id: marca-propria
+  mockup: marca
+  grupo: painel
+  nome: Marca própria
+  url: /painel-do-consultor/marca-propria/
+  icone: palette
+  status: em-breve   # [roadmap]
+  resumo: "Seu app, sua marca, seus alunos."
+
+# Integrações e implantação
+- id: integracoes
+  mockup: integracoes
+  grupo: servico
+  nome: Integrações
+  url: /integracoes/
+  icone: plug
+  resumo: "Pagamento, dados de saúde e comunicação ligados ao painel."
+
+- id: implantacao
+  mockup: implantacao
+  grupo: servico
+  nome: Implantação
+  url: /implantacao/
+  icone: arrows-exchange
+  resumo: "A gente importa seus alunos, modelos de treino e planos."
+
+# LPs por profissão
+- id: nutricionistas
+  mockup: dieta
+  grupo: profissao
+  nome: Nutricionistas
+  url: /para/nutricionistas/
+  icone: apple
+  resumo: "Dieta no app e acompanhamento mensal."
+
+- id: consultores
+  mockup: checkins
+  grupo: profissao
+  nome: Consultores
+  url: /para/consultores/
+  icone: device-laptop
+  resumo: "Escale a consultoria online sem WhatsApp."
+
+- id: medicos
+  mockup: timeline
+  grupo: profissao
+  nome: Médicos
+  url: /para/medicos/
+  icone: stethoscope
+  status: acesso-antecipado
+  resumo: "O paciente entre uma consulta e outra."
+
+- id: personal-trainers
+  mockup: treino
+  grupo: profissao
+  nome: Personal trainers
+  url: /para/personal-trainers/
+  icone: stretching
+  resumo: "Treino certo nos dias sem você."
+
+- id: treinadores
+  mockup: alunos
+  grupo: profissao
+  nome: Treinadores
+  url: /para/treinadores/
+  icone: run
+  resumo: "Assessorias, equipes e grupos."
+
+- id: coach-de-fisiculturismo
+  mockup: checkin
+  grupo: profissao
+  nome: Coach de fisiculturismo
+  url: /para/coach-de-fisiculturismo/
+  icone: trophy
+  resumo: "Do off-season ao palco."

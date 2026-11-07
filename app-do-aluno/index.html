@@ -1,0 +1,87 @@
+---
+layout: pagina
+id: app-do-aluno
+permalink: /app-do-aluno/
+hero: verde
+title: "App para alunos de consultoria: treino, dieta e check-in"
+description: "Seu aluno recebe treino guiado, dieta e check-in num app só. Você acompanha tudo pelo painel. Comece grátis."
+eyebrow: "O que o seu aluno recebe"
+h1: "O app que faz seu aluno seguir o plano quando você não está olhando"
+subtitulo: "Treino guiado, dieta e check-in num lugar só. Ele para de caçar PDF no WhatsApp, e você vê no painel quem está cumprindo."
+cta2: { texto: "Ver o app por dentro", url: "#dia-a-dia" }
+
+porque:
+  - { t: "O plano está no bolso.", d: "Abriu o app, está lá o treino e a refeição de agora." }
+  - { t: "Lembrete na hora certa.", d: "Treino, refeição e check-in avisam sozinhos." }
+  - { t: "Ele sente o acompanhamento.", d: "Relatório semanal com a evolução dele, mesmo quando você está com outros 80 alunos." }
+
+faq:
+  - p: "O aluno paga alguma coisa pelo app?"
+    r: "Não. O acesso vem com o plano que você vende para ele."
+    confirmar: "acesso incluso no plano do profissional"
+  # Doc: "Sim. [confirmar: app nativo, PWA ou os dois]". Resposta segue a nota da LP:
+  # apps nas lojas em breve; hoje o aluno acessa pelo navegador.
+  - p: "Funciona em iPhone e Android?"
+    r: "Sim. Hoje o aluno acessa pelo navegador do celular, no iPhone ou no Android. Os apps da App Store e do Google Play chegam em breve."
+  - p: "Como o aluno entra?"
+    r: "Você manda um convite por link. Ele cria a senha e já vê o plano."
+  - p: "O app aparece com a minha marca?"
+    r: "Seu nome e sua foto aparecem para o aluno. App com marca 100% sua está em [Marca própria](/painel-do-consultor/marca-propria/), que chega em breve."
+---
+{%- assign pgs = site.data.paginas -%}
+{%- assign info = pgs | where: "id", page.id | first -%}
+{%- if site.mostrar_confirmar -%}{%- assign faq = page.faq -%}{%- else -%}{%- assign faq = page.faq | where_exp: "f", "f.confirmar == nil" -%}{%- endif -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="dia-a-dia">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="No dia a dia" titulo="Abriu o app, o plano está lá." texto="Treino, dieta e as mudanças que você faz no painel chegam no celular do aluno, sem PDF e sem versão errada." %}
+    <div class="pg-cards">
+      {%- assign ids = "treino-guiado,dieta-e-refeicoes,plano-atualizado" | split: "," %}
+      {%- for id in ids %}{% assign p = pgs | where: "id", id | first %}
+      {% include pg/card.html p=p classe="big" d=forloop.index0 %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="acompanhamento">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Acompanhamento" titulo="Ele responde. Você ajusta." texto="O check-in e o relatório semanal levam para o seu painel o que aconteceu na semana do aluno." %}
+    <div class="pg-cards n2">
+      {%- assign ids = "check-in,evolucao" | split: "," %}
+      {%- for id in ids %}{% assign p = pgs | where: "id", id | first %}
+      {% include pg/card.html p=p classe="big" d=forloop.index0 %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="por-que">
+  <div class="wrap">
+    <div class="pg-special reveal" data-nav="dark">
+      <div class="head">
+        <div class="col"><span class="eyebrow"><i class="mk"></i>Por que isso segura o aluno</span><h2 class="display h-md">Adesão é o que segura a renovação.</h2></div>
+        <div class="col"><p>O app é o que faz o aluno seguir o plano entre um contato e outro.</p></div>
+      </div>
+      <ol class="pg-steps inv">
+        {%- for item in page.porque %}
+        <li><span class="n">0{{ forloop.index }}</span><p><strong>{{ item.t }}</strong></p><p class="d">{{ item.d }}</p></li>
+        {%- endfor %}
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight">
+  <div class="wrap">
+    <a class="pg-teaser reveal" href="/painel-do-consultor/" data-nav="dark"><span>E do seu lado? Tudo isso chega no Painel do Consultor.</span><span class="mlink">Ver o painel <i class="tri"></i></span></a>
+  </div>
+</section>
+
+{% include pg/faq.html faq=faq tight=true %}
+
+{% include pg/cta.html %}
+
+{% include pg/jsonld.html atual=info.nome faq=faq %}

@@ -1,0 +1,3 @@
+{%- comment -%} Coluna "Para quem" do rodapé: as LPs por profissão (vêm de _data/paginas.yml). {%- endcomment -%}
+{%- assign profissoes = site.data.paginas | where: "grupo", "profissao" -%}
+<div class="fcol"><span class="ttl">Para quem</span>{% for p in profissoes %}<a href="{{ p.url }}">{{ p.nome }}</a>{% endfor %}</div>

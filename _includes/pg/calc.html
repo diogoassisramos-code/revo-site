@@ -1,0 +1,19 @@
+{%- comment -%}
+  Calculadora "A conta da escala" (LP consultores): alunos x minutos por check-in x check-ins no mês.
+  O comparativo "com a fila do Revo" só aparece quando minutos_revo estiver preenchido com o tempo
+  médio MEDIDO nos coaches fundadores (fonte = de onde veio o número).
+{%- endcomment -%}
+{%- assign c = include.c -%}
+<div class="pg-calc" data-calc{% if c.minutos_revo %} data-revo="{{ c.minutos_revo }}"{% endif %}>
+  <div class="in">
+    <label><span class="row"><span>Alunos ativos</span><output data-out="alunos">40</output></span><input type="range" name="alunos" min="5" max="300" step="5" value="40" aria-label="Alunos ativos"></label>
+    <label><span class="row"><span>Minutos por check-in, hoje</span><output data-out="minutos">12 min</output></span><input type="range" name="minutos" min="3" max="40" step="1" value="12" aria-label="Minutos por check-in"></label>
+    <label><span class="row"><span>Check-ins por aluno no mês</span><output data-out="checkins">4x</output></span><input type="range" name="checkins" min="1" max="8" step="1" value="4" aria-label="Check-ins por aluno no mês"></label>
+  </div>
+  <div class="out" aria-live="polite">
+    <span class="eyebrow"><i class="mk"></i>Por mês, só com check-in</span>
+    <div class="big"><span data-out="horas">32</span><small>horas</small></div>
+    <p>São <b data-out="dias">4</b> dias de 8 horas lendo e respondendo check-in.{% if c.minutos_revo %} Com a fila do Revo, <b data-out="horas-revo"></b> horas: voltam <b data-out="horas-volta"></b> horas por mês.{% endif %}</p>
+    <span class="note">{% if c.minutos_revo %}{{ c.fonte }}{% else %}Coloque os seus números. A conta é: alunos × minutos × check-ins no mês.{% endif %}</span>
+  </div>
+</div>

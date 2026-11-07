@@ -1,0 +1,33 @@
+{%- if include.variante == "atletas" -%}
+  {%- assign rot = "Atletas" -%}{%- assign total = 36 -%}
+  {%- assign nomes = "Diego Rocha|Fernanda Melo|Igor Batista|Carla Nunes|Rafaela Dias" | split: "|" -%}
+  {%- assign obj = "Cross training|Funcional|Condicionamento|Funcional|Cross training" | split: "|" -%}
+{%- else -%}
+  {%- assign rot = "Alunos" -%}{%- assign total = 42 -%}
+  {%- assign nomes = "Lucas Ferreira|Bruna Alves|Pedro Santos|Mariana Costa|Ana Beatriz Lima" | split: "|" -%}
+  {%- assign obj = "Hipertrofia|Emagrecimento|Condicionamento|Recomposição|Hipertrofia" | split: "|" -%}
+{%- endif -%}
+{%- assign ini = "LF|BA|PS|MC|AL" | split: "|" -%}
+{%- if include.variante == "atletas" -%}{%- assign ini = "DR|FM|IB|CN|RD" | split: "|" -%}{%- endif -%}
+<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
+  {% include mock/top.html %}
+  <div class="ux-body">
+    {% include mock/side.html on="alunos" %}
+    <div class="ux-main">
+      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">{{ rot }} · {{ total }} ativos</span><span class="ux-t">Ordenados por risco</span></span><span class="ux-btn sm ghost"><i class="ti ti-filter"></i>Filtros</span></div>
+      <div class="ux-chips"><span class="on">Todos · {{ total }}</span><span>Em risco · 4</span><span>Pagamento atrasado · 2</span><span>Check-in pendente · 3</span></div>
+      <div class="ux-card" style="padding:8px 10px">
+        <table class="ux-tbl">
+          <thead><tr><th>{% if include.variante == "atletas" %}Atleta{% else %}Aluno{% endif %}</th><th>Treino</th><th>Dieta</th><th>Último treino</th><th>Status</th></tr></thead>
+          <tbody>
+            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[0] }}</span><span><b>{{ nomes[0] }}</b><br><span class="ux-s">{{ obj[0] }}</span></span></span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:38%"></i></div><span class="ux-m">38%</span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:41%"></i></div><span class="ux-m">41%</span></td><td>há 6 dias</td><td><span class="ux-pill bad"><span class="dot"></span>Em risco</span></td></tr>
+            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[1] }}</span><span><b>{{ nomes[1] }}</b><br><span class="ux-s">{{ obj[1] }}</span></span></span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:57%"></i></div><span class="ux-m">57%</span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:49%"></i></div><span class="ux-m">49%</span></td><td>há 3 dias</td><td><span class="ux-pill warn"><span class="dot"></span>Em risco</span></td></tr>
+            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[2] }}</span><span><b>{{ nomes[2] }}</b><br><span class="ux-s">{{ obj[2] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:86%"></i></div><span class="ux-m">86%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:78%"></i></div><span class="ux-m">78%</span></td><td>ontem</td><td><span class="ux-pill bad"><i class="ti ti-credit-card"></i>Atrasado</span></td></tr>
+            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[3] }}</span><span><b>{{ nomes[3] }}</b><br><span class="ux-s">{{ obj[3] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:96%"></i></div><span class="ux-m">96%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:91%"></i></div><span class="ux-m">91%</span></td><td>hoje</td><td><span class="ux-pill"><span class="dot"></span>Ativo</span></td></tr>
+            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[4] }}</span><span><b>{{ nomes[4] }}</b><br><span class="ux-s">{{ obj[4] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:90%"></i></div><span class="ux-m">90%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:84%"></i></div><span class="ux-m">84%</span></td><td>hoje</td><td><span class="ux-pill"><span class="dot"></span>Ativo</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div></div>

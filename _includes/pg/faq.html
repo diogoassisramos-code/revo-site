@@ -1,0 +1,17 @@
+{%- comment -%} Perguntas frequentes. faq = lista já filtrada (sem os itens [confirmar]). {%- endcomment -%}
+{%- assign faq = include.faq -%}
+{%- if faq and faq.size > 0 %}
+<section class="pg-sec{% if include.tight %} tight{% endif %}" id="perguntas">
+  <div class="wrap pg-faq-wrap">
+    <div class="col">
+      <span class="eyebrow reveal"><i class="mk"></i>Perguntas frequentes</span>
+      <h2 class="display h-md reveal" data-d="1">{{ include.titulo | default: "Ficou alguma dúvida?" }}</h2>
+    </div>
+    <div class="pg-faq reveal" data-d="1">
+      {%- for f in faq %}
+      <details{% if f.confirmar %} class="pg-confirmar"{% endif %}><summary>{{ f.p }}</summary><div class="r pg-txt">{{ f.r | markdownify }}</div></details>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif -%}

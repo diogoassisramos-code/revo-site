@@ -1,0 +1,42 @@
+{%- comment -%}
+  Topo das páginas novas. Lê o front matter da página (hero, eyebrow, h1, subtitulo, cta2, micro)
+  e os dados dela em _data/paginas.yml (info). pai = página-mãe para a trilha (hub), opcional.
+{%- endcomment -%}
+{%- assign info = include.info -%}
+{%- assign pai = include.pai -%}
+{%- assign escuro = false -%}{%- if page.hero == "verde" or page.hero == "escuro" -%}{%- assign escuro = true -%}{%- endif -%}
+{%- assign espera = false -%}{%- if info.status == "em-breve" or info.status == "acesso-antecipado" -%}{%- assign espera = true -%}{%- endif -%}
+<section class="pg-hero {{ page.hero }}"{% if escuro %} data-nav="dark"{% endif %}>
+  <div class="wrap pg-hero-in">
+    <div class="pg-hero-txt">
+      <nav class="crumbs reveal" aria-label="Você está em"><a href="/">Revo</a><span class="sep">/</span>{% if pai %}<a href="{{ pai.url }}">{{ pai.nome }}</a><span class="sep">/</span>{% endif %}<span>{{ include.atual | default: info.nome }}</span></nav>
+      {%- if page.eyebrow %}
+      <span class="eyebrow reveal"><i class="mk"></i>{{ page.eyebrow }}</span>
+      {%- endif %}
+      {%- if info.status == "em-breve" %}
+      <span class="pg-badge reveal">Em breve</span>
+      {%- elsif info.status == "acesso-antecipado" %}
+      <span class="pg-badge reveal">Acesso antecipado</span>
+      {%- endif %}
+      <h1 class="display reveal" data-d="1">{{ page.h1 }}</h1>
+      <p class="lead reveal" data-d="2">{% include pg/md.html t=page.subtitulo %}</p>
+      <div class="pg-ctas reveal" data-d="3">
+        {%- if page.cta %}
+        <a class="btn lg{% if escuro %} mint{% endif %}" href="{{ page.cta.url }}">{{ page.cta.texto }} <i class="tri"></i></a>
+        {%- elsif espera %}
+        <a class="btn lg{% if escuro %} mint{% endif %}" href="#lista">{{ page.cta_lista | default: "Entrar na lista" }} <i class="tri"></i></a>
+        {%- else %}
+        <a class="btn lg{% if escuro %} mint{% endif %}" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+        {%- endif %}
+        {%- if page.cta2 %}
+        <a class="mlink" href="{{ page.cta2.url }}">{{ page.cta2.texto }} <i class="tri"></i></a>
+        {%- endif %}
+      </div>
+      {%- unless espera or page.micro == false %}
+      {%- assign micro = page.micro | default: site.data.textos.micro %}
+      <div class="pg-micro reveal" data-d="4">{% for m in micro %}<span>{{ m }}</span>{% endfor %}</div>
+      {%- endunless %}
+    </div>
+    <div class="pg-hero-vis reveal" data-d="2">{% include mock/{{ info.mockup }}.html variante=page.mockup_variante %}</div>
+  </div>
+</section>
