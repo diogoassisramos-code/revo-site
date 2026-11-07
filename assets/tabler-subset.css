@@ -1,5 +1,6 @@
 @font-face{font-family:"tabler-icons";font-style:normal;font-weight:400;font-display:block;src:url("tabler-subset.woff2") format("woff2")}
 .ti{font-family:"tabler-icons" !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.ti-adjustments-horizontal:before{content:"\ec38"}
 .ti-alert-triangle:before{content:"\ea06"}
 .ti-antenna-bars-5:before{content:"\eccb"}
 .ti-arrow-bar-up:before{content:"\ea10"}
@@ -7,14 +8,17 @@
 .ti-arrow-right:before{content:"\ea1f"}
 .ti-barbell:before{content:"\eff0"}
 .ti-battery-3:before{content:"\ea31"}
+.ti-bell:before{content:"\ea35"}
 .ti-bell-ringing:before{content:"\ed07"}
 .ti-brand-apple:before{content:"\ec17"}
 .ti-brand-google-play:before{content:"\ed25"}
 .ti-brand-instagram:before{content:"\ec20"}
+.ti-calendar-check:before{content:"\f824"}
 .ti-calendar-event:before{content:"\ea52"}
 .ti-camera:before{content:"\ea54"}
 .ti-cash:before{content:"\ea55"}
 .ti-check:before{content:"\ea5e"}
+.ti-checklist:before{content:"\f074"}
 .ti-chevron-right:before{content:"\ea61"}
 .ti-circle-check:before{content:"\ea67"}
 .ti-clipboard-check:before{content:"\ea6c"}
@@ -22,6 +26,8 @@
 .ti-clipboard-text:before{content:"\f089"}
 .ti-credit-card:before{content:"\ea84"}
 .ti-home:before{content:"\eac1"}
+.ti-hourglass:before{content:"\ef93"}
+.ti-inbox:before{content:"\eac4"}
 .ti-layout-dashboard:before{content:"\f02c"}
 .ti-layout-list:before{content:"\ec14"}
 .ti-link:before{content:"\eade"}
@@ -32,7 +38,9 @@
 .ti-player-play-filled:before{content:"\f691"}
 .ti-plus:before{content:"\eb0b"}
 .ti-refresh:before{content:"\eb13"}
+.ti-report-analytics:before{content:"\eecb"}
 .ti-salad:before{content:"\f50a"}
+.ti-send:before{content:"\eb1e"}
 .ti-settings:before{content:"\eb20"}
 .ti-trending-up:before{content:"\eb43"}
 .ti-user:before{content:"\eb4d"}
