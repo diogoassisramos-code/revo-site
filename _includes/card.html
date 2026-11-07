@@ -1,0 +1,7 @@
+{%- assign p = include.post -%}
+<a class="b-card{% if include.feat %} feat{% endif %}" href="{{ p.url }}">
+  <div class="meta"><span>{{ site.categorias[p.categoria] | default: "Artigo" }}</span><span>{% include reading-time.html content=p.content %}</span></div>
+  {% if include.feat %}<h2>{{ p.title }}</h2>{% else %}<h3>{{ p.title }}</h3>{% endif %}
+  <p>{{ p.description }}</p>
+  <span class="mlink">Ler artigo <i class="tri"></i></span>
+</a>

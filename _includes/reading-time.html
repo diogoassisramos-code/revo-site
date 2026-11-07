@@ -1,0 +1,1 @@
+{%- assign w = include.content | strip_html | number_of_words -%}{%- assign min = w | divided_by: 200 | plus: 1 -%}{{ min }} min de leitura

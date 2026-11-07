@@ -1,0 +1,62 @@
+# ------------------------------------------------------------
+# Revo — site + blog (GitHub Pages / Jekyll)
+# A LP (index.html) é estática; o blog é gerado a partir de _posts/.
+# ------------------------------------------------------------
+title: Revo
+tagline: Plataforma para consultores fitness
+description: >-
+  Conteúdo prático para personal trainers, nutricionistas e coaches online:
+  como montar, cobrar, organizar e crescer uma consultoria fitness.
+url: https://revofit.app
+baseurl: ""
+lang: pt-BR
+locale: pt_BR
+timezone: America/Sao_Paulo
+
+logo: /assets/favicon-512.png
+image: /assets/og-revo.png
+author:
+  name: Equipe Revo
+  url: https://revofit.app
+social:
+  name: Revo
+  links: []   # TODO: adicionar Instagram quando o @ estiver confirmado
+
+permalink: /blog/:title/
+future: false        # posts com data futura só entram no ar na data (ver workflow publicar-agendados)
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-feed
+
+feed:
+  path: blog/feed.xml
+
+defaults:
+  - scope: { path: "", type: posts }
+    values:
+      layout: post
+
+# Categorias do blog (slug: nome exibido). Use o slug no campo "categoria" do post.
+categorias:
+  gestao: Gestão da consultoria
+  cobranca: Cobrança e preços
+  alunos: Alunos e retenção
+  treino: Treino e acompanhamento
+  marketing: Marketing para coaches
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .github
+
+# Links do app (troque aqui quando o endereço do app estiver definido, ex.: https://app.revofit.app/cadastro)
+cta_url: /#precos
+login_url: ""

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+{%- assign posts = site.posts | where: "categoria", page.slug -%}
+<div class="wrap">
+  <section class="b-hero">
+    <nav class="crumbs"><a href="/blog/">Blog</a><span class="sep">/</span><span>{{ site.categorias[page.slug] }}</span></nav>
+    <h1 class="display h-lg">{{ site.categorias[page.slug] }}</h1>
+    <p class="lead">{{ page.description }}</p>
+  </section>
+  <nav class="cats" aria-label="Categorias">
+    <a href="/blog/">Todos</a>
+    {% for c in site.categorias %}<a href="/blog/categoria/{{ c[0] }}/"{% if c[0] == page.slug %} class="on" aria-current="page"{% endif %}>{{ c[1] }}</a>{% endfor %}
+  </nav>
+  {% if posts.size > 0 %}
+  <div class="b-grid">{% for p in posts %}{% include card.html post=p %}{% endfor %}</div>
+  {% else %}
+  <p class="b-empty">Novos artigos desta categoria em breve. <a class="mlink" href="/blog/">Ver todos os artigos <i class="tri"></i></a></p>
+  {% endif %}
+</div>

@@ -1,0 +1,20 @@
+name: Publicar artigos agendados
+
+# Todo dia às 09:07 (Brasília) pede ao GitHub Pages para gerar o site de novo.
+# Assim, posts com data futura em _posts/ entram no ar sozinhos no dia marcado.
+on:
+  schedule:
+    - cron: "7 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  pages: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pedir novo build do GitHub Pages
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api -X POST "repos/${{ github.repository }}/pages/builds"

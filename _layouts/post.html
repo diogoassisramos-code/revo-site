@@ -1,0 +1,67 @@
+---
+layout: default
+---
+{%- assign cat_nome = site.categorias[page.categoria] -%}
+<article class="wrap">
+  <header class="post-head">
+    <nav class="crumbs" aria-label="Você está em">
+      <a href="/blog/">Blog</a>{% if cat_nome %}<span class="sep">/</span><a href="/blog/categoria/{{ page.categoria }}/">{{ cat_nome }}</a>{% endif %}
+    </nav>
+    <h1>{{ page.title }}</h1>
+    {% if page.description %}<p class="lead">{{ page.description }}</p>{% endif %}
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{% include date.html date=page.date %}</time>
+      {% if page.last_modified_at %}<span>Atualizado em {% include date.html date=page.last_modified_at %}</span>{% endif %}
+      <span>{% include reading-time.html content=content %}</span>
+      <span>Por {{ page.author | default: site.author.name }}</span>
+    </div>
+  </header>
+
+  {% if page.image and page.capa != false %}
+  <figure class="post-cover"><img src="{{ page.image }}" alt="{{ page.image_alt | default: page.title }}" width="1200" height="630"></figure>
+  {% endif %}
+
+  {%- assign parts = content | split: '<h2 id="' -%}
+  {%- if parts.size > 3 and page.sumario != false %}
+  <nav class="toc" aria-label="Sumário">
+    <div class="eyebrow muted"><i class="mk"></i>Neste artigo</div>
+    <ol>
+    {%- for part in parts offset: 1 -%}
+      {%- assign hid = part | split: '"' | first -%}
+      {%- assign htxt = part | split: '</h2>' | first | split: '">' | last | strip_html -%}
+      <li><a href="#{{ hid }}">{{ htxt }}</a></li>
+    {%- endfor %}
+    </ol>
+  </nav>
+  {%- endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  <aside class="post-cta">
+    <div class="eyebrow"><i class="mk"></i>Revo</div>
+    <h2>{{ page.cta_titulo | default: "Sua consultoria, do treino ao PIX." }}</h2>
+    <p>{{ page.cta_texto | default: "Treino, dieta, check-in com fotos e cobrança por PIX ou cartão num lugar só — e o aluno acompanha tudo pelo app. Grátis até 5 alunos." }}</p>
+    <a class="btn lg" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+  </aside>
+
+  {%- assign rel = site.posts | where: "categoria", page.categoria | where_exp: "p", "p.url != page.url" -%}
+  {%- if rel.size == 0 %}{% assign rel = site.posts | where_exp: "p", "p.url != page.url" %}{% endif -%}
+  {%- if rel.size > 0 %}
+  <section class="related">
+    <h2>Continue lendo</h2>
+    <div class="b-grid">
+      {% for p in rel limit: 3 %}{% include card.html post=p %}{% endfor %}
+    </div>
+  </section>
+  {%- endif %}
+</article>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+  {"@type":"ListItem","position":1,"name":"Blog","item":"{{ '/blog/' | absolute_url }}"}{% if cat_nome %},
+  {"@type":"ListItem","position":2,"name":{{ cat_nome | jsonify }},"item":"{{ '/blog/categoria/' | append: page.categoria | append: '/' | absolute_url }}"}{% endif %},
+  {"@type":"ListItem","position":{% if cat_nome %}3{% else %}2{% endif %},"name":{{ page.title | jsonify }},"item":"{{ page.url | absolute_url }}"}
+]}
+</script>

@@ -1,0 +1,27 @@
+<header class="nav">
+  <nav class="nav-pill" aria-label="Principal">
+    <a class="nav-logo" href="/" aria-label="Revo — início">
+      <img class="ico" src="/assets/revo-icon.svg" alt="">
+      <img src="/assets/revo-wordmark-white.svg" alt="Revo">
+    </a>
+    <div class="nav-links">
+      <a href="/#como-funciona">Como funciona</a>
+      <a href="/#funcionalidades">Funcionalidades</a>
+      <a href="/#precos">Preços</a>
+      <a href="/blog/" aria-current="page" style="color:#fff">Blog</a>
+    </div>
+    <div class="nav-cta">
+      {%- if site.login_url != "" %}<a class="ghost" href="{{ site.login_url }}">Entrar</a>{% endif %}
+      <a class="btn mint" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+      <button class="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="nav-menu" id="menu">
+  <a href="/#como-funciona">Como funciona</a>
+  <a href="/#funcionalidades">Funcionalidades</a>
+  <a href="/#precos">Preços</a>
+  <a href="/blog/">Blog</a>
+  {%- if site.login_url != "" %}<a href="{{ site.login_url }}">Entrar</a>{% endif %}
+  <a class="btn mint" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+</div>
