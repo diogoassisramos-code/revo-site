@@ -110,15 +110,8 @@ section{scroll-margin-top:88px}
 .btn.outline:hover{background:var(--ink);color:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
 .btn.outline.inv:hover{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px #fff}
 
-/* "sound wave" brackets around a button */
 .wave{display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
 .wave.inv{color:#fff}
-.wave svg{width:16px;height:26px;flex:none;overflow:visible}
-.wave svg:last-child{transform:scaleX(-1)}
-.wave svg path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;transition:transform .35s var(--ease),opacity .35s var(--ease);transform-origin:16px 13px}
-.wave:hover svg path:nth-child(1){transform:translateX(-2px)}
-.wave:hover svg path:nth-child(2){transform:translateX(-4px)}
-.wave:hover svg path:nth-child(3){transform:translateX(-6px)}
 
 /* ---------- layout ---------- */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
@@ -133,49 +126,124 @@ section{scroll-margin-top:88px}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
 /* ============================================================
-   NAV — compact dark pill, fixed
+   NAV — liquid glass pill, fixed · hover menus (animated panel)
+   Adapts to what is behind it: [data-nav="dark"] sections → light text
    ============================================================ */
 .nav{position:fixed;top:16px;left:0;right:0;z-index:60;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
-.nav-pill{pointer-events:auto;display:flex;align-items:center;gap:22px;height:56px;padding:0 6px 0 20px;border-radius:999px;background:var(--dark);color:#fff;box-shadow:0 10px 30px rgba(2,33,40,.18);max-width:100%}
+.glass{position:relative;isolation:isolate;
+  background:linear-gradient(180deg,rgba(255,255,255,.56),rgba(255,255,255,.48));
+  -webkit-backdrop-filter:blur(8px) saturate(160%);backdrop-filter:blur(8px) saturate(160%);
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -1px 1px rgba(2,33,40,.04),inset 0 0 18px rgba(255,255,255,.35),0 10px 32px rgba(2,33,40,.12),0 1px 3px rgba(2,33,40,.06);
+  transition:background .4s var(--ease),border-color .4s var(--ease),box-shadow .4s var(--ease),color .3s var(--ease)}
+.glass::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;
+  background:radial-gradient(120% 140% at 18% -30%,rgba(255,255,255,.22),transparent 55%),radial-gradient(90% 120% at 100% 130%,rgba(124,211,187,.06),transparent 60%)}
+.nav-pill{pointer-events:auto;display:flex;align-items:center;gap:22px;height:56px;padding:0 6px 0 22px;border-radius:999px;color:var(--ink);max-width:100%}
+.nav.on-dark .nav-pill{color:#fff;background:linear-gradient(180deg,rgba(255,255,255,.1),rgba(255,255,255,.07)) rgba(2,33,40,.28);border-color:rgba(255,255,255,.26);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.4),inset 0 -1px 1px rgba(255,255,255,.08),inset 0 0 22px rgba(255,255,255,.06),0 10px 32px rgba(2,33,40,.22)}
+.nav.on-dark .nav-pill::before{background:radial-gradient(120% 140% at 18% -30%,rgba(255,255,255,.1),transparent 55%),radial-gradient(90% 120% at 100% 130%,rgba(124,211,187,.05),transparent 60%)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){
+  .glass{background:rgba(255,255,255,.94)}
+  .nav.on-dark .nav-pill{background:rgba(2,33,40,.86)}
+}
 .nav-logo{display:flex;align-items:center;gap:9px;flex:none}
-.nav-logo img{height:16px}
-.nav-logo .ico{width:26px;height:26px}
+.nav-logo img{height:17px;display:block}
+.nav-logo .wm-light{display:none}
+.nav.on-dark .nav-logo .wm-dark{display:none}
+.nav.on-dark .nav-logo .wm-light{display:block}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{padding:8px 11px;font-size:13.5px;color:rgba(255,255,255,.72);border-radius:999px;transition:color .2s,background .2s}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-item{position:relative}
+.nav-links a{display:block;padding:8px 11px;font-size:13.5px;color:inherit;opacity:.8;border-radius:999px;transition:opacity .2s,background .2s,color .2s}
+.nav-links a:hover,.nav-item.active>a{opacity:1;background:rgba(2,33,40,.06)}
+.nav.on-dark .nav-links a:hover,.nav.on-dark .nav-item.active>a{background:rgba(255,255,255,.9);color:var(--ink);opacity:1}
 .nav-cta{display:flex;align-items:center;gap:4px;flex:none}
-.nav-cta .ghost{padding:8px 12px;font-size:13.5px;color:rgba(255,255,255,.72)}
-.nav-cta .ghost:hover{color:#fff}
-.nav-burger{display:none;width:44px;height:44px;border-radius:999px;align-items:center;justify-content:center;color:#fff}
+.nav-cta .ghost{padding:8px 12px;font-size:13.5px;color:inherit;opacity:.74;transition:opacity .2s}
+.nav-cta .ghost:hover{opacity:1}
+.nav-burger{display:none;width:44px;height:44px;border-radius:999px;align-items:center;justify-content:center;color:inherit}
 .nav-burger span{display:block;width:16px;height:1.5px;background:currentColor;position:relative}
 .nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .25s var(--ease)}
 .nav-burger span::before{top:-5px}.nav-burger span::after{top:5px}
+
+/* dropdown: one glass panel that slides/resizes between items */
+.nav-drop{position:absolute;top:56px;left:0;padding-top:14px;pointer-events:none;opacity:0;transform:translateY(10px) scale(.85);transform-origin:50% 0;
+  transition:opacity .22s var(--ease),transform .45s cubic-bezier(.3,1.35,.5,1),left .45s cubic-bezier(.3,1.25,.5,1);visibility:hidden}
+.nav-drop.open{opacity:1;transform:none;pointer-events:auto;visibility:visible}
+.nav-drop.instant{transition:opacity .22s var(--ease),transform .45s cubic-bezier(.3,1.35,.5,1)}
+.nav-drop-panel{border-radius:20px;overflow:hidden;color:var(--ink);
+  background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(255,255,255,.68));
+  transition:width .45s cubic-bezier(.3,1.2,.5,1),height .45s cubic-bezier(.3,1.2,.5,1),background .4s var(--ease)}
+.nav-drop.instant .nav-drop-panel{transition:none}
+.nav-drop-inner{position:relative;width:100%;height:100%}
+.pane{position:absolute;left:0;top:0;width:max-content;padding:18px;opacity:0;visibility:hidden;transition:opacity .18s var(--ease),visibility 0s .18s}
+.pane.on{opacity:1;visibility:visible;transition:opacity .28s var(--ease) .06s,visibility 0s}
+.pane .lbl{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin:0 0 12px 2px}
+.hl{display:flex;flex-direction:column;gap:2px}
+.hl a{display:grid;grid-template-columns:28px minmax(0,1fr);column-gap:12px;align-items:center;padding:9px 12px 9px 10px;border-radius:12px;transition:background .2s}
+.hl a:hover,.hl a:focus-visible{background:rgba(2,33,40,.06);outline:none}
+.hl .n{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--mint-700)}
+.hl b{font-size:14px;font-weight:500;letter-spacing:-0.01em}
+.hl small{grid-column:2;font-size:12.5px;color:var(--ink-3);line-height:1.35}
+.pi-grid{display:grid;grid-template-columns:repeat(2,minmax(0,250px));gap:6px}
+.pi{display:flex;gap:12px;align-items:flex-start;padding:10px;border-radius:14px;transition:background .2s}
+.pi:hover,.pi:focus-visible{background:rgba(2,33,40,.06);outline:none}
+.pi .tile{flex:none;width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--green);background:var(--mint-100);box-shadow:inset 0 0 0 1px rgba(4,69,61,.08)}
+.pi img{flex:none;width:120px;height:72px;object-fit:cover;object-position:50% 25%;border-radius:10px;box-shadow:0 8px 20px rgba(2,33,40,.16)}
+.pi h4{font-size:14.5px;font-weight:500;letter-spacing:-0.01em;margin-bottom:3px}
+.pi p{font-size:12.5px;line-height:1.4;color:var(--ink-3);max-width:180px}
+.pi.wide p{max-width:200px}
+.pane-app{display:flex;gap:18px}
+.pane-app .pi-col{display:flex;flex-direction:column;gap:6px}
+.pane-app .hl{min-width:210px;padding-left:16px;border-left:1px solid var(--line-soft)}
+.pane-app .hl a{grid-template-columns:22px minmax(0,1fr)}
+.pane-app .hl i{font-size:15px;color:var(--mint-700)}
+.hl a.price-row,.price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:baseline;padding:11px 12px;border-radius:12px;min-width:280px;transition:background .2s}
+.price-row:hover,.price-row:focus-visible{background:rgba(2,33,40,.06);outline:none}
+.price-row b{font-size:14px;font-weight:500}
+.price-row small{display:block;font-size:12.5px;color:var(--ink-3)}
+.price-row span{font-size:20px;letter-spacing:-0.03em}
+.price-row span em{font-style:normal;font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--ink-3);margin-left:4px}
+.price-row.hi span{color:var(--mint-700)}
+@media (prefers-reduced-motion:reduce){.nav-drop,.nav-drop-panel,.pane{transition:none!important}}
+
 .nav-menu{display:none}
 @media (max-width:900px){
-  .nav-links,.nav-cta .ghost{display:none}
+  .nav-links,.nav-cta .ghost,.nav-drop{display:none}
   .nav-burger{display:inline-flex}
-  .nav-pill{width:100%;justify-content:space-between;gap:8px;padding-left:16px}
-  .nav-menu{position:fixed;top:84px;left:16px;right:16px;z-index:59;background:var(--dark);color:#fff;border-radius:20px;padding:10px 10px 12px;display:none;flex-direction:column;box-shadow:0 20px 50px rgba(2,33,40,.28)}
+  .nav-pill{width:100%;justify-content:space-between;gap:8px;padding-left:20px}
+  .nav-menu{position:fixed;top:84px;left:16px;right:16px;z-index:59;color:var(--ink);border-radius:20px;padding:10px 10px 12px;display:none;flex-direction:column;background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.74))}
   .nav-menu.open{display:flex}
-  .nav-menu a{padding:14px 16px;font-size:17px;border-radius:12px;border-top:1px solid rgba(255,255,255,.08)}
+  .nav-menu a{padding:14px 16px;font-size:17px;border-radius:12px;border-top:1px solid var(--line-soft)}
   .nav-menu a:first-child{border-top:0}
-  .nav-menu .btn{margin:8px 6px 0;justify-content:center;height:46px;font-size:15px}
+  .nav-menu .btn{margin:8px 6px 0;justify-content:center;height:46px;font-size:15px;border-top:0}
 }
 
 /* ============================================================
    HERO — pastel block, typographic
    ============================================================ */
 .hero{background:var(--mint-100);min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 24px 72px;position:relative;overflow:hidden}
-.hero-in{display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);max-width:1180px}
-.hero h1{max-width:14ch}
-.hero h1 em{font-style:normal;color:var(--green)}
+.hero{background:var(--dark);color:#fff}
+.hero-media{position:absolute;inset:0;z-index:0;background:var(--dark) url(assets/hero-atleta-poster.jpg) 62% 50%/cover no-repeat}
+.hero-media video{width:100%;height:100%;object-fit:cover;object-position:62% 50%;display:block}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,33,40,.62) 0%,rgba(2,33,40,.42) 42%,rgba(2,33,40,.5) 72%,rgba(2,33,40,.78) 100%)}
+.hero .eyebrow{color:#fff}
+.hero h1{color:#fff;text-shadow:0 2px 30px rgba(2,33,40,.35)}
+.hero .hero-sub{color:rgba(255,255,255,.88);text-shadow:0 1px 16px rgba(2,33,40,.45)}
+.hero .mlink{color:#fff}
+.hero .hero-micro{color:rgba(255,255,255,.72)}
+.hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);max-width:1180px}
+.h-hero{font-size:clamp(36px,5vw,68px);line-height:.98}
+.hero h1{max-width:20ch}
+.hero-sub{max-width:600px;margin-top:calc(clamp(28px,4vw,44px) * -0.4)}
+@media (min-width:1000px){.hero h1{max-width:none}}
+@media (max-width:999px){.hero h1 br.d{display:none}}
+.hero h1 em{font-style:normal;color:var(--mint-400)}
 .hero-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center}
 .hero-micro{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
 .hero-micro span::before{content:"—";margin-right:18px;opacity:.5}
 .hero-micro span:first-child::before{content:none;margin:0}
 @media (max-width:600px){.hero-micro{flex-direction:column;gap:8px}.hero-micro span::before{content:none;margin:0}}
-.hero-scroll{position:absolute;right:28px;bottom:28px;width:36px;height:36px;border-radius:50%;background:rgba(2,33,40,.08);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s}
-.hero-scroll:hover{background:rgba(2,33,40,.14)}
+.hero-scroll{position:absolute;z-index:1;right:28px;bottom:28px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:#fff;transition:background .2s}
+.hero-scroll:hover{background:rgba(255,255,255,.28)}
 .hero-scroll i{font-size:16px}
 /* word-by-word stagger */
 .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .9s var(--ease),transform .9s var(--ease)}
@@ -183,7 +251,7 @@ section{scroll-margin-top:88px}
 @media (prefers-reduced-motion:reduce){.hero h1 .w{opacity:1;transform:none;transition:none}}
 
 /* statement with inline icons (Compass "We chart new pathways…") */
-.statement{background:var(--mint-100);padding:0 24px clamp(96px,12vw,180px);text-align:center}
+.statement{background:var(--mint-100);padding:clamp(88px,11vw,160px) 24px;text-align:center}
 .statement p{max-width:900px;margin:0 auto;font-size:clamp(24px,3.4vw,46px);line-height:1.12;letter-spacing:-0.03em;font-weight:400;text-wrap:balance;color:var(--ink)}
 .statement p i{display:inline-block;font-size:.78em;vertical-align:-0.06em;margin:0 .14em;font-weight:400;color:var(--green)}
 .statement .faded{color:rgba(2,33,40,.42)}
@@ -197,6 +265,7 @@ section{scroll-margin-top:88px}
 .produto-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
 .produto-head .col{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
 .produto-head .col p{max-width:420px}
+.produto-head h2{font-size:clamp(32px,4vw,56px);line-height:1.06}
 .dash-wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 0 0;}
 .dash-stage{position:relative;width:100%;aspect-ratio:1120/716;--s:1}
 .dash{position:absolute;left:0;top:0;width:1120px;height:716px;transform-origin:0 0;transform:scale(var(--s));border-radius:12px 12px 0 0;background:#fff;box-shadow:0 2px 4px rgba(2,33,40,.05),0 30px 70px rgba(2,33,40,.12);overflow:hidden;display:grid;grid-template-rows:44px minmax(0,1fr)}
@@ -285,26 +354,51 @@ section{scroll-margin-top:88px}
    APP DO ALUNO — green panel with phone + rows
    ============================================================ */
 .app{padding:0 16px clamp(72px,8vw,112px)}
-.app .panel{background:var(--green);color:#fff;display:grid;grid-template-columns:minmax(0,5fr) 232px minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:start;overflow:hidden;position:relative}
-.app .text{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
-.app .text p{color:rgba(255,255,255,.76);max-width:420px}
+.app .panel{background:var(--green);color:#fff;display:flex;flex-direction:column;gap:clamp(48px,6vw,88px);overflow:hidden;position:relative}
+.app-head{display:grid;grid-template-columns:minmax(0,1fr) 232px;gap:clamp(28px,5vw,96px);align-items:center}
+.app .text{display:flex;flex-direction:column;gap:22px;align-items:flex-start;max-width:640px}
+.app .text p{color:rgba(255,255,255,.76);max-width:520px}
 .app .text h2{color:#fff}
-.stores{display:flex;gap:10px;flex-wrap:wrap}
-.store{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-size:12.5px;color:#fff}
-.store i{font-size:15px}
-.store .soon{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--mint-400);color:var(--ink);padding:3px 6px;border-radius:999px}
 .phone-player{width:232px;margin:0 auto;position:relative}
-.phone-player .shell{background:var(--dark);border-radius:40px;padding:8px;box-shadow:0 30px 60px rgba(2,33,40,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
-.rows{display:flex;flex-direction:column}
-.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:center;padding:20px 0;border-top:1px solid rgba(255,255,255,.16)}
-.row:first-child{border-top:0;padding-top:0}
-.row .pl{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#fff}
-.row .pl i{font-size:18px}
-.row h4{font-size:16px;font-weight:500;letter-spacing:-0.01em}
-.row p{font-size:13.5px;color:rgba(255,255,255,.66);line-height:1.45;margin-top:2px}
-.row .mlink{margin-top:10px;color:rgba(255,255,255,.8)}
-@media (max-width:1080px){.app .panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.phone-player{grid-column:2;grid-row:1/3;align-self:center}.rows{grid-column:1}}
-@media (max-width:760px){.app{padding:0 10px 64px}.app .panel{grid-template-columns:1fr}.phone-player{grid-column:auto;grid-row:auto}.rows{grid-column:auto}}
+.phone-player .shell{background:var(--dark);border-radius:40px;padding:8px;box-shadow:0 30px 60px rgba(2,33,40,.35),inset 0 0 0 1px rgba(255,255,255,.1);color:var(--ink)}
+.app-block{display:flex;flex-direction:column;gap:22px}
+.app-cards{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.acard{border-radius:var(--r);padding:20px 20px 24px;background:rgba(255,255,255,.07);display:flex;flex-direction:column;gap:10px;}
+.acard .ic{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-size:18px;color:var(--mint-400)}
+.acard h3{font-size:19px;font-weight:400;letter-spacing:-0.02em;line-height:1.15;margin-top:24px}
+.acard p{font-size:13.5px;line-height:1.45;color:rgba(255,255,255,.68)}
+.app-flow{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 clamp(20px,3vw,40px)}
+.app-flow li{display:grid;grid-template-columns:auto 1fr;column-gap:14px;row-gap:8px;align-items:center;align-content:start;padding-top:20px;border-top:1px solid rgba(255,255,255,.22)}
+.app-flow .n{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mint-400)}
+.app-flow .ic{justify-self:end;font-size:18px;color:rgba(255,255,255,.7)}
+.app-flow h3{grid-column:1/-1;font-size:clamp(22px,2vw,28px);font-weight:400;letter-spacing:-0.02em;line-height:1.08;margin-top:14px}
+.app-flow p{grid-column:1/-1;font-size:14.5px;line-height:1.45;color:rgba(255,255,255,.7);max-width:340px}
+.app-report{background:var(--mint-400);color:var(--ink);border-radius:var(--r);padding:clamp(24px,3.4vw,48px);display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:clamp(28px,4vw,64px);align-items:center}
+.app-report .txt{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.app-report .txt p{font-size:clamp(16px,1.25vw,18px);line-height:1.45;color:rgba(2,33,40,.78);max-width:480px}
+.report{background:#fff;border-radius:var(--r);padding:18px 18px 8px;display:flex;flex-direction:column;box-shadow:0 20px 40px rgba(2,33,40,.12)}
+.report-top{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.report-top .sent{display:inline-flex;align-items:center;gap:5px;color:var(--mint-700);white-space:nowrap}
+.report-row{display:grid;grid-template-columns:36px minmax(0,1fr) auto;gap:12px;align-items:center;padding:14px 0;border-top:1px solid var(--line-soft)}
+.report-row .ic{width:36px;height:36px;border-radius:50%;background:var(--mint-100);color:var(--mint-700);display:flex;align-items:center;justify-content:center;font-size:17px}
+.report-row.warn .ic{background:var(--tint-cream);color:#9a6a12}
+.report-row div{display:flex;flex-direction:column;gap:5px;min-width:0}
+.report-row .k{font-size:14px;font-weight:500;color:var(--ink)}
+.report-row .d{font-size:12px;color:var(--ink-3)}
+.report-row .bar{height:6px;border-radius:999px;background:var(--mint-100);overflow:hidden}
+.report-row .bar i{display:block;height:100%;background:var(--mint-700);border-radius:inherit}
+.report-row b{font-size:22px;font-weight:500;letter-spacing:-0.02em;color:var(--ink)}
+.app-close{display:flex;flex-direction:column;align-items:center;gap:22px;text-align:center}
+.app-close .cta-row{display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:center}
+.app-close .mono{color:rgba(255,255,255,.76)}
+.stores{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.store{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 16px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-size:13.5px;color:#fff;transition:background .2s,border-color .2s}
+.store:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.5)}
+.store i{font-size:16px}
+@media (max-width:1180px){.app-cards{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:900px){.app-flow{grid-template-columns:1fr;row-gap:28px}.app-report{grid-template-columns:1fr}}
+@media (max-width:760px){.app{padding:0 10px 64px}.app-head{grid-template-columns:1fr}.app-cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:520px){.app-cards{grid-template-columns:1fr}.acard{min-height:0}.acard h3{margin-top:14px}}
 
 /* ============================================================
    PREÇOS — hairline columns
@@ -371,27 +465,19 @@ section{scroll-margin-top:88px}
 </head>
 <body>
 
-<svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="wave" viewBox="0 0 16 26">
-    <path d="M13.5 5.5c-2.2 2.2-2.2 12.8 0 15"/>
-    <path d="M8.5 2.5c-3.8 3.6-3.8 17.4 0 21"/>
-    <path d="M3.5 0c-4.6 5-4.6 21 0 26"/>
-  </symbol>
-</svg>
-
 <!-- ============ NAV ============ -->
-<header class="nav">
-  <nav class="nav-pill" aria-label="Principal">
+<header class="nav on-dark">
+  <nav class="nav-pill glass" aria-label="Principal">
     <a class="nav-logo" href="#topo" aria-label="Revo — início">
-      <img class="ico" src="assets/revo-icon.svg" alt="">
-      <img src="assets/revo-wordmark-white.svg" alt="Revo">
+      <img class="wm-dark" src="assets/revo-wordmark.svg" alt="Revo">
+      <img class="wm-light" src="assets/revo-wordmark-white.svg" alt="">
     </a>
     <div class="nav-links">
-      <a href="#como-funciona">Como funciona</a>
-      <a href="#funcionalidades">Funcionalidades</a>
-      <a href="#app">App do aluno</a>
-      <a href="#precos">Preços</a>
-      <a href="/blog/">Blog</a>
+      <div class="nav-item" data-pane="como"><a href="#como-funciona">Como funciona</a></div>
+      <div class="nav-item" data-pane="func"><a href="#funcionalidades">Funcionalidades</a></div>
+      <div class="nav-item" data-pane="app"><a href="#app">App do aluno</a></div>
+      <div class="nav-item" data-pane="precos"><a href="#precos">Preços</a></div>
+      <div class="nav-item"><a href="/blog/">Blog</a></div>
     </div>
     <div class="nav-cta">
       <a class="ghost" href="/login">Entrar</a>
@@ -399,8 +485,59 @@ section{scroll-margin-top:88px}
       <button class="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
   </nav>
+
+  <div class="nav-drop" inert>
+    <div class="nav-drop-panel glass">
+      <div class="nav-drop-inner">
+        <div class="pane" data-pane="como">
+          <span class="lbl">Do convite ao primeiro pagamento</span>
+          <div class="hl">
+            <a href="#como-funciona"><span class="n">01</span><b>Crie a conta grátis</b><small>Teste com até 5 alunos, sem cartão</small></a>
+            <a href="#como-funciona"><span class="n">02</span><b>Mande o link pro aluno</b><small>Pix, Pix Automático, cartão ou boleto</small></a>
+            <a href="#como-funciona"><span class="n">03</span><b>Treino, dieta e protocolo</b><small>Você monta uma vez, chega no app</small></a>
+            <a href="#como-funciona"><span class="n">04</span><b>Acompanhe e receba todo mês</b><small>Cobrança recorrente, sem cobrar ninguém</small></a>
+          </div>
+        </div>
+        <div class="pane" data-pane="func">
+          <span class="lbl">Tudo que a sua consultoria precisa</span>
+          <div class="pi-grid">
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-barbell"></i></span><div><h4>Construtor de treino</h4><p>Treino A, B, C com biblioteca de exercícios.</p></div></a>
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-salad"></i></span><div><h4>Dieta com macros</h4><p>Kcal, proteína, carbo e gordura somados.</p></div></a>
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-camera"></i></span><div><h4>Check-in com fotos</h4><p>Peso, fotos e como foi a semana.</p></div></a>
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-cash"></i></span><div><h4>Cobrança recorrente</h4><p>Todo mês, sem você precisar cobrar.</p></div></a>
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-clipboard-text"></i></span><div><h4>Anamnese própria</h4><p>Seu questionário no primeiro acesso.</p></div></a>
+            <a class="pi" href="#funcionalidades"><span class="tile"><i class="ti ti-pill"></i></span><div><h4>Protocolo e suplementos</h4><p>Dose, horário e observações.</p></div></a>
+          </div>
+        </div>
+        <div class="pane" data-pane="app">
+          <span class="lbl">O que o seu aluno recebe</span>
+          <div class="pane-app">
+            <div class="pi-col">
+              <a class="pi wide" href="#app"><img src="assets/foto-app.jpg" alt="" loading="lazy"><div><h4>No dia a dia</h4><p>Treino guiado, dieta e protocolo num lugar só.</p></div></a>
+              <a class="pi wide" href="#app"><img src="assets/foto-como-funciona.jpg" alt="" loading="lazy"><div><h4>Acompanhamento</h4><p>Fotos, sono e aderência chegam no seu dashboard.</p></div></a>
+            </div>
+            <div class="hl">
+              <a href="#app"><i class="ti ti-hourglass"></i><b>Timer de descanso</b></a>
+              <a href="#app"><i class="ti ti-checklist"></i><b>Checklist de refeições</b></a>
+              <a href="#app"><i class="ti ti-calendar-check"></i><b>Check-in de treino</b></a>
+              <a href="#app"><i class="ti ti-bell"></i><b>Plano sempre atualizado</b></a>
+              <a href="#app"><i class="ti ti-report-analytics"></i><b>Relatórios semanais</b></a>
+            </div>
+          </div>
+        </div>
+        <div class="pane" data-pane="precos">
+          <span class="lbl">Comece grátis</span>
+          <div class="hl">
+            <a class="price-row" href="#precos"><div><b>Gratuito</b><small>Até 5 alunos, sem cartão</small></div><span>R$ 0<em>/mês</em></span></a>
+            <a class="price-row hi" href="#precos"><div><b>Revo Pro</b><small>Até 150 alunos, com protocolos</small></div><span>R$ 60<em>/mês</em></span></a>
+            <a class="price-row" href="#precos"><div><b>Revo Pro Max</b><small>Alunos ilimitados, com sua marca</small></div><span>R$ 120<em>/mês</em></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
-<div class="nav-menu" id="menu">
+<div class="nav-menu glass" id="menu">
   <a href="#como-funciona">Como funciona</a>
   <a href="#funcionalidades">Funcionalidades</a>
   <a href="#app">App do aluno</a>
@@ -413,12 +550,16 @@ section{scroll-margin-top:88px}
 <main>
 
 <!-- ============ HERO ============ -->
-<section id="topo" class="hero">
+<section id="topo" class="hero" data-nav="dark">
+  <div class="hero-media" aria-hidden="true">
+    <video muted loop playsinline preload="metadata" poster="assets/hero-atleta-poster.jpg" data-src="assets/hero-atleta.mp4" data-src-mobile="assets/hero-atleta-mobile.mp4"></video>
+  </div>
   <div class="hero-in">
     <span class="eyebrow reveal"><i class="mk"></i>Plataforma para consultores fitness</span>
-    <h1 class="display h-xl" data-split>Sua consultoria, do treino ao <em>PIX.</em></h1>
+    <h1 class="display h-hero" data-split>Entregue treino, dieta e protocolo. <br class="d"><em>Receba todo mês sem cobrar ninguém.</em></h1>
+    <p class="lead hero-sub reveal" data-d="1">O app de gestão da sua consultoria: seus alunos recebem tudo num lugar só, pagam de forma recorrente e você escala sem correr atrás de pagamento.</p>
     <div class="hero-ctas reveal" data-d="2">
-      <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn lg">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+      <a class="wave inv" href="/cadastro"><span class="btn lg mint">Começar grátis <i class="tri"></i></span></a>
       <a class="mlink" href="#como-funciona">Ver como funciona <i class="tri"></i></a>
     </div>
     <div class="hero-micro reveal" data-d="3"><span>Grátis até 5 alunos</span><span>Sem cartão pra começar</span><span>Cancele quando quiser</span></div>
@@ -427,7 +568,7 @@ section{scroll-margin-top:88px}
 </section>
 
 <section id="manifesto" class="statement">
-  <p class="reveal"><span class="nw">Treino <i class="ti ti-barbell"></i>,</span> <span class="nw">dieta <i class="ti ti-salad"></i>,</span> <span class="nw">protocolo <i class="ti ti-pill"></i>,</span> <span class="nw">check-in <i class="ti ti-camera"></i></span> e <span class="nw">cobrança <i class="ti ti-credit-card"></i></span> saem do seu dashboard <span class="faded">e chegam no app do aluno.</span></p>
+  <p class="reveal"><span class="nw">Check-in <i class="ti ti-camera"></i>,</span> <span class="nw">evolução <i class="ti ti-trending-up"></i></span> e <span class="nw">cobrança no PIX <i class="ti ti-cash"></i>,</span> <span class="faded">sem sair do app.</span></p>
 </section>
 
 <!-- ============ PRODUTO ============ -->
@@ -439,7 +580,7 @@ section{scroll-margin-top:88px}
         <h2 class="display h-lg reveal" data-d="1">Chega de treino em PDF e cobrança no WhatsApp.</h2>
       </div>
       <div class="col reveal" data-d="2">
-        <p class="lead">Cada aluno tem ficha, treino, dieta, protocolo, check-ins e pagamento na mesma tela. As pendências do dia aparecem no Resumo, junto com o saldo.</p>
+        <p class="lead">Cada aluno te atualiza pelo app e você devolve o protocolo que ele deve seguir, com total liberdade e a qualquer momento. Sua operação inteira roda pela Revo.</p>
         <a class="mlink" href="#funcionalidades">Ver funcionalidades <i class="tri"></i></a>
       </div>
     </div>
@@ -541,8 +682,8 @@ section{scroll-margin-top:88px}
     <div class="ed">
       <h2 class="display h-lg t1 reveal">Você manda um link.</h2>
       <div class="body-col reveal" data-d="1">
-        <p class="lead">Conta criada, você define a mensalidade e manda o convite. Do outro lado, o aluno paga, instala o app e responde a anamnese. O que você monta já aparece pra ele, e no dia certo o app pede o check-in.</p>
-        <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+        <p class="lead">Você manda o link, o aluno escolhe o plano e paga no Pix, Pix Automático, cartão ou boleto. O acesso ao app sai na hora, e a anamnese e os check-ins chegam no seu dashboard.</p>
+        <a class="wave" href="/cadastro"><span class="btn">Começar grátis <i class="tri"></i></span></a>
       </div>
       <h2 class="display h-lg t2 reveal" data-d="2">O aluno entra pagando.</h2>
       <span class="fig f1">Fig 01 — Convite</span>
@@ -551,10 +692,10 @@ section{scroll-margin-top:88px}
     </div>
 
     <div class="steps">
-      <article class="card blue reveal"><span class="eyebrow"><i class="mk"></i>01 — Conta</span><i class="ti ti-user-plus ic"></i><h3 class="h-sm">Crie a conta grátis</h3><p>Leva minutos e não pede cartão. Depois, defina a mensalidade que você cobra e ative o recebimento.</p></article>
-      <article class="card cream reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Convite</span><i class="ti ti-link ic"></i><h3 class="h-sm">Mande o link pro aluno</h3><p>Ele abre, preenche os dados, paga por PIX ou cartão e instala o app.</p></article>
+      <article class="card blue reveal"><span class="eyebrow"><i class="mk"></i>01 — Conta</span><i class="ti ti-user-plus ic"></i><h3 class="h-sm">Crie a conta grátis</h3><p>Teste de graça com até 5 alunos, sem cartão. Monte os planos da sua consultoria e ative o recebimento.</p></article>
+      <article class="card cream reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Convite</span><i class="ti ti-link ic"></i><h3 class="h-sm">Mande o link pro aluno</h3><p>Ele escolhe o plano, paga no Pix, Pix Automático, cartão ou boleto e já recebe acesso ao app.</p></article>
       <article class="card sage reveal" data-d="2"><span class="eyebrow"><i class="mk"></i>03 — Montagem</span><i class="ti ti-layout-list ic"></i><h3 class="h-sm">Treino, dieta e protocolo</h3><p>Você monta uma vez e tudo chega no app do aluno, com player guiado e macros somados.</p></article>
-      <article class="card dark reveal" data-d="3"><span class="eyebrow"><i class="mk"></i>04 — Retorno</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Acompanhe e saque via PIX</h3><p>No dia e hora que você definir, o app pede peso e fotos. Você compara, responde e saca o saldo.</p></article>
+      <article class="card dark reveal" data-d="3"><span class="eyebrow"><i class="mk"></i>04 — Retorno</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Acompanhe e receba todo mês</h3><p>O app pede o check-in no dia certo e você responde. A cobrança é recorrente: a Revo recebe dos alunos e repassa pra você, sem precisar cobrar ninguém.</p></article>
     </div>
 
     <figure class="photo photo-wide reveal">
@@ -564,61 +705,16 @@ section{scroll-margin-top:88px}
   </div>
 </section>
 
-<!-- ============ STATEMENT / ACCENT ============ -->
-<section id="receba" class="accent">
-  <div class="rays" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none" stroke="#ffffff" stroke-linecap="round" aria-hidden="true"><line x1="500.0" y1="200.0" x2="500.0" y2="30.0" stroke-width="3.2"/><line x1="529.6" y1="161.3" x2="541.0" y2="31.8" stroke-width="1.6"/><line x1="559.0" y1="165.2" x2="581.6" y2="37.1" stroke-width="1.6"/><line x1="588.0" y1="171.6" x2="621.6" y2="46.0" stroke-width="1.6"/><line x1="616.3" y1="180.5" x2="660.7" y2="58.3" stroke-width="1.6"/><line x1="643.7" y1="191.9" x2="698.6" y2="74.0" stroke-width="1.6"/><line x1="650.0" y1="240.2" x2="735.0" y2="93.0" stroke-width="3.2"/><line x1="695.0" y1="221.5" x2="769.6" y2="115.0" stroke-width="1.6"/><line x1="718.5" y1="239.5" x2="802.1" y2="140.0" stroke-width="1.6"/><line x1="740.4" y1="259.6" x2="832.3" y2="167.7" stroke-width="1.6"/><line x1="760.5" y1="281.5" x2="860.0" y2="197.9" stroke-width="1.6"/><line x1="778.5" y1="305.0" x2="885.0" y2="230.4" stroke-width="1.6"/><line x1="759.8" y1="350.0" x2="907.0" y2="265.0" stroke-width="3.2"/><line x1="808.1" y1="356.3" x2="926.0" y2="301.4" stroke-width="1.6"/><line x1="819.5" y1="383.7" x2="941.7" y2="339.3" stroke-width="1.6"/><line x1="828.4" y1="412.0" x2="954.0" y2="378.4" stroke-width="1.6"/><line x1="834.8" y1="441.0" x2="962.9" y2="418.4" stroke-width="1.6"/><line x1="838.7" y1="470.4" x2="968.2" y2="459.0" stroke-width="1.6"/><line x1="800.0" y1="500.0" x2="970.0" y2="500.0" stroke-width="3.2"/><line x1="838.7" y1="529.6" x2="968.2" y2="541.0" stroke-width="1.6"/><line x1="834.8" y1="559.0" x2="962.9" y2="581.6" stroke-width="1.6"/><line x1="828.4" y1="588.0" x2="954.0" y2="621.6" stroke-width="1.6"/><line x1="819.5" y1="616.3" x2="941.7" y2="660.7" stroke-width="1.6"/><line x1="808.1" y1="643.7" x2="926.0" y2="698.6" stroke-width="1.6"/><line x1="759.8" y1="650.0" x2="907.0" y2="735.0" stroke-width="3.2"/><line x1="778.5" y1="695.0" x2="885.0" y2="769.6" stroke-width="1.6"/><line x1="760.5" y1="718.5" x2="860.0" y2="802.1" stroke-width="1.6"/><line x1="740.4" y1="740.4" x2="832.3" y2="832.3" stroke-width="1.6"/><line x1="718.5" y1="760.5" x2="802.1" y2="860.0" stroke-width="1.6"/><line x1="695.0" y1="778.5" x2="769.6" y2="885.0" stroke-width="1.6"/><line x1="650.0" y1="759.8" x2="735.0" y2="907.0" stroke-width="3.2"/><line x1="643.7" y1="808.1" x2="698.6" y2="926.0" stroke-width="1.6"/><line x1="616.3" y1="819.5" x2="660.7" y2="941.7" stroke-width="1.6"/><line x1="588.0" y1="828.4" x2="621.6" y2="954.0" stroke-width="1.6"/><line x1="559.0" y1="834.8" x2="581.6" y2="962.9" stroke-width="1.6"/><line x1="529.6" y1="838.7" x2="541.0" y2="968.2" stroke-width="1.6"/><line x1="500.0" y1="800.0" x2="500.0" y2="970.0" stroke-width="3.2"/><line x1="470.4" y1="838.7" x2="459.0" y2="968.2" stroke-width="1.6"/><line x1="441.0" y1="834.8" x2="418.4" y2="962.9" stroke-width="1.6"/><line x1="412.0" y1="828.4" x2="378.4" y2="954.0" stroke-width="1.6"/><line x1="383.7" y1="819.5" x2="339.3" y2="941.7" stroke-width="1.6"/><line x1="356.3" y1="808.1" x2="301.4" y2="926.0" stroke-width="1.6"/><line x1="350.0" y1="759.8" x2="265.0" y2="907.0" stroke-width="3.2"/><line x1="305.0" y1="778.5" x2="230.4" y2="885.0" stroke-width="1.6"/><line x1="281.5" y1="760.5" x2="197.9" y2="860.0" stroke-width="1.6"/><line x1="259.6" y1="740.4" x2="167.7" y2="832.3" stroke-width="1.6"/><line x1="239.5" y1="718.5" x2="140.0" y2="802.1" stroke-width="1.6"/><line x1="221.5" y1="695.0" x2="115.0" y2="769.6" stroke-width="1.6"/><line x1="240.2" y1="650.0" x2="93.0" y2="735.0" stroke-width="3.2"/><line x1="191.9" y1="643.7" x2="74.0" y2="698.6" stroke-width="1.6"/><line x1="180.5" y1="616.3" x2="58.3" y2="660.7" stroke-width="1.6"/><line x1="171.6" y1="588.0" x2="46.0" y2="621.6" stroke-width="1.6"/><line x1="165.2" y1="559.0" x2="37.1" y2="581.6" stroke-width="1.6"/><line x1="161.3" y1="529.6" x2="31.8" y2="541.0" stroke-width="1.6"/><line x1="200.0" y1="500.0" x2="30.0" y2="500.0" stroke-width="3.2"/><line x1="161.3" y1="470.4" x2="31.8" y2="459.0" stroke-width="1.6"/><line x1="165.2" y1="441.0" x2="37.1" y2="418.4" stroke-width="1.6"/><line x1="171.6" y1="412.0" x2="46.0" y2="378.4" stroke-width="1.6"/><line x1="180.5" y1="383.7" x2="58.3" y2="339.3" stroke-width="1.6"/><line x1="191.9" y1="356.3" x2="74.0" y2="301.4" stroke-width="1.6"/><line x1="240.2" y1="350.0" x2="93.0" y2="265.0" stroke-width="3.2"/><line x1="221.5" y1="305.0" x2="115.0" y2="230.4" stroke-width="1.6"/><line x1="239.5" y1="281.5" x2="140.0" y2="197.9" stroke-width="1.6"/><line x1="259.6" y1="259.6" x2="167.7" y2="167.7" stroke-width="1.6"/><line x1="281.5" y1="239.5" x2="197.9" y2="140.0" stroke-width="1.6"/><line x1="305.0" y1="221.5" x2="230.4" y2="115.0" stroke-width="1.6"/><line x1="350.0" y1="240.2" x2="265.0" y2="93.0" stroke-width="3.2"/><line x1="356.3" y1="191.9" x2="301.4" y2="74.0" stroke-width="1.6"/><line x1="383.7" y1="180.5" x2="339.3" y2="58.3" stroke-width="1.6"/><line x1="412.0" y1="171.6" x2="378.4" y2="46.0" stroke-width="1.6"/><line x1="441.0" y1="165.2" x2="418.4" y2="37.1" stroke-width="1.6"/><line x1="470.4" y1="161.3" x2="459.0" y2="31.8" stroke-width="1.6"/></svg></div>
-  <div class="accent-in">
-    <span class="eyebrow reveal"><i class="mk"></i>Cobrança e saque</span>
-    <h2 class="display h-lg reveal" data-d="1">O aluno paga pelo link.<br class="d">O dinheiro cai na sua conta.</h2>
-    <p class="reveal" data-d="2">A cobrança se repete todo mês, por PIX ou cartão. A Revo fica só com a taxa e você saca via PIX quando quiser. Sem maquininha, sem cobrar um por um.</p>
-    <a class="wave reveal" data-d="3" href="#precos"><svg><use href="#wave"/></svg><span class="btn">Ver preços <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
-  </div>
-  <div class="corners">
-    <a class="corner tl mlink" href="#funcionalidades">Check-in com fotos <i class="tri"></i></a>
-    <a class="corner tr mlink" href="#precos">PIX e cartão <i class="tri"></i></a>
-    <a class="corner bl mlink" href="#app">App do aluno <i class="tri"></i></a>
-    <a class="corner br mlink" href="#funcionalidades">Anamnese própria <i class="tri"></i></a>
-  </div>
-</section>
-
-<!-- ============ FUNCIONALIDADES ============ -->
-<section id="funcionalidades" class="sec">
-  <div class="wrap">
-    <div class="func-head">
-      <div class="col">
-        <span class="eyebrow reveal"><i class="mk"></i>Funcionalidades</span>
-        <h2 class="display h-lg reveal" data-d="1">Tudo que a consultoria precisa. Nada que não precisa.</h2>
-      </div>
-      <div class="col reveal" data-d="2">
-        <p class="lead">Pra personal, nutri e coach online. Cada peça abaixo já está no produto. Nada aqui é promessa.</p>
-      </div>
-    </div>
-    <div class="func-grid">
-      <article class="card ice span2 reveal"><span class="eyebrow"><i class="mk"></i>01 — Treino</span><i class="ti ti-barbell ic"></i><h3 class="h-sm">Construtor de treino</h3><p>Treino A, B, C por aluno. Use a biblioteca de exercícios ou crie o seu, com séries, reps, descanso e observações. Arraste pra ordenar.</p></article>
-      <article class="card dark reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Financeiro</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Cobrança recorrente</h3><p>PIX ou cartão, todo mês, sem você precisar cobrar. O valor cai na sua conta. Extrato e próximos recebimentos ficam no Financeiro.</p></article>
-      <article class="card cream reveal"><span class="eyebrow"><i class="mk"></i>03 — Dieta</span><i class="ti ti-salad ic"></i><h3 class="h-sm">Dieta com macros</h3><p>Refeições e alimentos com kcal, proteína, carbo e gordura somados na hora. Substituições e observações por item.</p></article>
-      <article class="card blue span2 reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>04 — Check-in</span><i class="ti ti-camera ic"></i><h3 class="h-sm">Check-in com fotos</h3><p>No dia que você definir, o app pede peso, fotos de frente, lado e costas, energia, sono e dieta. Você compara semanas e responde.</p></article>
-      <article class="card mint reveal"><span class="eyebrow"><i class="mk"></i>05 — Anamnese</span><i class="ti ti-clipboard-text ic"></i><h3 class="h-sm">Anamnese própria</h3><p>Monte seu questionário com texto, número, escolha ou foto. O aluno responde no primeiro acesso.</p></article>
-      <article class="card sage reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>06 — Status</span><i class="ti ti-bell-ringing ic"></i><h3 class="h-sm">Quem está em dia</h3><p>Em dia, pendente ou atrasado: o status de cada aluno no Resumo. Você vê quem atrasou sem abrir extrato nem puxar assunto.</p></article>
-      <article class="card ice reveal" data-d="2"><span class="eyebrow"><i class="mk"></i>07 — Protocolo</span><i class="ti ti-pill ic"></i><h3 class="h-sm">Protocolo e suplementos</h3><p>Suplementos, vitaminas e extras com dose, horário e observações. O aluno marca como tomado.</p></article>
-    </div>
-  </div>
-</section>
-
 <!-- ============ APP DO ALUNO ============ -->
 <section id="app" class="app">
-  <div class="panel">
-    <div class="text">
-      <span class="eyebrow inv reveal"><i class="mk"></i>Pro aluno</span>
-      <h2 class="display h-lg reveal" data-d="1">O que você monta, o aluno vê no app.</h2>
-      <p class="lead reveal" data-d="2">Treino do dia com player guiado, dieta, protocolo e o check-in da semana. O que ele envia volta pro seu dashboard.</p>
-      <div class="stores reveal" data-d="3">
-        <span class="store"><i class="ti ti-brand-apple"></i>App Store <span class="soon">em breve</span></span>
-        <span class="store"><i class="ti ti-brand-google-play"></i>Google Play <span class="soon">em breve</span></span>
+  <div class="panel" data-nav="dark">
+    <div class="app-head">
+      <div class="text">
+        <span class="eyebrow inv reveal"><i class="mk"></i>App do aluno</span>
+        <h2 class="display h-lg reveal" data-d="1">O que o seu aluno recebe.</h2>
+        <p class="lead reveal" data-d="2">A melhor experiência pro seu aluno seguir o treino, a dieta e o protocolo que você passou. Ele usa no dia a dia, e você recebe tudo no seu dashboard.</p>
       </div>
-      <a class="mlink reveal" data-d="3" href="/aluno" style="color:#fff">Ou acesse pelo navegador <i class="tri"></i></a>
-    </div>
-    <div class="phone-player reveal" data-d="1">
+      <div class="phone-player reveal" data-d="1">
 <div class="phone-player-inner">
 <div class="shell">
 <div style="background:#f4f8f7;border-radius:32px;overflow:hidden;height:524px;display:flex;flex-direction:column">
@@ -643,11 +739,95 @@ section{scroll-margin-top:88px}
 </div>
 </div>
     </div>
-    <div class="rows reveal" data-d="2">
-      <div class="row"><span class="pl"><i class="ti ti-player-play"></i></span><div><h4>Player guiado</h4><p>Timer de descanso, +15s, marcar série feita e registrar a carga.</p></div></div>
-      <div class="row"><span class="pl"><i class="ti ti-salad"></i></span><div><h4>Dieta e protocolo</h4><p>Macros, substituições e suplementos com horário, pra marcar o que já tomou.</p></div></div>
-      <div class="row"><span class="pl"><i class="ti ti-camera"></i></span><div><h4>Check-in em 2 minutos</h4><p>Peso, fotos e como foi a semana. Sua resposta chega no app.</p></div></div>
-      <div class="row"><span class="pl"><i class="ti ti-credit-card"></i></span><div><h4>PIX ou cartão</h4><p>O aluno troca a forma de pagamento ou cancela sozinho, sem passar por você.</p></div></div>
+
+    </div>
+
+    <div class="app-block">
+      <span class="eyebrow inv reveal"><i class="mk"></i>No dia a dia do aluno</span>
+      <div class="app-cards">
+        <article class="acard reveal"><i class="ti ti-hourglass ic"></i><h3>Timer de descanso</h3><p>O app conta o descanso entre as séries, sem o aluno precisar de outro app.</p></article>
+        <article class="acard reveal" data-d="1"><i class="ti ti-checklist ic"></i><h3>Checklist de refeições</h3><p>O aluno marca cada refeição feita no dia e não se perde na dieta.</p></article>
+        <article class="acard reveal" data-d="2"><i class="ti ti-calendar-check ic"></i><h3>Check-in de treino</h3><p>Cada treino concluído fica registrado pra você acompanhar a constância.</p></article>
+        <article class="acard reveal" data-d="3"><i class="ti ti-send ic"></i><h3>Atualizações pro coach</h3><p>Fotos do físico, feedback do protocolo, sono e aderência, enviados direto pelo app.</p></article>
+        <article class="acard reveal" data-d="4"><i class="ti ti-bell ic"></i><h3>Plano sempre atualizado</h3><p>Quando você ajusta alguma coisa, ele recebe a notificação e já segue a versão nova.</p></article>
+      </div>
+    </div>
+
+    <div class="app-block">
+      <span class="eyebrow inv reveal"><i class="mk"></i>O acompanhamento, sem esforço</span>
+      <ol class="app-flow">
+        <li class="reveal"><span class="n">01</span><i class="ti ti-send ic"></i><h3>O aluno envia</h3><p>Fotos, feedback, sono e aderência, tudo pelo app.</p></li>
+        <li class="reveal" data-d="1"><span class="n">02</span><i class="ti ti-inbox ic"></i><h3>Você recebe</h3><p>Chega no seu dashboard automaticamente, organizado por aluno. Sem print perdido no WhatsApp.</p></li>
+        <li class="reveal" data-d="2"><span class="n">03</span><i class="ti ti-adjustments-horizontal ic"></i><h3>Você ajusta</h3><p>Mudou treino, dieta ou protocolo? O aluno é notificado na hora e toca o plano.</p></li>
+      </ol>
+    </div>
+
+    <div class="app-report reveal">
+      <div class="txt">
+        <span class="eyebrow"><i class="mk"></i>Relatórios</span>
+        <h3 class="display h-md">Veja a evolução de cada aluno em segundos.</h3>
+        <p>Relatórios sobre aderência dos alunos, crescimento da consultoria e pontos de atenção, gerados semanalmente e enviados para você.</p>
+      </div>
+      <div class="report" aria-hidden="true">
+        <div class="report-top"><span>Relatório semanal · Semana 12</span><span class="sent"><i class="ti ti-circle-check"></i>Enviado</span></div>
+        <div class="report-row"><span class="ic"><i class="ti ti-circle-check"></i></span><div><span class="k">Aderência dos alunos</span><span class="bar"><i style="width:87%"></i></span></div><b>87%</b></div>
+        <div class="report-row"><span class="ic"><i class="ti ti-trending-up"></i></span><div><span class="k">Crescimento da consultoria</span><span class="d">+4 alunos ativos no mês</span></div><b>+12%</b></div>
+        <div class="report-row warn"><span class="ic"><i class="ti ti-alert-triangle"></i></span><div><span class="k">Pontos de atenção</span><span class="d">2 sem check-in · 1 com pagamento atrasado</span></div><b>3</b></div>
+      </div>
+    </div>
+
+    <div class="app-close reveal">
+      <div class="cta-row">
+        <a class="wave inv" href="/cadastro"><span class="btn lg mint">Começar grátis <i class="tri"></i></span></a>
+        <span class="mono">Teste com até 5 alunos</span>
+      </div>
+      <!-- App ainda não publicado nas lojas: os botões levam ao cadastro.
+           Quando sair, trocar o href pelo link da loja (apps.apple.com / play.google.com). -->
+      <div class="stores">
+        <a class="store" href="/cadastro"><i class="ti ti-brand-apple"></i>App Store</a>
+        <a class="store" href="/cadastro"><i class="ti ti-brand-google-play"></i>Google Play</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATEMENT / ACCENT ============ -->
+<section id="receba" class="accent">
+  <div class="rays" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none" stroke="#ffffff" stroke-linecap="round" aria-hidden="true"><line x1="500.0" y1="200.0" x2="500.0" y2="30.0" stroke-width="3.2"/><line x1="529.6" y1="161.3" x2="541.0" y2="31.8" stroke-width="1.6"/><line x1="559.0" y1="165.2" x2="581.6" y2="37.1" stroke-width="1.6"/><line x1="588.0" y1="171.6" x2="621.6" y2="46.0" stroke-width="1.6"/><line x1="616.3" y1="180.5" x2="660.7" y2="58.3" stroke-width="1.6"/><line x1="643.7" y1="191.9" x2="698.6" y2="74.0" stroke-width="1.6"/><line x1="650.0" y1="240.2" x2="735.0" y2="93.0" stroke-width="3.2"/><line x1="695.0" y1="221.5" x2="769.6" y2="115.0" stroke-width="1.6"/><line x1="718.5" y1="239.5" x2="802.1" y2="140.0" stroke-width="1.6"/><line x1="740.4" y1="259.6" x2="832.3" y2="167.7" stroke-width="1.6"/><line x1="760.5" y1="281.5" x2="860.0" y2="197.9" stroke-width="1.6"/><line x1="778.5" y1="305.0" x2="885.0" y2="230.4" stroke-width="1.6"/><line x1="759.8" y1="350.0" x2="907.0" y2="265.0" stroke-width="3.2"/><line x1="808.1" y1="356.3" x2="926.0" y2="301.4" stroke-width="1.6"/><line x1="819.5" y1="383.7" x2="941.7" y2="339.3" stroke-width="1.6"/><line x1="828.4" y1="412.0" x2="954.0" y2="378.4" stroke-width="1.6"/><line x1="834.8" y1="441.0" x2="962.9" y2="418.4" stroke-width="1.6"/><line x1="838.7" y1="470.4" x2="968.2" y2="459.0" stroke-width="1.6"/><line x1="800.0" y1="500.0" x2="970.0" y2="500.0" stroke-width="3.2"/><line x1="838.7" y1="529.6" x2="968.2" y2="541.0" stroke-width="1.6"/><line x1="834.8" y1="559.0" x2="962.9" y2="581.6" stroke-width="1.6"/><line x1="828.4" y1="588.0" x2="954.0" y2="621.6" stroke-width="1.6"/><line x1="819.5" y1="616.3" x2="941.7" y2="660.7" stroke-width="1.6"/><line x1="808.1" y1="643.7" x2="926.0" y2="698.6" stroke-width="1.6"/><line x1="759.8" y1="650.0" x2="907.0" y2="735.0" stroke-width="3.2"/><line x1="778.5" y1="695.0" x2="885.0" y2="769.6" stroke-width="1.6"/><line x1="760.5" y1="718.5" x2="860.0" y2="802.1" stroke-width="1.6"/><line x1="740.4" y1="740.4" x2="832.3" y2="832.3" stroke-width="1.6"/><line x1="718.5" y1="760.5" x2="802.1" y2="860.0" stroke-width="1.6"/><line x1="695.0" y1="778.5" x2="769.6" y2="885.0" stroke-width="1.6"/><line x1="650.0" y1="759.8" x2="735.0" y2="907.0" stroke-width="3.2"/><line x1="643.7" y1="808.1" x2="698.6" y2="926.0" stroke-width="1.6"/><line x1="616.3" y1="819.5" x2="660.7" y2="941.7" stroke-width="1.6"/><line x1="588.0" y1="828.4" x2="621.6" y2="954.0" stroke-width="1.6"/><line x1="559.0" y1="834.8" x2="581.6" y2="962.9" stroke-width="1.6"/><line x1="529.6" y1="838.7" x2="541.0" y2="968.2" stroke-width="1.6"/><line x1="500.0" y1="800.0" x2="500.0" y2="970.0" stroke-width="3.2"/><line x1="470.4" y1="838.7" x2="459.0" y2="968.2" stroke-width="1.6"/><line x1="441.0" y1="834.8" x2="418.4" y2="962.9" stroke-width="1.6"/><line x1="412.0" y1="828.4" x2="378.4" y2="954.0" stroke-width="1.6"/><line x1="383.7" y1="819.5" x2="339.3" y2="941.7" stroke-width="1.6"/><line x1="356.3" y1="808.1" x2="301.4" y2="926.0" stroke-width="1.6"/><line x1="350.0" y1="759.8" x2="265.0" y2="907.0" stroke-width="3.2"/><line x1="305.0" y1="778.5" x2="230.4" y2="885.0" stroke-width="1.6"/><line x1="281.5" y1="760.5" x2="197.9" y2="860.0" stroke-width="1.6"/><line x1="259.6" y1="740.4" x2="167.7" y2="832.3" stroke-width="1.6"/><line x1="239.5" y1="718.5" x2="140.0" y2="802.1" stroke-width="1.6"/><line x1="221.5" y1="695.0" x2="115.0" y2="769.6" stroke-width="1.6"/><line x1="240.2" y1="650.0" x2="93.0" y2="735.0" stroke-width="3.2"/><line x1="191.9" y1="643.7" x2="74.0" y2="698.6" stroke-width="1.6"/><line x1="180.5" y1="616.3" x2="58.3" y2="660.7" stroke-width="1.6"/><line x1="171.6" y1="588.0" x2="46.0" y2="621.6" stroke-width="1.6"/><line x1="165.2" y1="559.0" x2="37.1" y2="581.6" stroke-width="1.6"/><line x1="161.3" y1="529.6" x2="31.8" y2="541.0" stroke-width="1.6"/><line x1="200.0" y1="500.0" x2="30.0" y2="500.0" stroke-width="3.2"/><line x1="161.3" y1="470.4" x2="31.8" y2="459.0" stroke-width="1.6"/><line x1="165.2" y1="441.0" x2="37.1" y2="418.4" stroke-width="1.6"/><line x1="171.6" y1="412.0" x2="46.0" y2="378.4" stroke-width="1.6"/><line x1="180.5" y1="383.7" x2="58.3" y2="339.3" stroke-width="1.6"/><line x1="191.9" y1="356.3" x2="74.0" y2="301.4" stroke-width="1.6"/><line x1="240.2" y1="350.0" x2="93.0" y2="265.0" stroke-width="3.2"/><line x1="221.5" y1="305.0" x2="115.0" y2="230.4" stroke-width="1.6"/><line x1="239.5" y1="281.5" x2="140.0" y2="197.9" stroke-width="1.6"/><line x1="259.6" y1="259.6" x2="167.7" y2="167.7" stroke-width="1.6"/><line x1="281.5" y1="239.5" x2="197.9" y2="140.0" stroke-width="1.6"/><line x1="305.0" y1="221.5" x2="230.4" y2="115.0" stroke-width="1.6"/><line x1="350.0" y1="240.2" x2="265.0" y2="93.0" stroke-width="3.2"/><line x1="356.3" y1="191.9" x2="301.4" y2="74.0" stroke-width="1.6"/><line x1="383.7" y1="180.5" x2="339.3" y2="58.3" stroke-width="1.6"/><line x1="412.0" y1="171.6" x2="378.4" y2="46.0" stroke-width="1.6"/><line x1="441.0" y1="165.2" x2="418.4" y2="37.1" stroke-width="1.6"/><line x1="470.4" y1="161.3" x2="459.0" y2="31.8" stroke-width="1.6"/></svg></div>
+  <div class="accent-in">
+    <span class="eyebrow reveal"><i class="mk"></i>Cobrança e saque</span>
+    <h2 class="display h-lg reveal" data-d="1">O aluno paga pelo link.<br class="d">O dinheiro cai na sua conta.</h2>
+    <p class="reveal" data-d="2">A cobrança se repete todo mês, por PIX ou cartão. A Revo fica só com a taxa e você saca via PIX quando quiser. Sem maquininha, sem cobrar um por um.</p>
+    <a class="wave reveal" data-d="3" href="#precos"><span class="btn">Ver preços <i class="tri"></i></span></a>
+  </div>
+  <div class="corners">
+    <a class="corner tl mlink" href="#funcionalidades">Check-in com fotos <i class="tri"></i></a>
+    <a class="corner tr mlink" href="#precos">PIX e cartão <i class="tri"></i></a>
+    <a class="corner bl mlink" href="#app">App do aluno <i class="tri"></i></a>
+    <a class="corner br mlink" href="#funcionalidades">Anamnese própria <i class="tri"></i></a>
+  </div>
+</section>
+
+<!-- ============ FUNCIONALIDADES ============ -->
+<section id="funcionalidades" class="sec">
+  <div class="wrap">
+    <div class="func-head">
+      <div class="col">
+        <span class="eyebrow reveal"><i class="mk"></i>Funcionalidades</span>
+        <h2 class="display h-lg reveal" data-d="1">Tudo que a sua consultoria precisa.</h2>
+      </div>
+      <div class="col reveal" data-d="2">
+        <p class="lead">Pra personal, nutri e coach online. Cada peça abaixo já está no produto. Nada aqui é promessa.</p>
+      </div>
+    </div>
+    <div class="func-grid">
+      <article class="card ice span2 reveal"><span class="eyebrow"><i class="mk"></i>01 — Treino</span><i class="ti ti-barbell ic"></i><h3 class="h-sm">Construtor de treino</h3><p>Treino A, B, C por aluno. Use a biblioteca de exercícios ou crie o seu, com séries, reps, descanso e observações. Arraste pra ordenar.</p></article>
+      <article class="card dark reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Financeiro</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Cobrança recorrente</h3><p>PIX ou cartão, todo mês, sem você precisar cobrar. O valor cai na sua conta. Extrato e próximos recebimentos ficam no Financeiro.</p></article>
+      <article class="card cream reveal"><span class="eyebrow"><i class="mk"></i>03 — Dieta</span><i class="ti ti-salad ic"></i><h3 class="h-sm">Dieta com macros</h3><p>Refeições e alimentos com kcal, proteína, carbo e gordura somados na hora. Substituições e observações por item.</p></article>
+      <article class="card blue span2 reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>04 — Check-in</span><i class="ti ti-camera ic"></i><h3 class="h-sm">Check-in com fotos</h3><p>No dia que você definir, o app pede peso, fotos de frente, lado e costas, energia, sono e dieta. Você compara semanas e responde.</p></article>
+      <article class="card mint reveal"><span class="eyebrow"><i class="mk"></i>05 — Anamnese</span><i class="ti ti-clipboard-text ic"></i><h3 class="h-sm">Anamnese própria</h3><p>Monte seu questionário com texto, número, escolha ou foto. O aluno responde no primeiro acesso.</p></article>
+      <article class="card sage reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>06 — Status</span><i class="ti ti-bell-ringing ic"></i><h3 class="h-sm">Quem está em dia</h3><p>Em dia, pendente ou atrasado: o status de cada aluno no Resumo. Você vê quem atrasou sem abrir extrato nem puxar assunto.</p></article>
+      <article class="card ice reveal" data-d="2"><span class="eyebrow"><i class="mk"></i>07 — Protocolo</span><i class="ti ti-pill ic"></i><h3 class="h-sm">Protocolo e suplementos</h3><p>Suplementos, vitaminas e extras com dose, horário e observações. O aluno marca como tomado.</p></article>
     </div>
   </div>
 </section>
@@ -677,7 +857,7 @@ section{scroll-margin-top:88px}
         <div class="top"><span class="eyebrow"><i class="mk"></i>Revo Pro</span><span class="rec">Recomendado</span></div>
         <div class="price"><b>R$ 60</b><span>/ mês</span></div>
         <p class="desc">Até 150 alunos, com protocolos.</p>
-        <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn">Assinar o Pro <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+        <a class="wave" href="/cadastro"><span class="btn">Assinar o Pro <i class="tri"></i></span></a>
         <ul>
           <li><i class="tri"></i>Até 150 alunos</li>
           <li><i class="tri"></i>Protocolos e suplementos</li>
@@ -712,7 +892,7 @@ section{scroll-margin-top:88px}
         <h2 class="display h-xl reveal" data-d="1">Seu próximo aluno pode entrar hoje.</h2>
         <p class="lead reveal" data-d="2">Grátis até 5 alunos, sem cartão pra começar. Ele paga pelo link e você saca o saldo via PIX.</p>
         <div class="btns reveal" data-d="3">
-          <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn lg">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+          <a class="wave" href="/cadastro"><span class="btn lg">Começar grátis <i class="tri"></i></span></a>
           <a class="mlink" href="/login">Já tenho conta <i class="tri"></i></a>
         </div>
       </div>
@@ -734,7 +914,7 @@ section{scroll-margin-top:88px}
 </main>
 
 <!-- ============ FOOTER ============ -->
-<footer class="footer">
+<footer class="footer" data-nav="dark">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
@@ -775,6 +955,14 @@ section{scroll-margin-top:88px}
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.querySelector('.hero').classList.add('in'); }); });
   }
 
+  // hero background video (lighter file on small screens; poster only with reduced motion)
+  var hv = document.querySelector('.hero-media video');
+  if (hv && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
+    hv.src = window.innerWidth <= 760 ? hv.dataset.srcMobile : hv.dataset.src;
+    hv.muted = true;
+    var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
+  }
+
   // scroll reveal
   var els = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
@@ -788,6 +976,70 @@ section{scroll-margin-top:88px}
   var stage = document.getElementById('dashStage');
   function fit(){ if (!stage) return; var w = stage.clientWidth; if (w) stage.style.setProperty('--s', Math.min(1, w / 1120)); }
   if (stage) { fit(); if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage); window.addEventListener('resize', fit); }
+
+  // nav: glass tint follows what is behind it ([data-nav="dark"] → light text)
+  var nav = document.querySelector('.nav');
+  if (nav) {
+    var navTick = false;
+    function navTheme(){
+      navTick = false;
+      var y = 44, x = window.innerWidth / 2, dark = false;
+      var els = document.elementsFromPoint ? document.elementsFromPoint(x, y) : [];
+      for (var k = 0; k < els.length; k++) {
+        if (nav.contains(els[k]) || els[k].closest('#menu')) continue;
+        dark = !!els[k].closest('[data-nav="dark"]'); break;
+      }
+      nav.classList.toggle('on-dark', dark);
+    }
+    window.addEventListener('scroll', function(){ if (!navTick) { navTick = true; requestAnimationFrame(navTheme); } }, { passive: true });
+    window.addEventListener('resize', navTheme);
+    navTheme();
+  }
+
+  // nav: hover menus — one glass panel that slides and resizes between items
+  var drop = document.querySelector('.nav-drop');
+  if (nav && drop && window.matchMedia && matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    var panel = drop.querySelector('.nav-drop-panel'), items = nav.querySelectorAll('.nav-item[data-pane]'), panes = drop.querySelectorAll('.pane');
+    var current = null, closeT = null;
+    function show(item){
+      clearTimeout(closeT);
+      var key = item.dataset.pane, pane = drop.querySelector('.pane[data-pane="' + key + '"]');
+      if (!pane || current === key) return;
+      var wasOpen = drop.classList.contains('open');
+      drop.classList.toggle('instant', !wasOpen);
+      items.forEach(function(it){ it.classList.toggle('active', it === item); });
+      panes.forEach(function(p){ p.classList.toggle('on', p === pane); });
+      var w = pane.offsetWidth, h = pane.offsetHeight;
+      panel.style.width = w + 'px'; panel.style.height = h + 'px';
+      var nb = nav.getBoundingClientRect(), ib = item.getBoundingClientRect();
+      var left = ib.left + ib.width / 2 - w / 2 - nb.left;
+      left = Math.max(16 - nb.left, Math.min(left, nb.width - (16 - nb.left) - w));
+      drop.style.left = left + 'px';
+      drop.style.top = (nav.querySelector('.nav-pill').getBoundingClientRect().bottom - nb.top) + 'px';
+      if (!wasOpen) { void drop.offsetWidth; drop.classList.add('open'); drop.removeAttribute('inert'); requestAnimationFrame(function(){ drop.classList.remove('instant'); }); }
+      current = key;
+    }
+    function hide(){
+      drop.classList.remove('open'); drop.setAttribute('inert', '');
+      items.forEach(function(it){ it.classList.remove('active'); });
+      current = null;
+    }
+    function later(){ clearTimeout(closeT); closeT = setTimeout(hide, 140); }
+    items.forEach(function(it){
+      it.addEventListener('mouseenter', function(){ show(it); });
+      it.querySelector('a').addEventListener('focus', function(){ show(it); });
+    });
+    nav.querySelector('.nav-logo').addEventListener('mouseenter', later);
+    nav.querySelectorAll('.nav-item:not([data-pane])').forEach(function(it){ it.addEventListener('mouseenter', later); });
+    nav.querySelector('.nav-cta').addEventListener('mouseenter', later);
+    nav.querySelector('.nav-pill').addEventListener('mouseleave', later);
+    drop.addEventListener('mouseenter', function(){ clearTimeout(closeT); });
+    drop.addEventListener('mouseleave', later);
+    drop.addEventListener('click', function(e){ if (e.target.closest('a')) hide(); });
+    nav.addEventListener('focusout', function(e){ if (!nav.contains(e.relatedTarget)) hide(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && current) { hide(); } });
+    window.addEventListener('scroll', function(){ if (current) hide(); }, { passive: true });
+  }
 
   // mobile menu
   var burger = document.querySelector('.nav-burger'), menu = document.getElementById('menu');
