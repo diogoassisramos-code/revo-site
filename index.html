@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Revo — Plataforma para consultores fitness</title>
+<meta name="description" content="Sua consultoria, do treino ao PIX. Treino, dieta, protocolo, check-in com fotos e cobrança por PIX ou cartão saem do seu dashboard e chegam no app do aluno. Grátis até 5 alunos.">
+<meta name="theme-color" content="#04453d">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Revo">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="Revo — Sua consultoria, do treino ao PIX.">
+<meta property="og:description" content="Plataforma para consultores fitness. Treino, dieta, protocolo, check-in com fotos e cobrança por PIX ou cartão — grátis até 5 alunos.">
+<meta property="og:image" content="/assets/og-revo.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Revo — Sua consultoria, do treino ao PIX.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Revo — Sua consultoria, do treino ao PIX.">
+<meta name="twitter:description" content="Plataforma para consultores fitness. Grátis até 5 alunos, sem cartão pra começar.">
+<meta name="twitter:image" content="/assets/og-revo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/tabler-subset.css">
+<style>
+/* ============================================================
+   Revo LP v3 — "Compass" direction
+   Flat pastel surfaces · light-weight grotesk · mono annotations
+   ============================================================ */
+:root{
+  --ink:#022128;
+  --ink-2:#3a4845;
+  --ink-3:#5d6c69;
+  --paper:#ffffff;
+  --ice:#f4f8f7;
+  --mint-50:#edfffa;
+  --mint-100:#e3f6f0;
+  --mint-400:#7cd3bb;
+  --mint-700:#2f8f74;
+  --green:#04453d;
+  --petrol:#004860;
+  --tint-blue:#e4f1f7;
+  --tint-cream:#f7ecd6;
+  --tint-sage:#a9d9c7;
+  --dark:#022128;
+  --line:rgba(2,33,40,.14);
+  --line-soft:rgba(2,33,40,.08);
+  --line-inv:rgba(255,255,255,.18);
+  --r:12px;
+  --r-lg:16px;
+  --gutter:24px;
+  --max:1360px;
+  --sans:'Geist',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:'Geist Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+h1,h2,h3,h4,p,ul,figure{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+img,video{display:block;max-width:100%}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+::selection{background:var(--mint-400);color:var(--ink)}
+section{scroll-margin-top:88px}
+
+/* ---------- type ---------- */
+.display{font-weight:400;letter-spacing:-0.045em;line-height:.92;text-wrap:balance}
+.h-xl{font-size:clamp(44px,7.4vw,112px)}
+.h-lg{font-size:clamp(38px,5.2vw,72px)}
+.h-md{font-size:clamp(30px,3.4vw,46px);letter-spacing:-0.03em;line-height:.98}
+.h-sm{font-size:clamp(22px,2vw,28px);letter-spacing:-0.02em;line-height:1.08;font-weight:400}
+.lead{font-size:clamp(17px,1.35vw,20px);line-height:1.45;color:var(--ink-2);text-wrap:pretty}
+.body{font-size:15px;line-height:1.5;color:var(--ink-2)}
+.small{font-size:13px;line-height:1.5;color:var(--ink-3)}
+.mono{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;line-height:1.3}
+
+/* mono eyebrow with compass marker */
+.eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);white-space:nowrap}
+.eyebrow .mk{width:11px;height:11px;flex:none;position:relative;display:inline-block}
+.eyebrow .mk::before{content:"";position:absolute;inset:0;border:1px solid currentColor;border-radius:2px;opacity:.7;
+  -webkit-mask:linear-gradient(#000,#000) top left/4px 4px no-repeat,linear-gradient(#000,#000) top right/4px 4px no-repeat,linear-gradient(#000,#000) bottom left/4px 4px no-repeat,linear-gradient(#000,#000) bottom right/4px 4px no-repeat;
+  mask:linear-gradient(#000,#000) top left/4px 4px no-repeat,linear-gradient(#000,#000) top right/4px 4px no-repeat,linear-gradient(#000,#000) bottom left/4px 4px no-repeat,linear-gradient(#000,#000) bottom right/4px 4px no-repeat}
+.eyebrow .mk::after{content:"";position:absolute;left:50%;top:50%;width:3px;height:3px;margin:-1.5px 0 0 -1.5px;border-radius:50%;background:currentColor}
+.eyebrow.muted{color:var(--ink-3)}
+.eyebrow.inv{color:#fff}
+
+/* mono link with arrow (Compass corner labels) */
+.mlink{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:inherit;transition:gap .25s var(--ease)}
+.mlink .tri{width:0;height:0;border-style:solid;border-width:4px 0 4px 6px;border-color:transparent transparent transparent currentColor;flex:none}
+.mlink:hover{gap:14px}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:9px;height:36px;padding:0 15px 0 17px;border-radius:999px;background:var(--ink);color:#fff;font-size:13px;font-weight:500;letter-spacing:-0.005em;white-space:nowrap;transition:background .25s var(--ease),color .25s var(--ease),transform .25s var(--ease)}
+.btn .tri{width:0;height:0;border-style:solid;border-width:3.5px 0 3.5px 5.5px;border-color:transparent transparent transparent currentColor;flex:none;transition:transform .25s var(--ease)}
+.btn:hover{background:var(--green)}
+.btn:hover .tri{transform:translateX(2px)}
+.btn.lg{height:44px;padding:0 19px 0 22px;font-size:15px}
+.btn.light{background:#fff;color:var(--ink)}
+.btn.light:hover{background:var(--mint-100)}
+.btn.mint{background:var(--mint-400);color:var(--ink)}
+.btn.mint:hover{background:#fff}
+.btn.outline{background:transparent;color:inherit;box-shadow:inset 0 0 0 1px currentColor}
+.btn.outline:hover{background:var(--ink);color:#fff;box-shadow:inset 0 0 0 1px var(--ink)}
+.btn.outline.inv:hover{background:#fff;color:var(--ink);box-shadow:inset 0 0 0 1px #fff}
+
+/* "sound wave" brackets around a button */
+.wave{display:inline-flex;align-items:center;gap:7px;color:var(--ink)}
+.wave.inv{color:#fff}
+.wave svg{width:16px;height:26px;flex:none;overflow:visible}
+.wave svg:last-child{transform:scaleX(-1)}
+.wave svg path{fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;transition:transform .35s var(--ease),opacity .35s var(--ease);transform-origin:16px 13px}
+.wave:hover svg path:nth-child(1){transform:translateX(-2px)}
+.wave:hover svg path:nth-child(2){transform:translateX(-4px)}
+.wave:hover svg path:nth-child(3){transform:translateX(-6px)}
+
+/* ---------- layout ---------- */
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.sec{padding:clamp(88px,11vw,160px) 0}
+.panel{border-radius:var(--r-lg);padding:clamp(28px,4vw,64px)}
+.grid12{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}.reveal[data-d="3"]{transition-delay:.24s}.reveal[data-d="4"]{transition-delay:.32s}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ============================================================
+   NAV — compact dark pill, fixed
+   ============================================================ */
+.nav{position:fixed;top:16px;left:0;right:0;z-index:60;display:flex;justify-content:center;padding:0 16px;pointer-events:none}
+.nav-pill{pointer-events:auto;display:flex;align-items:center;gap:22px;height:56px;padding:0 6px 0 20px;border-radius:999px;background:var(--dark);color:#fff;box-shadow:0 10px 30px rgba(2,33,40,.18);max-width:100%}
+.nav-logo{display:flex;align-items:center;gap:9px;flex:none}
+.nav-logo img{height:16px}
+.nav-logo .ico{width:26px;height:26px}
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{padding:8px 11px;font-size:13.5px;color:rgba(255,255,255,.72);border-radius:999px;transition:color .2s,background .2s}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.nav-cta{display:flex;align-items:center;gap:4px;flex:none}
+.nav-cta .ghost{padding:8px 12px;font-size:13.5px;color:rgba(255,255,255,.72)}
+.nav-cta .ghost:hover{color:#fff}
+.nav-burger{display:none;width:44px;height:44px;border-radius:999px;align-items:center;justify-content:center;color:#fff}
+.nav-burger span{display:block;width:16px;height:1.5px;background:currentColor;position:relative}
+.nav-burger span::before,.nav-burger span::after{content:"";position:absolute;left:0;right:0;height:1.5px;background:currentColor;transition:transform .25s var(--ease)}
+.nav-burger span::before{top:-5px}.nav-burger span::after{top:5px}
+.nav-menu{display:none}
+@media (max-width:900px){
+  .nav-links,.nav-cta .ghost{display:none}
+  .nav-burger{display:inline-flex}
+  .nav-pill{width:100%;justify-content:space-between;gap:8px;padding-left:16px}
+  .nav-menu{position:fixed;top:84px;left:16px;right:16px;z-index:59;background:var(--dark);color:#fff;border-radius:20px;padding:10px 10px 12px;display:none;flex-direction:column;box-shadow:0 20px 50px rgba(2,33,40,.28)}
+  .nav-menu.open{display:flex}
+  .nav-menu a{padding:14px 16px;font-size:17px;border-radius:12px;border-top:1px solid rgba(255,255,255,.08)}
+  .nav-menu a:first-child{border-top:0}
+  .nav-menu .btn{margin:8px 6px 0;justify-content:center;height:46px;font-size:15px}
+}
+
+/* ============================================================
+   HERO — pastel block, typographic
+   ============================================================ */
+.hero{background:var(--mint-100);min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 24px 72px;position:relative;overflow:hidden}
+.hero-in{display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);max-width:1180px}
+.hero h1{max-width:14ch}
+.hero h1 em{font-style:normal;color:var(--green)}
+.hero-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center}
+.hero-micro{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
+.hero-micro span::before{content:"—";margin-right:18px;opacity:.5}
+.hero-micro span:first-child::before{content:none;margin:0}
+@media (max-width:600px){.hero-micro{flex-direction:column;gap:8px}.hero-micro span::before{content:none;margin:0}}
+.hero-scroll{position:absolute;right:28px;bottom:28px;width:36px;height:36px;border-radius:50%;background:rgba(2,33,40,.08);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s}
+.hero-scroll:hover{background:rgba(2,33,40,.14)}
+.hero-scroll i{font-size:16px}
+/* word-by-word stagger */
+.hero h1 .w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.hero.in h1 .w{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.hero h1 .w{opacity:1;transform:none;transition:none}}
+
+/* statement with inline icons (Compass "We chart new pathways…") */
+.statement{background:var(--mint-100);padding:0 24px clamp(96px,12vw,180px);text-align:center}
+.statement p{max-width:900px;margin:0 auto;font-size:clamp(24px,3.4vw,46px);line-height:1.12;letter-spacing:-0.03em;font-weight:400;text-wrap:balance;color:var(--ink)}
+.statement p i{display:inline-block;font-size:.78em;vertical-align:-0.06em;margin:0 .14em;font-weight:400;color:var(--green)}
+.statement .faded{color:rgba(2,33,40,.42)}
+.statement .nw{white-space:nowrap}
+
+/* ============================================================
+   PRODUCT — light panel with scaled dashboard + phone
+   ============================================================ */
+.produto{padding:0 16px clamp(72px,8vw,112px)}
+.produto .panel{background:var(--ice);padding-bottom:0;overflow:hidden;position:relative}
+.produto-head{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.produto-head .col{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.produto-head .col p{max-width:420px}
+.dash-wrap{position:relative;max-width:1180px;margin:0 auto;padding:0 0 0;}
+.dash-stage{position:relative;width:100%;aspect-ratio:1120/716;--s:1}
+.dash{position:absolute;left:0;top:0;width:1120px;height:716px;transform-origin:0 0;transform:scale(var(--s));border-radius:12px 12px 0 0;background:#fff;box-shadow:0 2px 4px rgba(2,33,40,.05),0 30px 70px rgba(2,33,40,.12);overflow:hidden;display:grid;grid-template-rows:44px minmax(0,1fr)}
+.phone-home{position:absolute;right:-6px;bottom:28px;width:244px;z-index:2}
+.phone-home .shell{background:var(--dark);border-radius:40px;padding:9px;box-shadow:0 30px 60px rgba(2,33,40,.28),inset 0 0 0 1px rgba(255,255,255,.08)}
+@media (max-width:980px){.produto-head{grid-template-columns:1fr}}
+@media (max-width:760px){
+  .produto{padding:0 10px 64px}
+  .produto .panel{padding-bottom:32px}
+  .dash-stage{aspect-ratio:auto;height:auto;display:flex;justify-content:center;padding-top:8px}
+  .dash{display:none}
+  .phone-home{position:static;width:240px;margin:0 auto}
+}
+
+/* ============================================================
+   COMO FUNCIONA — editorial staggered + tinted cards
+   ============================================================ */
+.como{background:var(--paper)}
+.ed{position:relative;min-height:clamp(420px,46vw,620px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:24px;row-gap:28px;align-items:start}
+.ed .t1{grid-column:2/9;grid-row:1}
+.ed .t2{grid-column:5/13;grid-row:3;justify-self:end;text-align:right}
+.ed .body-col{grid-column:4/9;grid-row:2;display:flex;flex-direction:column;gap:24px;align-items:flex-start;max-width:520px;padding:12px 0 8px}
+.ed .fig{position:absolute;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;align-items:center;gap:8px}
+.ed .fig::before{content:"";width:10px;height:10px;border:1px solid currentColor;border-radius:50%;background:radial-gradient(circle,currentColor 0 1.6px,transparent 1.8px)}
+.ed .f1{left:0;top:40%}.ed .f2{left:72%;top:48%}.ed .f3{right:6%;top:8%}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:clamp(40px,6vw,88px)}
+.card{border-radius:var(--r);padding:22px 22px 24px;display:flex;flex-direction:column;gap:14px;min-height:280px;position:relative;transition:transform .5s var(--ease)}
+.card .eyebrow{font-size:10.5px}
+.card h3{margin-top:auto}
+.card p{color:var(--ink-2);font-size:14px;line-height:1.45}
+.card.blue{background:var(--tint-blue)}
+.card.cream{background:var(--tint-cream)}
+.card.sage{background:var(--tint-sage)}
+.card.mint{background:var(--mint-100)}
+.card.ice{background:var(--ice)}
+.card.dark{background:var(--dark);color:#fff}
+.card.dark p{color:rgba(255,255,255,.72)}
+.card.dark .eyebrow{color:rgba(255,255,255,.8)}
+.card .ic{position:absolute;right:20px;top:18px;font-size:20px;opacity:.9}
+.photo{border-radius:var(--r);overflow:hidden;background:var(--ice);position:relative}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo-wide{aspect-ratio:21/8;margin-top:clamp(40px,6vw,88px)}
+.photo .tag{position:absolute;left:18px;bottom:18px;display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 14px 0 10px;border-radius:999px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);font-size:13px;color:var(--ink)}
+.photo .tag i{color:var(--mint-700)}
+@media (max-width:980px){
+  .ed{display:flex;flex-direction:column;min-height:0;gap:22px}
+  .ed .t2{text-align:left;justify-self:start}
+  .ed .fig{display:none}
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .photo-wide{aspect-ratio:4/3}
+}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.card{min-height:0}.card h3{margin-top:8px}}
+
+/* ============================================================
+   STATEMENT — full-bleed accent block with corner labels
+   ============================================================ */
+.accent{background:var(--mint-400);color:var(--ink);position:relative;min-height:min(92svh,860px);display:flex;align-items:center;justify-content:center;text-align:center;padding:clamp(120px,16vw,200px) 24px;overflow:hidden}
+.accent-in{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:28px;max-width:900px}
+.accent-in p{max-width:560px;font-size:clamp(16px,1.3vw,19px);line-height:1.45;color:rgba(2,33,40,.78)}
+.accent .corner{position:absolute;z-index:2;max-width:200px;text-align:left;line-height:1.5}
+.accent .corner.tl{left:clamp(20px,4vw,56px);top:clamp(24px,4vw,56px)}
+.accent .corner.tr{right:clamp(20px,4vw,56px);top:clamp(24px,4vw,56px);text-align:right}
+.accent .corner.bl{left:clamp(20px,4vw,56px);bottom:clamp(24px,4vw,56px)}
+.accent .corner.br{right:clamp(20px,4vw,56px);bottom:clamp(24px,4vw,56px);text-align:right}
+.accent .corner .mlink{flex-wrap:wrap;justify-content:inherit}
+.rays{position:absolute;left:50%;bottom:-6%;width:min(120vw,1400px);aspect-ratio:1;transform:translateX(-50%);z-index:1;pointer-events:none;opacity:.55}
+.rays svg{width:100%;height:100%;display:block;animation:spin 140s linear infinite;transform-origin:50% 50%}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.rays svg{animation:none}}
+@media (max-width:760px){br.d{display:none}.accent .corner{position:static;max-width:none;text-align:left}.accent .corners{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;width:100%;margin-top:40px;position:relative;z-index:2}.accent{flex-direction:column;align-items:stretch;text-align:center}.accent-in{align-self:center}}
+@media (min-width:761px){.accent .corners{display:contents}}
+
+/* ============================================================
+   FUNCIONALIDADES — flat tinted grid
+   ============================================================ */
+.func-head{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr);gap:32px;align-items:end;margin-bottom:clamp(36px,5vw,64px)}
+.func-head .col{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.func-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.func-grid .card{min-height:300px;padding:24px}
+.func-grid .card h3{font-size:clamp(24px,2.1vw,30px)}
+.func-grid .card.span2{grid-column:span 2}
+@media (max-width:980px){.func-head{grid-template-columns:1fr}.func-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.func-grid .card.span2{grid-column:span 2}}
+@media (max-width:560px){.func-grid{grid-template-columns:1fr}.func-grid .card.span2{grid-column:auto}.func-grid .card{min-height:0}}
+
+/* ============================================================
+   APP DO ALUNO — green panel with phone + rows
+   ============================================================ */
+.app{padding:0 16px clamp(72px,8vw,112px)}
+.app .panel{background:var(--green);color:#fff;display:grid;grid-template-columns:minmax(0,5fr) 232px minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:start;overflow:hidden;position:relative}
+.app .text{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.app .text p{color:rgba(255,255,255,.76);max-width:420px}
+.app .text h2{color:#fff}
+.stores{display:flex;gap:10px;flex-wrap:wrap}
+.store{display:inline-flex;align-items:center;gap:8px;height:34px;padding:0 12px;border-radius:999px;border:1px solid rgba(255,255,255,.28);font-size:12.5px;color:#fff}
+.store i{font-size:15px}
+.store .soon{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:var(--mint-400);color:var(--ink);padding:3px 6px;border-radius:999px}
+.phone-player{width:232px;margin:0 auto;position:relative}
+.phone-player .shell{background:var(--dark);border-radius:40px;padding:8px;box-shadow:0 30px 60px rgba(2,33,40,.35),inset 0 0 0 1px rgba(255,255,255,.1)}
+.rows{display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:16px;align-items:center;padding:20px 0;border-top:1px solid rgba(255,255,255,.16)}
+.row:first-child{border-top:0;padding-top:0}
+.row .pl{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:#fff}
+.row .pl i{font-size:18px}
+.row h4{font-size:16px;font-weight:500;letter-spacing:-0.01em}
+.row p{font-size:13.5px;color:rgba(255,255,255,.66);line-height:1.45;margin-top:2px}
+.row .mlink{margin-top:10px;color:rgba(255,255,255,.8)}
+@media (max-width:1080px){.app .panel{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.phone-player{grid-column:2;grid-row:1/3;align-self:center}.rows{grid-column:1}}
+@media (max-width:760px){.app{padding:0 10px 64px}.app .panel{grid-template-columns:1fr}.phone-player{grid-column:auto;grid-row:auto}.rows{grid-column:auto}}
+
+/* ============================================================
+   PREÇOS — hairline columns
+   ============================================================ */
+.precos-head{display:flex;flex-direction:column;gap:18px;align-items:flex-start;max-width:760px;margin-bottom:clamp(40px,6vw,80px)}
+.plans{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.plan{padding:28px 28px 32px;display:flex;flex-direction:column;gap:22px;border-left:1px solid var(--line);position:relative}
+.plan:first-child{border-left:0;padding-left:0}
+.plan.hi{background:var(--mint-100);border-radius:0 0 var(--r) var(--r);border-left-color:transparent}
+.plan.hi + .plan{border-left-color:transparent}
+.plan .top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.plan .rec{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;background:var(--ink);color:#fff;padding:5px 8px;border-radius:999px}
+.price{display:flex;align-items:baseline;gap:8px}
+.price b{font-weight:400;font-size:clamp(48px,4.6vw,64px);letter-spacing:-0.045em;line-height:1}
+.price span{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.plan .desc{font-size:15px;color:var(--ink-2);min-height:44px}
+.plan ul{display:flex;flex-direction:column;border-top:1px solid var(--line-soft)}
+.plan li{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid var(--line-soft);font-size:14.5px}
+.plan li .tri{width:0;height:0;border-style:solid;border-width:3.5px 0 3.5px 5.5px;border-color:transparent transparent transparent var(--mint-700);flex:none}
+.plan li .soon{margin-left:auto;font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);border:1px solid var(--line);padding:3px 6px;border-radius:999px}
+.plan .btn{align-self:flex-start}
+.foot-note{margin-top:28px;font-size:13px;color:var(--ink-3);max-width:720px}
+.foot-note sup{font-family:var(--mono);font-size:9px}
+@media (max-width:900px){.plans{grid-template-columns:1fr;border-top:0}.plan{border-left:0;padding:28px 0;border-top:1px solid var(--line)}.plan.hi{padding:28px 24px;border-radius:var(--r);border-top-color:transparent}}
+
+/* ============================================================
+   CTA FINAL + footnotes
+   ============================================================ */
+.cta{background:var(--paper)}
+.cta-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,72px);align-items:center}
+.cta-text{display:flex;flex-direction:column;gap:28px;align-items:flex-start}
+.cta-text .btns{display:flex;gap:22px;align-items:center;flex-wrap:wrap}
+.cta .photo{aspect-ratio:4/5;max-height:620px}
+.refs{padding:0 0 clamp(40px,5vw,64px)}
+.refs ol{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:11px;line-height:1.5;color:var(--ink-3);border-top:1px solid var(--line);padding-top:20px}
+.refs li{display:flex;gap:8px}
+.refs li::before{content:counter(ref) ".";counter-increment:ref;font-family:var(--mono);flex:none}
+.refs ol{counter-reset:ref}
+@media (max-width:900px){.cta-grid{grid-template-columns:1fr}.cta .photo{max-height:420px;aspect-ratio:4/3}}
+
+/* ============================================================
+   FOOTER — dark
+   ============================================================ */
+.footer{background:var(--dark);color:#fff;padding:clamp(48px,6vw,80px) 0 28px}
+.footer-top{display:grid;grid-template-columns:minmax(0,4fr) repeat(3,minmax(0,2fr));gap:32px;align-items:start}
+.footer-brand{display:flex;flex-direction:column;gap:18px;align-items:flex-start}
+.footer-brand img{height:18px}
+.footer-brand p{font-size:14px;color:rgba(255,255,255,.62);max-width:300px;line-height:1.5}
+.fcol{display:flex;flex-direction:column;gap:12px}
+.fcol .ttl{display:flex;align-items:center;gap:10px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.9);margin-bottom:6px}
+.fcol .ttl::before,.fcol .ttl::after{content:"";width:0;height:0;border-style:solid}
+.fcol .ttl::before{border-width:3.5px 5.5px 3.5px 0;border-color:transparent currentColor transparent transparent}
+.fcol .ttl::after{border-width:3.5px 0 3.5px 5.5px;border-color:transparent transparent transparent currentColor}
+.fcol a{font-size:14.5px;color:#fff;opacity:.9;transition:opacity .2s}
+.fcol a:hover{opacity:.6}
+.footer-bot{margin-top:clamp(40px,6vw,72px);padding-top:22px;border-top:1px solid var(--line-inv);display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:11.5px;color:rgba(255,255,255,.62)}
+.footer-bot .legal{display:flex;gap:18px;flex-wrap:wrap}
+.footer-bot .legal a:hover{color:#fff}
+.footer-bot .soc{display:flex;gap:12px}
+.footer-bot .soc a{width:30px;height:30px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;background:rgba(255,255,255,.08);color:#fff;font-size:15px}
+@media (max-width:900px){.footer-top{grid-template-columns:1fr 1fr}.footer-brand{grid-column:1/-1}}
+@media (max-width:520px){.footer-top{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="wave" viewBox="0 0 16 26">
+    <path d="M13.5 5.5c-2.2 2.2-2.2 12.8 0 15"/>
+    <path d="M8.5 2.5c-3.8 3.6-3.8 17.4 0 21"/>
+    <path d="M3.5 0c-4.6 5-4.6 21 0 26"/>
+  </symbol>
+</svg>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <nav class="nav-pill" aria-label="Principal">
+    <a class="nav-logo" href="#topo" aria-label="Revo — início">
+      <img class="ico" src="assets/revo-icon.svg" alt="">
+      <img src="assets/revo-wordmark-white.svg" alt="Revo">
+    </a>
+    <div class="nav-links">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#funcionalidades">Funcionalidades</a>
+      <a href="#app">App do aluno</a>
+      <a href="#precos">Preços</a>
+    </div>
+    <div class="nav-cta">
+      <a class="ghost" href="/login">Entrar</a>
+      <a class="btn mint" href="/cadastro">Começar grátis <i class="tri"></i></a>
+      <button class="nav-burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
+  </nav>
+</header>
+<div class="nav-menu" id="menu">
+  <a href="#como-funciona">Como funciona</a>
+  <a href="#funcionalidades">Funcionalidades</a>
+  <a href="#app">App do aluno</a>
+  <a href="#precos">Preços</a>
+  <a href="/login">Entrar</a>
+  <a class="btn mint" href="/cadastro">Começar grátis <i class="tri"></i></a>
+</div>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section id="topo" class="hero">
+  <div class="hero-in">
+    <span class="eyebrow reveal"><i class="mk"></i>Plataforma para consultores fitness</span>
+    <h1 class="display h-xl" data-split>Sua consultoria, do treino ao <em>PIX.</em></h1>
+    <div class="hero-ctas reveal" data-d="2">
+      <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn lg">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+      <a class="mlink" href="#como-funciona">Ver como funciona <i class="tri"></i></a>
+    </div>
+    <div class="hero-micro reveal" data-d="3"><span>Grátis até 5 alunos</span><span>Sem cartão pra começar</span><span>Cancele quando quiser</span></div>
+  </div>
+  <a class="hero-scroll" href="#manifesto" aria-label="Rolar"><i class="ti ti-arrow-down"></i></a>
+</section>
+
+<section id="manifesto" class="statement">
+  <p class="reveal"><span class="nw">Treino <i class="ti ti-barbell"></i>,</span> <span class="nw">dieta <i class="ti ti-salad"></i>,</span> <span class="nw">protocolo <i class="ti ti-pill"></i>,</span> <span class="nw">check-in <i class="ti ti-camera"></i></span> e <span class="nw">cobrança <i class="ti ti-credit-card"></i></span> saem do seu dashboard <span class="faded">e chegam no app do aluno.</span></p>
+</section>
+
+<!-- ============ PRODUTO ============ -->
+<section id="produto" class="produto">
+  <div class="panel">
+    <div class="produto-head">
+      <div class="col">
+        <span class="eyebrow reveal"><i class="mk"></i>Pro consultor</span>
+        <h2 class="display h-lg reveal" data-d="1">Chega de treino em PDF e cobrança no WhatsApp.</h2>
+      </div>
+      <div class="col reveal" data-d="2">
+        <p class="lead">Cada aluno tem ficha, treino, dieta, protocolo, check-ins e pagamento na mesma tela. As pendências do dia aparecem no Resumo, junto com o saldo.</p>
+        <a class="mlink" href="#funcionalidades">Ver funcionalidades <i class="tri"></i></a>
+      </div>
+    </div>
+    <div class="dash-wrap reveal" data-d="1">
+      <div class="dash-stage" id="dashStage">
+<div class="dash">
+<div style="display:flex;align-items:center;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid rgba(2,33,40,.08)">
+<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
+<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
+<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
+<span style="margin:0 auto;padding:5px 16px;border-radius:8px;background:#f4f8f7;font-family:'Geist Mono',monospace;font-size:12px;color:#5d6c69;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-lock" style="font-size:12px"></i>app.revo.app/resumo</span>
+<span style="width:30px"></span>
+</div>
+<div style="display:grid;grid-template-columns:200px minmax(0,1fr);min-height:0">
+<aside style="background:#04453d;color:#fff;padding:14px 12px 12px;display:flex;flex-direction:column;gap:2px">
+<div style="display:flex;align-items:center;gap:10px;padding:4px 8px 16px"><img src="assets/revo-icon.svg" alt="" style="width:28px;height:28px;display:block"><span style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Revo</span></div>
+<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600"><i class="ti ti-layout-dashboard" style="font-size:18px;width:22px;text-align:center"></i>Resumo</div>
+<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-users" style="font-size:18px;width:22px;text-align:center"></i>Alunos</div>
+<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-credit-card" style="font-size:18px;width:22px;text-align:center"></i>Planos &amp; pagamentos</div>
+<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-cash" style="font-size:18px;width:22px;text-align:center"></i>Financeiro</div>
+<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-settings" style="font-size:18px;width:22px;text-align:center"></i>Configurações</div>
+<div style="flex:1"></div>
+<div style="display:flex;align-items:center;gap:10px;padding:6px;border-radius:14px"><span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">RM</span><span style="display:flex;flex-direction:column;min-width:0"><span style="font-size:12px;font-weight:600">Rafael Mendes</span><span style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,.5)">CREF 123456-G/SP</span></span></div>
+</aside>
+<main style="background:#f4f8f7;padding:22px 24px;display:flex;flex-direction:column;gap:18px;min-width:0">
+<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
+<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Revo</span><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Olá, Rafael 👋</span><span style="font-size:13px;color:#3a4845">42 alunos ativos · R$ 8.640,00 nos últimos 30 dias</span></div>
+<span style="display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:10px;background:#022128;color:#fff;font-size:13px;font-weight:600"><i class="ti ti-plus" style="font-size:15px"></i>Novo aluno</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Alunos ativos</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-users" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">42</span><span style="font-size:12px;color:#5d6c69">48 no total</span></div>
+<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Novos no mês</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-user-plus" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">6</span><span style="font-size:12px;color:#5d6c69">via link de convite</span></div>
+<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Faturamento 30d</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-trending-up" style="font-size:15px"></i></span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 8.640</span><span style="font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;color:#2f8f74;background:#e3f6f0;padding:2px 7px;border-radius:999px">+12%</span></div><span style="font-size:12px;color:#5d6c69">vs. mês anterior</span></div>
+<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Saldo disponível</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-wallet" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 4.820,50</span><span style="display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:8px;border:1px solid rgba(2,33,40,.2);font-size:12px;font-weight:600;align-self:flex-start"><i class="ti ti-arrow-bar-up" style="font-size:13px"></i>Sacar</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:10px">
+<div style="display:flex;flex-direction:column;gap:1px"><span style="font-size:15px;font-weight:600">Precisa de você hoje</span><span style="font-size:12px;color:#3a4845">Pendências que pedem sua atenção agora.</span></div>
+<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
+<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-message-circle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">3</span><span style="font-size:12px;color:#3a4845">Check-ins pra responder</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
+<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7e2e0;color:#bd463f;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-alert-triangle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">2</span><span style="font-size:12px;color:#3a4845">Pagamentos atrasados</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
+<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7ecd6;color:#8a5a12;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-clipboard-list" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">1</span><span style="font-size:12px;color:#3a4845">Novos sem plano</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
+</div>
+</div>
+<div style="background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:12px;flex:1">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:600">Alunos</span><span style="font-size:12px;font-weight:600;color:#004860;display:inline-flex;align-items:center;gap:4px">Ver todos <i class="ti ti-arrow-right" style="font-size:13px"></i></span></div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<span style="height:26px;padding:0 11px;border-radius:999px;background:#022128;color:#fff;font-size:12px;font-weight:600;display:inline-flex;align-items:center">Todos</span>
+<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Atrasados</span>
+<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Check-in pendente</span>
+<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Aguardando protocolo</span>
+<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Novos</span>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">MC</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Mariana Costa</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Emagrecimento · vence 15 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#004860;font-size:11px;font-weight:600"><i class="ti ti-message-circle" style="font-size:12px"></i>Check-in pra responder</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#2f8f74;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#2f8f74;display:inline-block"></span>Em dia</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">LF</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Lucas Ferreira</span><span style="font-size:12px;color:#5d6c69">Personal presencial · Hipertrofia · vence <span style="color:#bd463f;font-weight:600">03 set</span></span></span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7e2e0;color:#bd463f;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#bd463f;display:inline-block"></span>Atrasado</span></div>
+<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">AL</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Ana Beatriz Lima</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Recomposição · vence 20 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><i class="ti ti-clipboard-list" style="font-size:12px"></i>Aguardando protocolo</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#8a5a12;display:inline-block"></span>Pendente</span></div>
+</div>
+</div>
+</main>
+</div>
+</div>
+<div class="phone-home">
+<div class="shell">
+<div style="background:#f4f8f7;border-radius:34px;overflow:hidden;height:540px;display:flex;flex-direction:column">
+<div style="height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:12px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
+<div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:12px;flex:1">
+<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Sua semana</span>
+<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin-top:-8px">Vamos pro treino de hoje?</span>
+<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:20px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 12px rgba(2,33,40,.08),0 16px 40px rgba(2,33,40,.12)">
+<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-calendar-event" style="font-size:12px"></i>Semana 12</span>
+<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em">Hora do seu check-in</span>
+<span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,.82)">Leva 2 minutos: peso, fotos e como foi a semana.</span>
+<span style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600;margin-top:4px"><i class="ti ti-clipboard-check" style="font-size:15px"></i>Fazer check-in</span>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Peso atual</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">82,4 kg</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">−1,2 kg</span></div>
+<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Aderência</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">92%</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#5d6c69">12 de 13 treinos</span></div>
+</div>
+<div style="background:#fff;border-radius:16px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="width:36px;height:36px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-barbell" style="font-size:18px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:13px;font-weight:600">Treino B</span><span style="font-size:11px;color:#5d6c69">8 exercícios · 55 min</span></span><span style="width:28px;height:28px;border-radius:50%;background:#022128;color:#fff;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-player-play-filled" style="font-size:11px"></i></span></div>
+</div>
+<div style="display:flex;justify-content:space-around;padding:10px 6px 14px;background:#fff;border-top:1px solid rgba(2,33,40,.08)">
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#004860;font-size:9px;font-weight:600"><i class="ti ti-home" style="font-size:18px"></i>Hoje</span>
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-barbell" style="font-size:18px"></i>Treino</span>
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-salad" style="font-size:18px"></i>Dieta</span>
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-pill" style="font-size:18px"></i>Protocolo</span>
+<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-user" style="font-size:18px"></i>Perfil</span>
+</div>
+</div>
+</div>
+</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMO FUNCIONA ============ -->
+<section id="como-funciona" class="sec como">
+  <div class="wrap">
+    <div class="ed">
+      <h2 class="display h-lg t1 reveal">Você manda um link.</h2>
+      <div class="body-col reveal" data-d="1">
+        <p class="lead">Conta criada, você define a mensalidade e manda o convite. Do outro lado, o aluno paga, instala o app e responde a anamnese. O que você monta já aparece pra ele, e no dia certo o app pede o check-in.</p>
+        <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+      </div>
+      <h2 class="display h-lg t2 reveal" data-d="2">O aluno entra pagando.</h2>
+      <span class="fig f1">Fig 01 — Convite</span>
+      <span class="fig f2">Fig 02 — Pagamento</span>
+      <span class="fig f3">Fig 03 — Check-in</span>
+    </div>
+
+    <div class="steps">
+      <article class="card blue reveal"><span class="eyebrow"><i class="mk"></i>01 — Conta</span><i class="ti ti-user-plus ic"></i><h3 class="h-sm">Crie a conta grátis</h3><p>Leva minutos e não pede cartão. Depois, defina a mensalidade que você cobra e ative o recebimento.</p></article>
+      <article class="card cream reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Convite</span><i class="ti ti-link ic"></i><h3 class="h-sm">Mande o link pro aluno</h3><p>Ele abre, preenche os dados, paga por PIX ou cartão e instala o app.</p></article>
+      <article class="card sage reveal" data-d="2"><span class="eyebrow"><i class="mk"></i>03 — Montagem</span><i class="ti ti-layout-list ic"></i><h3 class="h-sm">Treino, dieta e protocolo</h3><p>Você monta uma vez e tudo chega no app do aluno, com player guiado e macros somados.</p></article>
+      <article class="card dark reveal" data-d="3"><span class="eyebrow"><i class="mk"></i>04 — Retorno</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Acompanhe e saque via PIX</h3><p>No dia e hora que você definir, o app pede peso e fotos. Você compara, responde e saca o saldo.</p></article>
+    </div>
+
+    <figure class="photo photo-wide reveal">
+      <img src="assets/foto-como-funciona.jpg" alt="Treinador acompanhando aluna ao ar livre" loading="lazy">
+      <figcaption class="tag"><i class="ti ti-circle-check"></i>Check-in respondido · Semana 12 · −1,2 kg</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============ STATEMENT / ACCENT ============ -->
+<section id="receba" class="accent">
+  <div class="rays" aria-hidden="true"><svg viewBox="0 0 1000 1000" fill="none" stroke="#ffffff" stroke-linecap="round" aria-hidden="true"><line x1="500.0" y1="200.0" x2="500.0" y2="30.0" stroke-width="3.2"/><line x1="529.6" y1="161.3" x2="541.0" y2="31.8" stroke-width="1.6"/><line x1="559.0" y1="165.2" x2="581.6" y2="37.1" stroke-width="1.6"/><line x1="588.0" y1="171.6" x2="621.6" y2="46.0" stroke-width="1.6"/><line x1="616.3" y1="180.5" x2="660.7" y2="58.3" stroke-width="1.6"/><line x1="643.7" y1="191.9" x2="698.6" y2="74.0" stroke-width="1.6"/><line x1="650.0" y1="240.2" x2="735.0" y2="93.0" stroke-width="3.2"/><line x1="695.0" y1="221.5" x2="769.6" y2="115.0" stroke-width="1.6"/><line x1="718.5" y1="239.5" x2="802.1" y2="140.0" stroke-width="1.6"/><line x1="740.4" y1="259.6" x2="832.3" y2="167.7" stroke-width="1.6"/><line x1="760.5" y1="281.5" x2="860.0" y2="197.9" stroke-width="1.6"/><line x1="778.5" y1="305.0" x2="885.0" y2="230.4" stroke-width="1.6"/><line x1="759.8" y1="350.0" x2="907.0" y2="265.0" stroke-width="3.2"/><line x1="808.1" y1="356.3" x2="926.0" y2="301.4" stroke-width="1.6"/><line x1="819.5" y1="383.7" x2="941.7" y2="339.3" stroke-width="1.6"/><line x1="828.4" y1="412.0" x2="954.0" y2="378.4" stroke-width="1.6"/><line x1="834.8" y1="441.0" x2="962.9" y2="418.4" stroke-width="1.6"/><line x1="838.7" y1="470.4" x2="968.2" y2="459.0" stroke-width="1.6"/><line x1="800.0" y1="500.0" x2="970.0" y2="500.0" stroke-width="3.2"/><line x1="838.7" y1="529.6" x2="968.2" y2="541.0" stroke-width="1.6"/><line x1="834.8" y1="559.0" x2="962.9" y2="581.6" stroke-width="1.6"/><line x1="828.4" y1="588.0" x2="954.0" y2="621.6" stroke-width="1.6"/><line x1="819.5" y1="616.3" x2="941.7" y2="660.7" stroke-width="1.6"/><line x1="808.1" y1="643.7" x2="926.0" y2="698.6" stroke-width="1.6"/><line x1="759.8" y1="650.0" x2="907.0" y2="735.0" stroke-width="3.2"/><line x1="778.5" y1="695.0" x2="885.0" y2="769.6" stroke-width="1.6"/><line x1="760.5" y1="718.5" x2="860.0" y2="802.1" stroke-width="1.6"/><line x1="740.4" y1="740.4" x2="832.3" y2="832.3" stroke-width="1.6"/><line x1="718.5" y1="760.5" x2="802.1" y2="860.0" stroke-width="1.6"/><line x1="695.0" y1="778.5" x2="769.6" y2="885.0" stroke-width="1.6"/><line x1="650.0" y1="759.8" x2="735.0" y2="907.0" stroke-width="3.2"/><line x1="643.7" y1="808.1" x2="698.6" y2="926.0" stroke-width="1.6"/><line x1="616.3" y1="819.5" x2="660.7" y2="941.7" stroke-width="1.6"/><line x1="588.0" y1="828.4" x2="621.6" y2="954.0" stroke-width="1.6"/><line x1="559.0" y1="834.8" x2="581.6" y2="962.9" stroke-width="1.6"/><line x1="529.6" y1="838.7" x2="541.0" y2="968.2" stroke-width="1.6"/><line x1="500.0" y1="800.0" x2="500.0" y2="970.0" stroke-width="3.2"/><line x1="470.4" y1="838.7" x2="459.0" y2="968.2" stroke-width="1.6"/><line x1="441.0" y1="834.8" x2="418.4" y2="962.9" stroke-width="1.6"/><line x1="412.0" y1="828.4" x2="378.4" y2="954.0" stroke-width="1.6"/><line x1="383.7" y1="819.5" x2="339.3" y2="941.7" stroke-width="1.6"/><line x1="356.3" y1="808.1" x2="301.4" y2="926.0" stroke-width="1.6"/><line x1="350.0" y1="759.8" x2="265.0" y2="907.0" stroke-width="3.2"/><line x1="305.0" y1="778.5" x2="230.4" y2="885.0" stroke-width="1.6"/><line x1="281.5" y1="760.5" x2="197.9" y2="860.0" stroke-width="1.6"/><line x1="259.6" y1="740.4" x2="167.7" y2="832.3" stroke-width="1.6"/><line x1="239.5" y1="718.5" x2="140.0" y2="802.1" stroke-width="1.6"/><line x1="221.5" y1="695.0" x2="115.0" y2="769.6" stroke-width="1.6"/><line x1="240.2" y1="650.0" x2="93.0" y2="735.0" stroke-width="3.2"/><line x1="191.9" y1="643.7" x2="74.0" y2="698.6" stroke-width="1.6"/><line x1="180.5" y1="616.3" x2="58.3" y2="660.7" stroke-width="1.6"/><line x1="171.6" y1="588.0" x2="46.0" y2="621.6" stroke-width="1.6"/><line x1="165.2" y1="559.0" x2="37.1" y2="581.6" stroke-width="1.6"/><line x1="161.3" y1="529.6" x2="31.8" y2="541.0" stroke-width="1.6"/><line x1="200.0" y1="500.0" x2="30.0" y2="500.0" stroke-width="3.2"/><line x1="161.3" y1="470.4" x2="31.8" y2="459.0" stroke-width="1.6"/><line x1="165.2" y1="441.0" x2="37.1" y2="418.4" stroke-width="1.6"/><line x1="171.6" y1="412.0" x2="46.0" y2="378.4" stroke-width="1.6"/><line x1="180.5" y1="383.7" x2="58.3" y2="339.3" stroke-width="1.6"/><line x1="191.9" y1="356.3" x2="74.0" y2="301.4" stroke-width="1.6"/><line x1="240.2" y1="350.0" x2="93.0" y2="265.0" stroke-width="3.2"/><line x1="221.5" y1="305.0" x2="115.0" y2="230.4" stroke-width="1.6"/><line x1="239.5" y1="281.5" x2="140.0" y2="197.9" stroke-width="1.6"/><line x1="259.6" y1="259.6" x2="167.7" y2="167.7" stroke-width="1.6"/><line x1="281.5" y1="239.5" x2="197.9" y2="140.0" stroke-width="1.6"/><line x1="305.0" y1="221.5" x2="230.4" y2="115.0" stroke-width="1.6"/><line x1="350.0" y1="240.2" x2="265.0" y2="93.0" stroke-width="3.2"/><line x1="356.3" y1="191.9" x2="301.4" y2="74.0" stroke-width="1.6"/><line x1="383.7" y1="180.5" x2="339.3" y2="58.3" stroke-width="1.6"/><line x1="412.0" y1="171.6" x2="378.4" y2="46.0" stroke-width="1.6"/><line x1="441.0" y1="165.2" x2="418.4" y2="37.1" stroke-width="1.6"/><line x1="470.4" y1="161.3" x2="459.0" y2="31.8" stroke-width="1.6"/></svg></div>
+  <div class="accent-in">
+    <span class="eyebrow reveal"><i class="mk"></i>Cobrança e saque</span>
+    <h2 class="display h-lg reveal" data-d="1">O aluno paga pelo link.<br class="d">O dinheiro cai na sua conta.</h2>
+    <p class="reveal" data-d="2">A cobrança se repete todo mês, por PIX ou cartão. A Revo fica só com a taxa e você saca via PIX quando quiser. Sem maquininha, sem cobrar um por um.</p>
+    <a class="wave reveal" data-d="3" href="#precos"><svg><use href="#wave"/></svg><span class="btn">Ver preços <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+  </div>
+  <div class="corners">
+    <a class="corner tl mlink" href="#funcionalidades">Check-in com fotos <i class="tri"></i></a>
+    <a class="corner tr mlink" href="#precos">PIX e cartão <i class="tri"></i></a>
+    <a class="corner bl mlink" href="#app">App do aluno <i class="tri"></i></a>
+    <a class="corner br mlink" href="#funcionalidades">Anamnese própria <i class="tri"></i></a>
+  </div>
+</section>
+
+<!-- ============ FUNCIONALIDADES ============ -->
+<section id="funcionalidades" class="sec">
+  <div class="wrap">
+    <div class="func-head">
+      <div class="col">
+        <span class="eyebrow reveal"><i class="mk"></i>Funcionalidades</span>
+        <h2 class="display h-lg reveal" data-d="1">Tudo que a consultoria precisa. Nada que não precisa.</h2>
+      </div>
+      <div class="col reveal" data-d="2">
+        <p class="lead">Pra personal, nutri e coach online. Cada peça abaixo já está no produto. Nada aqui é promessa.</p>
+      </div>
+    </div>
+    <div class="func-grid">
+      <article class="card ice span2 reveal"><span class="eyebrow"><i class="mk"></i>01 — Treino</span><i class="ti ti-barbell ic"></i><h3 class="h-sm">Construtor de treino</h3><p>Treino A, B, C por aluno. Use a biblioteca de exercícios ou crie o seu, com séries, reps, descanso e observações. Arraste pra ordenar.</p></article>
+      <article class="card dark reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>02 — Financeiro</span><i class="ti ti-cash ic"></i><h3 class="h-sm">Cobrança recorrente</h3><p>PIX ou cartão, todo mês, sem você precisar cobrar. O valor cai na sua conta. Extrato e próximos recebimentos ficam no Financeiro.</p></article>
+      <article class="card cream reveal"><span class="eyebrow"><i class="mk"></i>03 — Dieta</span><i class="ti ti-salad ic"></i><h3 class="h-sm">Dieta com macros</h3><p>Refeições e alimentos com kcal, proteína, carbo e gordura somados na hora. Substituições e observações por item.</p></article>
+      <article class="card blue span2 reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>04 — Check-in</span><i class="ti ti-camera ic"></i><h3 class="h-sm">Check-in com fotos</h3><p>No dia que você definir, o app pede peso, fotos de frente, lado e costas, energia, sono e dieta. Você compara semanas e responde.</p></article>
+      <article class="card mint reveal"><span class="eyebrow"><i class="mk"></i>05 — Anamnese</span><i class="ti ti-clipboard-text ic"></i><h3 class="h-sm">Anamnese própria</h3><p>Monte seu questionário com texto, número, escolha ou foto. O aluno responde no primeiro acesso.</p></article>
+      <article class="card sage reveal" data-d="1"><span class="eyebrow"><i class="mk"></i>06 — Status</span><i class="ti ti-bell-ringing ic"></i><h3 class="h-sm">Quem está em dia</h3><p>Em dia, pendente ou atrasado: o status de cada aluno no Resumo. Você vê quem atrasou sem abrir extrato nem puxar assunto.</p></article>
+      <article class="card ice reveal" data-d="2"><span class="eyebrow"><i class="mk"></i>07 — Protocolo</span><i class="ti ti-pill ic"></i><h3 class="h-sm">Protocolo e suplementos</h3><p>Suplementos, vitaminas e extras com dose, horário e observações. O aluno marca como tomado.</p></article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ APP DO ALUNO ============ -->
+<section id="app" class="app">
+  <div class="panel">
+    <div class="text">
+      <span class="eyebrow inv reveal"><i class="mk"></i>Pro aluno</span>
+      <h2 class="display h-lg reveal" data-d="1">O que você monta, o aluno vê no app.</h2>
+      <p class="lead reveal" data-d="2">Treino do dia com player guiado, dieta, protocolo e o check-in da semana. O que ele envia volta pro seu dashboard.</p>
+      <div class="stores reveal" data-d="3">
+        <span class="store"><i class="ti ti-brand-apple"></i>App Store <span class="soon">em breve</span></span>
+        <span class="store"><i class="ti ti-brand-google-play"></i>Google Play <span class="soon">em breve</span></span>
+      </div>
+      <a class="mlink reveal" data-d="3" href="/aluno" style="color:#fff">Ou acesse pelo navegador <i class="tri"></i></a>
+    </div>
+    <div class="phone-player reveal" data-d="1">
+<div class="phone-player-inner">
+<div class="shell">
+<div style="background:#f4f8f7;border-radius:32px;overflow:hidden;height:524px;display:flex;flex-direction:column">
+<div style="height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:11px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:11px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
+<div style="padding:4px 14px 0;display:flex;flex-direction:column;gap:10px;flex:1">
+<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Treino B · 3 de 8</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">38 min</span></div>
+<span style="font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">Agachamento livre</span>
+<span style="font-size:11px;color:#5d6c69;margin-top:-6px">4 séries · 8–10 reps · 90s de descanso</span>
+<span style="aspect-ratio:16/9;border-radius:14px;background:repeating-linear-gradient(135deg,#e0ecea 0 6px,#eaf3f1 6px 12px);display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:10px;color:#5d6c69">vídeo do exercício</span>
+<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:18px;padding:14px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:6px">
+<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb">Descanso</span>
+<span style="font-family:'Geist',sans-serif;font-size:36px;font-weight:600;letter-spacing:-0.03em;line-height:1">01:12</span>
+<div style="display:flex;gap:6px;margin-top:4px"><span style="height:28px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:600;display:inline-flex;align-items:center">+15s</span><span style="height:28px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:4px"><i class="ti ti-refresh" style="font-size:12px"></i>Reiniciar</span></div>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px">
+<div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 10px;font-size:12px"><span style="width:20px;height:20px;border-radius:50%;background:#7cd3bb;color:#022128;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-check" style="font-size:12px"></i></span><span style="flex:1;font-weight:600">Série 1</span><span style="font-family:'Geist Mono',monospace;color:#5d6c69">10 × 80 kg</span></div>
+<div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 10px;font-size:12px;border:1px solid #7cd3bb"><span style="width:20px;height:20px;border-radius:50%;border:2px solid #7cd3bb;display:inline-block"></span><span style="flex:1;font-weight:600">Série 2</span><span style="font-family:'Geist Mono',monospace;color:#004860;font-weight:600">— × 82,5 kg</span></div>
+</div>
+</div>
+<div style="padding:10px 14px 14px"><span style="display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:12px;background:#022128;color:#fff;font-size:13px;font-weight:600"><i class="ti ti-check" style="font-size:15px"></i>Marcar série feita</span></div>
+</div>
+</div>
+</div>
+    </div>
+    <div class="rows reveal" data-d="2">
+      <div class="row"><span class="pl"><i class="ti ti-player-play"></i></span><div><h4>Player guiado</h4><p>Timer de descanso, +15s, marcar série feita e registrar a carga.</p></div></div>
+      <div class="row"><span class="pl"><i class="ti ti-salad"></i></span><div><h4>Dieta e protocolo</h4><p>Macros, substituições e suplementos com horário, pra marcar o que já tomou.</p></div></div>
+      <div class="row"><span class="pl"><i class="ti ti-camera"></i></span><div><h4>Check-in em 2 minutos</h4><p>Peso, fotos e como foi a semana. Sua resposta chega no app.</p></div></div>
+      <div class="row"><span class="pl"><i class="ti ti-credit-card"></i></span><div><h4>PIX ou cartão</h4><p>O aluno troca a forma de pagamento ou cancela sozinho, sem passar por você.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PREÇOS ============ -->
+<section id="precos" class="sec">
+  <div class="wrap">
+    <div class="precos-head">
+      <span class="eyebrow reveal"><i class="mk"></i>Preços</span>
+      <h2 class="display h-lg reveal" data-d="1">Comece grátis. Pague só quando crescer.</h2>
+      <p class="lead reveal" data-d="2">Sem fidelidade. Você nunca perde a conta: com o plano vencido, leitura e saque continuam liberados.</p>
+    </div>
+    <div class="plans">
+      <article class="plan reveal">
+        <div class="top"><span class="eyebrow"><i class="mk"></i>Gratuito</span></div>
+        <div class="price"><b>R$ 0</b><span>/ mês</span></div>
+        <p class="desc">Até 5 alunos, sem cartão.</p>
+        <a class="btn outline" href="/cadastro">Começar grátis <i class="tri"></i></a>
+        <ul>
+          <li><i class="tri"></i>Até 5 alunos</li>
+          <li><i class="tri"></i>Treino e dieta</li>
+          <li><i class="tri"></i>Check-in semanal com fotos</li>
+          <li><i class="tri"></i>Cobrança por PIX e cartão</li>
+        </ul>
+      </article>
+      <article class="plan hi reveal" data-d="1">
+        <div class="top"><span class="eyebrow"><i class="mk"></i>Revo Pro</span><span class="rec">Recomendado</span></div>
+        <div class="price"><b>R$ 60</b><span>/ mês</span></div>
+        <p class="desc">Até 150 alunos, com protocolos.</p>
+        <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn">Assinar o Pro <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+        <ul>
+          <li><i class="tri"></i>Até 150 alunos</li>
+          <li><i class="tri"></i>Protocolos e suplementos</li>
+          <li><i class="tri"></i>Link de pagamento</li>
+          <li><i class="tri"></i>Vitrine de planos <span class="soon">em breve</span></li>
+          <li><i class="tri"></i>Suporte prioritário</li>
+        </ul>
+      </article>
+      <article class="plan reveal" data-d="2">
+        <div class="top"><span class="eyebrow"><i class="mk"></i>Revo Pro Max</span></div>
+        <div class="price"><b>R$ 120</b><span>/ mês</span></div>
+        <p class="desc">Alunos ilimitados, com sua marca.</p>
+        <a class="btn outline" href="/cadastro">Assinar o Pro Max <i class="tri"></i></a>
+        <ul>
+          <li><i class="tri"></i>Alunos ilimitados</li>
+          <li><i class="tri"></i>Checkout com sua logo e cor</li>
+          <li><i class="tri"></i>Relatórios avançados <span class="soon">em breve</span></li>
+          <li><i class="tri"></i>Gerente de conta <span class="soon">em breve</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="foot-note">Sobre cada pagamento de aluno, a Revo retém 10% do líquido<sup>1</sup>. Cancele quando quiser — o acesso continua até o fim do ciclo pago.</p>
+  </div>
+</section>
+
+<!-- ============ CTA FINAL ============ -->
+<section id="comecar" class="sec cta" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="cta-text">
+        <span class="eyebrow reveal"><i class="mk"></i>Comece agora</span>
+        <h2 class="display h-xl reveal" data-d="1">Seu próximo aluno pode entrar hoje.</h2>
+        <p class="lead reveal" data-d="2">Grátis até 5 alunos, sem cartão pra começar. Ele paga pelo link e você saca o saldo via PIX.</p>
+        <div class="btns reveal" data-d="3">
+          <a class="wave" href="/cadastro"><svg><use href="#wave"/></svg><span class="btn lg">Começar grátis <i class="tri"></i></span><svg><use href="#wave"/></svg></a>
+          <a class="mlink" href="/login">Já tenho conta <i class="tri"></i></a>
+        </div>
+      </div>
+      <figure class="photo reveal" data-d="2">
+        <img src="assets/foto-app.jpg" alt="Aluna conferindo o treino no celular" loading="lazy">
+        <figcaption class="tag"><i class="ti ti-circle-check"></i>Check-in enviado · Semana 12</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="wrap refs">
+  <ol>
+    <li>Taxa calculada sobre o valor líquido, após a taxa do gateway (Asaas). Pagamentos processados pelo Asaas; a Revo não armazena dados de cartão.</li>
+    <li>Apps na App Store e no Google Play em breve. Enquanto isso, o aluno acessa pelo navegador em revo.app/aluno.</li>
+  </ol>
+</div>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="assets/revo-wordmark-white.svg" alt="Revo">
+        <p>Plataforma para consultores fitness gerenciarem alunos, treinos, dietas, check-ins e cobranças.</p>
+      </div>
+      <div class="fcol"><span class="ttl">Produto</span><a href="#como-funciona">Como funciona</a><a href="#funcionalidades">Funcionalidades</a><a href="#app">App do aluno</a><a href="#precos">Preços</a></div>
+      <div class="fcol"><span class="ttl">Conta</span><a href="/login">Entrar</a><a href="/cadastro">Criar conta</a><a href="/aluno">Área do aluno</a></div>
+      <div class="fcol"><span class="ttl">Legal</span><a href="/termos">Termos de uso</a><a href="/privacidade">Política de privacidade</a><a href="mailto:suporte@revo.app">suporte@revo.app</a></div>
+    </div>
+    <div class="footer-bot">
+      <span>© 2026 Revo. Todos os direitos reservados.</span>
+      <div class="soc"><a href="https://instagram.com/revo.app" aria-label="Instagram"><i class="ti ti-brand-instagram"></i></a></div>
+      <div class="legal"><a href="/termos">Termos</a><a href="/privacidade">Privacidade</a><span>Aluno? Use o link de convite que seu coach enviou.</span></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // split hero headline into words for stagger
+  var h = document.querySelector('[data-split]');
+  if (h) {
+    var i = 0;
+    function split(node){
+      if (node.nodeType === 3) {
+        var frag = document.createDocumentFragment();
+        node.textContent.split(/(\s+)/).forEach(function(t){
+          if (!t) return;
+          if (/^\s+$/.test(t)) { frag.appendChild(document.createTextNode(' ')); return; }
+          var s = document.createElement('span'); s.className = 'w'; s.textContent = t;
+          s.style.transitionDelay = (0.08 + i * 0.07) + 's'; i++; frag.appendChild(s);
+        });
+        node.parentNode.replaceChild(frag, node);
+      } else if (node.nodeType === 1) { Array.prototype.slice.call(node.childNodes).forEach(split); }
+    }
+    split(h);
+    requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.querySelector('.hero').classList.add('in'); }); });
+  }
+
+  // scroll reveal
+  var els = document.querySelectorAll('.reveal');
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    els.forEach(function(el){ io.observe(el); });
+  } else { els.forEach(function(el){ el.classList.add('in'); }); }
+
+  // dashboard mockup scale (1120px canvas → container width)
+  var stage = document.getElementById('dashStage');
+  function fit(){ if (!stage) return; var w = stage.clientWidth; if (w) stage.style.setProperty('--s', Math.min(1, w / 1120)); }
+  if (stage) { fit(); if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage); window.addEventListener('resize', fit); }
+
+  // mobile menu
+  var burger = document.querySelector('.nav-burger'), menu = document.getElementById('menu');
+  if (burger && menu) {
+    burger.addEventListener('click', function(){ var open = menu.classList.toggle('open'); burger.setAttribute('aria-expanded', open); });
+    menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }); });
+  }
+})();
+</script>
+</body>
+</html>
