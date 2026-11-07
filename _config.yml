@@ -63,7 +63,7 @@ exclude:
 # Google Tag Manager: ID do contêiner (ex.: GTM-ABC1234). Entra em TODAS as páginas
 # (LP, blog, categorias e artigos novos) pelo _includes/gtm-head.html e gtm-body.html.
 # Deixe vazio ("") para desligar.
-gtm_id: "GTM-XXXXXXX"
+gtm_id: "GTM-WFPHQZKJ"
 
 # Links do app (troque aqui quando o endereço do app estiver definido, ex.: https://app.revofit.app/cadastro)
 cta_url: /#precos
