@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+{% include gtm-head.html %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#04453d">
+{%- comment -%} <title> = título da página + " | Revo" (o título já com "Revo" fica como está).
+  O sufixo fica fora do front matter porque o jekyll-seo-tag some com o "|" no og:title. {%- endcomment %}
+<title>{{ page.title }}{% unless page.title contains "Revo" %} | Revo{% endunless %}</title>
+{% seo title=false %}
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/tabler-subset.css">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+{% include gtm-body.html %}
+{%- assign escuro = false -%}
+{%- if page.hero == "verde" or page.hero == "escuro" -%}{%- assign escuro = true -%}{%- endif %}
+{% include nav.html escuro=escuro %}
+<main>
+{{ content }}
+</main>
+{% include footer.html %}
+<script src="/assets/site.js" defer></script>
+</body>
+</html>

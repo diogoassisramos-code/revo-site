@@ -1,0 +1,16 @@
+{%- comment -%} CTA final das páginas. {%- endcomment -%}
+<section class="pg-cta">
+  <div class="wrap">
+    <div class="pg-cta-box reveal">
+      <div class="txt">
+        <span class="eyebrow"><i class="mk"></i>{{ include.eyebrow | default: "Comece agora" }}</span>
+        <h2 class="display">{{ include.titulo | default: site.data.textos.cta_titulo }}</h2>
+      </div>
+      <div class="side">
+        <p>{{ include.texto | default: site.data.textos.cta_texto }}</p>
+        <a class="btn lg" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a>
+        <span class="pg-micro">{% assign micro = include.micro | default: site.data.textos.micro %}{% for m in micro %}<span>{{ m }}</span>{% endfor %}</span>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+layout: pagina
+id: painel-do-consultor
+permalink: /painel-do-consultor/
+hero: gelo
+title: "Software para consultoria online: alunos, treino, dieta e cobrança"
+description: "Monte treino e dieta, acompanhe check-ins e receba todo mês no automático. Sua consultoria inteira num painel. Comece grátis."
+eyebrow: "O que você controla"
+h1: "Sua consultoria inteira num painel: alunos, planos e cobrança"
+subtitulo: "Monte treino e dieta, acompanhe check-ins e receba todo mês sem cobrar ninguém. Menos planilha, menos WhatsApp, mais aluno atendido."
+cta2: { texto: "Ver o painel por dentro", url: "#por-dentro" }
+
+semana:
+  - { tarefa: "Enviar treino novo", hoje: "PDF por aluno, um por um", revo: "Aplica modelo e ajusta" }
+  - { tarefa: "Ler check-ins", hoje: "Áudios e fotos soltas no chat", revo: "Fila organizada com alertas" }
+  - { tarefa: "Saber quem está sumindo", hoje: "Memória", revo: "Painel de risco" }
+  - { tarefa: "Cobrar mensalidade", hoje: "Pix manual e mensagem constrangedora", revo: "Recorrência automática" }
+  - { tarefa: "Mostrar evolução", hoje: "Montar comparação na mão", revo: "Relatório semanal automático" }
+---
+{%- assign pgs = site.data.paginas -%}
+{%- assign info = pgs | where: "id", page.id | first -%}
+{%- assign painel = pgs | where: "grupo", "painel" -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="por-dentro">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Por dentro do painel" titulo="Quanto da sua semana o Revo devolve." texto="Menos tempo operando, mais alunos atendidos com a mesma qualidade, e dinheiro entrando sozinho." %}
+    <div class="pg-cards n2">
+      {%- assign g = pgs | where: "id", "gestao-de-alunos" | first %}
+      {% include pg/card.html p=g classe="big verde" texto="Quem está cumprindo e quem está sumindo, numa tela." %}
+      {%- assign c = pgs | where: "id", "cobranca-recorrente" | first %}
+      {% include pg/card.html p=c classe="big" texto="O aluno paga todo mês e você não cobra ninguém." d=1 %}
+    </div>
+    <div class="pg-list" style="margin-top:40px">
+      {%- for p in painel %}{% if p.id == "gestao-de-alunos" or p.id == "cobranca-recorrente" %}{% continue %}{% endif %}
+      <a class="reveal" href="{{ p.url }}"><span class="tile"><i class="ti ti-{{ p.icone }}"></i></span><b>{{ p.nome }}{% if p.status == "em-breve" %}<span class="pg-soon">em breve</span>{% endif %}</b><span class="d">{{ p.resumo }}</span><i class="go" aria-hidden="true"></i></a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="sua-semana">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Sua semana, antes e depois" titulo="O que sai da sua semana." %}
+    <div class="reveal">
+      <table class="pg-vs">
+        <thead><tr><th scope="col">Tarefa</th><th scope="col">Hoje (planilha + WhatsApp)</th><th scope="col">Com o Revo</th></tr></thead>
+        <tbody>
+          {%- for s in page.semana %}
+          <tr><td>{{ s.tarefa }}</td><td data-l="Hoje (planilha + WhatsApp)">{{ s.hoje }}</td><td data-l="Com o Revo">{{ s.revo }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight">
+  <div class="wrap">
+    <a class="pg-teaser reveal" href="/implantacao/" data-nav="dark"><span>Já tem alunos em outra plataforma? A gente migra tudo para você.</span><span class="mlink">Implantação <i class="tri"></i></span></a>
+  </div>
+</section>
+
+{% include pg/cta.html %}
+
+{% include pg/jsonld.html atual=info.nome %}

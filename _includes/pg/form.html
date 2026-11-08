@@ -1,0 +1,16 @@
+{%- comment -%}
+  Formulário de contato (lista de espera, implantação, sugestão de integração).
+  Envio: para form_action do _config.yml (Formspree, RD Station, HubSpot...). Se estiver vazio,
+  abre o e-mail do visitante já preenchido para contato_email. Também dispara o evento
+  "lead_form" no dataLayer (Google Tag Manager).
+  campos: lista de { nome, rotulo, tipo, placeholder, full, opcional, auto }
+{%- endcomment -%}
+<form class="pg-form{% if include.inline %} inline{% endif %}" data-lead="{{ include.id }}" data-email="{{ site.contato_email }}" data-assunto="{{ include.assunto }}"{% if site.form_action and site.form_action != "" %} action="{{ site.form_action }}" method="post"{% endif %}>
+  <input type="hidden" name="formulario" value="{{ include.id }}">
+  <input type="hidden" name="pagina" value="{{ page.url | absolute_url }}">
+  {%- for c in include.campos %}
+  <label{% if c.full or include.campos.size == 1 %} class="full"{% endif %}>{{ c.rotulo }}<input name="{{ c.nome }}" type="{{ c.tipo | default: 'text' }}"{% if c.placeholder %} placeholder="{{ c.placeholder }}"{% endif %}{% if c.tipo == 'number' %} min="0" inputmode="numeric"{% endif %}{% if c.auto %} autocomplete="{{ c.auto }}"{% endif %}{% unless c.opcional %} required{% endunless %}></label>
+  {%- endfor %}
+  <div class="send"><button class="btn lg" type="submit">{{ include.botao }} <i class="tri"></i></button>{% if include.nota %}<span class="note">{{ include.nota }}</span>{% endif %}</div>
+  <p class="msg" role="status">Abrimos o seu e-mail com os dados preenchidos. É só enviar.</p>
+</form>

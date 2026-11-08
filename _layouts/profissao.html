@@ -1,0 +1,112 @@
+---
+layout: pagina
+---
+{%- comment -%}
+  Template B: LP por profissão (/para/...).
+  Ordem dos blocos: hero, dores, como o Revo resolve, bloco específico da profissão,
+  antes x depois da operação, conformidade, preço, FAQ, CTA final (ou lista de espera).
+  Itens com "confirmar:" no front matter só aparecem com mostrar_confirmar: true no _config.yml.
+{%- endcomment -%}
+{%- assign info = site.data.paginas | where: "id", page.id | first -%}
+{%- if site.mostrar_confirmar -%}
+  {%- assign faq = page.faq -%}
+{%- else -%}
+  {%- assign faq = page.faq | where_exp: "f", "f.confirmar == nil" -%}
+{%- endif -%}
+{%- assign mostrar_esp = true -%}
+{%- if page.especifico == nil -%}{%- assign mostrar_esp = false -%}{%- endif -%}
+{%- if page.especifico.confirmar and site.mostrar_confirmar != true -%}{%- assign mostrar_esp = false -%}{%- endif -%}
+{%- assign espera = false -%}
+{%- if info.status == "acesso-antecipado" or info.status == "em-breve" -%}{%- assign espera = true -%}{%- endif -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="dores">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Se isso é a sua semana" titulo=page.dores_titulo %}
+    <div class="pg-pains">
+      {%- for d in page.dores %}
+      <article class="pg-pain reveal" data-d="{{ forloop.index0 }}"><span class="eyebrow muted"><i class="mk"></i>{{ forloop.index | prepend: "0" }}</span><p>{{ d }}</p></article>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="como-o-revo-resolve">
+  <div class="wrap">
+    {% include pg/head.html eyebrow=page.resolve_eyebrow titulo=page.resolve_titulo texto=page.resolve_texto %}
+    <div class="pg-list">
+      {%- for r in page.resolve %}
+      {%- assign p = site.data.paginas | where: "id", r.pagina | first %}
+      <a class="reveal" href="{{ p.url }}"><span class="tile"><i class="ti ti-{{ p.icone }}"></i></span><b>{{ p.nome }}{% if p.status == "em-breve" %}<span class="pg-soon">em breve</span>{% endif %}</b><span class="d">{{ r.d }}</span><i class="go" aria-hidden="true"></i></a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+{%- if mostrar_esp %}
+{%- assign e = page.especifico %}
+<section class="pg-sec tight" id="{{ e.ancora | default: 'para-voce' }}">
+  <div class="wrap">
+    <div class="pg-special reveal{% if e.confirmar %} pg-confirmar{% endif %}" data-nav="dark">
+      <div class="head">
+        <div class="col"><span class="eyebrow"><i class="mk"></i>{{ e.eyebrow }}</span><h2 class="display h-md">{{ e.titulo }}</h2></div>
+        <div class="col"><p>{% include pg/md.html t=e.texto %}</p></div>
+      </div>
+      {%- if e.itens %}
+      <div class="items">
+        {%- for it in e.itens %}
+        <div class="item">{% if it.eyebrow %}<span class="eyebrow"><i class="mk"></i>{{ it.eyebrow }}</span>{% endif %}<h3>{{ it.t }}</h3>{% if it.d %}<p>{% include pg/md.html t=it.d %}</p>{% endif %}{% if it.lista %}<ul>{% for li in it.lista %}<li>{{ li }}</li>{% endfor %}</ul>{% endif %}</div>
+        {%- endfor %}
+      </div>
+      {%- endif %}
+      {%- if e.calc %}{% include pg/calc.html c=e.calc %}{% endif %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if page.teaser %}
+<section class="pg-sec tight">
+  <div class="wrap"><a class="pg-teaser reveal" href="{{ page.teaser.url }}" data-nav="dark"><span>{{ page.teaser.texto }}</span><span class="mlink">{{ page.teaser.link }} <i class="tri"></i></span></a></div>
+</section>
+{%- endif %}
+
+<section class="pg-sec tight" id="antes-e-depois">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Antes x depois da operação" titulo=page.vs_titulo texto=page.vs_texto %}
+    <div class="reveal">
+      <table class="pg-vs">
+        <thead><tr><th scope="col">Na sua rotina</th><th scope="col">{{ page.vs_hoje | default: "Planilha + WhatsApp + Pix manual" }}</th><th scope="col">Com o Revo</th></tr></thead>
+        <tbody>
+          {%- for v in page.vs %}
+          <tr><td>{{ v.rotina }}</td><td data-l="{{ page.vs_hoje | default: 'Planilha + WhatsApp + Pix manual' }}">{{ v.hoje }}</td><td data-l="Com o Revo">{{ v.revo }}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+{%- if page.conformidade %}
+<section class="pg-sec tight">
+  <div class="wrap">{% include pg/strip.html texto=page.conformidade.texto titulo=page.conformidade.titulo %}</div>
+</section>
+{%- endif %}
+
+{%- unless espera %}
+<section class="pg-sec tight" id="preco">
+  <div class="wrap">
+    <div class="pg-price reveal">
+      <div class="l"><span class="eyebrow"><i class="mk"></i>Preço</span><h2>Começa grátis, paga só quando fatura.</h2><p>{{ page.preco_texto | default: "Teste com até 5 alunos, sem cartão e sem fidelidade." }}</p></div>
+      <div class="r"><a class="btn" href="{{ site.cta_url }}">Começar grátis <i class="tri"></i></a><a class="mlink" href="/#precos">Ver planos <i class="tri"></i></a></div>
+    </div>
+  </div>
+</section>
+{%- endunless %}
+
+{% include pg/faq.html faq=faq tight=true %}
+
+{% if espera %}{% include pg/lista.html l=page.lista %}{% else %}{% include pg/cta.html titulo=page.cta_titulo texto=page.cta_texto micro=page.micro %}{% endif %}
+
+{% include pg/jsonld.html atual=info.nome faq=faq %}

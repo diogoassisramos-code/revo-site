@@ -1,11 +1,12 @@
-<footer class="footer">
+<footer class="footer" data-nav="dark">
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
         <img src="/assets/revo-wordmark-white.svg" alt="Revo">
         <p>Plataforma para consultores fitness gerenciarem alunos, treinos, dietas, check-ins e cobranças.</p>
       </div>
-      <div class="fcol"><span class="ttl">Produto</span><a href="/#como-funciona">Como funciona</a><a href="/#funcionalidades">Funcionalidades</a><a href="/#app">App do aluno</a><a href="/#precos">Preços</a></div>
+      {% include footer-produto.html %}
+      {% include footer-para-quem.html %}
       <div class="fcol"><span class="ttl">Blog</span>{% for c in site.categorias %}<a href="/blog/categoria/{{ c[0] }}/">{{ c[1] }}</a>{% endfor %}</div>
       <div class="fcol"><span class="ttl">Revo</span><a href="/blog/">Todos os artigos</a><a href="/blog/feed.xml">RSS</a><a href="{{ site.cta_url }}">Começar grátis</a></div>
     </div>
@@ -14,9 +15,3 @@
     </div>
   </div>
 </footer>
-<script>
-(function(){
-  var b=document.querySelector('.nav-burger'),m=document.getElementById('menu');
-  if(b&&m){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});}
-})();
-</script>

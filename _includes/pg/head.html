@@ -1,0 +1,10 @@
+{%- comment -%} Cabeçalho de seção: eyebrow + H2 (+ texto à direita). {%- endcomment -%}
+<div class="pg-head">
+  <div class="col">
+    <span class="eyebrow reveal"><i class="mk"></i>{{ include.eyebrow }}</span>
+    <h2 class="display h-md reveal" data-d="1">{{ include.titulo }}</h2>
+  </div>
+  {%- if include.texto %}
+  <div class="col reveal" data-d="2"><p class="lead pg-txt">{% include pg/md.html t=include.texto %}</p></div>
+  {%- endif %}
+</div>

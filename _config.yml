@@ -41,6 +41,13 @@ defaults:
   - scope: { path: "", type: posts }
     values:
       layout: post
+  # Páginas de funcionalidade e LPs por profissão (texto no front matter de cada arquivo)
+  - scope: { path: "app-do-aluno" }
+    values: { layout: funcionalidade, grupo: aluno, hero: verde }
+  - scope: { path: "painel-do-consultor" }
+    values: { layout: funcionalidade, grupo: painel, hero: gelo }
+  - scope: { path: "para" }
+    values: { layout: profissao, grupo: profissao, hero: escuro }
 
 # Categorias do blog (slug: nome exibido). Use o slug no campo "categoria" do post.
 categorias:
@@ -68,3 +75,14 @@ gtm_id: "GTM-WFPHQZKJ"
 # Links do app (troque aqui quando o endereço do app estiver definido, ex.: https://app.revofit.app/cadastro)
 cta_url: /#precos
 login_url: ""
+
+# Páginas de funcionalidade e LPs: itens marcados [confirmar] no front matter (campo "confirmar:")
+# ficam FORA do site enquanto isto for false. Para revisar tudo, mude para true: os itens aparecem
+# com uma borda tracejada "a confirmar". Para publicar um item, apague a linha "confirmar:" dele.
+mostrar_confirmar: false
+
+# Formulários (lista de espera, implantação, sugestão de integração).
+# form_action: URL que recebe o POST (Formspree, RD Station, HubSpot...). Vazio = o botão abre o
+# e-mail do visitante já preenchido para contato_email.
+form_action: ""
+contato_email: suporte@revo.app

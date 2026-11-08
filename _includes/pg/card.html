@@ -1,0 +1,15 @@
+{%- comment -%} Card de página (relacionadas, hubs). p = item de _data/paginas.yml {%- endcomment -%}
+{%- assign p = include.p -%}
+{%- case p.grupo -%}
+{%- when "aluno" -%}{%- assign g = "App do Aluno" -%}
+{%- when "painel" -%}{%- assign g = "Painel do Consultor" -%}
+{%- when "profissao" -%}{%- assign g = "Para quem" -%}
+{%- else -%}{%- assign g = "Revo" -%}
+{%- endcase -%}
+<a class="pg-card{% if include.classe %} {{ include.classe }}{% endif %} reveal"{% if include.d %} data-d="{{ include.d }}"{% endif %} href="{{ p.url }}">
+  <span class="top"><span>{{ include.rotulo | default: g }}</span><i class="ti ti-{{ p.icone }}"></i></span>
+  <h3>{{ p.nome }}</h3>
+  <p>{{ include.texto | default: p.resumo }}</p>
+  {%- if p.status == "em-breve" %}<span class="pg-soon">em breve</span>{% elsif p.status == "acesso-antecipado" %}<span class="pg-soon">acesso antecipado</span>{% endif %}
+  <span class="mlink">{{ include.link | default: "Ver detalhes" }} <i class="tri"></i></span>
+</a>

@@ -1,0 +1,30 @@
+<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
+  {% include mock/top.html %}
+  <div class="ux-body">
+    {% include mock/side.html on="alunos" %}
+    <div class="ux-main" style="display:grid;grid-template-columns:186px minmax(0,1fr);gap:10px">
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:13px">Fila de check-ins</b><span class="ux-m">4 hoje</span></div>
+        <div class="ux-row hi" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Bruna Alves</b><span class="ux-m">semanal</span></span><span class="ux-pill warn" style="align-self:flex-start"><i class="ti ti-alert-triangle"></i>Sono abaixo do normal</span></div>
+        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Lucas Ferreira</b><span class="ux-m">treino</span></span><span class="ux-pill info" style="align-self:flex-start">Esforço 9 de 10</span></div>
+        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Pedro Santos</b><span class="ux-m">semanal</span></span><span class="ux-pill bad" style="align-self:flex-start">Atrasado 2 dias</span></div>
+        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Mariana Costa</b><span class="ux-m">semanal</span></span><span class="ux-pill mute" style="align-self:flex-start">Sem alertas</span></div>
+      </div>
+      <div class="ux-card" style="padding:12px;display:flex;flex-direction:column;gap:8px">
+        <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Semana 12 x semana 11</span><span class="ux-t" style="font-size:15px">Bruna Alves</span></span><span class="ux-pill info">Emagrecimento</span></div>
+        <table class="ux-tbl">
+          <thead><tr><th></th><th>Sem. 11</th><th>Sem. 12</th><th></th></tr></thead>
+          <tbody>
+            <tr><td><b>Peso</b></td><td>64,2 kg</td><td>63,9 kg</td><td></td></tr>
+            <tr><td><b>Sono</b></td><td>7h</td><td><b style="color:#8a5a12">5h</b></td><td><span class="ux-pill warn">abaixo</span></td></tr>
+            <tr><td><b>Energia</b></td><td>4 de 5</td><td>3 de 5</td><td></td></tr>
+            <tr><td><b>Adesão à dieta</b></td><td>88%</td><td>81%</td><td></td></tr>
+          </tbody>
+        </table>
+        <div class="ux-row" style="background:var(--ice);font-size:11.5px;color:var(--ink-2)">“Semana corrida no trabalho, dormi pouco.”</div>
+        <div class="ux-row" style="box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-3);font-size:11.5px">Escreva uma resposta para a Bruna...</div>
+        <div style="display:flex;gap:8px;justify-content:flex-end"><span class="ux-btn sm ghost"><i class="ti ti-barbell"></i>Ajustar treino</span><span class="ux-btn sm"><i class="ti ti-send"></i>Responder</span></div>
+      </div>
+    </div>
+  </div>
+</div></div>

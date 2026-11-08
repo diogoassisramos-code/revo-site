@@ -1,0 +1,112 @@
+---
+layout: pagina
+---
+{%- comment -%}
+  Template A: página de funcionalidade (App do Aluno e Painel do Consultor).
+  Ordem dos blocos: hero, como funciona, detalhes (+ faixa de conformidade), destaque,
+  do outro lado, prova, relacionadas, FAQ, CTA final (ou lista de espera).
+  Itens com "confirmar:" no front matter só aparecem com mostrar_confirmar: true no _config.yml.
+{%- endcomment -%}
+{%- assign info = site.data.paginas | where: "id", page.id | first -%}
+{%- if page.grupo == "aluno" -%}
+  {%- assign pai = site.data.paginas | where: "id", "app-do-aluno" | first -%}
+{%- else -%}
+  {%- assign pai = site.data.paginas | where: "id", "painel-do-consultor" | first -%}
+{%- endif -%}
+{%- if site.mostrar_confirmar -%}
+  {%- assign detalhes = page.detalhes -%}
+  {%- assign faq = page.faq -%}
+{%- else -%}
+  {%- assign detalhes = page.detalhes | where_exp: "d", "d.confirmar == nil" -%}
+  {%- assign faq = page.faq | where_exp: "f", "f.confirmar == nil" -%}
+{%- endif -%}
+{%- assign espera = false -%}{%- if info.status == "em-breve" -%}{%- assign espera = true -%}{%- endif -%}
+
+{% include pg/hero.html info=info pai=pai %}
+
+{%- if page.passos %}
+<section class="pg-sec" id="como-funciona">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Como funciona" titulo=page.passos_titulo %}
+    <ol class="pg-steps">
+      {%- for s in page.passos %}
+      <li class="reveal" data-d="{{ forloop.index0 }}"><span class="n">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</span><p>{% include pg/md.html t=s %}</p></li>
+      {%- endfor %}
+    </ol>
+  </div>
+</section>
+{%- endif %}
+
+<section class="pg-sec{% if page.passos %} tight{% endif %}" id="detalhes">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Detalhes" titulo=page.detalhes_titulo texto=page.detalhes_texto %}
+    <div class="pg-feats n{{ detalhes.size }}">
+      {%- for d in detalhes %}
+      <article class="pg-feat reveal{% if d.confirmar %} pg-confirmar{% endif %}" data-d="{{ forloop.index0 | modulo: 3 }}">
+        <span class="tile"><i class="ti ti-{{ d.icone }}"></i></span>
+        <h3>{{ d.t }}</h3>
+        <p>{% include pg/md.html t=d.d %}</p>
+        {%- if d.em_breve %}<span class="pg-soon">em breve</span>{% endif %}
+      </article>
+      {%- endfor %}
+    </div>
+    {%- if page.conformidade %}
+    {% include pg/strip.html texto=page.conformidade.texto titulo=page.conformidade.titulo estilo="margin-top:16px" %}
+    {%- endif %}
+  </div>
+</section>
+
+{%- if page.destaque %}
+<section class="pg-sec tight">
+  <div class="wrap">
+    <div class="pg-price reveal">
+      <div class="l"><span class="eyebrow"><i class="mk"></i>{{ page.destaque.eyebrow }}</span><h2>{{ page.destaque.titulo }}</h2>{% if page.destaque.texto %}<p>{% include pg/md.html t=page.destaque.texto %}</p>{% endif %}</div>
+      <div class="r">{% if page.destaque.link %}<a class="btn" href="{{ page.destaque.link.url }}">{{ page.destaque.link.texto }} <i class="tri"></i></a>{% endif %}</div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if page.outro_lado %}
+{%- assign espelho = site.data.paginas | where: "id", page.outro_lado.pagina | first -%}
+{%- assign verde = false -%}{%- if espelho.grupo == "aluno" or espelho.id == "app-do-aluno" -%}{%- assign verde = true -%}{%- endif %}
+<section class="pg-sec tight" id="do-outro-lado">
+  <div class="wrap">
+    <div class="pg-mirror{% if verde %} verde{% endif %} reveal"{% if verde %} data-nav="dark"{% endif %}>
+      <div class="txt">
+        <span class="eyebrow"><i class="mk"></i>Do outro lado</span>
+        <h2 class="display h-md">{% if page.outro_lado.titulo %}{{ page.outro_lado.titulo }}{% elsif verde %}O que o aluno recebe no app{% else %}O que você vê no painel{% endif %}</h2>
+        <p>{% include pg/md.html t=page.outro_lado.texto %}</p>
+        <a class="mlink" href="{{ espelho.url }}">{{ page.outro_lado.link | default: espelho.nome }} <i class="tri"></i></a>
+      </div>
+      <div class="vis{% if verde %} ux-small{% endif %}">{% include mock/{{ espelho.mockup }}.html %}</div>
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{%- if page.prova %}
+<section class="pg-sec tight">
+  <div class="wrap"><blockquote class="pg-prova reveal"><p>{{ page.prova.texto }}</p><cite>{{ page.prova.autor }}</cite></blockquote></div>
+</section>
+{%- endif %}
+
+{%- if page.relacionadas %}
+<section class="pg-sec tight" id="relacionadas">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Funcionalidades relacionadas" titulo="Funciona melhor junto." %}
+    <div class="pg-cards">
+      {%- for id in page.relacionadas %}
+      {%- assign r = site.data.paginas | where: "id", id | first %}
+      {% include pg/card.html p=r d=forloop.index0 %}
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+{%- endif %}
+
+{% include pg/faq.html faq=faq tight=true %}
+
+{% if espera %}{% include pg/lista.html l=page.lista %}{% else %}{% include pg/cta.html %}{% endif %}
+
+{% include pg/jsonld.html pai=pai atual=info.nome faq=faq %}

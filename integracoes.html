@@ -1,0 +1,73 @@
+---
+layout: pagina
+id: integracoes
+permalink: /integracoes/
+hero: menta
+title: "Integrações do Revo: pagamentos, saúde e comunicação"
+description: "Pix, cartão e boleto integrados, dados de saúde do celular e convites por WhatsApp. Veja com o que o Revo conversa."
+eyebrow: Integrações
+h1: "O Revo conversa com o que você e seu aluno já usam"
+subtitulo: "Pagamento, dados de saúde do celular e comunicação ligados ao seu painel, sem gambiarra."
+cta2: { texto: "Ver as integrações", url: "#lista-de-integracoes" }
+
+# Só publicar como "ativo" o que já funciona. Linhas com "confirmar:" ficam fora do site.
+integracoes:
+  - { nome: "Asaas (Pix, cartão, boleto)", icone: cash, faz: "Recebimento recorrente direto na sua conta", status: ativo }
+  - { nome: "WhatsApp", icone: brand-whatsapp, faz: "Convite do aluno e lembretes por link", status: ativo, confirmar: "WhatsApp: ativo, em breve ou fora?" }
+  - { nome: "Apple Saúde / Health Connect (Android)", icone: heart-rate-monitor, faz: "Passos, sono e frequência cardíaca entram no check-in", status: em-breve }
+  - { nome: "Relógios (Garmin, Apple Watch e outros)", icone: device-watch, faz: "Treinos de cardio registrados automaticamente", status: em-breve }
+  - { nome: "Importação por planilha (CSV)", icone: table-import, faz: "Traz seus alunos de outra ferramenta", status: ativo, confirmar: "importação por CSV: ativo, em breve ou fora?" }
+  - { nome: "Google Agenda", icone: calendar, faz: "Consultas e reuniões de check-in na agenda", status: em-breve }
+
+# Bloco final: formulário de 1 campo (vira pesquisa de roadmap)
+sugestao:
+  - { nome: ferramenta, rotulo: "Qual ferramenta?", placeholder: "Nome da ferramenta que você usa" }
+
+faq:
+  - p: "Preciso ter conta no Asaas?"
+    r: "Não. A conta de recebimento é criada dentro do Revo."
+    confirmar: "fluxo da subconta"
+  - p: "Os dados de saúde do celular são obrigatórios?"
+    r: "Não. O aluno escolhe se conecta."
+---
+{%- assign info = site.data.paginas | where: "id", page.id | first -%}
+{%- if site.mostrar_confirmar -%}
+  {%- assign lista = page.integracoes -%}{%- assign faq = page.faq -%}
+{%- else -%}
+  {%- assign lista = page.integracoes | where_exp: "i", "i.confirmar == nil" -%}{%- assign faq = page.faq | where_exp: "f", "f.confirmar == nil" -%}
+{%- endif -%}
+
+{% include pg/hero.html info=info %}
+
+<section class="pg-sec" id="lista-de-integracoes">
+  <div class="wrap">
+    {% include pg/head.html eyebrow="Com o que o Revo conversa" titulo="Ligado ao seu painel, sem gambiarra." texto="O que está ativo já funciona hoje. O que está em breve, avisamos quando entrar." %}
+    <div class="reveal">
+      <table class="pg-int">
+        <thead><tr><th scope="col">Integração</th><th scope="col">O que faz para você</th><th scope="col">Status</th></tr></thead>
+        <tbody>
+          {%- for i in lista %}
+          <tr{% if i.confirmar %} class="pg-confirmar"{% endif %}><td><span><i class="ti ti-{{ i.icone }}" aria-hidden="true"></i>{{ i.nome }}</span></td><td>{{ i.faz }}</td><td>{% if i.status == "em-breve" %}<span class="pg-st soon">Em breve</span>{% else %}<span class="pg-st">Ativo</span>{% endif %}</td></tr>
+          {%- endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="pg-sec tight" id="sugerir">
+  <div class="wrap">
+    <div class="pg-price reveal">
+      <div class="l"><span class="eyebrow"><i class="mk"></i>Falta alguma?</span><h2>Conta pra gente qual ferramenta você usa.</h2><p>As respostas entram na fila do que vamos integrar.</p></div>
+      <div class="r" style="flex:1;min-width:280px;max-width:520px">
+        {% include pg/form.html id="sugestao-integracao" campos=page.sugestao botao="Enviar" assunto="Sugestão de integração" inline=true %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include pg/faq.html faq=faq tight=true %}
+
+{% include pg/cta.html %}
+
+{% include pg/jsonld.html atual=info.nome faq=faq %}

@@ -1,0 +1,72 @@
+---
+# Status em _data/paginas.yml: acesso-antecipado (depende da Equipe multidisciplinar).
+# Regra de copy: nada de "protocolo hormonal", "emagrecimento rápido" ou nomes de substâncias,
+# nem aqui nem nos anúncios (CFM e política de saúde da Meta). Publicidade: Resolução CFM 2.336/2023.
+id: medicos
+permalink: /para/medicos/
+title: "Acompanhamento de pacientes entre consultas: plataforma para médicos"
+description: "Para médicos do esporte, nutrólogos e endocrinologistas: dados de rotina, adesão e evolução do paciente toda semana, com a equipe integrada."
+eyebrow: Para médicos
+h1: "Saiba como seu paciente está entre uma consulta e outra"
+subtitulo: "Rotina, adesão e evolução do paciente toda semana, com nutricionista e treinador no mesmo plano. Você chega na consulta com dado, não com relato."
+cta_lista: "Entrar na lista de acesso antecipado"
+cta2: { texto: "Ver como funciona", url: "#como-o-revo-resolve" }
+
+dores_titulo: "Entre uma consulta e outra, você fica sem dado."
+dores:
+  - "60 a 90 dias entre consultas sem nenhum dado sobre o que aconteceu."
+  - "Nutricionista e treinador do paciente trabalham sem conversar com você."
+  - "A adesão ao plano é invisível até o próximo exame."
+
+resolve_eyebrow: Como o Revo resolve
+resolve_titulo: "Dado da rotina do paciente, toda semana."
+resolve:
+  - { pagina: check-in, d: "Semanal, com perguntas definidas por você: sono, energia, sintomas." }
+  - { pagina: equipe-multidisciplinar, d: "Com papéis claros." }
+  - { pagina: evolucao, d: "Prontos para a consulta." }
+  - { pagina: anamnese-e-avaliacao, d: "Com anexos de exames." }
+  - { pagina: cobranca-recorrente, d: "Para planos de acompanhamento." }
+
+especifico:
+  ancora: visao-continua
+  eyebrow: Feito para médicos
+  titulo: "Protocolos longos, visão contínua"
+  texto: "Linha do tempo do paciente com check-ins, adesão e marcos da equipe, para acompanhamentos de 6 a 12 meses."
+  itens:
+    - { t: "Check-ins de toda semana", d: "Sono, energia e sintomas, nas perguntas que você definiu." }
+    - { t: "Adesão ao plano", d: "Treino e dieta, semana a semana, sem depender do relato." }
+    - { t: "Marcos da equipe", d: "Ajustes do nutricionista e do treinador na mesma linha do tempo." }
+
+vs_titulo: "O acompanhamento, antes e depois."
+vs_hoje: "Consulta e retorno"
+vs:
+  - { rotina: "Entre as consultas", hoje: "60 a 90 dias sem nenhum dado", revo: "Check-in semanal com sono, energia e sintomas" }
+  - { rotina: "Equipe do paciente", hoje: "Nutricionista e treinador sem conversar com você", revo: "Plano integrado, cada um no seu papel" }
+  - { rotina: "Adesão ao plano", hoje: "Invisível até o próximo exame", revo: "Adesão semana a semana no painel" }
+  - { rotina: "Na consulta", hoje: "Relato do paciente", revo: "Linha do tempo com dado da rotina" }
+
+conformidade:
+  titulo: "LGPD e prontuário"
+  texto: "Dados de saúde são dados sensíveis pela LGPD: consentimento registrado e dados hospedados no Brasil. O Revo apoia o acompanhamento e não substitui seu prontuário nem a prescrição."
+
+faq:
+  - p: "O Revo é um prontuário eletrônico?"
+    r: "Não. É uma ferramenta de acompanhamento entre consultas."
+  - p: "Posso prescrever medicamentos pelo app?"
+    r: "Não. Prescrição segue pelos seus canais habituais."
+  - p: "Quando abre?"
+    r: "Acesso antecipado por ordem da lista."
+    confirmar: "definir data de abertura"
+
+lista:
+  id: lista-medicos
+  eyebrow: Acesso antecipado
+  titulo: "Acompanhe seus pacientes entre as consultas."
+  texto: "O acesso antecipado abre por ordem da lista."
+  botao: "Entrar na lista"
+  assunto: "Acesso antecipado: médicos"
+  campos:
+    - { nome: nome, rotulo: "Nome", auto: name }
+    - { nome: especialidade, rotulo: "Especialidade", placeholder: "Medicina do esporte, nutrologia..." }
+    - { nome: email, rotulo: "E-mail", tipo: email, auto: email, full: true }
+---
