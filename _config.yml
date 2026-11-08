@@ -62,6 +62,7 @@ categorias:
 
 exclude:
   - README.md
+  - CONTEXTO-VISUAL.md
   - Gemfile
   - Gemfile.lock
   - vendor
