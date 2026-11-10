@@ -65,5 +65,7 @@ São 24 páginas, com o texto do doc "Revo: arquitetura e textos das páginas de
 - `para/consultores.html`, `minutos_revo`: tempo médio por check-in com o Revo, medido nos coaches fundadores. Com ele, a calculadora mostra as horas que voltam.
 - `implantacao.html`, `vagas_total` e `vagas_restantes`: N de vagas de coach fundador e o contador.
 
+**Telas do app nos celulares:** os celulares da LP e das páginas mostram as telas reais do app do aluno (Figma "Revo - Screen", tema claro), com o conteúdo rolando sozinho e as telas se alternando. As imagens ficam em `assets/app/`; quais telas aparecem em cada celular está em `_includes/mock/` (ex.: `telas="hoje,treinos"`). Quando o Figma mudar, exporte as telas de novo e rode `.github/scripts/cortar-telas.py` (instruções no topo do script).
+
 **Ícones:** são da [Tabler](https://tabler.io/icons) e o site carrega só os usados (`assets/tabler-subset.woff2`). Ícone novo precisa entrar no arquivo: rode `.github/scripts/gerar-icones.py` (as instruções estão no topo do script).
 

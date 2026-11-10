@@ -135,33 +135,7 @@
 </div>
 </div>
 <div class="phone-home">
-<div class="shell">
-<div style="background:#f4f8f7;border-radius:34px;overflow:hidden;height:540px;display:flex;flex-direction:column">
-<div style="height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:12px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
-<div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:12px;flex:1">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Sua semana</span>
-<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin-top:-8px">Vamos pro treino de hoje?</span>
-<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:20px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 12px rgba(2,33,40,.08),0 16px 40px rgba(2,33,40,.12)">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-calendar-event" style="font-size:12px"></i>Semana 12</span>
-<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em">Hora do seu check-in</span>
-<span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,.82)">Leva 2 minutos: peso, fotos e como foi a semana.</span>
-<span style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600;margin-top:4px"><i class="ti ti-clipboard-check" style="font-size:15px"></i>Fazer check-in</span>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Peso atual</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">82,4 kg</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">−1,2 kg</span></div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Aderência</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">92%</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#5d6c69">12 de 13 treinos</span></div>
-</div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="width:36px;height:36px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-barbell" style="font-size:18px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:13px;font-weight:600">Treino B</span><span style="font-size:11px;color:#5d6c69">8 exercícios · 55 min</span></span><span style="width:28px;height:28px;border-radius:50%;background:#022128;color:#fff;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-player-play-filled" style="font-size:11px"></i></span></div>
-</div>
-<div style="display:flex;justify-content:space-around;padding:10px 6px 14px;background:#fff;border-top:1px solid rgba(2,33,40,.08)">
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#004860;font-size:9px;font-weight:600"><i class="ti ti-home" style="font-size:18px"></i>Hoje</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-barbell" style="font-size:18px"></i>Treino</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-salad" style="font-size:18px"></i>Dieta</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-pill" style="font-size:18px"></i>Protocolo</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-user" style="font-size:18px"></i>Perfil</span>
-</div>
-</div>
-</div>
+{% include mock/app.html telas="hoje,treinos" %}
 </div>
       </div>
     </div>
@@ -207,29 +181,7 @@
         <p class="lead reveal" data-d="2">A melhor experiência pro seu aluno seguir o treino, a dieta e o protocolo que você passou. Ele usa no dia a dia, e você recebe tudo no seu dashboard.</p>
       </div>
       <div class="phone-player reveal" data-d="1">
-<div class="phone-player-inner">
-<div class="shell">
-<div style="background:#f4f8f7;border-radius:32px;overflow:hidden;height:524px;display:flex;flex-direction:column">
-<div style="height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 20px;font-size:11px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:11px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
-<div style="padding:4px 14px 0;display:flex;flex-direction:column;gap:10px;flex:1">
-<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Treino B · 3 de 8</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">38 min</span></div>
-<span style="font-size:18px;font-weight:600;letter-spacing:-0.02em;line-height:1.1">Agachamento livre</span>
-<span style="font-size:11px;color:#5d6c69;margin-top:-6px">4 séries · 8–10 reps · 90s de descanso</span>
-<span style="aspect-ratio:16/9;border-radius:14px;background:repeating-linear-gradient(135deg,#e0ecea 0 6px,#eaf3f1 6px 12px);display:flex;align-items:center;justify-content:center;font-family:'Geist Mono',monospace;font-size:10px;color:#5d6c69">vídeo do exercício</span>
-<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:18px;padding:14px;color:#fff;display:flex;flex-direction:column;align-items:center;gap:6px">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb">Descanso</span>
-<span style="font-family:'Geist',sans-serif;font-size:36px;font-weight:600;letter-spacing:-0.03em;line-height:1">01:12</span>
-<div style="display:flex;gap:6px;margin-top:4px"><span style="height:28px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:600;display:inline-flex;align-items:center">+15s</span><span style="height:28px;padding:0 10px;border-radius:999px;background:rgba(255,255,255,.12);font-size:11px;font-weight:600;display:inline-flex;align-items:center;gap:4px"><i class="ti ti-refresh" style="font-size:12px"></i>Reiniciar</span></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:6px">
-<div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 10px;font-size:12px"><span style="width:20px;height:20px;border-radius:50%;background:#7cd3bb;color:#022128;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-check" style="font-size:12px"></i></span><span style="flex:1;font-weight:600">Série 1</span><span style="font-family:'Geist Mono',monospace;color:#5d6c69">10 × 80 kg</span></div>
-<div style="display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 10px;font-size:12px;border:1px solid #7cd3bb"><span style="width:20px;height:20px;border-radius:50%;border:2px solid #7cd3bb;display:inline-block"></span><span style="flex:1;font-weight:600">Série 2</span><span style="font-family:'Geist Mono',monospace;color:#004860;font-weight:600">— × 82,5 kg</span></div>
-</div>
-</div>
-<div style="padding:10px 14px 14px"><span style="display:flex;align-items:center;justify-content:center;gap:6px;height:40px;border-radius:12px;background:#022128;color:#fff;font-size:13px;font-weight:600"><i class="ti ti-check" style="font-size:15px"></i>Marcar série feita</span></div>
-</div>
-</div>
-</div>
+{% include mock/app.html telas="treino-sessao,treino-concluido" %}
     </div>
 
     </div>

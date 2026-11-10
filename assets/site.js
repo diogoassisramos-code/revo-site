@@ -96,6 +96,37 @@
     window.addEventListener('resize', fit);
   }
 
+  // celulares com telas do app: o conteúdo rola sozinho e as telas se alternam.
+  // Só anima quando o celular está na tela; com "reduzir movimento", fica parado na 1ª tela.
+  var reduzir = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('[data-telas]').forEach(function (ph) {
+    var telas = Array.prototype.slice.call(ph.querySelectorAll('.fg-tela'));
+    if (reduzir || !telas.length || !('IntersectionObserver' in window)) return;
+    var atual = 0, timer = null, solo = telas.length === 1;
+    var mostrar = function (k) {
+      atual = k;
+      telas.forEach(function (t, j) { t.classList.toggle('on', j === k); t.classList.remove('anim', 'vaivem'); });
+      var t = telas[k], rolar = +t.getAttribute('data-rolar') || 0;
+      var seg = rolar ? Math.max(5, 2.6 + rolar / 120) : 3.4;
+      if (solo && !rolar) return;
+      if (rolar) {
+        if (solo) seg *= 2;
+        t.querySelector('.fg-ct').style.setProperty('--dur', seg + 's');
+        void t.offsetWidth;
+        t.classList.add('anim');
+        if (solo) t.classList.add('vaivem');
+      }
+      clearTimeout(timer);
+      timer = setTimeout(function () { mostrar(solo ? 0 : (k + 1) % telas.length); }, seg * 1000 + (solo ? 0 : 500));
+    };
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { ph.classList.remove('pausado'); mostrar(atual); }
+        else { clearTimeout(timer); ph.classList.add('pausado'); }
+      });
+    }, { threshold: 0.25 }).observe(ph);
+  });
+
   // formulários (lista de espera, implantação, sugestão de integração)
   // Com form_action no _config.yml, o envio vai para lá. Sem ele, abre o e-mail já preenchido.
   document.querySelectorAll('form[data-lead]').forEach(function (f) {

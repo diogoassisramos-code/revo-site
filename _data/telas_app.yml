@@ -1,0 +1,62 @@
+# Gerado por .github/scripts/cortar-telas.py a partir do Figma "Revo - Screen" (tema claro).
+# Medidas em px do Figma (tela 390 x 844). Não editar à mão.
+
+hoje:
+  figma: "40:3939 Hoje · home"
+  conteudo: 1700
+  barra: 80
+  rolar: 986
+
+treinos:
+  figma: "40:3983 Treinos · workouts"
+  conteudo: 431
+  barra: 80
+  rolar: 0
+
+dieta:
+  figma: "40:3995 Dieta · diet"
+  conteudo: 1740
+  barra: 80
+  rolar: 1026
+
+treino-sessao:
+  figma: "40:4201 Treino · sessão V1"
+  conteudo: 1142
+  barra: 82
+  rolar: 430
+
+treino-concluido:
+  figma: "40:4694 Treino concluído!"
+  conteudo: 794
+  barra: 0
+  rolar: 0
+
+checkin-semanal:
+  figma: "40:4264 Check-in semanal"
+  conteudo: 1048
+  barra: 82
+  rolar: 336
+
+checkin-enviado:
+  figma: "40:4687 Check-in enviado!"
+  conteudo: 794
+  barra: 0
+  rolar: 0
+
+checkin-semana5:
+  figma: "40:4312 Seu check-in · Semana 5"
+  conteudo: 930
+  barra: 0
+  rolar: 136
+
+notificacoes:
+  figma: "40:4437 Notificações"
+  conteudo: 794
+  barra: 0
+  rolar: 0
+
+seu-programa:
+  figma: "40:4596 Exercício expandido"
+  conteudo: 1103
+  barra: 82
+  rolar: 391

@@ -1,0 +1,17 @@
+{%- comment -%}
+  Celular com telas reais do app (Figma "Revo - Screen", tema claro), animado:
+  o conteúdo rola sozinho e as telas se alternam. telas = nomes de _data/telas_app.yml,
+  separados por vírgula. Imagens em assets/app/. Comportamento em assets/site.js.
+{%- endcomment -%}
+{%- assign seq = include.telas | split: "," -%}
+<div class="ux ux-phone fg" data-telas aria-hidden="true"><div class="fg-scr">
+  <img class="fg-sb" src="/assets/app/status.webp" alt="" width="540" height="69">
+  {%- for n in seq %}{% assign t = site.data.telas_app[n] %}
+  {%- assign base = t.barra | times: 100.0 | divided_by: 844 | round: 3 %}
+  {%- assign rolar = t.rolar | times: 100.0 | divided_by: t.conteudo | round: 3 %}
+  <div class="fg-tela{% if forloop.first %} on{% endif %}" data-rolar="{{ t.rolar }}">
+    <div class="fg-vp" style="bottom:{{ base }}%"><img class="fg-ct" src="/assets/app/{{ n }}-conteudo.webp" alt=""{% unless forloop.first %} loading="lazy"{% endunless %} style="--rolar:-{{ rolar }}%"></div>
+    {%- if t.barra > 0 %}<img class="fg-bb" src="/assets/app/{{ n }}-barra.webp" alt=""{% unless forloop.first %} loading="lazy"{% endunless %}>{% endif %}
+  </div>
+  {%- endfor %}
+</div></div>

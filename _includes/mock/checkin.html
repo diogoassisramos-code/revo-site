@@ -1,13 +1,1 @@
-<div class="ux ux-phone" aria-hidden="true"><div class="ux-scr">
-  {% include mock/sb.html %}
-  <div class="ux-c" style="gap:9px">
-    <span class="ux-eb">{% if include.variante == "atleta" %}Off-season · Semana 14{% else %}Check-in semanal · Semana 12{% endif %}</span>
-    <span class="ux-t" style="margin-top:-5px">Como foi a sua semana?</span>
-    <div class="ux-card" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px"><span class="ux-k">Peso de hoje, em jejum</span><b style="font-size:15px">{% if include.variante == "atleta" %}88,6 kg{% else %}82,4 kg{% endif %}</b></div>
-    <div><span class="ux-k">Fotos{% if include.variante == "atleta" %} · mesmas poses de sempre{% endif %}</span><div class="ux-g3" style="margin-top:5px"><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Frente</div><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Lado</div><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Costas</div></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Sono</span><span class="ux-m">7h por noite</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span>2</span><span>3</span><span class="on">4</span><span>5</span></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Energia</span><span class="ux-m">boa</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span>2</span><span>3</span><span class="on">4</span><span>5</span></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Fome</span><span class="ux-m">controlada</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span></div></div>
-  </div>
-  <div style="padding:0 14px 14px"><span class="ux-btn mint"><i class="ti ti-send"></i>Enviar check-in</span></div>
-</div></div>
+{% include mock/app.html telas="checkin-semanal,checkin-enviado" %}

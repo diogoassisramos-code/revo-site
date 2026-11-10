@@ -828,3 +828,22 @@ section{scroll-margin-top:88px}
 .pg-prova cite{display:block;margin-top:16px;font-style:normal;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
 .pg-card .pg-soon,.pg-feat .pg-soon{align-self:flex-start}
 .pg-faq .r p+p{margin-top:.8em}
+
+/* ============================================================
+   CELULAR COM TELAS REAIS DO APP (fg-*): Figma "Revo - Screen", tema claro.
+   Barra de status fixa, conteúdo rolando e barra inferior fixa.
+   ============================================================ */
+.fg .fg-scr{position:relative;aspect-ratio:390/844;border-radius:34px;overflow:hidden;background:#f4f8f7;isolation:isolate}
+.fg-sb{position:absolute;left:0;top:0;width:100%;height:auto;z-index:3}
+.fg-tela{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease)}
+.fg-tela.on{opacity:1;z-index:1}
+.fg-vp{position:absolute;left:0;right:0;top:5.924%;overflow:hidden}
+.fg-ct{display:block;width:100%;height:auto;will-change:transform}
+.fg-bb{position:absolute;left:0;bottom:0;width:100%;height:auto;z-index:2}
+.fg-tela.anim .fg-ct{animation:fg-rolar var(--dur,8s) cubic-bezier(.45,0,.3,1) both}
+.fg-tela.anim.vaivem .fg-ct{animation-name:fg-vaivem}
+.fg.pausado .fg-ct{animation-play-state:paused}
+@keyframes fg-rolar{0%,15%{transform:translateY(0)}85%,100%{transform:translateY(var(--rolar))}}
+@keyframes fg-vaivem{0%,10%{transform:translateY(0)}42%,58%{transform:translateY(var(--rolar))}90%,100%{transform:translateY(0)}}
+.phone-home .fg,.phone-player .fg{width:100%}
+@media (prefers-reduced-motion:reduce){.fg-tela{transition:none}.fg-tela.anim .fg-ct{animation:none}}
