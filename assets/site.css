@@ -846,4 +846,16 @@ section{scroll-margin-top:88px}
 @keyframes fg-rolar{0%,15%{transform:translateY(0)}85%,100%{transform:translateY(var(--rolar))}}
 @keyframes fg-vaivem{0%,10%{transform:translateY(0)}42%,58%{transform:translateY(var(--rolar))}90%,100%{transform:translateY(0)}}
 .phone-home .fg,.phone-player .fg{width:100%}
+/* cursor (seta) que navega pelas telas */
+.fg-cur{position:absolute;z-index:6;left:72%;top:68%;width:11%;pointer-events:none;opacity:0;transition:left .8s cubic-bezier(.55,0,.2,1),top .8s cubic-bezier(.55,0,.2,1),opacity .4s}
+.fg.ativo .fg-cur{opacity:1}
+.fg-cur svg{display:block;width:100%;height:auto;transform:translate(-16%,-10%);transform-origin:16% 10%;filter:drop-shadow(0 2px 4px rgba(2,33,40,.35));transition:transform .15s}
+.fg-cur i{position:absolute;left:0;top:0;width:190%;aspect-ratio:1;border-radius:50%;background:rgba(124,211,187,.6);transform:translate(-50%,-50%) scale(0);opacity:0}
+.fg-cur.clic svg{transform:translate(-16%,-10%) scale(.8)}
+.fg-cur.clic i{animation:fg-toque .6s ease-out}
+.fg-cur.arrasta svg{animation:fg-arrasta 1.5s ease-in-out infinite}
+.fg-cur.arrasta-baixo svg{animation:fg-arrasta-baixo 1.5s ease-in-out infinite}
+@keyframes fg-toque{0%{transform:translate(-50%,-50%) scale(.2);opacity:.95}100%{transform:translate(-50%,-50%) scale(1.25);opacity:0}}
+@keyframes fg-arrasta{0%{transform:translate(-16%,-10%);opacity:0}12%{transform:translate(-16%,-10%) scale(.86);opacity:1}62%{transform:translate(-16%,-330%) scale(.86);opacity:1}78%,100%{transform:translate(-16%,-330%);opacity:0}}
+@keyframes fg-arrasta-baixo{0%{transform:translate(-16%,-330%);opacity:0}12%{transform:translate(-16%,-330%) scale(.86);opacity:1}62%{transform:translate(-16%,-10%) scale(.86);opacity:1}78%,100%{transform:translate(-16%,-10%);opacity:0}}
 @media (prefers-reduced-motion:reduce){.fg-tela{transition:none}.fg-tela.anim .fg-ct{animation:none}}

@@ -39,6 +39,19 @@ TELAS = {
 }
 
 
+# Onde o cursor toca para sair de cada tela (x, y em px do Figma, na tela inteira 390 x 844).
+TOQUES = {
+    "hoje": (121, 798),              # aba Treino
+    "treinos": (43, 798),            # aba Hoje
+    "treino-sessao": (195, 803),     # Próximo exercício
+    "treino-concluido": (195, 291),  # Voltar pro início
+    "checkin-semanal": (195, 803),   # Enviar check-in
+    "checkin-enviado": (195, 291),   # Voltar
+    "notificacoes": (195, 312),      # notificação de atualização do plano
+    "seu-programa": (29, 92),        # voltar
+}
+
+
 def salvar(img, nome):
     altura = round(img.size[1] * LARGURA / img.size[0])
     img.convert("RGB").resize((LARGURA, altura), Image.LANCZOS).save(SAIDA / f"{nome}.webp", "WEBP", quality=84, method=6)
@@ -66,7 +79,11 @@ def main():
             barra = y_barra - y_conteudo
         conteudo = y_conteudo - 50
         rolar = max(0, conteudo - (844 - 50 - barra))
-        linhas += [f"{nome}:", f'  figma: "{no}"', f"  conteudo: {conteudo}", f"  barra: {barra}", f"  rolar: {rolar}", ""]
+        linhas += [f"{nome}:", f'  figma: "{no}"', f"  conteudo: {conteudo}", f"  barra: {barra}", f"  rolar: {rolar}"]
+        if nome in TOQUES:
+            x, y = TOQUES[nome]
+            linhas.append(f"  toque: [{round(x / 3.9, 2)}, {round(y / 8.44, 2)}]  # % da tela")
+        linhas.append("")
     (RAIZ / "_data/telas_app.yml").write_text("\n".join(linhas), encoding="utf-8")
     print(f"{len(TELAS)} telas em {SAIDA.relative_to(RAIZ)}")
 

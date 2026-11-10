@@ -1,6 +1,6 @@
 {%- comment -%}
   Celular com telas reais do app (Figma "Revo - Screen", tema claro), animado:
-  o conteúdo rola sozinho e as telas se alternam. telas = nomes de _data/telas_app.yml,
+  o conteúdo rola sozinho, um cursor (seta) arrasta e toca no botão que leva à próxima tela. telas = nomes de _data/telas_app.yml,
   separados por vírgula. Imagens em assets/app/. Comportamento em assets/site.js.
 {%- endcomment -%}
 {%- assign seq = include.telas | split: "," -%}
@@ -9,9 +9,10 @@
   {%- for n in seq %}{% assign t = site.data.telas_app[n] %}
   {%- assign base = t.barra | times: 100.0 | divided_by: 844 | round: 3 %}
   {%- assign rolar = t.rolar | times: 100.0 | divided_by: t.conteudo | round: 3 %}
-  <div class="fg-tela{% if forloop.first %} on{% endif %}" data-rolar="{{ t.rolar }}">
+  <div class="fg-tela{% if forloop.first %} on{% endif %}" data-rolar="{{ t.rolar }}"{% if t.toque %} data-toque="{{ t.toque | join: "," }}"{% endif %}>
     <div class="fg-vp" style="bottom:{{ base }}%"><img class="fg-ct" src="/assets/app/{{ n }}-conteudo.webp" alt=""{% unless forloop.first %} loading="lazy"{% endunless %} style="--rolar:-{{ rolar }}%"></div>
     {%- if t.barra > 0 %}<img class="fg-bb" src="/assets/app/{{ n }}-barra.webp" alt=""{% unless forloop.first %} loading="lazy"{% endunless %}>{% endif %}
   </div>
   {%- endfor %}
+  <span class="fg-cur"><i></i><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 2.5v17.2l4.6-4.4 3.1 6.8 3-1.4-3.1-6.6h6.2z" fill="#022128" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg></span>
 </div></div>

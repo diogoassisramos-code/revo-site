@@ -6,12 +6,14 @@ hoje:
   conteudo: 1700
   barra: 80
   rolar: 986
+  toque: [31.03, 94.55]  # % da tela
 
 treinos:
   figma: "40:3983 Treinos · workouts"
   conteudo: 431
   barra: 80
   rolar: 0
+  toque: [11.03, 94.55]  # % da tela
 
 dieta:
   figma: "40:3995 Dieta · diet"
@@ -24,24 +26,28 @@ treino-sessao:
   conteudo: 1142
   barra: 82
   rolar: 430
+  toque: [50.0, 95.14]  # % da tela
 
 treino-concluido:
   figma: "40:4694 Treino concluído!"
   conteudo: 794
   barra: 0
   rolar: 0
+  toque: [50.0, 34.48]  # % da tela
 
 checkin-semanal:
   figma: "40:4264 Check-in semanal"
   conteudo: 1048
   barra: 82
   rolar: 336
+  toque: [50.0, 95.14]  # % da tela
 
 checkin-enviado:
   figma: "40:4687 Check-in enviado!"
   conteudo: 794
   barra: 0
   rolar: 0
+  toque: [50.0, 34.48]  # % da tela
 
 checkin-semana5:
   figma: "40:4312 Seu check-in · Semana 5"
@@ -54,9 +60,11 @@ notificacoes:
   conteudo: 794
   barra: 0
   rolar: 0
+  toque: [50.0, 36.97]  # % da tela
 
 seu-programa:
   figma: "40:4596 Exercício expandido"
   conteudo: 1103
   barra: 82
   rolar: 391
+  toque: [7.44, 10.9]  # % da tela
