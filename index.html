@@ -77,88 +77,99 @@
       </div>
     </div>
     <div class="dash-wrap reveal" data-d="1">
-      <div class="dash-stage" id="dashStage">
-<div class="dash">
-<div style="display:flex;align-items:center;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid rgba(2,33,40,.08)">
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="margin:0 auto;padding:5px 16px;border-radius:8px;background:#f4f8f7;font-family:'Geist Mono',monospace;font-size:12px;color:#5d6c69;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-lock" style="font-size:12px"></i>app.revo.app/resumo</span>
-<span style="width:30px"></span>
+      <!-- Mockups do Figma "Revo - Screen", página "MOCKUPS - SITE": painel "05 · Resumo" e app "Hoje · home · iOS".
+           Estilos em assets/site.css (.dk-* e .ios-*); ícones exportados do Figma em assets/mockups/. -->
+      <div class="dash-stage" data-fit="1440">
+<div class="dash" role="img" aria-label="Painel do consultor no Revo, tela Resumo: alunos ativos, faturamento, saldo disponível, pendências do dia e lista de alunos">
+<div class="dash-bar"><i></i><i></i><i></i><span class="url"><i class="ti ti-lock"></i>app.revo.app/resumo</span><span class="sp"></span></div>
+<div class="dk">
+<aside class="dk-side">
+<div class="dk-logo"><img src="/assets/mockups/painel/logo.svg" width="84" height="47" alt="" loading="lazy"></div>
+<div class="dk-nav">
+<span class="dk-item on"><img src="/assets/mockups/painel/nav-grid-outline.svg" width="20" height="20" alt="" loading="lazy">Resumo</span>
+<span class="dk-item"><img src="/assets/mockups/painel/nav-people-outline.svg" width="20" height="20" alt="" loading="lazy">Alunos</span>
+<span class="dk-item"><img src="/assets/mockups/painel/nav-card-outline.svg" width="20" height="20" alt="" loading="lazy">Planos &amp; pagamentos</span>
+<span class="dk-item"><img src="/assets/mockups/painel/nav-cash-outline.svg" width="20" height="20" alt="" loading="lazy">Financeiro</span>
+<span class="dk-item"><img src="/assets/mockups/painel/nav-settings-outline.svg" width="20" height="20" alt="" loading="lazy">Configurações</span>
 </div>
-<div style="display:grid;grid-template-columns:200px minmax(0,1fr);min-height:0">
-<aside style="background:#04453d;color:#fff;padding:14px 12px 12px;display:flex;flex-direction:column;gap:2px">
-<div style="display:flex;align-items:center;gap:10px;padding:4px 8px 16px"><img src="assets/revo-icon.svg" alt="" style="width:28px;height:28px;display:block"><span style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Revo</span></div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600"><i class="ti ti-layout-dashboard" style="font-size:18px;width:22px;text-align:center"></i>Resumo</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-users" style="font-size:18px;width:22px;text-align:center"></i>Alunos</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-credit-card" style="font-size:18px;width:22px;text-align:center"></i>Planos &amp; pagamentos</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-cash" style="font-size:18px;width:22px;text-align:center"></i>Financeiro</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-settings" style="font-size:18px;width:22px;text-align:center"></i>Configurações</div>
-<div style="flex:1"></div>
-<div style="display:flex;align-items:center;gap:10px;padding:6px;border-radius:14px"><span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">RM</span><span style="display:flex;flex-direction:column;min-width:0"><span style="font-size:12px;font-weight:600">Rafael Mendes</span><span style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,.5)">CREF 123456-G/SP</span></span></div>
+<span class="dk-item dk-aluno"><img src="/assets/mockups/painel/nav-phone-portrait-outline.svg" width="20" height="20" alt="" loading="lazy">Ver como aluno</span>
+<div class="dk-user">
+<span class="dk-user-card"><span class="dk-uav">RM</span><span class="dk-user-meta"><b>Rafael Mendes</b><small>CREF 123456-G/SP</small></span></span>
+<span class="dk-logout"><img src="/assets/mockups/painel/log-out-outline.svg" width="19" height="19" alt="" loading="lazy"></span>
+</div>
 </aside>
-<main style="background:#f4f8f7;padding:22px 24px;display:flex;flex-direction:column;gap:18px;min-width:0">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
-<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Revo</span><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Olá, Rafael 👋</span><span style="font-size:13px;color:#3a4845">42 alunos ativos · R$ 8.640,00 nos últimos 30 dias</span></div>
-<span style="display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:10px;background:#022128;color:#fff;font-size:13px;font-weight:600"><i class="ti ti-plus" style="font-size:15px"></i>Novo aluno</span>
+<div class="dk-main">
+<div class="dk-top">
+<span class="dk-search"><img src="/assets/mockups/painel/search-outline.svg" width="18" height="18" alt="" loading="lazy"><span class="ph">Buscar alunos, planos, pagamentos…</span><span class="dk-kbd">/</span></span>
+<span class="dk-top-r"><span class="dk-saldo"><small>Saldo</small><b>R$ 4.820,50</b></span><img src="/assets/mockups/painel/bell.svg" width="44" height="44" alt="" loading="lazy"></span>
 </div>
-<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Alunos ativos</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-users" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">42</span><span style="font-size:12px;color:#5d6c69">48 no total</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Novos no mês</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-user-plus" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">6</span><span style="font-size:12px;color:#5d6c69">via link de convite</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Faturamento 30d</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-trending-up" style="font-size:15px"></i></span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 8.640</span><span style="font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;color:#2f8f74;background:#e3f6f0;padding:2px 7px;border-radius:999px">+12%</span></div><span style="font-size:12px;color:#5d6c69">vs. mês anterior</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Saldo disponível</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-wallet" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 4.820,50</span><span style="display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:8px;border:1px solid rgba(2,33,40,.2);font-size:12px;font-weight:600;align-self:flex-start"><i class="ti ti-arrow-bar-up" style="font-size:13px"></i>Sacar</span></div>
+<div class="dk-content">
+<div class="dk-head">
+<div class="dk-head-t"><span class="dk-eb">Revo</span><span class="dk-h1">Olá, Rafael 👋</span><span class="dk-sub">7 alunos ativos · R$ 12.480,00 nos últimos 30 dias</span></div>
+<span class="dk-btn pri"><img src="/assets/mockups/painel/add-outline.svg" width="18" height="18" alt="" loading="lazy">Novo aluno</span>
 </div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;flex-direction:column;gap:1px"><span style="font-size:15px;font-weight:600">Precisa de você hoje</span><span style="font-size:12px;color:#3a4845">Pendências que pedem sua atenção agora.</span></div>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-message-circle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">3</span><span style="font-size:12px;color:#3a4845">Check-ins pra responder</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7e2e0;color:#bd463f;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-alert-triangle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">2</span><span style="font-size:12px;color:#3a4845">Pagamentos atrasados</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7ecd6;color:#8a5a12;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-clipboard-list" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">1</span><span style="font-size:12px;color:#3a4845">Novos sem plano</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
+<div class="dk-metrics">
+<div class="dk-metric"><div class="dk-mtop"><span>Alunos ativos</span><span class="dk-mic"><img src="/assets/mockups/painel/people-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">7</div><div class="dk-msub">7 no total</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Novos no mês</span><span class="dk-mic"><img src="/assets/mockups/painel/person-add-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">1</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Faturamento 30d</span><span class="dk-mic"><img src="/assets/mockups/painel/trending-up-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">R$ 12.480,00<span class="dk-delta"><img src="/assets/mockups/painel/trending-up-outline-sm.svg" width="12" height="12" alt="" loading="lazy">+12%</span></div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Saldo disponível</span><span class="dk-mic"><img src="/assets/mockups/painel/wallet-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">R$ 4.820,50</div><span class="dk-btn out"><img src="/assets/mockups/painel/arrow-up-outline.svg" width="16" height="16" alt="" loading="lazy">Sacar</span></div>
 </div>
-</div>
-<div style="background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:12px;flex:1">
-<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:600">Alunos</span><span style="font-size:12px;font-weight:600;color:#004860;display:inline-flex;align-items:center;gap:4px">Ver todos <i class="ti ti-arrow-right" style="font-size:13px"></i></span></div>
-<div style="display:flex;gap:6px;flex-wrap:wrap">
-<span style="height:26px;padding:0 11px;border-radius:999px;background:#022128;color:#fff;font-size:12px;font-weight:600;display:inline-flex;align-items:center">Todos</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Atrasados</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Check-in pendente</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Aguardando protocolo</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Novos</span>
-</div>
-<div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">MC</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Mariana Costa</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Emagrecimento · vence 15 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#004860;font-size:11px;font-weight:600"><i class="ti ti-message-circle" style="font-size:12px"></i>Check-in pra responder</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#2f8f74;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#2f8f74;display:inline-block"></span>Em dia</span></div>
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">LF</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Lucas Ferreira</span><span style="font-size:12px;color:#5d6c69">Personal presencial · Hipertrofia · vence <span style="color:#bd463f;font-weight:600">03 set</span></span></span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7e2e0;color:#bd463f;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#bd463f;display:inline-block"></span>Atrasado</span></div>
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">AL</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Ana Beatriz Lima</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Recomposição · vence 20 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><i class="ti ti-clipboard-list" style="font-size:12px"></i>Aguardando protocolo</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#8a5a12;display:inline-block"></span>Pendente</span></div>
+<div class="dk-tri">
+<div class="dk-sec"><b>Precisa de você hoje</b><span>Pendências que pedem sua atenção agora.</span></div>
+<div class="dk-tri-grid">
+<div class="dk-tri-card"><span class="dk-tic"><img src="/assets/mockups/painel/chatbubble-outline.svg" width="24" height="24" alt="" loading="lazy"></span><span class="dk-tbody"><b>3</b><span>Check-ins pra responder</span></span><img src="/assets/mockups/painel/chevron-forward-outline.svg" width="18" height="18" alt="" loading="lazy"></div>
+<div class="dk-tri-card"><span class="dk-tic bad"><img src="/assets/mockups/painel/warning-outline.svg" width="24" height="24" alt="" loading="lazy"></span><span class="dk-tbody"><b>1</b><span>Pagamentos atrasados</span></span><img src="/assets/mockups/painel/chevron-forward-outline.svg" width="18" height="18" alt="" loading="lazy"></div>
+<div class="dk-tri-card"><span class="dk-tic warn"><img src="/assets/mockups/painel/clipboard-outline.svg" width="24" height="24" alt="" loading="lazy"></span><span class="dk-tbody"><b>1</b><span>Novos sem plano</span></span><img src="/assets/mockups/painel/chevron-forward-outline.svg" width="18" height="18" alt="" loading="lazy"></div>
 </div>
 </div>
-</main>
+<div class="dk-card">
+<div class="dk-card-h"><span>Alunos</span><span class="dk-btn ghost">Ver todos<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+<div class="dk-card-b">
+<div class="dk-controls">
+<span class="dk-input"><img src="/assets/mockups/painel/search-outline.svg" width="18" height="18" alt="" loading="lazy"><span class="ph">Buscar aluno pelo nome</span></span>
+<div class="dk-chips"><span class="on">Todos</span><span>Atrasados</span><span>Check-in pendente</span><span>Aguardando protocolo</span><span>Novos</span></div>
+</div>
+<div class="dk-list">
+<div class="dk-row"><span class="dk-av">AS</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Ana Paula Souza</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">Consultoria Online Mensal · Hipertrofia · vence<span class="d">28/06</span></span><span class="dk-badge"><img src="/assets/mockups/painel/chatbubble-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Check-in pra responder</span></div></div></div>
+<div class="dk-row"><span class="dk-av">BL</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Bruno Lima</span><span class="dk-badge warn">Pendente</span></div><div class="dk-l2"><span class="dk-meta">Acompanhamento Personal · Emagrecimento · vence<span class="d">22/06</span></span><span class="dk-badge"><img src="/assets/mockups/painel/chatbubble-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Check-in pra responder</span></div></div></div>
+<div class="dk-row"><span class="dk-av">CR</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Carla Reis</span><span class="dk-badge bad">Atrasado</span></div><div class="dk-l2"><span class="dk-meta">Consulta Avulsa · Avaliação · vence<span class="d late">14/06</span></span></div></div></div>
+<div class="dk-row"><span class="dk-av">DM</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Diego Martins</span><span class="dk-badge">Novo</span></div><div class="dk-l2"><span class="dk-meta">Consultoria Online Mensal · Hipertrofia · vence<span class="d">19/07</span></span><span class="dk-badge warn"><img src="/assets/mockups/painel/clipboard-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Aguardando protocolo</span></div></div></div>
+<div class="dk-row"><span class="dk-av">EN</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Eduarda Nunes</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">Consultoria Online Mensal · Emagrecimento · vence<span class="d">02/07</span></span></div></div></div>
+<div class="dk-row"><span class="dk-av">FC</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Felipe Costa</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">Acompanhamento Personal · Condicionamento · vence<span class="d">05/07</span></span></div></div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="phone-home">
 <div class="shell">
-<div style="background:#f4f8f7;border-radius:34px;overflow:hidden;height:540px;display:flex;flex-direction:column">
-<div style="height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:12px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
-<div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:12px;flex:1">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Sua semana</span>
-<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin-top:-8px">Vamos pro treino de hoje?</span>
-<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:20px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 12px rgba(2,33,40,.08),0 16px 40px rgba(2,33,40,.12)">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-calendar-event" style="font-size:12px"></i>Semana 12</span>
-<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em">Hora do seu check-in</span>
-<span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,.82)">Leva 2 minutos: peso, fotos e como foi a semana.</span>
-<span style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600;margin-top:4px"><i class="ti ti-clipboard-check" style="font-size:15px"></i>Fazer check-in</span>
+<div class="ios-scr" data-fit="440">
+<div class="ios" role="img" aria-label="App do aluno no Revo, tela Hoje: treino do dia, peso atual, aderência e check-in semanal">
+<div class="ios-sb"><span class="t">9:41</span><span class="isl"></span><span class="net">5G</span><span class="bat"></span></div>
+<div class="ios-body">
+<div class="ios-col">
+<div class="ios-hd"><span class="tx"><small>REVO</small><b>Olá, Thiago</b></span><span class="ios-av">VI</span></div>
+<div class="ios-feat">
+<div class="k">SEU TREINO<span class="ios-ic"><img src="/assets/mockups/app/chevron-forward.svg" style="top:29.75%;left:31.32%" alt="" loading="lazy"></span></div>
+<div class="row"><span class="txt"><b>Treino A — Superiores</b><span>5 exercícios · 17 séries</span></span><span class="ios-art"><img src="/assets/mockups/app/anatomy-upper-front.svg" alt="" loading="lazy"></span></div>
+<span class="lnk">Ver treino →</span>
 </div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Peso atual</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">82,4 kg</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">−1,2 kg</span></div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Aderência</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">92%</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#5d6c69">12 de 13 treinos</span></div>
+<div class="ios-mets"><div class="ios-met"><small>PESO ATUAL</small><b>60.4 kg</b></div><div class="ios-met"><small>ADERÊNCIA</small><b>92%</b></div></div>
+<div class="ios-ck"><span class="bdg">Check-in da semana 1</span><b>Hora do seu check-in semanal</b><p>Registre peso, fotos e como foi a semana pro Rafael Mendes ajustar seu plano.</p><span class="ios-btn pri">Fazer check-in</span></div>
+<div class="ios-card"><b>Comece agora, entre depois</b><p>Explore o app com dados de exemplo. Seus registros ficam neste dispositivo.</p><span class="ios-btn ghost">Já tenho conta · Entrar</span></div>
+<!-- o resto da tela (frequência, histórico, dieta, extras) fica abaixo da barra de abas e não aparece no mockup -->
 </div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="width:36px;height:36px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-barbell" style="font-size:18px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:13px;font-weight:600">Treino B</span><span style="font-size:11px;color:#5d6c69">8 exercícios · 55 min</span></span><span style="width:28px;height:28px;border-radius:50%;background:#022128;color:#fff;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-player-play-filled" style="font-size:11px"></i></span></div>
 </div>
-<div style="display:flex;justify-content:space-around;padding:10px 6px 14px;background:#fff;border-top:1px solid rgba(2,33,40,.08)">
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#004860;font-size:9px;font-weight:600"><i class="ti ti-home" style="font-size:18px"></i>Hoje</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-barbell" style="font-size:18px"></i>Treino</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-salad" style="font-size:18px"></i>Dieta</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-pill" style="font-size:18px"></i>Protocolo</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-user" style="font-size:18px"></i>Perfil</span>
+<div class="ios-tab">
+<span class="on"><span class="ios-ic"><img src="/assets/mockups/app/calendar-outline.svg" style="top:18.75%;left:6.12%" alt="" loading="lazy"></span>Hoje</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/barbell-outline.svg" style="top:34.44%;left:3.13%" alt="" loading="lazy"></span>Treino</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/restaurant-outline.svg" style="top:15.63%;left:3.13%" alt="" loading="lazy"></span>Dieta</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/medkit-outline.svg" style="top:18.75%;left:3.13%" alt="" loading="lazy"></span>Protocolo</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/person-outline.svg" style="top:18.85%;left:9.38%" alt="" loading="lazy"></span>Perfil</span>
+</div>
+<div class="ios-home"></div>
 </div>
 </div>
 </div>
@@ -456,10 +467,10 @@
     var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
   }
 
-  // dashboard mockup scale (1120px canvas → container width)
-  var stage = document.getElementById('dashStage');
-  function fit(){ if (!stage) return; var w = stage.clientWidth; if (w) stage.style.setProperty('--s', Math.min(1, w / 1120)); }
-  if (stage) { fit(); if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage); window.addEventListener('resize', fit); }
+  // mockups (painel 1440px, app 440px): escala o desenho em tamanho real até a largura do container
+  var fits = document.querySelectorAll('[data-fit]');
+  function fit(){ for (var j = 0; j < fits.length; j++) { var el = fits[j], w = el.clientWidth; if (w) el.style.setProperty('--s', Math.min(1, w / el.getAttribute('data-fit'))); } }
+  if (fits.length) { fit(); if ('ResizeObserver' in window) { var ro = new ResizeObserver(fit); for (var k = 0; k < fits.length; k++) ro.observe(fits[k]); } window.addEventListener('resize', fit); }
 
 })();
 </script>

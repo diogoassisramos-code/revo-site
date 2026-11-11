@@ -10,6 +10,14 @@ Site da Revo (revofit.app), publicado pelo GitHub Pages a partir da branch `main
 - `_includes/nav.html` e `_includes/footer*.html`: menu e rodapé, iguais em todas as páginas.
 - `_config.yml`: título, categorias, links do app (`cta_url`, `login_url`), formulários e revisão dos itens `[confirmar]`.
 
+## Mockups da home (painel + app)
+
+Os dois mockups da seção "Pro consultor" do `index.html` seguem a página **MOCKUPS - SITE** do Figma "Revo - Screen": o painel `05 · Resumo` (1440px) e o app `Hoje · home · iOS` (440×956).
+
+- São HTML/CSS (classes `.dk-*` e `.ios-*` no `assets/site.css`), desenhados no tamanho do Figma e reduzidos para caber na tela pelo script no fim do `index.html` (`data-fit`).
+- Ícones, logo e ilustração foram exportados do Figma para `assets/mockups/painel/` e `assets/mockups/app/`.
+- O painel aparece recortado: a janela mostra 1040px de altura (métricas, pendências e os 3 primeiros alunos). Para mudar o recorte, ajuste a altura de `.dash`/`.dash-stage` no CSS.
+
 ## Publicar um artigo
 
 1. Copie `_modelo-artigo.md` para `_posts/AAAA-MM-DD-palavra-chave.md`.
