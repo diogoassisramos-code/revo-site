@@ -10,6 +10,17 @@ Site da Revo (revofit.app), publicado pelo GitHub Pages a partir da branch `main
 - `_includes/nav.html` e `_includes/footer*.html`: menu e rodapé, iguais em todas as páginas.
 - `_config.yml`: título, categorias, links do app (`cta_url`, `login_url`), formulários e revisão dos itens `[confirmar]`.
 
+## Mockups (home e páginas de funcionalidades)
+
+Os mockups do painel e do app são as telas reais do Figma "Revo - Screen", refeitas em HTML/CSS no tamanho do Figma (painel com 1440px de largura, app 440×956) e reduzidas para caber na página.
+
+- **Home** (seção "Pro consultor" do `index.html`): página **MOCKUPS - SITE** do Figma, com o painel `05 · Resumo` e o app `Hoje · home · iOS`. A janela do painel mostra 1040px de altura; para mudar o recorte, ajuste `.dash`/`.dash-stage` no CSS.
+- **Páginas de funcionalidades e LPs**: cada página usa o mockup indicado em `_data/paginas.yml` (`mockup:`), que é um arquivo em `_includes/mock/`. As telas vêm das páginas "DESKTOP - CONSULTOR" e "MOBILE - USUÁRIO" (V3 iOS claro) do Figma. Anamnese, Equipe multidisciplinar, Médicos, Marca própria, Integrações e Implantação não têm tela no Figma e foram montadas com os mesmos componentes.
+- **Peças comuns** ficam em `_includes/mock/painel/` (barra do navegador, menu lateral com `on=`, topo, Resumo) e `_includes/mock/app/` (status bar, barra de abas com `on=`, indicador, tela Hoje). Mudou o menu ou a barra de abas no Figma, muda num lugar só.
+- **Estilo**: classes `.dk-*` (painel) e `.ios-*` (app) no `assets/site.css`, mais uma seção por tela (marcadores `/* [mock: nome] */`).
+- **Escala**: feita pelo `assets/site.js` (`.ux-fit` com `--w`/`--h` para o painel; `[data-fit]` para o app e a home).
+- **Ícones, logo e ilustrações**: exportados do Figma para `assets/mockups/painel/` e `assets/mockups/app/` (um subdiretório por tela).
+
 ## Publicar um artigo
 
 1. Copie `_modelo-artigo.md` para `_posts/AAAA-MM-DD-palavra-chave.md`.

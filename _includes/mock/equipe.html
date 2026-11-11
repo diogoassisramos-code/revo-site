@@ -1,21 +1,41 @@
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main" style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:10px">
-      <div class="ux-card" style="display:flex;flex-direction:column;gap:6px;padding:12px">
-        <span class="ux-eb">Equipe da Mariana Costa</span>
-        <div class="ux-row" style="background:var(--ice)"><span class="ux-av">RM</span><span class="ux-grow"><b>Rafael Mendes</b><span class="ux-s">Treinador</span></span><span class="ux-pill">Edita treino</span></div>
-        <div class="ux-row" style="background:var(--ice)"><span class="ux-av">JP</span><span class="ux-grow"><b>Júlia Prado</b><span class="ux-s">Nutricionista</span></span><span class="ux-pill">Edita dieta</span></div>
-        <div class="ux-row" style="background:var(--ice)"><span class="ux-av">HL</span><span class="ux-grow"><b>Dr. Henrique Lima</b><span class="ux-s">Médico</span></span><span class="ux-pill mute">Vê check-ins</span></div>
-        <span class="ux-btn sm ghost" style="align-self:flex-start;margin-top:4px"><i class="ti ti-user-plus"></i>Convidar profissional</span>
-      </div>
-      <div class="ux-card" style="display:flex;flex-direction:column;gap:7px;padding:12px">
-        <span class="ux-eb" style="display:inline-flex;align-items:center;gap:5px"><i class="ti ti-lock"></i>Notas internas · o aluno não vê</span>
-        <div class="ux-row" style="background:var(--ice);align-items:flex-start"><span class="ux-av">JP</span><span class="ux-grow"><b>Júlia · Nutricionista</b><span class="ux-s">Subi o carboidrato nos dias de treino pesado.</span></span></div>
-        <div class="ux-row" style="background:var(--ice);align-items:flex-start"><span class="ux-av">RM</span><span class="ux-grow"><b>Rafael · Treinador</b><span class="ux-s">Semana de deload: volume 30% menor.</span></span></div>
-        <div class="ux-row" style="background:var(--ice);align-items:flex-start"><span class="ux-av">HL</span><span class="ux-grow"><b>Henrique · Médico</b><span class="ux-s">Exames de rotina sem alteração. Seguimos.</span></span></div>
-      </div>
-    </div>
-  </div>
+{%- comment -%}
+  Equipe multidisciplinar (em breve). Sem tela no Figma: é a "08 · Ficha do aluno" (cabeçalho, métricas,
+  "Protocolo atual" e cards do Figma) mostrando quem cuida de cada parte e as notas internas da equipe.
+{%- endcomment -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1000" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/mariana-costa" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="fi-hero"><span class="fi-av">MC</span><span class="fi-ht"><span class="fi-name">Mariana Costa</span><span class="fi-meta">Online<i>·</i>Consultoria Online Mensal<i>·</i>Recomposição</span><span class="dk-badge ok">Em dia</span></span></div>
+<div class="fi-metrics">
+<div class="dk-metric"><div class="dk-mtop"><span>Equipe</span><span class="dk-mic"><img src="/assets/mockups/painel/people-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">3 profissionais</div><div class="dk-msub">Treino, nutrição e médico</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Aderência ao treino</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/pulse-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">92%</div><div class="dk-msub">Últimas semanas</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Próx. consulta</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/calendar-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">18 nov 2026</div><div class="dk-msub">Dr. Henrique Lima</div></div>
+</div>
+<div class="fi-block">
+<div class="fi-bh"><b>Protocolo atual</b><span>Cada profissional cuida da sua parte, no mesmo aluno.</span></div>
+<div class="fi-protos">
+<div class="fi-proto"><span class="fi-pic"><img src="/assets/mockups/painel/ficha/barbell-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Treino</span><span class="fi-pn">Treino A — Superiores</span><span class="fi-pm">Por Rafael Mendes · treinador</span><span class="dk-btn ghost">Abrir<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+<div class="fi-proto"><span class="fi-pic"><img src="/assets/mockups/painel/ficha/restaurant-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Dieta</span><span class="fi-pn">1850 kcal</span><span class="fi-pm">Por Júlia Prado · nutricionista</span><span class="dk-btn ghost">Abrir<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+<div class="fi-proto"><span class="fi-pic warn"><img src="/assets/mockups/painel/ficha/medkit-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Acompanhamento médico</span><span class="fi-pn">Exames de rotina</span><span class="fi-pm">Por Dr. Henrique Lima · médico</span><span class="dk-btn ghost">Abrir<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+</div>
+</div>
+<div class="fi-grid2">
+<div class="dk-card"><div class="dk-card-h"><span>Equipe</span><span class="dk-btn ghost">Convidar profissional<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div><div class="fi-people">
+<div class="dk-row"><span class="dk-av">RM</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Rafael Mendes</span><span class="dk-badge ok">Edita treino</span></div><div class="dk-l2"><span class="dk-meta">Treinador · CREF 123456-G/SP</span></div></div></div>
+<div class="dk-row"><span class="dk-av">JP</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Júlia Prado</span><span class="dk-badge ok">Edita dieta</span></div><div class="dk-l2"><span class="dk-meta">Nutricionista · CRN 3 45678</span></div></div></div>
+<div class="dk-row"><span class="dk-av">HL</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Dr. Henrique Lima</span><span class="dk-badge warn">Vê check-ins</span></div><div class="dk-l2"><span class="dk-meta">Médico · CRM 98765-SP</span></div></div></div>
+</div></div>
+<div class="dk-card"><div class="dk-card-h"><span>Notas internas</span><span class="dk-badge">O aluno não vê</span></div><div class="fi-people">
+<div class="dk-row"><span class="dk-av">JP</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Júlia · Nutricionista</span><span class="dk-meta">ontem</span></div><span class="fi-note">Subi o carboidrato nos dias de treino pesado.</span></div></div>
+<div class="dk-row"><span class="dk-av">RM</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Rafael · Treinador</span><span class="dk-meta">12/11</span></div><span class="fi-note">Semana de deload: volume 30% menor.</span></div></div>
+<div class="dk-row"><span class="dk-av">HL</span><div class="dk-rmain"><div class="dk-l1"><span class="n">Henrique · Médico</span><span class="dk-meta">08/11</span></div><span class="fi-note">Exames de rotina sem alteração. Seguimos.</span></div></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
 </div></div>

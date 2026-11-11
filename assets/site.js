@@ -96,6 +96,18 @@
     window.addEventListener('resize', fit);
   }
 
+  // mockups do Figma desenhados em tamanho real: [data-fit="largura do desenho"] (painel 1440, app 440)
+  // recebe em --s a escala para caber na largura do container
+  var dfits = document.querySelectorAll('[data-fit]');
+  if (dfits.length) {
+    var dfit = function () {
+      dfits.forEach(function (el) { var w = el.clientWidth; if (w) el.style.setProperty('--s', Math.min(1, w / el.getAttribute('data-fit'))); });
+    };
+    dfit();
+    if ('ResizeObserver' in window) { var dro = new ResizeObserver(dfit); dfits.forEach(function (el) { dro.observe(el); }); }
+    window.addEventListener('resize', dfit);
+  }
+
   // formulários (lista de espera, implantação, sugestão de integração)
   // Com form_action no _config.yml, o envio vai para lá. Sem ele, abre o e-mail já preenchido.
   document.querySelectorAll('form[data-lead]').forEach(function (f) {

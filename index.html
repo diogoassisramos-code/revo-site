@@ -77,88 +77,24 @@
       </div>
     </div>
     <div class="dash-wrap reveal" data-d="1">
-      <div class="dash-stage" id="dashStage">
-<div class="dash">
-<div style="display:flex;align-items:center;gap:8px;padding:0 16px;background:#fff;border-bottom:1px solid rgba(2,33,40,.08)">
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="width:10px;height:10px;border-radius:50%;background:#e0ecea;display:block"></span>
-<span style="margin:0 auto;padding:5px 16px;border-radius:8px;background:#f4f8f7;font-family:'Geist Mono',monospace;font-size:12px;color:#5d6c69;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-lock" style="font-size:12px"></i>app.revo.app/resumo</span>
-<span style="width:30px"></span>
+      <!-- Mockups do Figma "Revo - Screen", página "MOCKUPS - SITE": painel "05 · Resumo" e app "Hoje · home · iOS".
+           Estilos em assets/site.css (.dk-* e .ios-*); ícones exportados do Figma em assets/mockups/. -->
+      <div class="dash-stage" data-fit="1440">
+<div class="dash" role="img" aria-label="Painel do consultor no Revo, tela Resumo: alunos ativos, faturamento, saldo disponível, pendências do dia e lista de alunos">
+{% include mock/painel/chrome.html url="app.revo.app/resumo" %}
+<div class="dk">
+{% include mock/painel/side.html on="resumo" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+{% include mock/painel/resumo.html %}
 </div>
-<div style="display:grid;grid-template-columns:200px minmax(0,1fr);min-height:0">
-<aside style="background:#04453d;color:#fff;padding:14px 12px 12px;display:flex;flex-direction:column;gap:2px">
-<div style="display:flex;align-items:center;gap:10px;padding:4px 8px 16px"><img src="assets/revo-icon.svg" alt="" style="width:28px;height:28px;display:block"><span style="font-size:15px;font-weight:600;letter-spacing:-0.01em">Revo</span></div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600"><i class="ti ti-layout-dashboard" style="font-size:18px;width:22px;text-align:center"></i>Resumo</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-users" style="font-size:18px;width:22px;text-align:center"></i>Alunos</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-credit-card" style="font-size:18px;width:22px;text-align:center"></i>Planos &amp; pagamentos</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-cash" style="font-size:18px;width:22px;text-align:center"></i>Financeiro</div>
-<div style="display:flex;align-items:center;gap:10px;height:38px;padding:0 10px;border-radius:10px;color:rgba(255,255,255,.66);font-size:13px;font-weight:500"><i class="ti ti-settings" style="font-size:18px;width:22px;text-align:center"></i>Configurações</div>
-<div style="flex:1"></div>
-<div style="display:flex;align-items:center;gap:10px;padding:6px;border-radius:14px"><span style="width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.16);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:600">RM</span><span style="display:flex;flex-direction:column;min-width:0"><span style="font-size:12px;font-weight:600">Rafael Mendes</span><span style="font-family:'Geist Mono',monospace;font-size:10px;color:rgba(255,255,255,.5)">CREF 123456-G/SP</span></span></div>
-</aside>
-<main style="background:#f4f8f7;padding:22px 24px;display:flex;flex-direction:column;gap:18px;min-width:0">
-<div style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
-<div style="display:flex;flex-direction:column;gap:2px"><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Revo</span><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">Olá, Rafael 👋</span><span style="font-size:13px;color:#3a4845">42 alunos ativos · R$ 8.640,00 nos últimos 30 dias</span></div>
-<span style="display:inline-flex;align-items:center;gap:6px;height:36px;padding:0 14px;border-radius:10px;background:#022128;color:#fff;font-size:13px;font-weight:600"><i class="ti ti-plus" style="font-size:15px"></i>Novo aluno</span>
-</div>
-<div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Alunos ativos</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-users" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">42</span><span style="font-size:12px;color:#5d6c69">48 no total</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Novos no mês</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-user-plus" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">6</span><span style="font-size:12px;color:#5d6c69">via link de convite</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Faturamento 30d</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-trending-up" style="font-size:15px"></i></span></div><div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 8.640</span><span style="font-family:'Geist Mono',monospace;font-size:11px;font-weight:600;color:#2f8f74;background:#e3f6f0;padding:2px 7px;border-radius:999px">+12%</span></div><span style="font-size:12px;color:#5d6c69">vs. mês anterior</span></div>
-<div style="background:#fff;border-radius:16px;padding:14px 16px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:6px"><div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:12px;color:#5d6c69">Saldo disponível</span><span style="width:26px;height:26px;border-radius:8px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-wallet" style="font-size:15px"></i></span></div><span style="font-size:22px;font-weight:600;letter-spacing:-0.02em">R$ 4.820,50</span><span style="display:inline-flex;align-items:center;gap:5px;height:26px;padding:0 10px;border-radius:8px;border:1px solid rgba(2,33,40,.2);font-size:12px;font-weight:600;align-self:flex-start"><i class="ti ti-arrow-bar-up" style="font-size:13px"></i>Sacar</span></div>
-</div>
-<div style="display:flex;flex-direction:column;gap:10px">
-<div style="display:flex;flex-direction:column;gap:1px"><span style="font-size:15px;font-weight:600">Precisa de você hoje</span><span style="font-size:12px;color:#3a4845">Pendências que pedem sua atenção agora.</span></div>
-<div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px">
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-message-circle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">3</span><span style="font-size:12px;color:#3a4845">Check-ins pra responder</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7e2e0;color:#bd463f;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-alert-triangle" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">2</span><span style="font-size:12px;color:#3a4845">Pagamentos atrasados</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
-<div style="background:#fff;border-radius:16px;padding:14px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;align-items:center;gap:12px"><span style="width:40px;height:40px;border-radius:10px;background:#f7ecd6;color:#8a5a12;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-clipboard-list" style="font-size:20px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:22px;font-weight:600;line-height:1.1">1</span><span style="font-size:12px;color:#3a4845">Novos sem plano</span></span><i class="ti ti-chevron-right" style="font-size:16px;color:#5d6c69"></i></div>
-</div>
-</div>
-<div style="background:#fff;border-radius:16px;padding:16px 18px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:12px;flex:1">
-<div style="display:flex;align-items:center;justify-content:space-between"><span style="font-size:15px;font-weight:600">Alunos</span><span style="font-size:12px;font-weight:600;color:#004860;display:inline-flex;align-items:center;gap:4px">Ver todos <i class="ti ti-arrow-right" style="font-size:13px"></i></span></div>
-<div style="display:flex;gap:6px;flex-wrap:wrap">
-<span style="height:26px;padding:0 11px;border-radius:999px;background:#022128;color:#fff;font-size:12px;font-weight:600;display:inline-flex;align-items:center">Todos</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Atrasados</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Check-in pendente</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Aguardando protocolo</span>
-<span style="height:26px;padding:0 11px;border-radius:999px;border:1px solid rgba(2,33,40,.12);color:#3a4845;font-size:12px;font-weight:500;display:inline-flex;align-items:center">Novos</span>
-</div>
-<div style="display:flex;flex-direction:column">
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">MC</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Mariana Costa</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Emagrecimento · vence 15 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#004860;font-size:11px;font-weight:600"><i class="ti ti-message-circle" style="font-size:12px"></i>Check-in pra responder</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#e3f6f0;color:#2f8f74;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#2f8f74;display:inline-block"></span>Em dia</span></div>
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">LF</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Lucas Ferreira</span><span style="font-size:12px;color:#5d6c69">Personal presencial · Hipertrofia · vence <span style="color:#bd463f;font-weight:600">03 set</span></span></span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7e2e0;color:#bd463f;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#bd463f;display:inline-block"></span>Atrasado</span></div>
-<div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid rgba(2,33,40,.08)"><span style="width:34px;height:34px;border-radius:50%;background:#d8e9ee;color:#004860;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-weight:600">AL</span><span style="display:flex;flex-direction:column;flex:1;min-width:0"><span style="font-size:13px;font-weight:600">Ana Beatriz Lima</span><span style="font-size:12px;color:#5d6c69">Consultoria online · Recomposição · vence 20 set</span></span><span style="display:inline-flex;align-items:center;gap:5px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><i class="ti ti-clipboard-list" style="font-size:12px"></i>Aguardando protocolo</span><span style="display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 9px;border-radius:999px;background:#f7ecd6;color:#8a5a12;font-size:11px;font-weight:600"><span style="width:6px;height:6px;border-radius:50%;background:#8a5a12;display:inline-block"></span>Pendente</span></div>
-</div>
-</div>
-</main>
 </div>
 </div>
 <div class="phone-home">
 <div class="shell">
-<div style="background:#f4f8f7;border-radius:34px;overflow:hidden;height:540px;display:flex;flex-direction:column">
-<div style="height:36px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;font-size:12px;font-weight:600"><span>9:41</span><span style="display:inline-flex;gap:4px;font-size:12px"><i class="ti ti-antenna-bars-5"></i><i class="ti ti-wifi"></i><i class="ti ti-battery-3"></i></span></div>
-<div style="padding:6px 16px 0;display:flex;flex-direction:column;gap:12px;flex:1">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:#5d6c69">Sua semana</span>
-<span style="font-size:20px;font-weight:600;letter-spacing:-0.02em;line-height:1.1;margin-top:-8px">Vamos pro treino de hoje?</span>
-<div style="background:linear-gradient(155deg,#004860,#022128);border-radius:20px;padding:16px;color:#fff;display:flex;flex-direction:column;gap:8px;box-shadow:0 4px 12px rgba(2,33,40,.08),0 16px 40px rgba(2,33,40,.12)">
-<span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#7cd3bb;display:inline-flex;align-items:center;gap:6px"><i class="ti ti-calendar-event" style="font-size:12px"></i>Semana 12</span>
-<span style="font-size:16px;font-weight:600;letter-spacing:-0.01em">Hora do seu check-in</span>
-<span style="font-size:12px;line-height:1.45;color:rgba(255,255,255,.82)">Leva 2 minutos: peso, fotos e como foi a semana.</span>
-<span style="display:inline-flex;align-items:center;justify-content:center;gap:6px;height:38px;border-radius:12px;background:#7cd3bb;color:#022128;font-size:13px;font-weight:600;margin-top:4px"><i class="ti ti-clipboard-check" style="font-size:15px"></i>Fazer check-in</span>
-</div>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Peso atual</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">82,4 kg</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#2f8f74">−1,2 kg</span></div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:2px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="font-size:11px;color:#5d6c69">Aderência</span><span style="font-size:18px;font-weight:600;letter-spacing:-0.02em">92%</span><span style="font-family:'Geist Mono',monospace;font-size:10px;font-weight:600;color:#5d6c69">12 de 13 treinos</span></div>
-</div>
-<div style="background:#fff;border-radius:16px;padding:12px;display:flex;align-items:center;gap:10px;box-shadow:0 1px 2px rgba(2,33,40,.04),0 12px 30px rgba(2,33,40,.06)"><span style="width:36px;height:36px;border-radius:10px;background:#e3f6f0;color:#004860;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-barbell" style="font-size:18px"></i></span><span style="display:flex;flex-direction:column;flex:1"><span style="font-size:13px;font-weight:600">Treino B</span><span style="font-size:11px;color:#5d6c69">8 exercícios · 55 min</span></span><span style="width:28px;height:28px;border-radius:50%;background:#022128;color:#fff;display:inline-flex;align-items:center;justify-content:center"><i class="ti ti-player-play-filled" style="font-size:11px"></i></span></div>
-</div>
-<div style="display:flex;justify-content:space-around;padding:10px 6px 14px;background:#fff;border-top:1px solid rgba(2,33,40,.08)">
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#004860;font-size:9px;font-weight:600"><i class="ti ti-home" style="font-size:18px"></i>Hoje</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-barbell" style="font-size:18px"></i>Treino</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-salad" style="font-size:18px"></i>Dieta</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-pill" style="font-size:18px"></i>Protocolo</span>
-<span style="display:flex;flex-direction:column;align-items:center;gap:3px;color:#5d6c69;font-size:9px;font-weight:600"><i class="ti ti-user" style="font-size:18px"></i>Perfil</span>
+<div class="ios-scr" data-fit="440">
+<div class="ios" role="img" aria-label="App do aluno no Revo, tela Hoje: treino do dia, peso atual, aderência e check-in semanal">
+{% include mock/app/hoje.html %}
 </div>
 </div>
 </div>
@@ -456,10 +392,7 @@
     var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
   }
 
-  // dashboard mockup scale (1120px canvas → container width)
-  var stage = document.getElementById('dashStage');
-  function fit(){ if (!stage) return; var w = stage.clientWidth; if (w) stage.style.setProperty('--s', Math.min(1, w / 1120)); }
-  if (stage) { fit(); if ('ResizeObserver' in window) new ResizeObserver(fit).observe(stage); window.addEventListener('resize', fit); }
+  // a escala dos mockups ([data-fit]) fica no assets/site.js
 
 })();
 </script>

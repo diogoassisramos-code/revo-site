@@ -1,14 +1,29 @@
-<div class="ux ux-phone" aria-hidden="true" style="--brand:#b4532a"><div class="ux-scr" style="background:#fbf6f2">
-  {% include mock/sb.html %}
-  <div class="ux-c">
-    <div style="display:flex;align-items:center;gap:9px"><span style="width:34px;height:34px;border-radius:10px;background:var(--brand);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:13px">SF</span><span class="ux-grow"><b style="font-size:14px">Studio Forte</b><span class="ux-s">Consultoria online</span></span><i class="ti ti-bell" style="font-size:18px"></i></div>
-    <span class="ux-t">Oi, Ana. Bora treinar?</span>
-    <div style="background:var(--brand);color:#fff;border-radius:18px;padding:14px;display:flex;flex-direction:column;gap:6px">
-      <span class="ux-eb" style="color:rgba(255,255,255,.8)">Treino de hoje</span><b style="font-size:16px;letter-spacing:-.01em">Treino A · Superiores</b><span style="font-size:11.5px;opacity:.85">7 exercícios · 50 min</span>
-      <span class="ux-btn" style="background:#fff;color:var(--brand);height:36px;margin-top:4px"><i class="ti ti-player-play"></i>Começar</span>
-    </div>
-    <div class="ux-g2"><div class="ux-card"><span class="ux-k">Refeições</span><div class="ux-v">3 de 5</div></div><div class="ux-card"><span class="ux-k">Check-in</span><div class="ux-v">sexta</div></div></div>
-    <div class="ux-row"><i class="ti ti-world" style="color:var(--brand);font-size:16px"></i><span class="ux-grow ux-s">app.studioforte.com.br</span></div>
-  </div>
-  <div class="ux-tab"><span style="color:var(--brand)"><i class="ti ti-home"></i>Início</span><span><i class="ti ti-barbell"></i>Treino</span><span><i class="ti ti-salad"></i>Dieta</span><span><i class="ti ti-calendar-check"></i>Check-in</span><span><i class="ti ti-user"></i>Perfil</span></div>
-</div></div>
+{%- comment -%}
+  Marca própria (em breve). Sem tela no Figma: é a tela "Hoje · home · iOS" com o nome e a cor da consultoria
+  (Studio Forte) no lugar dos da Revo. As cores ficam em .ios.marca no site.css; os ícones verdes da tela viram
+  máscaras pintadas com a cor da marca.
+{%- endcomment -%}
+<div class="ux ux-phone" aria-hidden="true"><div class="ios-scr" data-fit="440"><div class="ios marca">
+{% include mock/app/status.html %}
+<div class="ios-body">
+<div class="ios-col">
+<div class="ios-hd"><span class="tx"><small>STUDIO FORTE</small><b>Olá, Ana</b></span><span class="ios-av">AN</span></div>
+<div class="ios-feat">
+<div class="k">SEU TREINO<span class="ios-ic"><i class="msk" style="--m:url(/assets/mockups/app/chevron-forward.svg);top:29.75%;left:31.32%;width:8.23568px;height:14.4293px"></i></span></div>
+<div class="row"><span class="txt"><b>Treino A — Superiores</b><span>5 exercícios · 17 séries</span></span><span class="ios-art"><img src="/assets/mockups/app/anatomy-upper-front.svg" alt="" loading="lazy"></span></div>
+<span class="lnk">Ver treino →</span>
+</div>
+<div class="ios-mets"><div class="ios-met"><small>PESO ATUAL</small><b>58.2 kg</b></div><div class="ios-met"><small>ADERÊNCIA</small><b>95%</b></div></div>
+<div class="ios-ck"><span class="bdg">Check-in da semana 4</span><b>Hora do seu check-in semanal</b><p>Registre peso, fotos e como foi a semana pro Studio Forte ajustar seu plano.</p><span class="ios-btn pri">Fazer check-in</span></div>
+<div class="ios-card"><b>Seu app, com a cara do seu coach</b><p>Disponível em app.studioforte.com.br, na App Store e no Google Play.</p><span class="ios-btn ghost">Ver perfil do Studio Forte</span></div>
+</div>
+</div>
+<div class="ios-tab">
+<span class="on"><span class="ios-ic"><i class="msk" style="--m:url(/assets/mockups/app/abas/calendar-outline-on.svg);top:18.75%;left:6.12%;width:19.3073px;height:19.25px"></i></span>Hoje</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/abas/barbell-outline.svg" style="top:34.44%;left:3.13%" alt="" loading="lazy"></span>Treino</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/abas/restaurant-outline.svg" style="top:15.63%;left:3.13%" alt="" loading="lazy"></span>Dieta</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/abas/medkit-outline.svg" style="top:18.75%;left:3.13%" alt="" loading="lazy"></span>Protocolo</span>
+<span><span class="ios-ic"><img src="/assets/mockups/app/abas/person-outline.svg" style="top:18.85%;left:9.38%" alt="" loading="lazy"></span>Perfil</span>
+</div>
+{% include mock/app/indicador.html %}
+</div></div></div>
