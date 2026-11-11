@@ -330,12 +330,12 @@ section{scroll-margin-top:88px}
 .dk-controls{display:flex;flex-direction:column;gap:16px}
 .dk-input{width:360px}
 .dk-input .ph{flex:1;min-width:0}
-.dk-chips{display:flex;gap:7.5px}
+.dk-chips{display:flex;gap:8px}
 .dk-chips span{height:36px;padding:0 12px;border-radius:10px;background:#e0ecea;color:#3a4845;font-size:13px;font-weight:500;line-height:normal;display:flex;align-items:center;white-space:nowrap}
 .dk-chips .on{background:#e3f6f0;color:#2f8f74}
 .dk-row{display:flex;align-items:flex-start;gap:12px;padding:16px 20px}
-.dk-row+.dk-row{border-top:1px solid rgba(2,33,40,.08);padding-top:17px}
-.dk-av{width:38px;height:38px;margin-top:1px;border-radius:19px;background:#d8e9ee;color:#3a4845;font-size:13px;font-weight:500;display:flex;flex-direction:column;align-items:center;padding-top:8.65px;flex:none}
+.dk-row+.dk-row{border-top:1px solid rgba(2,33,40,.08);padding-top:17px;padding-bottom:15px}
+.dk-av{width:38px;height:38px;margin-top:1px;border-radius:19px;background:#d8e9ee;color:#3a4845;font-size:13px;font-weight:500;display:flex;flex-direction:column;align-items:center;padding-top:9.15px;flex:none}
 .dk-rmain{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
 .dk-l1{display:flex;align-items:center;gap:12px}
 .dk-l1 .n{flex:1;min-width:0;overflow:hidden;font-weight:500;white-space:nowrap}
@@ -414,11 +414,9 @@ section{scroll-margin-top:88px}
 /* [mock: alunos] */
 .al-exp{align-self:flex-start;height:37px;display:flex;align-items:center;gap:8.07px;margin:24px 0 -1.61px;padding:9px 13px 9px 13.07px;border:1px solid rgba(2,33,40,.2);border-radius:17.7px;font-size:12px;color:#3a4845;text-transform:uppercase;white-space:nowrap}
 .dk-input.al-busca{width:auto}
-.al-chips{gap:8px}
 .al-chips>span{gap:6px}
 .al-chips i{width:18px;height:18px;padding-top:2px;border-radius:9px;background:#fff;font-size:11px;font-style:normal;line-height:normal;display:flex;flex-direction:column;align-items:center;flex:none}
 .al-chips .on i{background:rgba(47,143,116,.18)}
-.al-list .dk-row+.dk-row{padding-bottom:15px}
 .al-late{color:#bd463f;font-weight:500}
 
 
