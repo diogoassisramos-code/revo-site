@@ -1,28 +1,50 @@
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main">
-      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Plano alimentar · Mariana Costa</span><span class="ux-t">Dia de treino</span></span><span class="ux-btn sm"><i class="ti ti-send"></i>Enviar ao paciente</span></div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-        <div class="ux-card" style="padding:9px 10px"><span class="ux-k">Energia</span><div class="ux-v">1.850 kcal</div></div>
-        <div class="ux-card" style="padding:9px 10px"><span class="ux-k">Proteína</span><div class="ux-v">140 g</div></div>
-        <div class="ux-card" style="padding:9px 10px"><span class="ux-k">Carboidrato</span><div class="ux-v">190 g</div></div>
-        <div class="ux-card" style="padding:9px 10px"><span class="ux-k">Gordura</span><div class="ux-v">55 g</div></div>
-      </div>
-      <div class="ux-card" style="padding:10px 12px">
-        <div style="display:flex;justify-content:space-between;align-items:center"><b style="font-size:13px">Almoço · 12:30</b><span class="ux-m">526 kcal · P 55 · C 45 · G 12</span></div>
-        <table class="ux-tbl" style="margin-top:6px">
-          <thead><tr><th>Alimento</th><th>Qtd</th><th>kcal</th><th>P</th><th>C</th><th>G</th></tr></thead>
-          <tbody>
-            <tr><td><b>Arroz branco cozido</b></td><td>120 g</td><td>154</td><td>3</td><td>34</td><td>0</td></tr>
-            <tr><td><b>Feijão carioca cozido</b></td><td>80 g</td><td>61</td><td>4</td><td>11</td><td>0</td></tr>
-            <tr><td><b>Frango grelhado</b></td><td>150 g</td><td>240</td><td>48</td><td>0</td><td>4</td></tr>
-            <tr><td><b>Azeite de oliva</b></td><td>8 g</td><td>71</td><td>0</td><td>0</td><td>8</td></tr>
-          </tbody>
-        </table>
-        <span class="ux-pill mute" style="margin-top:8px"><i class="ti ti-arrows-exchange"></i>Substituições: frango 150 g, peixe branco 170 g ou 3 ovos</span>
-      </div>
-    </div>
-  </div>
+{%- comment -%}
+  Painel do consultor, tela "10 · Dieta" (Figma): a dieta da aluna, com a Tabela TACO.
+  Mostra o topo da tela (cabeçalho, Tabela TACO e o começo do Café da manhã); o resto fica abaixo da janela.
+  CSS: .ed-* (peças comuns com montagem.html, seção [mock: montagem] do site.css) e .pal-* (seção [mock: plano-alimentar]).
+  Os ícones comuns às duas telas ficam em assets/mockups/painel/montagem/.
+{%- endcomment -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1080" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/ana-paula-souza/dieta" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="ed-page">
+<div class="dk-head">
+<div class="dk-head-t"><span class="dk-eb">Ana Paula Souza</span><span class="ed-tt"><span class="dk-h1">Dieta</span><span class="dk-badge ed-rasc"><img src="/assets/mockups/painel/montagem/pencil-outline.svg" width="13" height="13" alt="" loading="lazy">Rascunho</span></span><span class="pal-kcal"><img src="/assets/mockups/painel/plano-alimentar/flame-outline.svg" width="18" height="18" alt="" loading="lazy"><b>1.085</b><span>kcal · soma das refeições</span></span></div>
+<div class="ed-acts pal-acts"><span class="dk-btn ed-lg ed-voltar"><img src="/assets/mockups/painel/montagem/arrow-back-outline.svg" width="18" height="18" alt="" loading="lazy">Voltar</span><span class="dk-btn pri ed-enviar"><img src="/assets/mockups/painel/montagem/send-outline.svg" width="18" height="18" alt="" loading="lazy">Enviar para o aluno</span></div>
+</div>
+<div class="dk-card pal-taco">
+<div class="pal-th"><span class="pal-tt"><img src="/assets/mockups/painel/plano-alimentar/server-outline.svg" width="16" height="16" alt="" loading="lazy">Tabela TACO</span><span class="pal-hint"><span class="pal-up">Adiciona em:</span><span class="pal-sel"><span>Café da manhã</span><img src="/assets/mockups/painel/plano-alimentar/chevron-down-outline.svg" width="16" height="16" alt="" loading="lazy"></span></span></div>
+<div class="pal-tb">
+<div class="pal-top"><span class="dk-input pal-busca"><img src="/assets/mockups/painel/search-outline.svg" width="18" height="18" alt="" loading="lazy"><span class="ph">Buscar alimento (TACO)…</span></span><span class="dk-btn ed-lg ed-out pal-criar"><img src="/assets/mockups/painel/plano-alimentar/sparkles-outline.svg" width="18" height="18" alt="" loading="lazy">Criar alimento</span></div>
+<div class="ed-grid pal-list">
+<div class="ed-item"><span class="ed-item-t"><b>Peito de frango grelhado</b><span>100g · 165 kcal · P 31 · C 0 · G 3.6</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Arroz branco cozido</b><span>100g · 130 kcal · P 2.5 · C 28 · G 0.2</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Feijão preto cozido</b><span>100g · 77 kcal · P 4.5 · C 14 · G 0.5</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Ovo de galinha</b><span>1 unid (50g) · 78 kcal · P 6 · C 0.6 · G 5</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Batata doce cozida</b><span>100g · 86 kcal · P 1.6 · C 20 · G 0.1</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Aveia em flocos</b><span>30g · 117 kcal · P 4 · C 20 · G 2.4</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Banana prata</b><span>1 unid · 105 kcal · P 1.3 · C 27 · G 0.4</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Whey protein</b><span>30g · 120 kcal · P 24 · C 3 · G 1</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+</div>
+</div>
+</div>
+<div class="dk-card pal-ref">
+<div class="pal-rh"><span class="pal-grip"><img src="/assets/mockups/painel/plano-alimentar/reorder-two-outline.svg" width="18" height="18" alt="" loading="lazy"></span><span class="pal-rt"><span class="pal-rn">Café da manhã</span><span class="pal-time"><span>07:30</span><img src="/assets/mockups/painel/plano-alimentar/time-outline.svg" width="16" height="16" alt="" loading="lazy"></span></span><span class="pal-kc">499 kcal</span><span class="ed-keb"><img src="/assets/mockups/painel/montagem/ellipsis-vertical.svg" width="18" height="18" alt="" loading="lazy"></span></div>
+<div class="pal-obs"><div class="pal-fld"><span class="ed-fl">Orientações da refeição (como/quando consumir)</span><span class="ed-ta">Faça em até 1h após acordar. Mastigue devagar e beba 1 copo de água antes.</span></div></div>
+<div class="pal-al">
+<div class="pal-al1"><img src="/assets/mockups/painel/plano-alimentar/reorder-two-outline-sm.svg" width="16" height="16" alt="" loading="lazy"><span class="pal-aln">Ovos mexidos</span><span class="ed-keb"><img src="/assets/mockups/painel/montagem/ellipsis-vertical.svg" width="18" height="18" alt="" loading="lazy"></span></div>
+<div class="pal-al2"><span class="pal-qtd"><span class="ed-in"><span>3</span></span><span class="pal-seg"><span>g</span><span>ml</span><span class="on">unid</span><span>fatias</span><span>porção</span></span></span><span class="pal-mac">234 kcal · P 18 · C 2 · G 16</span></div>
+<div class="pal-subs"><span class="pal-up">Substituições:</span><span class="ed-chip"><img src="/assets/mockups/painel/plano-alimentar/repeat-outline.svg" width="15" height="15" alt="" loading="lazy">Omelete</span><span class="ed-chip"><img src="/assets/mockups/painel/plano-alimentar/repeat-outline.svg" width="15" height="15" alt="" loading="lazy">Ovos cozidos</span><span class="ed-chip"><img src="/assets/mockups/painel/plano-alimentar/add-outline-sm.svg" width="15" height="15" alt="" loading="lazy">adicionar</span></div>
+<div class="pal-alo"><div class="pal-fld"><span class="ed-fl">Como consumir este alimento (preparo, modo de comer…)</span><span class="ed-ta">Prepare em frigideira antiaderente, sem óleo. Tempere só com sal e pimenta.</span></div></div>
+</div>
+<!-- os outros alimentos do café (pão integral, banana) e as outras refeições ficam abaixo da janela e não aparecem no mockup -->
+</div>
+</div>
+</div>
+</div>
+</div>
 </div></div>
