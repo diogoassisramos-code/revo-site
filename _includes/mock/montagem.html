@@ -1,32 +1,51 @@
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main" style="display:grid;grid-template-columns:140px minmax(0,1fr);gap:10px">
-      <div class="ux-card" style="padding:10px;display:flex;flex-direction:column;gap:6px">
-        <span class="ux-eb">Biblioteca</span>
-        <span class="ux-row" style="background:var(--ice);padding:7px 9px;color:var(--ink-3);font-size:11px"><i class="ti ti-search"></i>Buscar exercício</span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Agachamento livre</span><i class="ti ti-plus"></i></span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Leg press 45°</span><i class="ti ti-plus"></i></span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Cadeira extensora</span><i class="ti ti-plus"></i></span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Stiff com barra</span><i class="ti ti-plus"></i></span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Panturrilha em pé</span><i class="ti ti-plus"></i></span>
-        <span class="ux-row" style="padding:6px 4px;font-size:11px"><i class="ti ti-player-play" style="color:var(--mint-700)"></i><span class="ux-grow">Afundo búlgaro</span><i class="ti ti-plus"></i></span>
-      </div>
-      <div class="ux-card" style="padding:12px;display:flex;flex-direction:column;gap:8px">
-        <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Mariana Costa</span><span class="ux-t" style="font-size:15px">Treino B · Inferiores</span></span><span class="ux-pill info"><i class="ti ti-copy"></i>Modelo: Hipertrofia B</span></div>
-        <table class="ux-tbl">
-          <thead><tr><th>Exercício</th><th>Séries</th><th>Reps</th><th>Carga</th><th>Descanso</th></tr></thead>
-          <tbody>
-            <tr><td class="w"><b>Agachamento livre</b></td><td>4</td><td>8 a 10</td><td>80 kg</td><td>90s</td></tr>
-            <tr><td class="w"><b>Leg press 45°</b></td><td>4</td><td>10 a 12</td><td>180 kg</td><td>90s</td></tr>
-            <tr><td class="w"><b>Cadeira extensora</b></td><td>3</td><td>12</td><td>40 kg</td><td>60s</td></tr>
-            <tr><td class="w"><b>Stiff com barra</b></td><td>3</td><td>10</td><td>50 kg</td><td>90s</td></tr>
-            <tr><td class="w"><b>Panturrilha em pé</b></td><td>4</td><td>15</td><td>60 kg</td><td>45s</td></tr>
-          </tbody>
-        </table>
-        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:auto"><span class="ux-btn sm ghost"><i class="ti ti-copy"></i>Salvar como modelo</span><span class="ux-btn sm"><i class="ti ti-send"></i>Aplicar ao aluno</span></div>
-      </div>
-    </div>
-  </div>
+{%- comment -%}
+  Painel do consultor, tela "09 · Treino" (Figma): o treino da aluna, com a biblioteca de exercícios.
+  Mostra o topo da tela (cabeçalho, biblioteca e o começo do Treino A); o resto fica abaixo da janela.
+  CSS: .ed-* (peças comuns com plano-alimentar.html) e .mt-*, na seção [mock: montagem] do site.css.
+{%- endcomment -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1030" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/ana-paula-souza/treino" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="ed-page">
+<div class="dk-head">
+<div class="dk-head-t"><span class="dk-eb">Treino · Ana Paula Souza</span><span class="ed-tt"><span class="dk-h1">Treinos</span><span class="dk-badge ed-rasc"><img src="/assets/mockups/painel/montagem/pencil-outline.svg" width="13" height="13" alt="" loading="lazy">Rascunho</span></span><span class="dk-sub">1 treino · 5 exercícios</span></div>
+<div class="ed-acts"><span class="dk-btn ed-lg ed-voltar"><img src="/assets/mockups/painel/montagem/arrow-back-outline.svg" width="18" height="18" alt="" loading="lazy">Voltar</span><span class="dk-btn pri ed-enviar"><img src="/assets/mockups/painel/montagem/send-outline.svg" width="18" height="18" alt="" loading="lazy">Enviar para o aluno</span></div>
+</div>
+<div class="dk-card mt-lib">
+<div class="mt-lib-h"><span class="mt-lib-t"><span class="dk-eb">Biblioteca de exercícios</span><span class="dk-msub">Busque e adicione ao treino selecionado. Ajusta séries, reps e vídeo depois.</span></span><span class="dk-btn ghost ed-out mt-criar"><img src="/assets/mockups/painel/montagem/sparkles-outline.svg" width="16" height="16" alt="" loading="lazy">Criar exercício</span></div>
+<span class="dk-input mt-busca"><img src="/assets/mockups/painel/search-outline.svg" width="18" height="18" alt="" loading="lazy"><span class="ph">Buscar exercício na biblioteca…</span></span>
+<div class="ed-grid mt-res">
+<div class="ed-item"><span class="ed-item-t"><b>Supino reto com barra</b><span class="dk-eb">Peito</span></span><span class="dk-btn ghost mt-add1"><img src="/assets/mockups/painel/montagem/checkmark-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar +1</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Agachamento livre</b><span class="dk-eb">Pernas</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Levantamento terra</b><span class="dk-eb">Posterior</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Puxada frontal</b><span class="dk-eb">Costas</span></span><span class="dk-btn ghost mt-add1"><img src="/assets/mockups/painel/montagem/checkmark-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar +1</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Rosca direta</b><span class="dk-eb">Bíceps</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Tríceps na polia</b><span class="dk-eb">Tríceps</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Desenvolvimento militar</b><span class="dk-eb">Ombros</span></span><span class="dk-btn ghost mt-add1"><img src="/assets/mockups/painel/montagem/checkmark-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar +1</span></div>
+<div class="ed-item"><span class="ed-item-t"><b>Leg press 45°</b><span class="dk-eb">Pernas</span></span><span class="dk-btn ghost ed-out ed-add"><img src="/assets/mockups/painel/montagem/add-outline.svg" width="16" height="16" alt="" loading="lazy">Adicionar</span></div>
+</div>
+</div>
+<div class="dk-card mt-treino">
+<div class="mt-th"><span class="mt-tn">Treino A — Superiores</span><span class="mt-cnt">5 exerc.</span><span class="ed-keb"><img src="/assets/mockups/painel/montagem/ellipsis-vertical.svg" width="18" height="18" alt="" loading="lazy"></span></div>
+<div class="dk-card mt-ex">
+<div class="mt-ex-top"><span class="mt-hdl"><img src="/assets/mockups/painel/montagem/reorder-two-outline.svg" width="20" height="20" alt="" loading="lazy"></span><span class="mt-num">1</span><span class="mt-exi"><span class="mt-exn">Supino reto com barra</span><span class="dk-eb">Peito</span></span><span class="ed-keb"><img src="/assets/mockups/painel/montagem/ellipsis-vertical.svg" width="18" height="18" alt="" loading="lazy"></span></div>
+<div class="mt-flds">
+<span class="mt-fld"><span class="mt-fl">Séries</span><span class="ed-in"><span>4</span></span></span>
+<span class="mt-fld"><span class="mt-fl">Reps</span><span class="ed-in"><span>8-10</span></span></span>
+<span class="mt-fld"><span class="mt-fl">Descanso (s)</span><span class="ed-in"><span>90</span></span></span>
+</div>
+<span class="dk-btn ghost"><img src="/assets/mockups/painel/montagem/list-outline.svg" width="16" height="16" alt="" loading="lazy">Detalhar séries (aquecimento, válidas…)</span>
+<div class="mt-vid"><span class="ed-chip"><img src="/assets/mockups/painel/montagem/library-outline.svg" width="15" height="15" alt="" loading="lazy">Vídeo da biblioteca</span></div>
+<div class="mt-obs"><span class="ed-fl">Observações / como executar</span><span class="ed-ta">Desça a barra controlado (2s na excêntrica) até tocar levemente o peito. Cotovelos a ~45° do tronco.</span></div>
+</div>
+<!-- os outros exercícios do Treino A (crucifixo, puxada, remada, desenvolvimento) ficam abaixo da janela e não aparecem no mockup -->
+</div>
+</div>
+</div>
+</div>
+</div>
 </div></div>

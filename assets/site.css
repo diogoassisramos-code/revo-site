@@ -418,9 +418,100 @@ section{scroll-margin-top:88px}
 
 
 /* [mock: montagem] */
+/* "09 · Treino". As peças .ed-* (cabeçalho com Voltar/Enviar, card de busca com a grade de itens, campos) são comuns com "10 · Dieta" (plano-alimentar) */
+.ed-page{display:flex;flex-direction:column}
+.ed-page .dk-eb{line-height:16px}
+.ed-page .dk-sub{line-height:20px}
+.ed-page .dk-msub{line-height:19px}
+.ed-tt{display:flex;align-items:center;gap:12px}
+.ed-rasc{gap:3.93px;padding-left:9.93px;background:#d8e9ee;color:#3a4845;letter-spacing:-.28px}
+.ed-acts{display:flex;align-items:center;gap:8px}
+.ed-lg{height:44px;padding:0 18px;border-radius:16px;color:#2f8f74;font-size:14px}
+.ed-out{background:#d8e9ee}
+.ed-voltar{width:101.64px}
+.ed-enviar{width:186.92px}
+.ed-add{width:109.61px}
+.ed-grid{display:grid;grid-template-columns:repeat(2,540px);gap:6.23px 8px;align-content:start}
+.ed-item{display:flex;align-items:center;justify-content:space-between;padding:9px 13px;border:1px solid rgba(2,33,40,.12);border-radius:10px;background:#f4f8f7}
+.ed-item-t{display:flex;flex-direction:column;gap:2px;white-space:nowrap}
+.ed-item-t b{font-weight:500;line-height:20px}
+.ed-keb{width:32px;height:32px;padding:7px;border-radius:10px;flex:none}
+.ed-in{display:flex;align-items:center;height:44px;padding:0 14px;border-radius:16px;background:#e0ecea}
+.ed-in span{padding:0 2px;line-height:normal}
+.ed-fl{font-size:13px;font-weight:500;line-height:19px}
+.ed-ta{height:58px;padding:12px 14px 0;border-radius:16px;background:#e0ecea;overflow:hidden;font-size:13px;line-height:normal}
+.ed-chip{display:flex;align-items:center;gap:6.08px;height:36px;padding:0 12px 0 12.08px;border-radius:10px;background:#e0ecea;color:#3a4845;font-size:13px;font-weight:500;line-height:normal;white-space:nowrap;flex:none}
+.mt-lib{margin-top:44.23px;display:flex;flex-direction:column;gap:16.01px;padding:20px 20px 19.99px}
+.mt-lib-h{display:flex;align-items:flex-start;justify-content:space-between}
+.mt-lib-t{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
+.mt-criar{width:139.23px}
+.mt-busca{width:1088px}
+.mt-res{height:248.94px}
+.mt-add1{width:125.36px}
+.mt-treino{width:1128.59px;margin-top:19.77px;display:flex;flex-direction:column;gap:12px;padding:16px}
+.mt-th{display:flex;align-items:center;gap:8px}
+.mt-tn{width:1000.59px;height:37px;padding:8px 12px 0;border-radius:10px;background:#e0ecea;overflow:hidden;font-size:16px;font-weight:700;line-height:normal;white-space:nowrap;flex:none}
+.mt-cnt{font-size:11px;font-weight:500;line-height:16px;color:#3a4845;text-transform:uppercase;white-space:nowrap}
+.mt-th .ed-keb{margin-left:auto}
+.mt-ex{width:1096px;display:flex;flex-direction:column;gap:16px;padding:20px}
+.mt-ex-top{display:flex;align-items:center;gap:12px}
+.mt-hdl{width:26px;height:26px;padding:3px;border-radius:10px;flex:none}
+.mt-num{width:26px;height:26px;border-radius:13px;background:#f4f8f7;display:flex;align-items:center;justify-content:center;color:#3a4845;font-size:12px;font-weight:500;flex:none}
+.mt-exi{width:936px;display:flex;flex-direction:column;gap:2px;white-space:nowrap}
+.mt-exn{font-size:15px;font-weight:500;line-height:22px}
+.mt-flds{display:flex;gap:12px}
+.mt-fld{width:344px;display:flex;flex-direction:column;gap:4px}
+.mt-fl{font-size:12px;font-weight:500;line-height:17px;color:#3a4845}
+.mt-vid{display:flex}
+.mt-obs{height:84.84px;display:flex;flex-direction:column;gap:4.01px}
 
 
 /* [mock: plano-alimentar] */
+/* "10 · Dieta" (usa as peças .ed-* da seção [mock: montagem]) */
+.pal-kcal{display:flex;align-items:center;gap:8.1px;padding-left:.09px}
+.pal-kcal b{font-size:18px;line-height:26px}
+.pal-kcal span{line-height:20px;color:#6b7a77}
+.pal-acts{gap:12px}
+.pal-taco{margin-top:48.03px}
+.pal-th{display:flex;align-items:center;justify-content:space-between;padding:20px 20px 0}
+.pal-tt{display:flex;align-items:center;gap:8.08px;padding-left:.09px;font-size:16px;font-weight:500;line-height:23px}
+.pal-hint{display:flex;align-items:center;gap:8px}
+.pal-up{font-size:11px;line-height:16px;color:#6b7a77;text-transform:uppercase;white-space:nowrap}
+.pal-sel{display:flex;align-items:flex-start;gap:6px;width:128px;height:31px;padding:7px 0 0 8px;border-radius:10px;background:#e0ecea;overflow:hidden;font-size:13px;font-weight:500;line-height:normal;white-space:nowrap}
+.pal-sel span{width:92px;overflow:hidden;text-overflow:ellipsis}
+.pal-tb{display:flex;flex-direction:column;gap:16px;padding:16px 20px 20px}
+.pal-top{display:flex;gap:12px}
+.pal-busca{width:921.67px}
+.pal-criar{width:154.33px}
+.pal-list{height:268.94px}
+.pal-list .ed-item{padding:11px 13px;background:none}
+.pal-list .ed-item-t{gap:3px}
+.pal-list .ed-item-t span{font-size:11px;line-height:16px;color:#6b7a77}
+.pal-ref{width:1129.5px;margin-top:24px}
+.pal-rh{display:flex;align-items:center;gap:12px;padding:16px 20px 17px;border-bottom:1px solid rgba(2,33,40,.12)}
+.pal-grip{width:26px;height:26px;display:flex;align-items:center;padding-left:.09px;flex:none}
+.pal-rt{display:flex;align-items:center;gap:8px}
+.pal-rn{width:810.86px;height:31px;padding:6px 10px 0;border-radius:10px;background:#e0ecea;overflow:hidden;font-size:15px;font-weight:700;line-height:normal;white-space:nowrap}
+.pal-time{display:flex;align-items:flex-start;gap:4px;width:106.64px;height:31.64px;padding:7.32px 0 0 8px;border-radius:10px;background:#e0ecea;overflow:hidden;color:#3a4845;font-size:13px;line-height:normal}
+.pal-time span{width:70.64px}
+.pal-kc{padding:3px 8px;border-radius:12.42px;background:#f4f8f7;color:#3a4845;font-size:13px;font-weight:500;line-height:19px;white-space:nowrap;flex:none}
+.pal-rh .ed-keb{margin-left:auto}
+.pal-obs,.pal-al{width:1128px}
+.pal-obs{padding:16px 20px 0}
+.pal-fld{height:114.84px;display:flex;flex-direction:column;gap:6px}
+.pal-fld .ed-ta{height:84px;font-size:14px}
+.pal-al{display:flex;flex-direction:column;gap:8px;padding:16px 20px 17px;border-bottom:1px solid rgba(2,33,40,.12)}
+.pal-al1{display:flex;align-items:center;gap:12.08px;padding-left:.09px}
+.pal-aln{width:1015.83px;font-weight:500;line-height:20px}
+.pal-al2,.pal-subs{display:flex;align-items:center;gap:12px;padding-left:28px}
+.pal-subs{gap:8px}
+.pal-qtd{display:flex;align-items:center;gap:8px}
+.pal-qtd .ed-in{width:72px}
+.pal-seg{display:flex;gap:6px}
+.pal-seg span{height:31px;padding:7px 12px 0;border-radius:10px;background:#e0ecea;color:#3a4845;font-size:13px;font-weight:500;line-height:normal}
+.pal-seg .on{background:#e3f6f0;color:#2f8f74}
+.pal-mac{font-size:12px;line-height:17px;color:#6b7a77;white-space:nowrap}
+.pal-alo{padding-left:28px}
 
 
 /* [mock: checkins] */
