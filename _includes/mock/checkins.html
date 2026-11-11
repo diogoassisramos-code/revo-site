@@ -1,30 +1,68 @@
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main" style="display:grid;grid-template-columns:186px minmax(0,1fr);gap:10px">
-      <div style="display:flex;flex-direction:column;gap:6px">
-        <div style="display:flex;justify-content:space-between;align-items:baseline"><b style="font-size:13px">Fila de check-ins</b><span class="ux-m">4 hoje</span></div>
-        <div class="ux-row hi" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Bruna Alves</b><span class="ux-m">semanal</span></span><span class="ux-pill warn" style="align-self:flex-start"><i class="ti ti-alert-triangle"></i>Sono abaixo do normal</span></div>
-        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Lucas Ferreira</b><span class="ux-m">treino</span></span><span class="ux-pill info" style="align-self:flex-start">Esforço 9 de 10</span></div>
-        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Pedro Santos</b><span class="ux-m">semanal</span></span><span class="ux-pill bad" style="align-self:flex-start">Atrasado 2 dias</span></div>
-        <div class="ux-row" style="flex-direction:column;align-items:stretch;gap:5px"><span style="display:flex;justify-content:space-between"><b>Mariana Costa</b><span class="ux-m">semanal</span></span><span class="ux-pill mute" style="align-self:flex-start">Sem alertas</span></div>
-      </div>
-      <div class="ux-card" style="padding:12px;display:flex;flex-direction:column;gap:8px">
-        <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Semana 12 x semana 11</span><span class="ux-t" style="font-size:15px">Bruna Alves</span></span><span class="ux-pill info">Emagrecimento</span></div>
-        <table class="ux-tbl">
-          <thead><tr><th></th><th>Sem. 11</th><th>Sem. 12</th><th></th></tr></thead>
-          <tbody>
-            <tr><td><b>Peso</b></td><td>64,2 kg</td><td>63,9 kg</td><td></td></tr>
-            <tr><td><b>Sono</b></td><td>7h</td><td><b style="color:#8a5a12">5h</b></td><td><span class="ux-pill warn">abaixo</span></td></tr>
-            <tr><td><b>Energia</b></td><td>4 de 5</td><td>3 de 5</td><td></td></tr>
-            <tr><td><b>Adesão à dieta</b></td><td>88%</td><td>81%</td><td></td></tr>
-          </tbody>
-        </table>
-        <div class="ux-row" style="background:var(--ice);font-size:11.5px;color:var(--ink-2)">“Semana corrida no trabalho, dormi pouco.”</div>
-        <div class="ux-row" style="box-shadow:inset 0 0 0 1px var(--line);color:var(--ink-3);font-size:11.5px">Escreva uma resposta para a Bruna...</div>
-        <div style="display:flex;gap:8px;justify-content:flex-end"><span class="ux-btn sm ghost"><i class="ti ti-barbell"></i>Ajustar treino</span><span class="ux-btn sm"><i class="ti ti-send"></i>Responder</span></div>
-      </div>
-    </div>
-  </div>
+{%- comment -%}
+  Painel do consultor, tela "12 · Check-in" (Figma, nó 107:8545): revisão do check-in da Ana Paula.
+  A tela inteira está aqui; o conteúdo vem rolado até o fim (--y) para mostrar fotos, feedback do aluno e a resposta
+  com "Ajustar treino / Ajustar dieta" na mesma tela. Para mostrar o topo (métricas e gráfico), tire "rolado" e o --y.
+{%- endcomment -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1000" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/ana-paula-souza/check-in" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content rv rolado" style="--y:952px">
+<div class="dk-head">
+<div class="dk-head-t"><span class="dk-eb">Revisão de check-in</span><span class="dk-h1">Ana Paula Souza · Check-in</span><span class="dk-badge"><img src="/assets/mockups/painel/checkins/calendar-outline.svg" width="13" height="13" alt="" loading="lazy">Semana 6 · enviado 20 jun 2026</span></div>
+<span class="dk-btn rv-lg"><img src="/assets/mockups/painel/checkins/arrow-back-outline.svg" width="18" height="18" alt="" loading="lazy">Voltar à ficha</span>
+</div>
+<div class="dk-metrics rv-metrics">
+<div class="dk-metric"><div class="dk-mtop"><span>Peso</span><span class="dk-mic"><img src="/assets/mockups/painel/checkins/scale-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">60.4 kg<span class="dk-delta rv-down"><img src="/assets/mockups/painel/checkins/trending-down-outline-sm.svg" width="12" height="12" alt="" loading="lazy">-0.3 kg</span></div><div class="dk-msub">vs. S5</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Treinos</span><span class="dk-mic"><img src="/assets/mockups/painel/checkins/barbell-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">5/5</div><div class="dk-msub">treinos realizados</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Dieta</span><span class="dk-mic"><img src="/assets/mockups/painel/checkins/restaurant-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">5/5</div><div class="dk-msub">aderência relatada</div></div>
+</div>
+<div class="pc-chart">
+<div class="pc-chart-h">Evolução do peso</div>
+<div class="pc-plot">
+<img class="pc-gh" src="/assets/mockups/painel/checkins/grafico-grade-h.svg" width="1012" height="215" alt="" loading="lazy">
+<img class="pc-gv" src="/assets/mockups/painel/checkins/grafico-grade-v.svg" width="1013" height="214" alt="" loading="lazy">
+<img class="rv-linha" src="/assets/mockups/painel/checkins/grafico-linha.svg" alt="" loading="lazy">
+<img class="rv-pontos" src="/assets/mockups/painel/checkins/grafico-pontos.svg" alt="" loading="lazy">
+<div class="pc-x"><span>S1</span><span>S2</span><span>S3</span><span>S4</span><span>S5</span><span>S6</span></div>
+<span class="pc-y" style="top:4.26px">72.0 kg</span><span class="pc-y" style="top:39.93px">68.4 kg</span><span class="pc-y" style="top:99.37px">62.4 kg</span><span class="pc-y" style="top:158.82px">56.4 kg</span><span class="pc-y" style="top:218.26px">50.4 kg</span>
+</div>
+</div>
+<div class="dk-card">
+<div class="dk-card-h"><span>Fotos da semana</span><span class="dk-btn ghost pc-mu"><img src="/assets/mockups/painel/checkins/layers-outline.svg" width="16" height="16" alt="" loading="lazy">Comparar com a semana 1</span></div>
+<div class="dk-card-b">
+<div class="rv-fotos">
+<div class="rv-foto"><span class="rv-thumb"><i></i></span><span class="rv-fl">Frente</span></div>
+<div class="rv-foto"><span class="rv-thumb"><i></i></span><span class="rv-fl">Lado</span></div>
+<div class="rv-foto"><span class="rv-thumb"><i></i></span><span class="rv-fl">Costas</span></div>
+</div>
+</div>
+</div>
+<div class="dk-card">
+<div class="dk-card-h"><span>Feedback do aluno</span></div>
+<div class="dk-card-b">
+<div class="rv-pills">
+<div class="rv-pill"><span class="rv-ptop"><img src="/assets/mockups/painel/checkins/flash-outline.svg" width="18" height="18" alt="" loading="lazy">Energia</span><span class="rv-nota">5<small>/5</small></span><span class="rv-dots"><i></i><i></i><i></i><i></i><i></i></span></div>
+<div class="rv-pill"><span class="rv-ptop"><img src="/assets/mockups/painel/checkins/moon-outline.svg" width="18" height="18" alt="" loading="lazy">Sono</span><span class="rv-nota">4<small>/5</small></span><span class="rv-dots"><i></i><i></i><i></i><i></i><i class="off"></i></span></div>
+<div class="rv-pill"><span class="rv-ptop"><img src="/assets/mockups/painel/checkins/restaurant-outline-verde.svg" width="18" height="18" alt="" loading="lazy">Dieta</span><span class="rv-nota">5<small>/5</small></span><span class="rv-dots"><i></i><i></i><i></i><i></i><i></i></span></div>
+</div>
+<div class="rv-quote"><img src="/assets/mockups/painel/checkins/chatbox-ellipses-outline.svg" width="22" height="22" alt="" loading="lazy">Melhor semana até agora! Me senti muito forte nos treinos de perna. A dieta fluiu bem.</div>
+</div>
+</div>
+<div class="dk-card">
+<div class="dk-card-h"><span>Sua resposta</span></div>
+<div class="dk-card-b rv-resp">
+<div class="rv-field"><span class="rv-ta">Escreva o feedback da semana…</span><span class="rv-count">0/500</span></div>
+<div class="rv-acts">
+<span class="dk-btn rv-lg pc-mu"><img src="/assets/mockups/painel/checkins/barbell-outline-verde.svg" width="18" height="18" alt="" loading="lazy">Ajustar treino</span>
+<span class="dk-btn rv-lg pc-mu"><img src="/assets/mockups/painel/checkins/restaurant-outline-verde.svg" width="18" height="18" alt="" loading="lazy">Ajustar dieta</span>
+<span class="dk-btn pri rv-off"><img src="/assets/mockups/painel/checkins/send-outline.svg" width="18" height="18" alt="" loading="lazy">Enviar resposta</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div></div>
