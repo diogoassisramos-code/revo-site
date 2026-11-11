@@ -1,17 +1,43 @@
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main">
-      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Anamnese · respondida em 03/11</span><span class="ux-t">Pedro Santos</span></span><span class="ux-pill"><i class="ti ti-check"></i>Antes da 1ª conversa</span></div>
-      <div class="ux-g2">
-        <div class="ux-card"><span class="ux-k">Objetivo</span><b style="display:block;margin-top:4px;font-size:12.5px;font-weight:600">Ganhar força e voltar a jogar futebol.</b></div>
-        <div class="ux-card"><span class="ux-k">Rotina</span><b style="display:block;margin-top:4px;font-size:12.5px;font-weight:600">Trabalha das 9h às 18h. Treina 4x por semana, à noite.</b></div>
-        <div class="ux-card"><span class="ux-k">Lesões e dores</span><b style="display:block;margin-top:4px;font-size:12.5px;font-weight:600">Dor no joelho direito em 2023, já liberado.</b></div>
-        <div class="ux-card"><span class="ux-k">PAR-Q</span><b style="display:block;margin:4px 0 6px;font-size:12.5px;font-weight:600">7 perguntas · 1 ponto de atenção</b><span class="ux-pill warn">Pressão alta na família</span></div>
-      </div>
-      <div class="ux-row"><span class="ux-ic"><i class="ti ti-shield-check"></i></span><span class="ux-grow"><b>Consentimento LGPD</b><span class="ux-s">Aceito no primeiro acesso, em 03/11/2026</span></span><span class="ux-pill">Registrado</span></div>
-      <div class="ux-row"><span class="ux-ic"><i class="ti ti-send"></i></span><span class="ux-grow"><b>Envio automático</b><span class="ux-s">Disparado assim que o pagamento foi aprovado</span></span></div>
-    </div>
-  </div>
+{%- comment -%}
+  Anamnese e avaliação. O Figma não tem a tela da anamnese do lado do painel: esta é a "08 · Ficha do aluno"
+  (cabeçalho, métricas, blocos e cards do Figma) com as respostas da anamnese no lugar do protocolo.
+{%- endcomment -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1000" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/pedro-santos" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="fi-hero"><span class="fi-av">PS</span><span class="fi-ht"><span class="fi-name">Pedro Santos</span><span class="fi-meta">Online<i>·</i>Consultoria Online Mensal<i>·</i>Hipertrofia</span><span class="dk-badge">Novo</span></span></div>
+<div class="fi-metrics">
+<div class="dk-metric"><div class="dk-mtop"><span>Peso inicial</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/scale-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">78.5 kg</div><div class="dk-msub">Informado na anamnese</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Objetivo</span><span class="dk-mic"><img src="/assets/mockups/painel/trending-up-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">Hipertrofia</div><div class="dk-msub">Ganhar força e voltar ao futebol</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Primeira conversa</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/calendar-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">05 nov 2026</div><div class="dk-msub">Em 2 dias</div></div>
+</div>
+<div class="fi-block">
+<div class="fi-bh"><b>Anamnese</b><span>Respondida no app em 03/11, antes da primeira conversa.</span></div>
+<div class="fi-protos">
+<div class="fi-proto"><span class="fi-pic"><img src="/assets/mockups/painel/ficha/barbell-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Treino</span><span class="fi-pn">4x por semana, à noite</span><span class="fi-pm">Treinou 2 anos · parou em 2024</span><span class="dk-btn ghost">Ver respostas<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+<div class="fi-proto"><span class="fi-pic"><img src="/assets/mockups/painel/ficha/restaurant-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Alimentação</span><span class="fi-pn">4 refeições por dia</span><span class="fi-pm">Sem restrições · almoça fora</span><span class="dk-btn ghost">Ver respostas<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+<div class="fi-proto"><span class="fi-pic warn"><img src="/assets/mockups/painel/ficha/medkit-outline.svg" width="21" height="21" alt="" loading="lazy"></span><span class="fi-pl">Saúde e PAR-Q</span><span class="fi-pn">1 ponto de atenção</span><span class="fi-pm">Pressão alta na família · joelho liberado</span><span class="dk-btn ghost">Ver respostas<img src="/assets/mockups/painel/arrow-forward-outline.svg" width="16" height="16" alt="" loading="lazy"></span></div>
+</div>
+</div>
+<div class="fi-grid2">
+<div class="dk-card"><div class="dk-card-h"><span>Objetivo e rotina</span></div><div class="fi-rows">
+<div class="fi-row"><span>Objetivo</span><b>Ganhar força e voltar a jogar futebol</b></div>
+<div class="fi-row"><span>Rotina</span><b>Trabalha das 9h às 18h</b></div>
+<div class="fi-row"><span>Sono</span><b>7h por noite</b></div>
+<div class="fi-row"><span>Lesões e dores</span><b>Joelho direito em 2023, liberado</b></div>
+</div></div>
+<div class="dk-card"><div class="dk-card-h"><span>Envio e consentimento</span></div><div class="fi-rows">
+<div class="fi-row"><span>Formulário</span><b>Anamnese de treino + PAR-Q</b></div>
+<div class="fi-row"><span>Envio</span><b>Automático, após o pagamento</b></div>
+<div class="fi-row"><span>Consentimento LGPD</span><span class="dk-badge ok">Aceito em 03/11</span></div>
+<div class="fi-row"><span>Respondida em</span><b>03 nov 2026 · 12 min</b></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
 </div></div>

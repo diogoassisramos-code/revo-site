@@ -1,25 +1,46 @@
+{%- comment -%}
+  Médicos (acesso antecipado). Sem tela no Figma: é a "08 · Ficha do aluno" (cabeçalho, métricas, blocos e cards
+  do Figma) com a linha do tempo do paciente entre as consultas.
+{%- endcomment -%}
 {%- assign meses = "Mar,Abr,Mai,Jun,Jul,Ago,Set,Out,Nov" | split: "," -%}
-{%- assign lanes = "Consultas:100100101|Nutrição:101010100|Treino:010010010" | split: "|" -%}
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main">
-      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">Paciente · acompanhamento de 9 meses</span><span class="ux-t">Carlos Souza</span></span><span class="ux-pill info"><i class="ti ti-calendar-event"></i>Consulta em 12 dias</span></div>
-      <div class="ux-card" style="padding:12px 14px">
-        <div style="display:grid;grid-template-columns:74px repeat(9,1fr);row-gap:12px;align-items:center;font-size:10.5px">
-          <span></span>{% for m in meses %}<span class="ux-m" style="text-align:center">{{ m }}</span>{% endfor %}
-          {%- for l in lanes %}{% assign parts = l | split: ":" %}{% assign bits = parts[1] | split: "" %}
-          <span class="ux-k">{{ parts[0] }}</span>{% for b in bits %}<span style="display:flex;justify-content:center">{% if b == "1" %}<i style="display:block;width:11px;height:11px;border-radius:50%;background:{% if forloop.parentloop.index == 1 %}var(--dark){% elsif forloop.parentloop.index == 2 %}var(--mint-700){% else %}var(--petrol){% endif %}"></i>{% else %}<i style="display:block;width:100%;height:1px;background:var(--line-soft)"></i>{% endif %}</span>{% endfor %}
-          {%- endfor %}
-          <span class="ux-k">Check-ins</span>{% for m in meses %}<span style="display:flex;justify-content:center;gap:3px">{% for k in (1..4) %}<i style="display:block;width:4px;height:4px;border-radius:50%;background:{% if forloop.parentloop.index == 4 and k == 3 %}#d3e0dd{% else %}var(--mint-400){% endif %}"></i>{% endfor %}</span>{% endfor %}
-          <span class="ux-k">Adesão</span><svg style="grid-column:2/-1;display:block" viewBox="0 0 360 40" width="100%" height="40" fill="none" preserveAspectRatio="none"><path d="M4 30 L44 26 L84 22 L124 27 L164 18 L204 15 L244 16 L284 11 L324 9 L356 8" stroke="#2f8f74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
-        </div>
-      </div>
-      <div class="ux-g2">
-        <div class="ux-row" style="align-items:flex-start"><span class="ux-ic"><i class="ti ti-calendar-check"></i></span><span class="ux-grow"><b>Último check-in · ontem</b><span class="ux-s">Sono 6h, energia 3 de 5, sem sintomas novos.</span></span></div>
-        <div class="ux-row" style="align-items:flex-start"><span class="ux-ic"><i class="ti ti-users-group"></i></span><span class="ux-grow"><b>Equipe</b><span class="ux-s">Nutricionista ajustou o plano em out. Treino em novo ciclo.</span></span></div>
-      </div>
-    </div>
-  </div>
+{%- assign lanes = "Consultas:100100101:c|Nutrição:101010100:tl-n|Treino:010010010:tl-t" | split: "|" -%}
+<div class="ux ux-fit mk" style="--w:1440;--h:1000" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos/carlos-souza" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="fi-hero"><span class="fi-av">CS</span><span class="fi-ht"><span class="fi-name">Carlos Souza</span><span class="fi-meta">Paciente<i>·</i>Acompanhamento de 9 meses<i>·</i>Recomposição</span><span class="dk-badge">Consulta em 12 dias</span></span></div>
+<div class="fi-metrics">
+<div class="dk-metric"><div class="dk-mtop"><span>Peso atual</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/scale-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">84.2 kg<span class="dk-delta bad"><img src="/assets/mockups/painel/ficha/trending-down-outline-sm.svg" width="12" height="12" alt="" loading="lazy">-6.1 kg</span></div><div class="dk-msub">Inicial 90.3 kg</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Adesão ao plano</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/pulse-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">87%</div><div class="dk-msub">Últimos 3 meses</div></div>
+<div class="dk-metric"><div class="dk-mtop"><span>Próx. consulta</span><span class="dk-mic"><img src="/assets/mockups/painel/ficha/calendar-outline.svg" width="17" height="17" alt="" loading="lazy"></span></div><div class="dk-mval">23 nov 2026</div><div class="dk-msub">Em 12 dias</div></div>
+</div>
+<div class="fi-block">
+<div class="fi-bh"><b>Linha do tempo</b><span>Consultas, ajustes da equipe e check-ins desde março.</span></div>
+<div class="dk-card tl-card"><div class="tl-grid">
+<span></span>{% for m in meses %}<span class="tl-m">{{ m }}</span>{% endfor %}
+{%- for l in lanes %}{% assign parts = l | split: ":" %}{% assign bits = parts[1] | split: "" %}
+<span class="tl-k">{{ parts[0] }}</span>{% for b in bits %}<span class="tl-c {{ parts[2] }}">{% if b == "1" %}<i></i>{% else %}<s></s>{% endif %}</span>{% endfor %}
+{%- endfor %}
+<span class="tl-k">Check-ins</span>{% for m in meses %}<span class="tl-ck">{% for k in (1..4) %}<i{% if forloop.parentloop.index == 4 and k == 3 %} class="off"{% endif %}></i>{% endfor %}</span>{% endfor %}
+<span class="tl-k">Adesão</span><svg class="tl-line" viewBox="0 0 900 56" fill="none" preserveAspectRatio="none"><path d="M8 44 L108 38 L208 32 L308 40 L408 26 L508 21 L608 23 L708 15 L808 12 L892 10" stroke="#2f8f74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>
+</div></div>
+</div>
+<div class="fi-grid2">
+<div class="dk-card"><div class="dk-card-h"><span>Último check-in · ontem</span></div><div class="fi-rows">
+<div class="fi-row"><span>Sono</span><b>6h por noite</b></div>
+<div class="fi-row"><span>Energia</span><b>3 de 5</b></div>
+<div class="fi-row"><span>Sintomas novos</span><span class="dk-badge ok">Nenhum</span></div>
+</div></div>
+<div class="dk-card"><div class="dk-card-h"><span>Equipe</span></div><div class="fi-rows">
+<div class="fi-row"><span>Nutricionista</span><b>Ajustou o plano em outubro</b></div>
+<div class="fi-row"><span>Treinador</span><b>Novo ciclo de treino em novembro</b></div>
+<div class="fi-row"><span>Médico</span><b>Você</b></div>
+</div></div>
+</div>
+</div>
+</div>
+</div>
 </div></div>
