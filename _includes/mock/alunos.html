@@ -1,33 +1,49 @@
+{%- comment -%}
+  Painel do consultor, tela "06 · Alunos" (Figma, página "DESKTOP - CONSULTOR"): busca, filtros com contadores,
+  aviso de modelo experimental e a lista com avatar, plano, vencimento e selos. A janela mostra a tela inteira
+  (--h:1100 = os 1048px do frame + a barra de 52px).
+  Topo de /painel-do-consultor/gestao-de-alunos/ e "Do outro lado" de /app-do-aluno/evolucao/.
+  variante "atletas" (/para/treinadores/): troca só o título (Atletas), os nomes e iniciais das linhas
+  (atletas de assessoria, em ordem alfabética como no Figma) e os planos (de assessoria). Selos, datas,
+  filtros e o resto da tela seguem o Figma.
+{%- endcomment -%}
 {%- if include.variante == "atletas" -%}
-  {%- assign rot = "Atletas" -%}{%- assign total = 36 -%}
-  {%- assign nomes = "Diego Rocha|Fernanda Melo|Igor Batista|Carla Nunes|Rafaela Dias" | split: "|" -%}
-  {%- assign obj = "Cross training|Funcional|Condicionamento|Funcional|Cross training" | split: "|" -%}
+  {%- assign al_titulo = "Atletas" -%}
+  {%- assign al_nomes = "Bianca Torres|Carla Nunes|Diego Rocha|Fernanda Melo|Igor Batista|Rafaela Dias|Thiago Prado" | split: "|" -%}
+  {%- assign al_ini = "BT|CN|DR|FM|IB|RD|TP" | split: "|" -%}
+  {%- assign al_planos = "Assessoria de Corrida Mensal · 10 km|Funcional em Grupo · Turma 7h|Planilha Avulsa · Meia Maratona|Assessoria de Corrida Mensal · 5 km|Assessoria de Corrida Mensal · 21 km|Funcional em Grupo · Turma 19h|Assessoria de Corrida Mensal · 10 km" | split: "|" -%}
 {%- else -%}
-  {%- assign rot = "Alunos" -%}{%- assign total = 42 -%}
-  {%- assign nomes = "Lucas Ferreira|Bruna Alves|Pedro Santos|Mariana Costa|Ana Beatriz Lima" | split: "|" -%}
-  {%- assign obj = "Hipertrofia|Emagrecimento|Condicionamento|Recomposição|Hipertrofia" | split: "|" -%}
+  {%- assign al_titulo = "Alunos" -%}
+  {%- assign al_nomes = "Ana Paula Souza|Bruno Lima|Carla Reis|Diego Martins|Eduarda Nunes|Felipe Costa|Gabriela Alves" | split: "|" -%}
+  {%- assign al_ini = "AS|BL|CR|DM|EN|FC|GA" | split: "|" -%}
+  {%- assign al_planos = "Consultoria Online Mensal|Acompanhamento Personal|Consulta Avulsa|Consultoria Online Mensal|Consultoria Online Mensal|Acompanhamento Personal|Consultoria Online Mensal" | split: "|" -%}
 {%- endif -%}
-{%- assign ini = "LF|BA|PS|MC|AL" | split: "|" -%}
-{%- if include.variante == "atletas" -%}{%- assign ini = "DR|FM|IB|CN|RD" | split: "|" -%}{%- endif -%}
-<div class="ux ux-fit" style="--w:680;--h:440" aria-hidden="true"><div class="ux-desk">
-  {% include mock/top.html %}
-  <div class="ux-body">
-    {% include mock/side.html on="alunos" %}
-    <div class="ux-main">
-      <div class="ux-hd"><span style="display:flex;flex-direction:column;gap:2px"><span class="ux-eb">{{ rot }} · {{ total }} ativos</span><span class="ux-t">Ordenados por risco</span></span><span class="ux-btn sm ghost"><i class="ti ti-filter"></i>Filtros</span></div>
-      <div class="ux-chips"><span class="on">Todos · {{ total }}</span><span>Em risco · 4</span><span>Pagamento atrasado · 2</span><span>Check-in pendente · 3</span></div>
-      <div class="ux-card" style="padding:8px 10px">
-        <table class="ux-tbl">
-          <thead><tr><th>{% if include.variante == "atletas" %}Atleta{% else %}Aluno{% endif %}</th><th>Treino</th><th>Dieta</th><th>Último treino</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[0] }}</span><span><b>{{ nomes[0] }}</b><br><span class="ux-s">{{ obj[0] }}</span></span></span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:38%"></i></div><span class="ux-m">38%</span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:41%"></i></div><span class="ux-m">41%</span></td><td>há 6 dias</td><td><span class="ux-pill bad"><span class="dot"></span>Em risco</span></td></tr>
-            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[1] }}</span><span><b>{{ nomes[1] }}</b><br><span class="ux-s">{{ obj[1] }}</span></span></span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:57%"></i></div><span class="ux-m">57%</span></td><td><div class="ux-bar warn" style="width:54px"><i style="width:49%"></i></div><span class="ux-m">49%</span></td><td>há 3 dias</td><td><span class="ux-pill warn"><span class="dot"></span>Em risco</span></td></tr>
-            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[2] }}</span><span><b>{{ nomes[2] }}</b><br><span class="ux-s">{{ obj[2] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:86%"></i></div><span class="ux-m">86%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:78%"></i></div><span class="ux-m">78%</span></td><td>ontem</td><td><span class="ux-pill bad"><i class="ti ti-credit-card"></i>Atrasado</span></td></tr>
-            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[3] }}</span><span><b>{{ nomes[3] }}</b><br><span class="ux-s">{{ obj[3] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:96%"></i></div><span class="ux-m">96%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:91%"></i></div><span class="ux-m">91%</span></td><td>hoje</td><td><span class="ux-pill"><span class="dot"></span>Ativo</span></td></tr>
-            <tr><td><span style="display:flex;align-items:center;gap:8px"><span class="ux-av">{{ ini[4] }}</span><span><b>{{ nomes[4] }}</b><br><span class="ux-s">{{ obj[4] }}</span></span></span></td><td><div class="ux-bar" style="width:54px"><i style="width:90%"></i></div><span class="ux-m">90%</span></td><td><div class="ux-bar" style="width:54px"><i style="width:84%"></i></div><span class="ux-m">84%</span></td><td>hoje</td><td><span class="ux-pill"><span class="dot"></span>Ativo</span></td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </div>
+<div class="ux ux-fit mk" style="--w:1440;--h:1100" aria-hidden="true"><div class="ux-desk mk">
+{% include mock/painel/chrome.html url="app.revo.app/alunos" %}
+<div class="dk">
+{% include mock/painel/side.html on="alunos" %}
+<div class="dk-main">
+{% include mock/painel/top.html %}
+<div class="dk-content">
+<div class="dk-head">
+<div class="dk-head-t"><span class="dk-h1">{{ al_titulo }}</span><span class="dk-sub">6 ativos</span></div>
+<span class="dk-btn pri"><img src="/assets/mockups/painel/add-outline.svg" width="18" height="18" alt="" loading="lazy">Novo aluno</span>
+</div>
+<span class="al-exp"><img src="/assets/mockups/painel/alunos/flask-outline.svg" width="14" height="14" alt="" loading="lazy">Modelo experimental · 0/3 alunos de teste</span>
+<div class="dk-controls">
+<span class="dk-input al-busca"><img src="/assets/mockups/painel/search-outline.svg" width="18" height="18" alt="" loading="lazy"><span class="ph">Buscar por nome, e-mail ou objetivo</span></span>
+<div class="dk-chips al-chips"><span class="on">Todos<i>7</i></span><span>Atrasados<i>1</i></span><span>Check-in pendente<i>3</i></span><span>Aguardando protocolo<i>1</i></span><span>Novos<i>1</i></span></div>
+</div>
+<div class="dk-card al-list">
+<div class="dk-row"><span class="dk-av">{{ al_ini[0] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[0] }}</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[0] }} · vence 28/06</span><span class="dk-badge"><img src="/assets/mockups/painel/chatbubble-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Check-in pra responder</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[1] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[1] }}</span><span class="dk-badge warn">Pendente</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[1] }} · vence 22/06</span><span class="dk-badge"><img src="/assets/mockups/painel/chatbubble-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Check-in pra responder</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[2] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[2] }}</span><span class="dk-badge bad">Atrasado</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[2] }} · vence <span class="al-late">14/06</span></span><span class="dk-badge ok">Tudo em dia</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[3] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[3] }}</span><span class="dk-badge">Novo</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[3] }} · vence 19/07</span><span class="dk-badge warn"><img src="/assets/mockups/painel/clipboard-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Aguardando protocolo</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[4] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[4] }}</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[4] }} · vence 02/07</span><span class="dk-badge ok">Tudo em dia</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[5] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[5] }}</span><span class="dk-badge ok">Em dia</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[5] }} · vence 05/07</span><span class="dk-badge ok">Tudo em dia</span></div></div></div>
+<div class="dk-row"><span class="dk-av">{{ al_ini[6] }}</span><div class="dk-rmain"><div class="dk-l1"><span class="n">{{ al_nomes[6] }}</span><span class="dk-badge warn">Pendente</span></div><div class="dk-l2"><span class="dk-meta">{{ al_planos[6] }} · vence 24/06</span><span class="dk-badge"><img src="/assets/mockups/painel/chatbubble-outline-sm.svg" width="13" height="13" alt="" loading="lazy">Check-in pra responder</span></div></div></div>
+</div>
+</div>
+</div>
+</div>
 </div></div>

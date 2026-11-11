@@ -412,6 +412,14 @@ section{scroll-margin-top:88px}
 
 
 /* [mock: alunos] */
+.al-exp{align-self:flex-start;height:37px;display:flex;align-items:center;gap:8.07px;margin:24px 0 -1.61px;padding:9px 13px 9px 13.07px;border:1px solid rgba(2,33,40,.2);border-radius:17.7px;font-size:12px;color:#3a4845;text-transform:uppercase;white-space:nowrap}
+.dk-input.al-busca{width:auto}
+.al-chips{gap:8px}
+.al-chips>span{gap:6px}
+.al-chips i{width:18px;height:18px;padding-top:2px;border-radius:9px;background:#fff;font-size:11px;font-style:normal;line-height:normal;display:flex;flex-direction:column;align-items:center;flex:none}
+.al-chips .on i{background:rgba(47,143,116,.18)}
+.al-list .dk-row+.dk-row{padding-bottom:15px}
+.al-late{color:#bd463f;font-weight:500}
 
 
 /* [mock: cobranca] */
