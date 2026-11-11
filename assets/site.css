@@ -421,6 +421,24 @@ section{scroll-margin-top:88px}
 
 
 /* [mock: cobranca] */
+/* tela "16 · Financeiro" (.fin-*); o card do gráfico e o botão claro (.pc-*) estão no marcador "checkins" */
+.fin>.dk-head{margin-bottom:24px}
+.fin-alert{display:flex;align-items:center;justify-content:space-between;margin-bottom:-2px;padding:17px 21px;border:1px solid rgba(2,33,40,.12);border-radius:22px;background:#f7e2e0}
+.fin-alert-t{display:flex;align-items:center;gap:12px;white-space:nowrap}
+.fin-alert-ic{width:40px;height:40px;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.fin-alert-tx{display:flex;flex-direction:column}
+.fin-alert-tx b{font-size:16px;font-weight:500;line-height:1.3;color:#bd463f}
+.fin-alert-tx span{font-size:13px;color:#3a4845}
+.fin-seg{display:flex;gap:6px}
+.fin-seg span{padding:7px 12px;border-radius:10px;background:#e0ecea;color:#3a4845;font-size:13px;font-weight:500;line-height:17px}
+.fin-seg .on{background:#e3f6f0;color:#2f8f74}
+.fin-linha{left:63.81px;top:31.72px;width:1012px;height:174.56px}
+.fin-pontos{left:60px;top:28.71px;width:1019.7px;height:180.58px}
+.fin-y{line-height:12px}
+.fin-split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.fin .dk-row+.dk-row{padding-bottom:15px}
+.fin-v{font-size:16px;font-weight:500;color:#2f8f74;white-space:nowrap}
+.fin-v.neg{color:#bd463f}
 
 
 /* [mock: montagem] */
@@ -521,6 +539,46 @@ section{scroll-margin-top:88px}
 
 
 /* [mock: checkins] */
+/* comum ao Check-in e ao Financeiro (.pc-*): card do gráfico (área de 1088×260, vetores do Figma no lugar exato) e botão claro */
+.pc-mu{background:#d8e9ee}
+.pc-chart{display:flex;flex-direction:column;gap:16px;padding:20px;border-radius:22px;background:#fff}
+.pc-chart-h{display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:500;white-space:nowrap}
+.pc-plot{position:relative;height:260px;overflow:hidden;font-size:12px;line-height:16px;color:#6b7a77;white-space:nowrap}
+.pc-plot img{position:absolute}
+.pc-gh{left:64px;top:11.5px}
+.pc-gv{left:63.5px;top:12px}
+.pc-x{position:absolute;left:-37.2px;top:230.52px;display:grid;grid-template-columns:repeat(6,202.4px);text-align:center}
+.pc-y{position:absolute;left:0;width:56px;text-align:right}
+/* tela "12 · Check-in" (.rv-*: revisão do check-in) */
+.dk-content.rv{gap:20px}
+.rv>.dk-head{margin-bottom:24px}
+.rv .dk-head-t .dk-badge{align-self:flex-start}
+.dk-btn.rv-lg{height:44px;padding:0 18px;border-radius:16px;color:#2f8f74;font-size:14px}
+.dk-btn.rv-off{opacity:.5}
+.rv-metrics{grid-template-columns:repeat(3,minmax(0,1fr))}
+.rv-metrics .dk-metric{height:auto}
+.dk-delta.rv-down{color:#bd463f}
+.rv-linha{left:63.98px;top:110.07px;width:1011.72px;height:17.85px}
+.rv-pontos{left:60px;top:107.07px;width:1019.69px;height:23.85px}
+.rv-fotos{display:flex;gap:14px;height:491.33px}
+.rv-foto{display:flex;flex-direction:column;gap:8px}
+.rv-thumb{flex:none;padding:1px;border:1px solid rgba(2,33,40,.12);border-radius:22px;background:#d8e9ee;overflow:hidden}
+.rv-thumb i{display:block;width:350px;height:467.33px;background:linear-gradient(#d8e9ee,#a9c6cf)}
+.rv-fl{font-size:11px;line-height:normal;color:#3a4845;text-transform:uppercase}
+.rv-pills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.rv-pill{display:flex;flex-direction:column;gap:8.01px;padding:16px;border-radius:22px;background:#f4f8f7}
+.rv-ptop{display:flex;align-items:center;gap:8.1px;font-size:13px;font-weight:500;color:#3a4845;white-space:nowrap}
+.rv-nota{display:flex;align-items:baseline;gap:2px;height:34.8px;font-size:24px;font-weight:500}
+.rv-nota small{font-size:14px;font-weight:400;color:#6b7a77}
+.rv-dots{display:flex;gap:4px}
+.rv-dots i{width:60.8px;height:6px;border-radius:3px;background:#2f8f74}
+.rv-dots .off{background:#d8e9ee}
+.rv-quote{display:flex;align-items:flex-start;gap:12.11px;height:56px;padding:16px 0 0 20.12px;border-left:3px solid #2f8f74;border-radius:10px;background:#e3f6f0;font-size:15px;line-height:1.6;white-space:nowrap}
+.rv-resp{gap:16px}
+.rv-field{display:flex;flex-direction:column;gap:6px}
+.rv-ta{height:84px;padding:12px 14px 0;border-radius:16px;background:#e0ecea;line-height:normal;color:#6b7a77}
+.rv-count{align-self:flex-end;font-size:11px;color:#6b7a77}
+.rv-acts{display:flex;gap:12px}
 
 
 /* [mock: anamnese] */
