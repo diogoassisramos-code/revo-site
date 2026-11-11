@@ -1,17 +1,31 @@
-<div class="ux ux-phone" aria-hidden="true"><div class="ux-scr">
-  {% include mock/sb.html %}
-  <div class="ux-c">
-    <div style="display:flex;justify-content:space-between;align-items:baseline"><span class="ux-eb">Hoje · terça</span><span class="ux-up">2 de 5 feitas</span></div>
-    <span class="ux-t" style="margin-top:-4px">Suas refeições</span>
-    <div class="ux-bar"><i style="width:40%"></i></div>
-    <div class="ux-row done"><span class="ux-chk"><i class="ti ti-check"></i></span><span class="ux-grow"><b>Café da manhã</b></span><span class="ux-m">07:00</span></div>
-    <div class="ux-row done"><span class="ux-chk"><i class="ti ti-check"></i></span><span class="ux-grow"><b>Lanche da manhã</b></span><span class="ux-m">10:00</span></div>
-    <div class="ux-card" style="box-shadow:inset 0 0 0 1.5px var(--mint-400),0 12px 30px rgba(2,33,40,.06);display:flex;flex-direction:column;gap:8px;font-size:12px">
-      <div style="display:flex;align-items:center;gap:9px"><span class="ux-chk off"></span><b class="ux-grow" style="font-size:13px">Almoço</b><span class="ux-pill info">agora · 12:30</span></div>
-      <div style="display:grid;grid-template-columns:1fr auto;gap:4px 8px;color:var(--ink-2)"><span>Arroz</span><span class="ux-m">120 g</span><span>Feijão</span><span class="ux-m">80 g</span><span>Frango grelhado</span><span class="ux-m">150 g</span><span>Salada</span><span class="ux-m">à vontade</span></div>
-      <span class="ux-pill mute" style="align-self:flex-start"><i class="ti ti-arrows-exchange"></i>Troca: frango ou peixe 170 g</span>
-    </div>
-    <div class="ux-row"><span class="ux-chk mute"></span><span class="ux-grow"><b>Lanche da tarde</b></span><span class="ux-m">16:00</span></div>
-  </div>
-  <div style="padding:0 14px 14px"><span class="ux-btn mint"><i class="ti ti-check"></i>Marcar almoço como feito</span></div>
-</div></div>
+{%- comment -%}
+  App do aluno, tela "Dieta · diet · iOS" (Figma). Topo de /app-do-aluno/dieta-e-refeicoes/ e /para/nutricionistas/;
+  "Do outro lado" de /painel-do-consultor/plano-alimentar/. Card, rótulo e título vêm do CSS do treino (.ap-*).
+  Ícones do Figma de cabeça para baixo: .ios-ic img desvira e o top/left repete o recorte (como em abas.html).
+  As opções de "TROCAR POR" têm a largura que têm no Figma (style="width").
+{%- endcomment -%}
+<div class="ux ux-phone" aria-hidden="true"><div class="ios-scr" data-fit="440"><div class="ios">
+{% include mock/app/status.html %}
+<div class="ios-body">
+<div class="ios-col">
+<div class="di-hd"><span class="ap-k">PLANO ALIMENTAR</span><b>Dieta</b></div>
+<div class="ap-card di-kcal"><b class="ap-t">0 / 1.085 kcal do plano</b><span class="di-bar"></span><small>0 de 3 refeições · marque ao comer pra somar as calorias do dia</small></div>
+<div class="ap-card di-meal">
+<div class="di-mh"><span class="tx"><b>Café da manhã</b><small>07:30</small></span><span class="ios-ic di-chk"><img src="/assets/mockups/app/dieta/ellipse-outline.svg" style="top:21.97%;left:9.38%" alt="" loading="lazy"></span><span class="ios-ic di-chev"><img src="/assets/mockups/app/dieta/chevron-down.svg" style="top:43.7%;left:17.14%" alt="" loading="lazy"></span></div>
+<p class="di-note">Faça em até 1h após acordar. Beba 1 copo de água antes.</p>
+<i class="di-sep"></i>
+<span class="di-food">Ovos mexidos · 3 unid</span><span class="di-mac">234 kcal · P 18 · C 2 · G 16</span><span class="di-obs">Em frigideira antiaderente, sem óleo.</span><span class="ap-k">TROCAR POR:</span>
+<div class="di-chips"><span style="width:78px">Omelete</span><span style="width:106px">Ovos cozidos</span></div>
+<i class="di-sep"></i>
+<span class="di-food">Pão integral · 2 fatias</span><span class="di-mac">160 kcal · P 8 · C 28 · G 2</span><span class="ap-k">TROCAR POR:</span>
+<div class="di-chips"><span style="width:74.25px">Tapioca</span><span style="width:60.5px">Aveia</span></div>
+<i class="di-sep"></i>
+<span class="di-food">Banana · 1 unid</span><span class="di-mac">105 kcal · P 1 · C 27 · G 0</span><span class="ap-k">TROCAR POR:</span>
+<div class="di-chips"><span style="width:59.75px">Maçã</span><span style="width:71.5px">Mamão</span></div>
+</div>
+<!-- o resto da tela (Almoço e Pós-treino) fica abaixo da barra de abas e não aparece no mockup -->
+</div>
+</div>
+{% include mock/app/abas.html on="dieta" %}
+{% include mock/app/indicador.html %}
+</div></div></div>
