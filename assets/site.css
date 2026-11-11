@@ -362,7 +362,7 @@ section{scroll-margin-top:88px}
 .ios-sb .bat{position:absolute;left:375px;top:26px;width:25px;height:12px;border-radius:3px;background:#022128}
 .ios-sb .bat::after{content:"";position:absolute;left:2px;top:2px;width:20px;height:8px;border-radius:1px;background:#f4f8f7}
 .ios-body{position:absolute;left:0;top:62px;width:440px;height:780px;overflow:hidden}
-.ios-col{display:flex;flex-direction:column;gap:20px;padding:20px}
+.ios-col{display:flex;flex-direction:column;gap:20px;padding:20px 22px 20px 20px}
 .ios-hd{display:flex;align-items:center;gap:12px;height:60px}
 .ios-hd .tx{width:342px;display:flex;flex-direction:column;gap:4px;white-space:nowrap}
 .ios-hd small{font-size:11px;font-weight:500;line-height:15px;color:#3a4845}
@@ -491,7 +491,7 @@ section{scroll-margin-top:88px}
 .ap-t{font-size:24px;line-height:29px;letter-spacing:-.24px;white-space:nowrap}
 .tr-body{height:778px}
 /* no Figma o conteúdo tem 398px de largura (sobram 2px à direita da coluna de 440) */
-.tr-col{gap:16px;padding-right:22px}
+.tr-col{gap:16px}
 .tr-hd{display:flex;align-items:center;gap:16px;height:24px;font-size:12px;font-weight:500;line-height:17px;color:#6b7a77;white-space:nowrap}
 .tr-hd .ios-ic{width:24px;height:24px}
 .tr-ex{height:100px}
@@ -513,7 +513,6 @@ section{scroll-margin-top:88px}
 
 /* [mock: dieta] */
 /* "Dieta · diet · iOS" (card, rótulo e título: .ap-* no treino; conteúdo de 398px, como no Figma) */
-.di-col{padding-right:22px}
 .di-hd{display:flex;flex-direction:column;gap:4px;height:60px;white-space:nowrap}
 .di-hd b{font-size:28px;line-height:34px;letter-spacing:-.28px}
 .di-kcal{height:139px}
