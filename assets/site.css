@@ -442,12 +442,56 @@ section{scroll-margin-top:88px}
 
 
 /* [mock: checkin] */
+/* .ck-*: peças comuns às telas do aluno sem barra de abas (checkin, relatorio, atualizado): área de rolagem (no
+   checkin o botão fixo cobre o fim dela), cabeçalhos, cartão, rótulo, fotos de progresso e estrelas. .ck-fundo no
+   .ios: área segura de baixo na cor do fundo (telas sem botão fixo). Ícones: .ios-ic com o tamanho de cada um. */
+.ck-body{position:absolute;left:0;top:62px;width:440px;height:860px;overflow:hidden}
+.ck-fundo .ios-home{background:#f4f8f7}
+.ck-hd{display:flex;flex-direction:column;gap:4px;height:60px;white-space:nowrap}
+.ck-back{display:flex;align-items:center;gap:12px;height:41px;white-space:nowrap}
+.ck-back .ios-ic{width:24px;height:24px;transform:rotate(180deg)}
+.ck-hd b,.ck-back b{font-size:28px;line-height:34px;letter-spacing:-.28px}
+.ck-k{font-size:11px;font-weight:500;line-height:15px;color:#6b7a77;white-space:nowrap}
+.ck-card{width:398px;padding:20px;border:1px solid rgba(2,33,40,.12);border-radius:22px;background:#fff;box-shadow:0 8px 24px rgba(2,33,40,.08);display:flex;flex-direction:column;align-items:flex-start;gap:12px;flex:none}
+.ck-card>*{flex:none}
+.ck-card.peso{height:115px}
+.ck-card.fotos{height:197px}
+.ck-card.notas{height:226px}
+.ck-card.treinos{height:143px}
+.ck-input{width:356px;height:48px;padding:12px;border-radius:10px;background:#e0ecea;font-size:14px;line-height:20px;color:#6b7a77;white-space:nowrap}
+.ck-fotos{display:flex;align-items:center;gap:12px;height:130px}
+.ck-foto{width:108.667px;height:130px;padding:8px;border-radius:10px;background:#022128;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:12px;line-height:17px;color:#7fb3c2;white-space:nowrap;flex:none}
+.ck-foto .ios-ic{width:24px;height:24px}
+.ck-nota{width:356px;height:54px;display:flex;flex-direction:column;gap:8px;font-size:14px;font-weight:500;line-height:20px;white-space:nowrap}
+.ck-estrelas{display:flex;align-items:center;gap:19px;height:25px}
+.ck-estrelas .ios-ic{width:25px;height:25px}
+.ck-treinos{display:flex;align-items:center;gap:12px;height:76px}
+.ck-cont{width:172px;height:76px;display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:500;line-height:17px;color:#3a4845;white-space:nowrap}
+.ck-num{width:150px;height:51px;padding:12px;border-radius:10px;background:#e0ecea;display:flex;align-items:center;gap:18px;flex:none}
+.ck-num .ios-ic{width:24px;height:24px}
+.ck-num b{font-size:20px;line-height:28px;color:#022128}
+.ck-bar{position:absolute;left:0;top:840px;width:440px;height:82px;padding:16px;background:#fff;display:flex;flex-direction:column;gap:12px}
+.ck-off{opacity:.5}
 
 
 /* [mock: relatorio] */
+.rel-peso{width:398px;height:148px;padding:20px;border:1px solid rgba(2,33,40,.12);border-radius:22px;background:#022128;display:flex;flex-direction:column;align-items:flex-start;gap:12px;font-size:13px;line-height:18px;color:#7fb3c2;white-space:nowrap;flex:none}
+.rel-peso .d{font-size:12px;font-weight:500;line-height:17px;color:#7cd3bb}
+.rel-peso b{font-size:36px;line-height:43px;letter-spacing:-.36px;color:#fff}
+.rel-resp .ck-k{color:#2f8f74}
+.rel-resp p,.rel-com p{width:356px;font-size:14px;line-height:20px}
+.rel-com p{color:#3a4845}
 
 
 /* [mock: atualizado] */
+.nt-card{height:101px}
+.nt-card.alto{height:122px}
+.nt-row{width:356px;display:flex;align-items:center;gap:12px}
+.nt-row .ios-ic{width:21px;height:21px}
+.nt-row .nt-go{width:18px;height:18px}
+.nt-tx{flex:1 0 0;min-width:1px;display:flex;flex-direction:column;gap:4px}
+.nt-tx b{font-size:14px;font-weight:500;line-height:20px}
+.nt-tx span{font-size:13px;line-height:18px;color:#3a4845}
 
 
 /* [mock: marca] */

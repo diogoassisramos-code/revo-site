@@ -1,13 +1,15 @@
-<div class="ux ux-phone" aria-hidden="true"><div class="ux-scr">
-  {% include mock/sb.html %}
-  <div class="ux-toast"><img src="/assets/revo-icon.svg" alt=""><span class="ux-grow"><b style="font-size:12px">Seu treino foi atualizado</b><span class="ux-s">Rafael mudou o Treino B. Toque para ver.</span></span><span class="ux-m">agora</span></div>
-  <div class="ux-c" style="padding-top:78px">
-    <span class="ux-eb">Novo · Treino B</span>
-    <span class="ux-t" style="margin-top:-5px">O que mudou</span>
-    <div class="ux-row"><span class="ux-ic" style="width:30px;height:30px;font-size:15px"><i class="ti ti-plus"></i></span><span class="ux-grow"><b>Supino inclinado</b><span class="ux-s">entrou no lugar do crucifixo</span></span></div>
-    <div class="ux-row"><span class="ux-ic" style="width:30px;height:30px;font-size:15px"><i class="ti ti-hourglass"></i></span><span class="ux-grow"><b>Agachamento</b><span class="ux-s">descanso de 90s para 120s</span></span></div>
-    <div class="ux-row"><span class="ux-ic" style="width:30px;height:30px;font-size:15px"><i class="ti ti-clipboard-text"></i></span><span class="ux-grow"><b>Nova orientação</b><span class="ux-s">aquecer 10 min antes de começar</span></span></div>
-    <span class="ux-s" style="text-align:center;margin-top:2px">Atualizado hoje, às 08:12</span>
-  </div>
-  <div style="padding:0 14px 14px"><span class="ux-btn"><i class="ti ti-player-play"></i>Começar o treino novo</span></div>
-</div></div>
+{%- comment -%}
+  App do aluno, tela "Notificações · notifications · iOS" (Figma, nó 131:9630): mudou no painel, o app avisa.
+  Hero de /app-do-aluno/plano-atualizado/. Cabeçalho com voltar e cartões usam as classes .ck-* (CSS no bloco do checkin).
+{%- endcomment -%}
+<div class="ux ux-phone" aria-hidden="true"><div class="ios-scr" data-fit="440"><div class="ios ck-fundo">
+{% include mock/app/status.html %}
+<div class="ck-body">
+<div class="ios-col">
+<div class="ck-back"><span class="ios-ic"><img src="/assets/mockups/app/relatorio/chevron-forward.svg" style="top:29.75%;left:31.32%" alt="" loading="lazy"></span><b>Notificações</b></div>
+<div class="ck-card nt-card"><div class="nt-row"><span class="ios-ic"><img src="/assets/mockups/app/atualizado/settings-outline.svg" style="top:17.58%;left:6.17%" alt="" loading="lazy"></span><span class="nt-tx"><b>Seu coach respondeu seu check-in</b><span>Semana 5: “Ótima semana! Atenção ao sono. Mantém a dieta.”</span></span><span class="ios-ic nt-go"><img src="/assets/mockups/app/atualizado/chevron-forward-sm.svg" style="top:29.75%;left:31.32%" alt="" loading="lazy"></span></div></div>
+<div class="ck-card nt-card alto"><div class="nt-row"><span class="ios-ic"><img src="/assets/mockups/app/atualizado/settings-outline.svg" style="top:17.58%;left:6.17%" alt="" loading="lazy"></span><span class="nt-tx"><b>Você recebeu uma atualização de protocolo</b><span>Confira os suplementos e extras atualizados.</span></span><span class="ios-ic nt-go"><img src="/assets/mockups/app/atualizado/chevron-forward-sm.svg" style="top:29.75%;left:31.32%" alt="" loading="lazy"></span></div></div>
+</div>
+</div>
+{% include mock/app/indicador.html %}
+</div></div></div>
