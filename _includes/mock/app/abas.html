@@ -1,0 +1,12 @@
+{%- comment -%}
+  Barra de abas do app (Figma "BottomNavBar"). on: hoje | treino | dieta | protocolo | perfil
+  Os ícones vêm do Figma de cabeça para baixo; .ios-ic img desvira (scaleY(-1)) e o top/left repete o recorte do Figma.
+{%- endcomment -%}
+{%- assign on = include.on | default: "hoje" -%}
+<div class="ios-tab">
+<span{% if on == "hoje" %} class="on"{% endif %}><span class="ios-ic"><img src="/assets/mockups/app/abas/calendar-outline{% if on == 'hoje' %}-on{% endif %}.svg" style="top:18.75%;left:6.12%" alt="" loading="lazy"></span>Hoje</span>
+<span{% if on == "treino" %} class="on"{% endif %}><span class="ios-ic"><img src="/assets/mockups/app/abas/barbell-outline{% if on == 'treino' %}-on{% endif %}.svg" style="top:34.44%;left:3.13%" alt="" loading="lazy"></span>Treino</span>
+<span{% if on == "dieta" %} class="on"{% endif %}><span class="ios-ic"><img src="/assets/mockups/app/abas/restaurant-outline{% if on == 'dieta' %}-on{% endif %}.svg" style="top:15.63%;left:3.13%" alt="" loading="lazy"></span>Dieta</span>
+<span{% if on == "protocolo" %} class="on"{% endif %}><span class="ios-ic"><img src="/assets/mockups/app/abas/medkit-outline{% if on == 'protocolo' %}-on{% endif %}.svg" style="top:18.75%;left:3.13%" alt="" loading="lazy"></span>Protocolo</span>
+<span{% if on == "perfil" %} class="on"{% endif %}><span class="ios-ic"><img src="/assets/mockups/app/abas/person-outline{% if on == 'perfil' %}-on{% endif %}.svg" style="top:18.85%;left:9.38%" alt="" loading="lazy"></span>Perfil</span>
+</div>

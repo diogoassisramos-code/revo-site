@@ -1,0 +1,19 @@
+{%- comment -%}
+  Menu lateral do painel (Figma "V2 / Shell / Sidebar"). on: resumo | alunos | planos | financeiro | config
+{%- endcomment -%}
+{%- assign on = include.on | default: "resumo" -%}
+<aside class="dk-side">
+<div class="dk-logo"><img src="/assets/mockups/painel/logo.svg" width="84" height="47" alt="" loading="lazy"></div>
+<div class="dk-nav">
+<span class="dk-item{% if on == 'resumo' %} on{% endif %}"><img src="/assets/mockups/painel/menu/grid-outline{% if on == 'resumo' %}-on{% endif %}.svg" width="20" height="20" alt="" loading="lazy">Resumo</span>
+<span class="dk-item{% if on == 'alunos' %} on{% endif %}"><img src="/assets/mockups/painel/menu/people-outline{% if on == 'alunos' %}-on{% endif %}.svg" width="20" height="20" alt="" loading="lazy">Alunos</span>
+<span class="dk-item{% if on == 'planos' %} on{% endif %}"><img src="/assets/mockups/painel/menu/card-outline{% if on == 'planos' %}-on{% endif %}.svg" width="20" height="20" alt="" loading="lazy">Planos &amp; pagamentos</span>
+<span class="dk-item{% if on == 'financeiro' %} on{% endif %}"><img src="/assets/mockups/painel/menu/cash-outline{% if on == 'financeiro' %}-on{% endif %}.svg" width="20" height="20" alt="" loading="lazy">Financeiro</span>
+<span class="dk-item{% if on == 'config' %} on{% endif %}"><img src="/assets/mockups/painel/menu/settings-outline{% if on == 'config' %}-on{% endif %}.svg" width="20" height="20" alt="" loading="lazy">Configurações</span>
+</div>
+<span class="dk-item dk-aluno"><img src="/assets/mockups/painel/menu/phone-portrait-outline.svg" width="20" height="20" alt="" loading="lazy">Ver como aluno</span>
+<div class="dk-user">
+<span class="dk-user-card"><span class="dk-uav">RM</span><span class="dk-user-meta"><b>Rafael Mendes</b><small>CREF 123456-G/SP</small></span></span>
+<span class="dk-logout"><img src="/assets/mockups/painel/menu/log-out-outline.svg" width="19" height="19" alt="" loading="lazy"></span>
+</div>
+</aside>

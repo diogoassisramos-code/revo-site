@@ -1,0 +1,21 @@
+{%- comment -%}
+  Tela "Hoje · home · iOS" do app (conteúdo de .ios), usada na home e nas páginas de funcionalidades.
+  marca: troca o "REVO" do topo (mockup de Marca própria).
+{%- endcomment -%}
+{% include mock/app/status.html %}
+<div class="ios-body">
+<div class="ios-col">
+<div class="ios-hd"><span class="tx"><small>{{ include.marca | default: "REVO" }}</small><b>Olá, Thiago</b></span><span class="ios-av">VI</span></div>
+<div class="ios-feat">
+<div class="k">SEU TREINO<span class="ios-ic"><img src="/assets/mockups/app/chevron-forward.svg" style="top:29.75%;left:31.32%" alt="" loading="lazy"></span></div>
+<div class="row"><span class="txt"><b>Treino A — Superiores</b><span>5 exercícios · 17 séries</span></span><span class="ios-art"><img src="/assets/mockups/app/anatomy-upper-front.svg" alt="" loading="lazy"></span></div>
+<span class="lnk">Ver treino →</span>
+</div>
+<div class="ios-mets"><div class="ios-met"><small>PESO ATUAL</small><b>60.4 kg</b></div><div class="ios-met"><small>ADERÊNCIA</small><b>92%</b></div></div>
+<div class="ios-ck"><span class="bdg">Check-in da semana 1</span><b>Hora do seu check-in semanal</b><p>Registre peso, fotos e como foi a semana pro Rafael Mendes ajustar seu plano.</p><span class="ios-btn pri">Fazer check-in</span></div>
+<div class="ios-card"><b>Comece agora, entre depois</b><p>Explore o app com dados de exemplo. Seus registros ficam neste dispositivo.</p><span class="ios-btn ghost">Já tenho conta · Entrar</span></div>
+<!-- o resto da tela (frequência, histórico, dieta, extras) fica abaixo da barra de abas e não aparece no mockup -->
+</div>
+</div>
+{% include mock/app/abas.html on="hoje" %}
+{% include mock/app/indicador.html %}

@@ -284,7 +284,7 @@ section{scroll-margin-top:88px}
 .dk-user-meta small{font-size:11px;color:#6b7a77}
 .dk-logout{width:40px;height:40px;border-radius:16px;background:#e0ecea;display:flex;align-items:center;justify-content:center;flex:none}
 .dk-main{position:absolute;left:248px;top:0;width:1192px}
-.dk-top{height:76px;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.dk-top{position:relative;z-index:1;height:76px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;background:#f4f8f7}
 .dk-search,.dk-input{display:flex;align-items:center;gap:8.1px;height:44px;padding:0 14px 0 14.09px;border-radius:16px;background:#e0ecea}
 .dk-search .ph,.dk-input .ph{padding:0 2px;font-size:14px;line-height:normal;color:#6b7a77;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .dk-search .ph{width:397.81px}
@@ -294,6 +294,8 @@ section{scroll-margin-top:88px}
 .dk-saldo small{font-size:11px;font-weight:500;color:#6b7a77;text-transform:uppercase}
 .dk-saldo b{font-size:14px;color:#2f8f74}
 .dk-content{display:flex;flex-direction:column;gap:24px;padding:32px}
+/* conteúdo "rolado" (o topo e o menu ficam parados): <div class="dk-content rolado" style="--y:400px"> */
+.dk-content.rolado{transform:translateY(calc(var(--y,0px) * -1))}
 .dk-head{display:flex;align-items:flex-end;justify-content:space-between}
 .dk-head-t{display:flex;flex-direction:column;gap:4px;white-space:nowrap}
 .dk-eb{font-size:11px;font-weight:500;color:#6b7a77;text-transform:uppercase}
@@ -348,7 +350,7 @@ section{scroll-margin-top:88px}
 
 /* ---- app do aluno: "Hoje · home · iOS" (tela de 440×956 dentro da moldura .shell) ---- */
 .ios-scr{position:relative;width:100%;aspect-ratio:440/956;border-radius:31px;overflow:hidden;background:#f4f8f7;--s:calc(232/440)}
-.ios{position:absolute;left:0;top:0;width:440px;height:956px;transform-origin:0 0;transform:scale(var(--s));overflow:hidden;background:#f4f8f7;color:#022128;font-family:var(--sans);text-align:left}
+.ios{position:absolute;left:0;top:0;width:440px;height:956px;transform-origin:0 0;transform:scale(var(--s));overflow:hidden;background:#f4f8f7;color:#022128;font-family:var(--sans);line-height:1.45;text-align:left}
 .ios img{display:block;max-width:none}
 .ios b{font-weight:700}
 .ios small{font-size:inherit}
@@ -397,6 +399,62 @@ section{scroll-margin-top:88px}
 .ios-tab>.on{color:#2f8f74;font-weight:500}
 .ios-home{position:absolute;left:0;top:922px;width:440px;height:34px;background:#fff}
 .ios-home::after{content:"";position:absolute;left:150px;top:21px;width:140px;height:5px;border-radius:2.5px;background:#022128}
+
+/* ---- páginas de funcionalidades: as mesmas telas do Figma dentro das molduras dos heros ----
+   Painel: <div class="ux ux-fit mk" style="--w:1440;--h:1000"><div class="ux-desk mk"> barra + .dk </div></div>
+   (o site.js escala pela --w; --h = altura da janela, com a barra de 52px).
+   App: <div class="ux ux-phone"><div class="ios-scr" data-fit="440"><div class="ios"> tela 440×956 </div></div></div>
+   Cada tela tem a sua seção abaixo, com o nome do include em _includes/mock/. */
+.ux-desk.mk{grid-template-rows:52px minmax(0,1fr);background:#fff}
+.ux-phone .ios-scr{border-radius:33px;--s:calc(246/440)}
+
+/* [mock: resumo, app-home e combo] */
+
+
+/* [mock: alunos] */
+
+
+/* [mock: cobranca] */
+
+
+/* [mock: montagem] */
+
+
+/* [mock: plano-alimentar] */
+
+
+/* [mock: checkins] */
+
+
+/* [mock: anamnese] */
+
+
+/* [mock: equipe] */
+
+
+/* [mock: timeline] */
+
+
+/* [mock: treino] */
+
+
+/* [mock: dieta] */
+
+
+/* [mock: checkin] */
+
+
+/* [mock: relatorio] */
+
+
+/* [mock: atualizado] */
+
+
+/* [mock: marca] */
+
+
+/* [mock: integracoes e implantacao] */
+
 
 /* ============================================================
    COMO FUNCIONA — editorial staggered + tinted cards
