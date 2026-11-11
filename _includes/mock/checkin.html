@@ -1,13 +1,35 @@
-<div class="ux ux-phone" aria-hidden="true"><div class="ux-scr">
-  {% include mock/sb.html %}
-  <div class="ux-c" style="gap:9px">
-    <span class="ux-eb">{% if include.variante == "atleta" %}Off-season · Semana 14{% else %}Check-in semanal · Semana 12{% endif %}</span>
-    <span class="ux-t" style="margin-top:-5px">Como foi a sua semana?</span>
-    <div class="ux-card" style="display:flex;justify-content:space-between;align-items:center;padding:10px 12px"><span class="ux-k">Peso de hoje, em jejum</span><b style="font-size:15px">{% if include.variante == "atleta" %}88,6 kg{% else %}82,4 kg{% endif %}</b></div>
-    <div><span class="ux-k">Fotos{% if include.variante == "atleta" %} · mesmas poses de sempre{% endif %}</span><div class="ux-g3" style="margin-top:5px"><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Frente</div><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Lado</div><div class="ux-ph" style="height:58px"><i class="ti ti-camera"></i>Costas</div></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Sono</span><span class="ux-m">7h por noite</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span>2</span><span>3</span><span class="on">4</span><span>5</span></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Energia</span><span class="ux-m">boa</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span>2</span><span>3</span><span class="on">4</span><span>5</span></div></div>
-    <div><div style="display:flex;justify-content:space-between"><span class="ux-k">Fome</span><span class="ux-m">controlada</span></div><div class="ux-scale" style="margin-top:5px"><span>1</span><span class="on">2</span><span>3</span><span>4</span><span>5</span></div></div>
-  </div>
-  <div style="padding:0 14px 14px"><span class="ux-btn mint"><i class="ti ti-send"></i>Enviar check-in</span></div>
+{%- comment -%}
+  App do aluno, tela "Check-in semanal · weekly-checkin · iOS" (Figma, nó 131:9457): sem barra de abas e com o
+  botão "Enviar check-in" desabilitado, como no Figma. Hero de /app-do-aluno/check-in/ e de
+  /para/coach-de-fisiculturismo/, e "Do outro lado" de /painel-do-consultor/check-ins/.
+  variante: "atleta" (LP de coach de fisiculturismo) troca só o rótulo do topo ("CHECK-IN · SEMANA 14 · OFF-SEASON")
+  e o peso da semana ("88,6 kg"); o resto é igual ao Figma.
+  As classes .ck-* (cabeçalhos, cartão, fotos de progresso, estrelas) também servem relatorio.html e atualizado.html.
+{%- endcomment -%}
+{%- assign atleta = false -%}{%- if include.variante == "atleta" -%}{%- assign atleta = true -%}{%- endif -%}
+<div class="ux ux-phone" aria-hidden="true"><div class="ios-scr" data-fit="440"><div class="ios">
+{% include mock/app/status.html %}
+<div class="ck-body">
+<div class="ios-col">
+<div class="ck-hd"><span class="ck-k">{% if atleta %}CHECK-IN · SEMANA 14 · OFF-SEASON{% else %}CHECK-IN · SEMANA 1{% endif %}</span><b>Como foi sua semana?</b></div>
+<div class="ck-card peso"><span class="ck-k">PESO DA SEMANA</span><span class="ck-input">{% if atleta %}88,6 kg{% else %}60,4 kg{% endif %}</span></div>
+<div class="ck-card fotos"><span class="ck-k">FOTOS DE PROGRESSO</span><div class="ck-fotos">
+<span class="ck-foto"><span class="ios-ic"><img src="/assets/mockups/app/checkin/camera-outline.svg" style="top:28.19%;left:6.25%" alt="" loading="lazy"></span>Frente</span>
+<span class="ck-foto"><span class="ios-ic"><img src="/assets/mockups/app/checkin/camera-outline.svg" style="top:28.19%;left:6.25%" alt="" loading="lazy"></span>Lado</span>
+<span class="ck-foto"><span class="ios-ic"><img src="/assets/mockups/app/checkin/camera-outline.svg" style="top:28.19%;left:6.25%" alt="" loading="lazy"></span>Costas</span>
 </div></div>
+<div class="ck-card notas">
+<div class="ck-nota"><span>Energia</span><div class="ck-estrelas">{% for i in (1..5) %}<span class="ios-ic"><img src="/assets/mockups/app/checkin/star-outline.svg" style="top:18.88%;left:3.14%" alt="" loading="lazy"></span>{% endfor %}</div></div>
+<div class="ck-nota"><span>Sono</span><div class="ck-estrelas">{% for i in (1..5) %}<span class="ios-ic"><img src="/assets/mockups/app/checkin/star-outline.svg" style="top:18.88%;left:3.14%" alt="" loading="lazy"></span>{% endfor %}</div></div>
+<div class="ck-nota"><span>Dieta</span><div class="ck-estrelas">{% for i in (1..5) %}<span class="ios-ic"><img src="/assets/mockups/app/checkin/star-outline.svg" style="top:18.88%;left:3.14%" alt="" loading="lazy"></span>{% endfor %}</div></div>
+</div>
+<div class="ck-card treinos"><span class="ck-k">TREINOS DA SEMANA</span><div class="ck-treinos">
+<div class="ck-cont"><span>Feitos</span><div class="ck-num"><span class="ios-ic"><img src="/assets/mockups/app/checkin/remove.svg" style="top:59.38%;left:18.66%" alt="" loading="lazy"></span><b>0</b><span class="ios-ic"><img src="/assets/mockups/app/checkin/add.svg" style="top:31.27%;left:18.75%" alt="" loading="lazy"></span></div></div>
+<div class="ck-cont"><span>Planejados</span><div class="ck-num"><span class="ios-ic"><img src="/assets/mockups/app/checkin/remove.svg" style="top:59.38%;left:18.66%" alt="" loading="lazy"></span><b>5</b><span class="ios-ic"><img src="/assets/mockups/app/checkin/add.svg" style="top:31.27%;left:18.75%" alt="" loading="lazy"></span></div></div>
+</div></div>
+{%- comment -%} o cartão "COMO VOCÊ SE SENTIU?" fica abaixo do botão e não aparece no mockup {%- endcomment %}
+</div>
+</div>
+<div class="ck-bar"><span class="ios-btn pri ck-off">Enviar check-in</span></div>
+{% include mock/app/indicador.html %}
+</div></div></div>
