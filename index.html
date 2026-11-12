@@ -37,21 +37,18 @@
 {% include gtm-body.html %}
 
 <!-- ============ NAV ============ -->
-{% include nav.html cta="/cadastro" login="/login" escuro=true %}
+{% include nav.html cta="/cadastro" login="/login" %}
 
 <main>
 
 <!-- ============ HERO ============ -->
-<section id="topo" class="hero" data-nav="dark">
-  <div class="hero-media" aria-hidden="true">
-    <video muted loop playsinline preload="metadata" poster="assets/hero-atleta-poster.jpg" data-src="assets/hero-atleta.mp4" data-src-mobile="assets/hero-atleta-mobile.mp4"></video>
-  </div>
+<section id="topo" class="hero">
   <div class="hero-in">
     <span class="eyebrow reveal"><i class="mk"></i>Plataforma para consultores fitness</span>
     <h1 class="display h-hero" data-split>Entregue treino, dieta e protocolo. <br class="d"><em>Receba todo mês sem cobrar ninguém.</em></h1>
     <p class="lead hero-sub reveal" data-d="1">O app de gestão da sua consultoria: seus alunos recebem tudo num lugar só, pagam de forma recorrente e você escala sem correr atrás de pagamento.</p>
     <div class="hero-ctas reveal" data-d="2">
-      <a class="wave inv" href="/cadastro"><span class="btn lg mint">Começar grátis <i class="tri"></i></span></a>
+      <a class="wave" href="/cadastro"><span class="btn lg">Começar grátis <i class="tri"></i></span></a>
       <a class="mlink" href="#como-funciona">Ver como funciona <i class="tri"></i></a>
     </div>
     <div class="hero-micro reveal" data-d="3"><span>Grátis até 5 alunos</span><span>Sem cartão pra começar</span><span>Cancele quando quiser</span></div>
@@ -382,14 +379,6 @@
     }
     split(h);
     requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.querySelector('.hero').classList.add('in'); }); });
-  }
-
-  // hero background video (lighter file on small screens; poster only with reduced motion)
-  var hv = document.querySelector('.hero-media video');
-  if (hv && !(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches)) {
-    hv.src = window.innerWidth <= 760 ? hv.dataset.srcMobile : hv.dataset.src;
-    hv.muted = true;
-    var pr = hv.play(); if (pr && pr.catch) pr.catch(function(){});
   }
 
   // a escala dos mockups ([data-fit]) fica no assets/site.js

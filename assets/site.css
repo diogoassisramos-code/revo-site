@@ -194,29 +194,20 @@ section{scroll-margin-top:88px}
    HERO — pastel block, typographic
    ============================================================ */
 .hero{background:var(--mint-100);min-height:92svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:140px 24px 72px;position:relative;overflow:hidden}
-.hero{background:var(--dark);color:#fff}
-.hero-media{position:absolute;inset:0;z-index:0;background:var(--dark) url(hero-atleta-poster.jpg) 62% 50%/cover no-repeat}
-.hero-media video{width:100%;height:100%;object-fit:cover;object-position:62% 50%;display:block}
-.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(2,33,40,.62) 0%,rgba(2,33,40,.42) 42%,rgba(2,33,40,.5) 72%,rgba(2,33,40,.78) 100%)}
-.hero .eyebrow{color:#fff}
-.hero h1{color:#fff;text-shadow:0 2px 30px rgba(2,33,40,.35)}
-.hero .hero-sub{color:rgba(255,255,255,.88);text-shadow:0 1px 16px rgba(2,33,40,.45)}
-.hero .mlink{color:#fff}
-.hero .hero-micro{color:rgba(255,255,255,.72)}
 .hero-in{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,44px);max-width:1180px}
 .h-hero{font-size:clamp(36px,5vw,68px);line-height:.98}
 .hero h1{max-width:20ch}
 .hero-sub{max-width:600px;margin-top:calc(clamp(28px,4vw,44px) * -0.4)}
 @media (min-width:1000px){.hero h1{max-width:none}}
 @media (max-width:999px){.hero h1 br.d{display:none}}
-.hero h1 em{font-style:normal;color:var(--mint-400)}
+.hero h1 em{font-style:normal;color:var(--green)}
 .hero-ctas{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:center}
 .hero-micro{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);display:flex;gap:18px;flex-wrap:wrap;justify-content:center}
 .hero-micro span::before{content:"—";margin-right:18px;opacity:.5}
 .hero-micro span:first-child::before{content:none;margin:0}
 @media (max-width:600px){.hero-micro{flex-direction:column;gap:8px}.hero-micro span::before{content:none;margin:0}}
-.hero-scroll{position:absolute;z-index:1;right:28px;bottom:28px;width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;color:#fff;transition:background .2s}
-.hero-scroll:hover{background:rgba(255,255,255,.28)}
+.hero-scroll{position:absolute;z-index:1;right:28px;bottom:28px;width:36px;height:36px;border-radius:50%;background:rgba(2,33,40,.08);display:flex;align-items:center;justify-content:center;color:var(--ink);transition:background .2s}
+.hero-scroll:hover{background:rgba(2,33,40,.14)}
 .hero-scroll i{font-size:16px}
 /* word-by-word stagger */
 .hero h1 .w{display:inline-block;opacity:0;transform:translateY(.35em);transition:opacity .9s var(--ease),transform .9s var(--ease)}
