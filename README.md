@@ -20,6 +20,7 @@ Os mockups do painel e do app são as telas reais do Figma "Revo - Screen", refe
 - **Estilo**: classes `.dk-*` (painel) e `.ios-*` (app) no `assets/site.css`, mais uma seção por tela (marcadores `/* [mock: nome] */`).
 - **Escala**: feita pelo `assets/site.js` (`.ux-fit` com `--w`/`--h` para o painel; `[data-fit]` para o app e a home).
 - **Ícones, logo e ilustrações**: exportados do Figma para `assets/mockups/painel/` e `assets/mockups/app/` (um subdiretório por tela).
+- **Imagens do menu** (360×216, mostradas em 120×72): no "Para você", `assets/tela-alunos-menu.jpg` e `assets/tela-cobranca-menu.jpg` são recortes dos mockups `alunos` e `cobranca`; no "Para o aluno", `assets/foto-app-menu.jpg` é um recorte da `foto-app.jpg`. Mudou o mockup, refaça o recorte no mesmo tamanho.
 
 ## Publicar um artigo
 
