@@ -1,0 +1,17 @@
+{
+  "hosting": {
+    "site": "revofit-site",
+    "public": "_site",
+    "ignore": ["CNAME", "**/node_modules/**"],
+    "rewrites": [
+      { "source": "/codigo/**", "destination": "/convite.html" },
+      { "source": "/convite/**", "destination": "/convite.html" }
+    ],
+    "headers": [
+      {
+        "source": "/.well-known/apple-app-site-association",
+        "headers": [{ "key": "Content-Type", "value": "application/json" }]
+      }
+    ]
+  }
+}

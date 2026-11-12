@@ -1,0 +1,49 @@
+---
+layout: null
+permalink: /convite.html
+sitemap: false
+---
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Convite · RevoFit</title>
+{% include gtm-head.html %}
+<style>
+body{margin:0;background:#eff7f5;color:#103039;font:1rem system-ui,sans-serif;display:grid;place-items:center;min-height:100vh}
+main{background:white;padding:2rem;margin:1rem;border-radius:1.2rem;max-width:26rem}
+a,button{display:inline-block;padding:.8rem 1rem;margin:.25rem;background:#095a50;color:white;border:0;border-radius:.5rem;font:inherit}
+code{font-size:1.25rem}
+</style>
+{% include gtm-body.html %}
+<main>
+<h1>Seu convite para o RevoFit</h1>
+<p>Use este código ao entrar no aplicativo.</p>
+<p><code id="code"></code></p>
+<a id="open">Abrir RevoFit</a>
+<button id="copy" type="button">Copiar código</button>
+<p role="status" id="status"></p>
+</main>
+<script>
+const code = /^\/(?:codigo|convite)\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/.exec(location.pathname)?.[1];
+const valid = code && code.length >= 3 && code.length <= 24;
+const status = document.querySelector('#status');
+const openApp = document.querySelector('#open');
+const copy = document.querySelector('#copy');
+if (valid) {
+  document.querySelector('#code').textContent = code;
+  openApp.href = 'revofit.app://convite/' + code;
+  copy.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      status.textContent = 'Código copiado.';
+    } catch {
+      status.textContent = 'Selecione e copie o código acima.';
+    }
+  };
+} else {
+  openApp.hidden = copy.hidden = true;
+  status.textContent = 'Este endereço de convite é inválido.';
+}
+</script>
+</html>

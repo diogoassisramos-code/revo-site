@@ -79,3 +79,41 @@ São 24 páginas, com o texto do doc "Revo: arquitetura e textos das páginas de
 
 **Ícones:** são da [Tabler](https://tabler.io/icons) e o site carrega só os usados (`assets/tabler-subset.woff2`). Ícone novo precisa entrar no arquivo: rode `.github/scripts/gerar-icones.py` (as instruções estão no topo do script).
 
+
+## Build local e Firebase Hosting
+
+Use Ruby 3.3 com Bundler e Node.js 22. O build usa as dependências
+do GitHub Pages e respeita as datas de publicação do blog.
+
+```sh
+bundle install
+JEKYLL_ENV=production bundle exec jekyll build
+bash .github/scripts/checar-gtm.sh _site
+npx --yes firebase-tools@15.36.0 emulators:start --only hosting --project demo-revofit
+```
+
+O emulador serve o build em http://localhost:5000. Para publicar, autentique o
+CLI e confirme que o site dedicado `revofit-site` existe no projeto Firebase
+`fit-app-f97b8`. Se ainda não existir, crie-o uma vez com
+`firebase hosting:sites:create revofit-site --project fit-app-f97b8`.
+
+```sh
+npx --yes firebase-tools@15.36.0 login --reauth
+npx --yes firebase-tools@15.36.0 deploy --only hosting --project fit-app-f97b8
+```
+
+O deploy dedicado usa `https://revofit-site.web.app`. A associação do domínio
+`revofit.app` é feita separadamente no console do Firebase e no DNS.
+Enquanto o GitHub Pages servir o domínio, o workflow atual continua publicando
+os artigos agendados. Para uma migração definitiva, programe também a
+recompilação e o deploy diários no Firebase.
+
+O workflow **Publicar no Firebase Hosting** roda em pushes na `main`, por
+acionamento manual e diariamente para liberar os artigos agendados. Configure
+as variáveis de Actions `FIREBASE_WIF_PROVIDER` (nome completo do provedor)
+e `FIREBASE_DEPLOY_SERVICE_ACCOUNT` (e-mail da conta de serviço). No Google
+Cloud, restrinja o provedor OIDC ao repositório `diogoassisramos-code/revo-site`
+e à ref `refs/heads/main`. Autorize essa identidade a assumir a conta dedicada
+com `roles/iam.workloadIdentityUser`. Para o deploy, conceda à conta
+`roles/firebasehosting.admin` e `roles/serviceusage.serviceUsageConsumer`
+no projeto `fit-app-f97b8`.

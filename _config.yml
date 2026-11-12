@@ -63,6 +63,7 @@ categorias:
 exclude:
   - README.md
   - Gemfile
+  - firebase.json
   - Gemfile.lock
   - vendor
   - .github
@@ -86,3 +87,6 @@ mostrar_confirmar: false
 # e-mail do visitante já preenchido para contato_email.
 form_action: ""
 contato_email: suporte@revo.app
+
+include:
+  - .well-known
