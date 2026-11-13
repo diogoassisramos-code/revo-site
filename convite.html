@@ -14,6 +14,9 @@ body{margin:0;background:#eff7f5;color:#103039;font:1rem system-ui,sans-serif;di
 main{background:white;padding:2rem;margin:1rem;border-radius:1.2rem;max-width:26rem}
 a,button{display:inline-block;padding:.8rem 1rem;margin:.25rem;background:#095a50;color:white;border:0;border-radius:.5rem;font:inherit}
 code{font-size:1.25rem}
+[hidden]{display:none!important}
+figure{margin:1.5rem 0 0;padding-top:1rem;border-top:1px solid #d9e8e4;text-align:center}
+figure img{display:block;margin:0 auto .5rem;max-width:100%;height:auto}
 </style>
 {% include gtm-body.html %}
 <main>
@@ -22,8 +25,13 @@ code{font-size:1.25rem}
 <p><code id="code"></code></p>
 <a id="open">Abrir RevoFit</a>
 <button id="copy" type="button">Copiar código</button>
+<figure id="qr" hidden>
+<img id="qr-image" width="180" height="180" alt="QR code do convite RevoFit">
+<figcaption>Escaneie com a câmera do celular para abrir este convite.</figcaption>
+</figure>
 <p role="status" id="status"></p>
 </main>
+<script src="/assets/convite-qrcode.js"></script>
 <script>
 const code = /^\/(?:codigo|convite)\/([a-z0-9]+(?:-[a-z0-9]+)*)\/?$/.exec(location.pathname)?.[1];
 const valid = code && code.length >= 3 && code.length <= 24;
@@ -33,6 +41,13 @@ const copy = document.querySelector('#copy');
 if (valid) {
   document.querySelector('#code').textContent = code;
   openApp.href = 'revofit.app://convite/' + code;
+  if (typeof qrcode === 'function') {
+    const qr = qrcode(0, 'M');
+    qr.addData('https://revofit.app/codigo/' + code);
+    qr.make();
+    document.querySelector('#qr-image').src = qr.createDataURL(5);
+    document.querySelector('#qr').hidden = false;
+  }
   copy.onclick = async () => {
     try {
       await navigator.clipboard.writeText(code);
