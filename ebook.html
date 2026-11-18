@@ -17,15 +17,19 @@ permalink: /ebook
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/assets/tabler-subset.css?v={{ site.time | date: '%s' }}">
 <link rel="stylesheet" href="/assets/site.css?v={{ site.time | date: '%s' }}">
 <style>
 .eb{min-height:100svh;background:var(--mint-100);text-align:center;display:grid;place-items:center;padding:56px 16px}
 .eb-in{max-width:760px;width:100%;display:flex;flex-direction:column;align-items:center;gap:40px}
-.eb h1{font-size:clamp(30px,5vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:500;margin:18px auto 20px;text-wrap:balance}
+.eb h1{font-size:clamp(30px,5vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:500;margin:18px auto 28px;text-wrap:balance}
 .eb h1 .l{display:block}
 .eb h1 .m{white-space:nowrap}
 .eb h1 em{font-style:normal;color:var(--green)}
 .eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:30em;margin:0 auto;text-wrap:balance}
+.eb-for{list-style:none;padding:0;margin:0 auto;max-width:640px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.eb-for li{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:10px;background:rgba(255,255,255,.7);border:1px solid rgba(4,69,61,.18);color:var(--green);font-size:14px;font-weight:500;letter-spacing:-.005em}
+.eb-for .ti{font-size:18px;color:var(--mint-700)}
 .eb-logo{display:block;margin:0 auto 28px}
 .eb-form{width:100%;max-width:440px;box-sizing:border-box;text-align:left;background:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 70px rgba(2,33,40,.10)}
 .eb-form h2{font-size:20px;font-weight:500;margin:0 0 20px;text-align:center}
@@ -39,7 +43,18 @@ permalink: /ebook
 .eb-form small{display:block;margin-top:12px;font-size:12px;color:var(--ink-3);text-align:center}
 .eb-ok{text-align:center}
 .eb-ok h2{margin-bottom:8px}
-@media (max-width:600px){.eb h1{font-size:min(30px,calc((100vw - 32px)/12.4))}.eb h1 .m{display:block}.eb-in{gap:28px}.eb{padding:32px 16px}.eb-form{padding:24px}.eb-logo{margin-bottom:20px}}
+@media (max-width:600px){
+  .eb{padding:32px 16px}
+  .eb-in{gap:28px}
+  .eb-in>div{text-align:left;width:100%}
+  .eb-logo{margin:0 0 20px}
+  .eb h1{font-size:min(30px,calc((100vw - 32px)/12.4));margin:16px 0 22px}
+  .eb h1 .m{display:block}
+  .eb-for{gap:8px;justify-content:flex-start;margin:0}
+  .eb-for li{padding:9px 11px;font-size:13px}
+  .eb-for .ti{font-size:16px}
+  .eb-form{padding:24px}
+}
 </style>
 </head>
 <body>
@@ -50,7 +65,13 @@ permalink: /ebook
       <a href="/"><img class="eb-logo" src="/assets/revo-wordmark.svg" alt="Revo" height="22"></a>
       <span class="eyebrow"><i class="mk"></i>Conteúdo exclusivo</span>
       <h1><span class="l">Receba o material <span class="m">gratuito para</span></span> <em class="l">alavancar suas vendas</em> <span class="l">e estruturar seu negócio</span></h1>
-      <p class="sub">Para nutricionistas, consultores de treino e dieta, personal trainers e educadores físicos.</p>
+      <ul class="eb-for" aria-label="Para quem é">
+        <li><i class="ti ti-salad" aria-hidden="true"></i>Nutricionistas</li>
+        <li><i class="ti ti-barbell" aria-hidden="true"></i>Consultores de treino</li>
+        <li><i class="ti ti-clipboard-list" aria-hidden="true"></i>Consultores de dieta</li>
+        <li><i class="ti ti-stretching" aria-hidden="true"></i>Personal trainers</li>
+        <li><i class="ti ti-users-group" aria-hidden="true"></i>Educadores físicos</li>
+      </ul>
     </div>
 
     <form class="eb-form" id="eb-form" novalidate>
