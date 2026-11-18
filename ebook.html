@@ -24,7 +24,7 @@ permalink: /ebook
 .eb-in{max-width:760px;width:100%;display:flex;flex-direction:column;align-items:center;gap:40px}
 .eb h1{font-size:clamp(30px,5vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:500;margin:18px auto 28px;text-wrap:balance}
 .eb h1 .l{display:block}
-.eb h1 .m{white-space:nowrap}
+.eb h1 .eb-mb{display:none}
 .eb h1 em{font-style:normal;color:var(--green)}
 .eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:30em;margin:0 auto;text-wrap:balance}
 .eb-for{list-style:none;padding:0;margin:0 auto;max-width:640px;display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
@@ -47,12 +47,12 @@ permalink: /ebook
 @media (max-width:600px){
   .eb{padding:32px 16px}
   .eb-in{gap:28px}
-  .eb-in>div{text-align:left;width:100%}
-  .eb-logo{margin:0 0 20px}
-  .eb h1{font-size:min(30px,calc((100vw - 32px)/12.4));margin:16px 0 22px}
-  .eb h1 .m{display:block}
-  .eb-for{gap:8px;justify-content:flex-start;margin:0}
-  .eb-for li{padding:9px 11px;font-size:13px}
+  .eb-logo{margin-bottom:20px}
+  .eb h1 .eb-dk{display:none}
+  .eb h1 .eb-mb{display:inline}
+  .eb h1{font-size:min(32px,calc((100vw - 32px)/12.4));line-height:1.12;margin:16px auto 22px}
+  .eb-for{gap:8px}
+  .eb-for li{flex:1 1 auto;justify-content:center;padding:9px 11px;font-size:13px}
   .eb-for .ti{font-size:16px}
   .eb-form{padding:24px}
 }
@@ -65,7 +65,7 @@ permalink: /ebook
     <div>
       <a href="/"><img class="eb-logo" src="/assets/revo-wordmark.svg" alt="Revo" height="22"></a>
       <span class="eyebrow"><i class="mk"></i>Conteúdo exclusivo</span>
-      <h1><span class="l">Receba o material <span class="m">gratuito para</span></span> <em class="l">alavancar suas vendas</em> <span class="l">e estruturar seu negócio</span></h1>
+      <h1><span class="l"><span class="eb-dk">Receba o material</span><span class="eb-mb">Material</span> gratuito para</span> <em class="l">alavancar suas vendas</em> <span class="l">e estruturar seu negócio</span></h1>
       <ul class="eb-for" aria-label="Para quem é">
         <li><i class="ti ti-salad" aria-hidden="true"></i>Nutricionistas</li>
         <li><i class="ti ti-barbell" aria-hidden="true"></i>Consultores de treino</li>
