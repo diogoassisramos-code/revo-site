@@ -32,7 +32,8 @@ permalink: /ebook
 .eb-for .ti{font-size:18px;color:var(--mint-700)}
 .eb-logo{display:block;margin:0 auto 28px}
 .eb-form{width:100%;max-width:440px;box-sizing:border-box;text-align:left;background:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 70px rgba(2,33,40,.10)}
-.eb-form h2{font-size:20px;font-weight:500;margin:0 0 20px;text-align:center}
+.eb-form h2{font-size:20px;font-weight:500;margin:0 0 6px;text-align:center;text-wrap:balance}
+.eb-hint{font-size:14px;color:var(--ink-3);margin:0 0 22px;text-align:center}
 .eb-form label{display:block;font-size:13px;color:var(--ink-2);margin:0 0 14px}
 .eb-form input,.eb-form select{display:block;width:100%;box-sizing:border-box;margin-top:6px;height:46px;padding:0 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:16px;color:var(--ink);background:#fff}
 .eb-form input:focus,.eb-form select:focus{outline:2px solid var(--mint-400);border-color:transparent}
@@ -75,7 +76,8 @@ permalink: /ebook
     </div>
 
     <form class="eb-form" id="eb-form" novalidate>
-      <h2>Receba grátis no seu e&#8209;mail</h2>
+      <h2>Preencha o formulário para receber</h2>
+      <p class="eb-hint">É gratuito e chega direto no seu e&#8209;mail.</p>
       <label>Nome<input name="nome" required autocomplete="name"></label>
       <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
       <label>WhatsApp<input name="whatsapp" type="tel" inputmode="numeric" required autocomplete="tel" placeholder="(11) 99999-9999" pattern="\(\d{2}\) \d{4,5}-\d{4}" title="DDD + número"></label>
