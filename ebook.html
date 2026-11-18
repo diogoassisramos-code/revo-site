@@ -19,15 +19,15 @@ permalink: /ebook
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/site.css?v={{ site.time | date: '%s' }}">
 <style>
-.eb{min-height:100vh;background:var(--mint-50);display:grid;place-items:center;padding:96px 16px 48px}
-.eb-in{max-width:1080px;width:100%;display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.eb{min-height:100svh;background:var(--mint-100);text-align:center;display:grid;place-items:center;padding:96px 16px 48px}
+.eb-in{max-width:760px;width:100%;display:flex;flex-direction:column;align-items:center;gap:40px}
 .eb h1{font-size:clamp(32px,4.6vw,54px);line-height:1.05;letter-spacing:-.03em;font-weight:500;margin:18px 0}
-.eb h1 em{font-style:normal;color:var(--mint-700)}
-.eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:34em}
-.eb ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px}
+.eb h1 em{font-style:normal;color:var(--green)}
+.eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:34em;margin:0 auto}
+.eb ul{list-style:none;padding:0;margin:26px 0 0;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
 .eb li{font-size:13px;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line-soft)}
-.eb-form{background:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 70px rgba(2,33,40,.10)}
-.eb-form h2{font-size:20px;font-weight:500;margin:0 0 20px}
+.eb-form{width:100%;max-width:440px;box-sizing:border-box;text-align:left;background:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 70px rgba(2,33,40,.10)}
+.eb-form h2{font-size:20px;font-weight:500;margin:0 0 20px;text-align:center}
 .eb-form label{display:block;font-size:13px;color:var(--ink-2);margin:0 0 14px}
 .eb-form input,.eb-form select{display:block;width:100%;box-sizing:border-box;margin-top:6px;height:46px;padding:0 14px;border:1px solid var(--line);border-radius:10px;font:inherit;font-size:15px;color:var(--ink);background:#fff}
 .eb-form input:focus,.eb-form select:focus{outline:2px solid var(--mint-400);border-color:transparent}
@@ -36,7 +36,7 @@ permalink: /ebook
 .eb-form small{display:block;margin-top:12px;font-size:12px;color:var(--ink-3);text-align:center}
 .eb-ok{text-align:center}
 .eb-ok h2{margin-bottom:8px}
-@media (max-width:860px){.eb-in{grid-template-columns:1fr;gap:32px}.eb{padding-top:72px}.eb-form{padding:24px}}
+@media (max-width:600px){.eb-in{gap:28px}.eb{padding-top:56px}.eb-form{padding:24px}}
 </style>
 </head>
 <body>
