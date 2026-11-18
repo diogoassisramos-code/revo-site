@@ -8,11 +8,11 @@ permalink: /ebook
 {% include gtm-head.html %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ebook grátis — Revo</title>
-<meta name="description" content="Receba o ebook completo para alavancar suas vendas e estruturar seu negócio. Para nutricionistas, consultores de treino e dieta, personal trainers e educadores físicos.">
+<title>Material gratuito — Revo</title>
+<meta name="description" content="Receba o material gratuito para alavancar suas vendas e estruturar seu negócio. Para nutricionistas, consultores de treino e dieta, personal trainers e educadores físicos.">
 <meta name="theme-color" content="#04453d">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<meta property="og:title" content="Ebook grátis — alavanque suas vendas e estruture seu negócio">
+<meta property="og:title" content="Material gratuito — alavanque suas vendas e estruture seu negócio">
 <meta property="og:image" content="/assets/og-revo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,9 +21,11 @@ permalink: /ebook
 <style>
 .eb{min-height:100svh;background:var(--mint-100);text-align:center;display:grid;place-items:center;padding:56px 16px}
 .eb-in{max-width:760px;width:100%;display:flex;flex-direction:column;align-items:center;gap:40px}
-.eb h1{font-size:clamp(32px,4.6vw,54px);line-height:1.05;letter-spacing:-.03em;font-weight:500;margin:18px auto;max-width:22ch;text-wrap:balance}
+.eb h1{font-size:clamp(30px,5vw,56px);line-height:1.08;letter-spacing:-.035em;font-weight:500;margin:18px auto 20px;text-wrap:balance}
+.eb h1 .l{display:block}
+.eb h1 .m{white-space:nowrap}
 .eb h1 em{font-style:normal;color:var(--green)}
-.eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:34em;margin:0 auto}
+.eb .sub{font-size:17px;line-height:1.5;color:var(--ink-2);margin:0;max-width:30em;margin:0 auto;text-wrap:balance}
 .eb-logo{display:block;margin:0 auto 28px}
 .eb-form{width:100%;max-width:440px;box-sizing:border-box;text-align:left;background:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:0 30px 70px rgba(2,33,40,.10)}
 .eb-form h2{font-size:20px;font-weight:500;margin:0 0 20px;text-align:center}
@@ -37,7 +39,7 @@ permalink: /ebook
 .eb-form small{display:block;margin-top:12px;font-size:12px;color:var(--ink-3);text-align:center}
 .eb-ok{text-align:center}
 .eb-ok h2{margin-bottom:8px}
-@media (max-width:600px){.eb-in{gap:28px}.eb{padding:32px 16px}.eb-form{padding:24px}.eb-logo{margin-bottom:20px}}
+@media (max-width:600px){.eb h1{font-size:min(30px,calc((100vw - 32px)/12.4))}.eb h1 .m{display:block}.eb-in{gap:28px}.eb{padding:32px 16px}.eb-form{padding:24px}.eb-logo{margin-bottom:20px}}
 </style>
 </head>
 <body>
@@ -46,13 +48,13 @@ permalink: /ebook
   <div class="eb-in">
     <div>
       <a href="/"><img class="eb-logo" src="/assets/revo-wordmark.svg" alt="Revo" height="22"></a>
-      <span class="eyebrow"><i class="mk"></i>Ebook gratuito</span>
-      <h1>Receba o ebook completo para <em>alavancar suas vendas</em> e estruturar seu negócio</h1>
+      <span class="eyebrow"><i class="mk"></i>Conteúdo exclusivo</span>
+      <h1><span class="l">Receba o material <span class="m">gratuito para</span></span> <em class="l">alavancar suas vendas</em> <span class="l">e estruturar seu negócio</span></h1>
       <p class="sub">Para nutricionistas, consultores de treino e dieta, personal trainers e educadores físicos.</p>
     </div>
 
     <form class="eb-form" id="eb-form" novalidate>
-      <h2>Receba grátis no seu e-mail</h2>
+      <h2>Receba grátis no seu e&#8209;mail</h2>
       <label>Nome<input name="nome" required autocomplete="name"></label>
       <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
       <label>WhatsApp<input name="whatsapp" type="tel" inputmode="numeric" required autocomplete="tel" placeholder="(11) 99999-9999" pattern="\(\d{2}\) \d{4,5}-\d{4}" title="DDD + número"></label>
@@ -66,7 +68,7 @@ permalink: /ebook
           <option>Outros</option>
         </select>
       </label>
-      <button type="submit">Quero o ebook</button>
+      <button type="submit">Quero o material</button>
       <p class="eb-err" id="eb-err" role="alert" hidden></p>
       <small>Sem spam. Seus dados ficam seguros.</small>
     </form>
@@ -97,13 +99,13 @@ form.addEventListener('submit', async e => {
       if (!r.ok) throw new Error(r.status);
     }
   } catch {
-    btn.disabled = false; btn.textContent = 'Quero o ebook';
+    btn.disabled = false; btn.textContent = 'Quero o material';
     err.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
     err.hidden = false;
     return;
   }
   (window.dataLayer = window.dataLayer || []).push({event: 'ebook_lead', profissao: data.profissao || 'nao_informado'});
-  form.innerHTML = '<div class="eb-ok"><h2>Pronto! 🎉</h2><p class="sub">O ebook vai chegar em <b></b>. Confira sua caixa de entrada (e o spam).</p></div>';
+  form.innerHTML = '<div class="eb-ok"><h2>Pronto! 🎉</h2><p class="sub">O material vai chegar em <b></b>. Confira sua caixa de entrada (e o spam).</p></div>';
   form.querySelector('b').textContent = data.email;
 });
 </script>
